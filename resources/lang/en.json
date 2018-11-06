@@ -1,0 +1,23 @@
+{
+  "muestra_tu_talento":"show your talent",
+
+  "Login":"Log in",
+  "Signup":"Sign up",
+  "PlaceHolder_email":"Enter your email",
+  "PlaceHolder_name":"Your name",
+  "PlaceHolder_password":"Password",
+  "PlaceHolder_password_confirmation":"Confirm Password",
+  "btn_login":"Login",
+  "btn_register":"Register now ",
+  "btn_login_facebook":"Log in with Facebook",
+  "btn_login_google":"Sign in with Google",
+
+  "select_language":"Language",
+  "language_spanish":"Spanish",
+  "language_english":"English",
+
+  "seleccione_lenguaje":"Select your language",
+  "cerrar_cesion_backend":"Logout",
+
+  "bienvenido":"Welcome"
+}

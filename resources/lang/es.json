@@ -1,0 +1,26 @@
+{
+  "_comment":"IDIOMA PARA EL FRONTEND",
+
+  "muestra_tu_talento":"Muestra tu talento",
+
+  "Login":"Iniciar sesión",
+  "Signup":"Regístrate",
+  "PlaceHolder_email":"Correo electrónico",
+  "PlaceHolder_name":"Tu nombre",
+  "PlaceHolder_password":"Contraseña",
+  "PlaceHolder_password_confirmation":"Confirmar contraseña",
+  "btn_login":"Login",
+  "btn_register":"Registrar ahora",
+  "btn_login_facebook":"Iniciar sesión con Facebook",
+  "btn_login_google":"Iniciar sesión con Google",
+
+  "select_language":"Idioma",
+  "language_spanish":"Español",
+  "language_english":"Inglés",
+
+  "seleccione_lenguaje":"Elige tu idioma",
+  "cerrar_cesion_backend":"Cerrar sesión",
+
+  "bienvenido":"Bienvenido"
+
+}
