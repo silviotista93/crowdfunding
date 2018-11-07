@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 /**
  * App\Project
@@ -51,6 +52,10 @@ class Project extends Model
     const PUBLISHED = 4;
     const REJECTED = 5;
 
+    public function pathAttachment(){
+        return '/images/projects/'. $this->project_picture;
+    }
+
     public function category(){
         return $this->belongsTo(Category::class)->select('id','category');
     }
@@ -76,5 +81,15 @@ class Project extends Model
 
     public function management(){
         return $this->belongsToMany(Management::class,'management_project','project_id','management_id');
+    }
+
+    /*
+     * Consultas
+     */
+    public function countbycategories($id){
+        return DB::table('projects')
+            ->where('status',Project::PUBLISHED)
+            ->orWhere('category_id','=',$id)
+            ->count('id');
     }
 }

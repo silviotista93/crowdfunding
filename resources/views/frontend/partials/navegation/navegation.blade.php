@@ -1,4 +1,4 @@
-<header class="xs-header-height xs-menu-style-transparent xs-menu-style-border fundpress-header-main-version color-navy-blue">
+<header class="{{request()->is('/') ? 'xs-header-height xs-menu-style-transparent xs-menu-style-border fundpress-header-main-version color-navy-blue' : 'fundpress-header-inner-version fundpress-header-main-version xs-menu-item-border-color-green'}}">
     <div class="container">
         <nav class="xs-menus fundpress-menu">
             <div class="nav-header">
@@ -56,8 +56,8 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 
-                                <a class="dropdown-item inline"  href="{{ route('set_language', ['es']) }}"><img class="inline" src="/frontend/images/flags/es_flags.png" alt=""> {{ __('language_spanish') }}</a>
-                                <a class="dropdown-item" href="{{ route('set_language', ['en']) }}"><img class="inline" src="/frontend/images/flags/usa_flags.png" alt=""> {{ __('language_english') }}</a>
+                                <a class="dropdown-item inline"  href="{{ route('set_language', ['es']) }}" {{request()->is('/') ? 'style=color:#031F53' : 'style=color:#031F53' }}><img class="inline" src="/frontend/images/flags/es_flags.png" alt=""> {{ __('language_spanish') }}</a>
+                                <a class="dropdown-item" href="{{ route('set_language', ['en']) }}" {{request()->is('/') ? 'style=color:#031F53' : 'style=color:#031F53' }}><img class="inline" src="/frontend/images/flags/usa_flags.png" alt=""> {{ __('language_english') }}</a>
                             </div>
                         </li>
                     </ul>

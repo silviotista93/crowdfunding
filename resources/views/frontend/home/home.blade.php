@@ -1,7 +1,9 @@
 @extends('frontend.layout')
 
 @section('content')
-    <!-- welcome section -->
+    <!--=====================================
+	SLIDER DE INICIIO
+    ======================================-->
     <section class="xs-screen-height xs-welcome-section xs-bg fundpress-welcome-section">
         <div class="xs-banner-slider owl-carousel">
             <div class="xs-banner-slider-item" style="background-image: url(assets/images/welcome-bg-3.png);">
@@ -104,8 +106,58 @@
                 </div>
             </div>
         </div>
-    </section><!-- End welcome section -->
-    <!-- cause matters -->
+    </section>
+    <!--=====================================
+    INFO PATROCINADORES Y ARTISTAS
+    ======================================-->
+    <section class="xs-full-width-section fundpress-full-width-section">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 col-lg-6 xs-padding-0">
+                    <div class="fundpress-full-width-wraper-v2"
+                         style="background-image: url(/frontend/images/home/artist_info.jpg)">
+                        <div class="fundpress-product-hover-content-v2">
+                            <div class="fundpress-sub-title">
+                                <h2>{{ __('artista') }}</h2>
+                            </div>
+                            <div class="fundpress-product-text-content">
+                                <p>We recently we discovered a major problem – organizing accessories for these Apple
+                                    devices while on the road or in our workspace was a major.</p>
+                            </div>
+                            <div class="xs-btn-wrapre">
+                                <a href="#"
+                                   class="xs-btn btn xs-box-shadow btn-primary btn-lg round-btn">{{ __('mas_informacion') }}</a>
+                            </div>
+                        </div><!-- .fundpress-product-hover-content-v2 END -->
+                        <div class="xs-solid-overlay xs-bg-black"></div>
+                    </div><!-- .fundpress-full-width-wraper-v2 END -->
+                </div>
+                <div class="col-md-12 col-lg-6 xs-padding-0">
+                    <div class="fundpress-full-width-wraper-v2"
+                         style="background-image: url(/frontend/images/home/backer_info.jpg)">
+                        <div class="fundpress-product-hover-content-v2">
+                            <div class="fundpress-sub-title">
+                                <h2>{{ __('patrocinador') }}</h2>
+                            </div>
+                            <div class="fundpress-product-text-content">
+                                <p>We recently we discovered a major problem – organizing accessories for these Apple
+                                    devices while on the road or in our workspace was a major.</p>
+                            </div>
+                            <div class="xs-btn-wrapre">
+                                <a href="#"
+                                   class="xs-btn xs-box-shadow btn btn-primary btn-lg round-btn">{{ __('mas_informacion') }}</a>
+                            </div>
+                        </div><!-- .fundpress-product-hover-content-v2 END -->
+                        <div class="xs-solid-overlay xs-bg-black"></div>
+                    </div><!-- .fundpress-full-width-wraper-v2 END -->
+                </div>
+            </div>
+        </div>
+    </section>    <!-- End side by side product -->
+
+    <!--=====================================
+    PROYECTOS POR CATEGORIAS
+    ======================================-->
     <section id="cause-matters" class="waypoint-tigger xs-section-padding">
         <div class="container">
             <div class="xs-section-heading row xs-margin-0">
@@ -116,44 +168,21 @@
                         your entire community of donors, fundraisers, customers, and staff.</p>
                 </div><!-- .fundpress-heading-title .xs-col-9 END -->
                 <div class="xs-btn-wraper xs-padding-0 col-xl-3 col-md-3 d-flex-center-end">
-                    <a href="progress.html" class="xs-btn round-btn navy-blue-btn">all Projects</a>
+                    <a href="{{ route('projects') }}" class="xs-btn round-btn navy-blue-btn">{{ __('todos_proyectos') }}</a>
                 </div><!-- .xs-btn-wraper .xs-col-3 .d-flex-center-end END -->
             </div><!-- .xs-section-heading .fundpress-section-heading .xs-spilit-container END -->
             <div class="xs-tab-wraper fundpress-tab-wraper">
                 <div class="fundpress-tab-nav xs-tab-nav">
                     <ul class="nav nav-tabs" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#comics" role="tab" data-toggle="tab">Comics</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#crafts" role="tab" data-toggle="tab">Crafts</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#dance" role="tab" data-toggle="tab">Dance</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#design" role="tab" data-toggle="tab">Design</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#fashion" role="tab" data-toggle="tab">Fashion</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#food" role="tab" data-toggle="tab">Food</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#games" role="tab" data-toggle="tab">Games</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#film_and_video" role="tab" data-toggle="tab">Film And Video</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#journalism" role="tab" data-toggle="tab">Journalism</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#music" role="tab" data-toggle="tab">Music</a>
-                        </li>
+                        @foreach($categories as $categorie)
+                            <li class="nav-item">
+                                <a class="nav-link" href="#crafts" role="tab"
+                                   data-toggle="tab">{{ $categorie->category }}</a>
+                            </li>
+                        @endforeach
                     </ul>
-                </div><!-- .xs-isotope-nav .fundpress-isotope-nav END -->
+                </div>
+
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane fade in active show" id="comics">
                         <div class="row">
@@ -1331,53 +1360,7 @@
         </div>
     </section>    <!-- End popular campaigns -->
 
-    <!-- side by side product -->
-    <section class="xs-full-width-section fundpress-full-width-section">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12 col-lg-6 xs-padding-0">
-                    <div class="fundpress-full-width-wraper-v2"
-                         style="background-image: url(/images/back_other_bg.jpg)">
-                        <div class="fundpress-product-hover-content-v2">
-                            <div class="fundpress-sub-title">
-                                <h2>Back Others</h2>
-                            </div>
-                            <div class="fundpress-product-text-content">
-                                <p>We recently we discovered a major problem – organizing accessories for these Apple
-                                    devices while on the road or in our workspace was a major.</p>
-                            </div>
-                            <div class="xs-btn-wrapre">
-                                <a href="#" class="xs-btn btn xs-box-shadow btn-primary btn-lg round-btn">create a
-                                    project</a>
-                            </div>
-                        </div><!-- .fundpress-product-hover-content-v2 END -->
-                        <div class="xs-solid-overlay xs-bg-black"></div>
-                    </div><!-- .fundpress-full-width-wraper-v2 END -->
-                </div>
-                <div class="col-md-12 col-lg-6 xs-padding-0">
-                    <div class="fundpress-full-width-wraper-v2"
-                         style="background-image: url(/images/get_funded_bg.jpg)">
-                        <div class="fundpress-product-hover-content-v2">
-                            <div class="fundpress-sub-title">
-                                <h2>Get Funded</h2>
-                            </div>
-                            <div class="fundpress-product-text-content">
-                                <p>We recently we discovered a major problem – organizing accessories for these Apple
-                                    devices while on the road or in our workspace was a major.</p>
-                            </div>
-                            <div class="xs-btn-wrapre">
-                                <a href="#" class="xs-btn xs-box-shadow btn btn-primary btn-lg round-btn">create a
-                                    project</a>
-                            </div>
-                        </div><!-- .fundpress-product-hover-content-v2 END -->
-                        <div class="xs-solid-overlay xs-bg-black"></div>
-                    </div><!-- .fundpress-full-width-wraper-v2 END -->
-                </div>
-            </div>
-        </div>
-    </section>    <!-- End side by side product -->
 
-    <!-- event section -->
     <section class="xs-bg fundpress-event-section xs-section-padding"
              style="background-image: url(/images/icons-background-1.png);">
         <div class="container">

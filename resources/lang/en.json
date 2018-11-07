@@ -1,5 +1,13 @@
 {
+  "_comment":"IDIOMA PARA EL FRONTEND",
+
   "muestra_tu_talento":"show your talent",
+
+  "select_language":"Language",
+  "language_spanish":"Spanish",
+  "language_english":"English",
+
+  "_comment1":"LOGIN",
 
   "Login":"Log in",
   "Signup":"Sign up",
@@ -12,9 +20,18 @@
   "btn_login_facebook":"Log in with Facebook",
   "btn_login_google":"Sign in with Google",
 
-  "select_language":"Language",
-  "language_spanish":"Spanish",
-  "language_english":"English",
+  "_comment3":"IDIOMA PARA EL HOME",
+  "artista":"Artist",
+  "patrocinador":"Backer",
+  "mas_informacion":"More information",
+  "todos_proyectos":"All Projects",
+
+  "_comment4":"IDIOMA PARA EL PROJECTS.............",
+  "proyectos":"Projects",
+  "todos":"All",
+  "categorias":"Categories",
+
+  "_comment2":"IDIOMA PARA EL BACKEND....................................................................",
 
   "seleccione_lenguaje":"Select your language",
   "cerrar_cesion_backend":"Logout",

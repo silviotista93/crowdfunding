@@ -7,16 +7,18 @@ use App\Project;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class HomeController extends Controller
+class ProjectsController extends Controller
 {
+    /**
+     *Vista pagina de los proyectos
+     */
     public function index(){
         $projects = Project::withCount(['artists'])
             ->with('category')
             ->where('status',Project::PUBLISHED)
             ->latest()
-            ->get();
-        $categories = Category::select('category')->get();
-
-        return view('frontend.home.home',compact('categories','projects'));
+            ->paginate(8);
+        $categories = Category::select('*')->get();
+        return view('frontend.projects.projects',compact('categories','projects'));
     }
 }

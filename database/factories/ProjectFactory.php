@@ -9,10 +9,10 @@ $factory->define(App\Project::class, function (Faker $faker) {
         'category_id' => \App\Category::all()->random()->id,
         'title' => $title,
         'slug' => str_slug($title,'-'),
-        'price' => $faker->randomFloat($nbMaxDecimals = NULL, $min = 0, $max = NULL),
+        'price' => $faker->randomFloat($nbMaxDecimals = 0, $min = 1000, $max = 10000),
         'description' => $faker->sentence,
         'short_description' => $faker->sentence,
-        'project_picture' => \Faker\Provider\Image::image(storage_path() . '/app/public/projects', 600,350,'fashion', false),
+        'project_picture' => \Faker\Provider\Image::image(storage_path() . '/app/public/projects', 370,240,'fashion', false),
         'status' => $status,
         'previous_approved' => $status !== \App\Project::PUBLISHED ? false : true,
         'previous_rejected' => $status !== \App\Project::REJECTED ? true :false

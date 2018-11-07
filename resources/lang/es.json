@@ -1,7 +1,13 @@
 {
   "_comment":"IDIOMA PARA EL FRONTEND",
 
+  "select_language":"Idioma",
+  "language_spanish":"Español",
+  "language_english":"Inglés",
+
   "muestra_tu_talento":"Muestra tu talento",
+
+  "_comment1":"LOGIN",
 
   "Login":"Iniciar sesión",
   "Signup":"Regístrate",
@@ -14,9 +20,19 @@
   "btn_login_facebook":"Iniciar sesión con Facebook",
   "btn_login_google":"Iniciar sesión con Google",
 
-  "select_language":"Idioma",
-  "language_spanish":"Español",
-  "language_english":"Inglés",
+  "_comment3":"IDIOMA PARA EL HOME.............",
+  "artista":"Artista",
+  "patrocinador":"Patrocinador",
+  "mas_informacion":"Más información",
+  "todos_proyectos":"Proyectos",
+
+  "_comment4":"IDIOMA PARA EL HOME.............",
+  "proyectos":"Proyectos",
+  "todos":"Todos",
+  "categorias":"Categorías",
+
+
+  "_comment2":"IDIOMA PARA EL BACKEND.................................................................",
 
   "seleccione_lenguaje":"Elige tu idioma",
   "cerrar_cesion_backend":"Cerrar sesión",
