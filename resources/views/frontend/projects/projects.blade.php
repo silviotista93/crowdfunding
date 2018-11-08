@@ -29,62 +29,56 @@
                     <div class="col-md-12 col-lg-8">
                         <div class="xs-isotope-grid-wraper">
                             <div class="xs-col-3-isotope-grid">
-                               @forelse($projects as $project)
+                                @forelse($projects as $project)
 
-                                <div class="xs-col-3-isotope-grid-item comics crafts">
-                                    <div class="fundpress-grid-item-content xs-mb-30">
-                                        <div class="xs-item-header fundpress-item-header">
-                                            <img src="{{ $project->pathAttachment() }}" alt="">
-                                            <div class="xs-item-header-content">
-                                                <div class="xs-skill-bar">
-                                                    <div class="xs-skill-track">
-                                                        <p><span class="number-percentage-count number-percentage"
-                                                                 data-value="100"
-                                                                 data-animation-duration="3500">0</span>%</p>
+                                    <div class="xs-col-3-isotope-grid-item comics crafts">
+                                        <div class="fundpress-grid-item-content xs-mb-30">
+                                            <div class="xs-item-header fundpress-item-header">
+                                                <img src="{{ $project->pathAttachment() }}" alt="">
+                                                <div class="xs-item-header-content">
+                                                    <div class="xs-skill-bar">
+                                                        <div class="xs-skill-track">
+                                                            <p><span class="number-percentage-count number-percentage"
+                                                                     data-value="100"
+                                                                     data-animation-duration="3500">0</span>%</p>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div><!-- .xs-item-header .fundpress-item-header END -->
-                                        <div class="xs-item-content fundpress-item-content">
-                                            <ul class="xs-simple-tag fundpress-simple-tag">
-                                                <li><a href="">{{ $project->category->category }}</a></li>
-                                            </ul>
-                                            <a href="#" class="xs-post-title color-navy-blue fundpress-post-title">{{ str_limit($project->title, 35) }}</a>
-                                            <ul class="xs-list-with-content fundpress-list-item-content">
-                                                <li>$15,280<span>Pledged</span></li>
-                                                <li><span class="number-percentage-count number-percentage"
-                                                          data-value="100" data-animation-duration="3500">0</span>%
-                                                    <span>Funded</span></li>
-                                                <li>50<span>Days to go</span></li>
-                                            </ul>
-                                            <span class="xs-separetor border-separetor xs-separetor-v2 fundpress-separetor"></span>
-                                            <div class="row xs-margin-0">
-                                                <div class="full-round fundpress-avatar">
-                                                    <img src="assets/images/avatar/avatar_1.jpg" alt="">
+                                            </div><!-- .xs-item-header .fundpress-item-header END -->
+                                            <div class="xs-item-content fundpress-item-content">
+                                                <ul class="xs-simple-tag fundpress-simple-tag">
+                                                    <li><a href="">{{ $project->category->category }}</a></li>
+                                                </ul>
+                                                <a href="#"
+                                                   class="xs-post-title color-navy-blue fundpress-post-title">{{ str_limit($project->title, 35) }}</a>
+                                                <ul class="xs-list-with-content fundpress-list-item-content">
+                                                    <li>$15,280<span>Pledged</span></li>
+                                                    <li><span class="number-percentage-count number-percentage"
+                                                              data-value="100" data-animation-duration="3500">0</span>%
+                                                        <span>Funded</span></li>
+                                                    <li>50<span>Days to go</span></li>
+                                                </ul>
+                                                <span class="xs-separetor border-separetor xs-separetor-v2 fundpress-separetor"></span>
+                                                <div class="row xs-margin-0">
+                                                    <div class="full-round fundpress-avatar">
+                                                        <img src="assets/images/avatar/avatar_1.jpg" alt="">
+                                                    </div>
+                                                    <div class="xs-avatar-title">
+                                                        <a href="#"><span>By</span>Ema Watson</a>
+                                                    </div>
                                                 </div>
-                                                <div class="xs-avatar-title">
-                                                    <a href="#"><span>By</span>Ema Watson</a>
-                                                </div>
-                                            </div>
-                                        </div><!-- .xs-item-content .fundpress-item-content END -->
+                                            </div><!-- .xs-item-content .fundpress-item-content END -->
+                                        </div>
                                     </div>
-                                </div>
-                                   @empty
+                                @empty
                                     <h1>No hay proyectos</h1>
                                 @endforelse
                             </div>
                         </div>
-                        <div class="xs-pagination-wraper text-center">
-                            <ul class="xs-pagination fundpress-pagination">
-                                <li><a href=""><i class="fa fa-angle-left"></i></a></li>
-                                <li><a href="">1</a></li>
-                                <li><a href="">2</a></li>
-                                <li><a href="">3</a></li>
-                                <li><a href="">...</a></li>
-                                <li><a href="">12</a></li>
-                                <li><a href=""><i class="fa fa-angle-right"></i></a></li>
-                            </ul>
-                        </div>
+                        <!--=====================================
+                         PAGINACIÓN
+                        ======================================-->
+                        {{ $projects->links() }}
                     </div>
 
                     <!--=====================================

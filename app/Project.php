@@ -88,8 +88,7 @@ class Project extends Model
      */
     public function countbycategories($id){
         return DB::table('projects')
-            ->where('status',Project::PUBLISHED)
-            ->orWhere('category_id','=',$id)
+            ->where([['category_id',$id],['status',\App\Project::PUBLISHED]])
             ->count('id');
     }
 }
