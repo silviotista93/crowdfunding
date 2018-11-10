@@ -7,7 +7,7 @@
                 <h3 class="widget-title xs-widget-title">{{ __('categorias') }}</h3>
                 <ul class="xs-side-bar-list xs-font-alt">
                     @forelse($categories as $category)
-                    <li><a href=""><span class="text-left">{{ $category->category }}</span><span
+                    <li><a href="{{ route('categories.show',$category->slug) }}"><span class="text-left">{{ $category->category }}</span><span
                                     class="text-right">({{ $project->countbycategories($category->id)}})</span></a>
                     </li>
                     @empty

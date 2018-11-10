@@ -20,6 +20,22 @@ class DatabaseSeeder extends Seeder
        Storage::makeDirectory('projects');
        Storage::makeDirectory('users');
 
+
+        /*=============================================
+          CREANDO LAS CATEGORIAS
+         =============================================*/
+        factory(\App\Category::class, 1)->create(['category' => 'Rock','slug' => str_slug('Rock')]);
+        factory(\App\Category::class, 1)->create(['category' => 'Pop','slug' => str_slug('Pop')]);
+        factory(\App\Category::class, 1)->create(['category' => 'Popular','slug' => str_slug('Popular')]);
+        factory(\App\Category::class, 1)->create(['category' => 'Vallenato','slug' => str_slug('Vallenato')]);
+        factory(\App\Category::class, 1)->create(['category' => 'Música Clásica','slug' => str_slug('Música Clásica')]);
+        factory(\App\Category::class, 1)->create(['category' => 'Jazz','slug' => str_slug('Jazz')]);
+        factory(\App\Category::class, 1)->create(['category' => 'Norteño','slug' => str_slug('Norteño')]);
+        factory(\App\Category::class, 1)->create(['category' => 'Reggae','slug' => str_slug('Reggae')]);
+        factory(\App\Category::class, 1)->create(['category' => 'Rap','slug' => str_slug('Rap')]);
+        factory(\App\Category::class, 1)->create(['category' => 'Salsa','slug' => str_slug('Salsa')]);
+        factory(\App\Category::class, 1)->create(['category' => 'Reggaeton','slug' => str_slug('Reggaeton')]);
+
         /*=============================================
          CREANDO LOS ROLES PARA LOS USUARIOS
          =============================================*/
@@ -58,10 +74,6 @@ class DatabaseSeeder extends Seeder
         factory(\App\Country::class, 1)->create();
         factory(\App\Country::class, 1)->create();
 
-        /*=============================================
-        CREANDO LAS CATEGORIAS ALETORIAS DE CADA PROYECTO
-        =============================================*/
-        factory(\App\Category::class, 10)->create();
 
         /*=============================================
         CREANDO UN USUARIO ADMINISTRADOR DEL SISTEMA
