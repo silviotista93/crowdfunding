@@ -77,6 +77,16 @@
                                 @empty
                                     <h1>No hay proyectos</h1>
                                 @endforelse
+                            <div class="xs-col-3-isotope-grid" id="projectContainer">
+                                @php 
+                                    $pro = new stdClass();
+                                    $pro->data = [];
+                                    foreach ($projects as $project){
+                                        $project->img = $project->pathAttachment();
+                                        $project->nameLimit = str_limit($project->title, 35);
+                                        $pro->data[] = $project;
+                                    }
+                                @endphp
                             </div>
                         </div>
                         <!--=====================================
@@ -95,3 +105,14 @@
         </div>     <!-- End blog post details -->
     </main>
 @stop
+@push('js')
+    <script>
+        const projects = {!! json_encode($pro)!!};
+        fnRenderView = function(){
+            startCard();
+        }
+    </script>
+    <script src="/js/libs/moment-with-locales.min.js"></script>
+    <script src="/frontend/js/projects_home.js"></script>
+    <script src="/frontend/js/projects.js"></script>
+@endpush

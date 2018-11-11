@@ -85,13 +85,6 @@ function fnAnima (element, stop, commas, duration, ease) {
     });
 }
 
-
-
-
-
-const templateContainer = `
-
-`;
 const show = `
 <div class="col-lg-4">
     <!-- progress element -->
