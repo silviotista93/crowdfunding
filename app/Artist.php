@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 /**
  * App\Artist
@@ -48,6 +49,11 @@ class Artist extends Model
         return $this->belongsTo(Country::class,'country_id')->select('id','country');
     }
     public function users(){
-        return $this->belongsTo(User::class)->select('id','name','last_name','picture','phone_1','phone_2','state','slug','email','created_at');
+        return $this->belongsTo(User::class,'user_id')->select('id','name','last_name','picture','phone_1','phone_2','state','slug','email','created_at');
     }
+
+    /**
+     * Consultas $
+     */
+
 }

@@ -97,4 +97,18 @@ class Project extends Model
             ->where([['category_id',$id],['status',\App\Project::PUBLISHED]])
             ->count('id');
     }
+
+    public function levelArtist($id){
+        return DB::table('levels')
+            ->select('level')
+            ->where('id',$id)
+            ->first();
+
+    }
+    public function artist_user($id){
+        return DB::table('users')
+            ->select('name')
+            ->where('id',$id)
+            ->first();
+    }
 }

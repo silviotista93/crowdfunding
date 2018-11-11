@@ -10,7 +10,7 @@ $factory->define(App\Project::class, function (Faker $faker) {
         'title' => $title,
         'slug' => str_slug($title,'-'),
         'price' => $faker->randomFloat($nbMaxDecimals = 0, $min = 1000, $max = 10000),
-        'description' => $faker->sentence,
+        'description' => $faker->text(1500),
         'short_description' => $faker->sentence,
         'project_picture' => \Faker\Provider\Image::image(storage_path() . '/app/public/projects', 370,240,'fashion', false),
         'status' => $status,

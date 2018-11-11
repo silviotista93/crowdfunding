@@ -51,7 +51,7 @@
                             <a href="{{route('social_auth',['driver' => 'facebook'])}}" id="xs_facebook" class="btn btn-info btn-block">{{ __('btn_login_facebook') }}</a>
                         </div>
                         <div class="xs-submit-wraper">
-                            <a href="{{route('social_auth',['driver' => 'google'])}}"  class="btn btn-success btn-block">{{ __('btn_login_google') }}</a>
+                            <a href="{{route('social_auth',['driver' => 'google'])}}"  class="btn btn-success btn-block" style="background-color: #d34836 !important;">{{ __('btn_login_google') }}</a>
                         </div>
                     </form>
                 </div>
@@ -100,7 +100,7 @@
                             <a href="{{route('social_auth',['driver' => 'facebook'])}}" id="xs_facebook" class="btn btn-info btn-block">{{ __('btn_login_facebook') }}</a>
                         </div>
                         <div class="xs-submit-wraper">
-                            <a href="{{route('social_auth',['driver' => 'google'])}}"  class="btn btn-success btn-block">{{ __('btn_login_google') }}</a>
+                            <a href="{{route('social_auth',['driver' => 'google'])}}"  class="btn btn-success btn-block" style="background-color: #d34836 !important;">{{ __('btn_login_google') }}</a>
                         </div>
                     </form>
                 </div><!-- tab-pane -->

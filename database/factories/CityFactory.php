@@ -4,6 +4,6 @@ use Faker\Generator as Faker;
 
 $factory->define(App\City::class, function (Faker $faker) {
     return [
-        'city' => $faker->word
+        'city' => $faker->city
     ];
 });

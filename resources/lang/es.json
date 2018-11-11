@@ -26,11 +26,16 @@
   "mas_informacion":"Más información",
   "todos_proyectos":"Proyectos",
 
-  "_comment4":"IDIOMA PARA EL HOME.............",
+  "_comment4":"IDIOMA PARA EL PROJECTS.............",
   "proyectos":"Proyectos",
   "todos":"Todos",
   "categorias":"Categorías",
 
+  "_comment5":"IDIOMA PARA EL DETAIL PROJECT.............",
+  "fondos_recaudados": "Recaudado",
+  "prometido": "Prometido",
+  "meta": "Meta",
+  "patrocinadores": "Patrocinadores",
 
   "_comment2":"IDIOMA PARA EL BACKEND.................................................................",
 

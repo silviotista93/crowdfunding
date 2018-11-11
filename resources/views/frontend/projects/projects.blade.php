@@ -53,7 +53,7 @@
                                                 <ul class="xs-simple-tag fundpress-simple-tag">
                                                     <li><a href="">{{ $project->category->category }}</a></li>
                                                 </ul>
-                                                <a href="#"
+                                                <a href="{{ route('projects.show',$project->slug) }}"
                                                    class="xs-post-title color-navy-blue fundpress-post-title">{{ str_limit($project->title, 35) }}</a>
                                                 <ul class="xs-list-with-content fundpress-list-item-content">
                                                     <li>$15,280<span>Pledged</span></li>

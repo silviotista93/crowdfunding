@@ -31,6 +31,12 @@
   "todos":"All",
   "categorias":"Categories",
 
+  "_comment5":"IDIOMA PARA EL DETAIL PROJECT.............",
+  "fondos_recaudados": "Fund Raised",
+  "prometido": "Pledged",
+  "meta": "Goal",
+  "patrocinadores": "Backers",
+
   "_comment2":"IDIOMA PARA EL BACKEND....................................................................",
 
   "seleccione_lenguaje":"Select your language",
