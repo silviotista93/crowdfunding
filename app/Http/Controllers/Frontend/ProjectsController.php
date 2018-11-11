@@ -23,19 +23,20 @@ class ProjectsController extends Controller
         return view('frontend.projects.projects',compact('categories','projects'));
     }
 
-<<<<<<< HEAD
-    public function show (Project $project){
+
+    public function show (Project $project)
+    {
         $project->load([
-            'category' => function($q) {
-                $q->select('id','category');
+            'category' => function ($q) {
+                $q->select('id', 'category');
             },
-            'updates' => function($q){
+            'updates' => function ($q) {
                 $q->select('*');
             },
             'reviews'
         ])->get();
-        return view('frontend.projects.detail',compact('project'));
-=======
+        return view('frontend.projects.detail', compact('project'));
+    }
     public function getByCategory(Request $request){
         /*
         select projects.id,  sum(donations.amount) 
@@ -47,6 +48,5 @@ class ProjectsController extends Controller
         ->where('status',Project::PUBLISHED)->where('category_id',intval($request->input('id')))
         ->groupBy('projects.id')
         ->limit(6)->get();
->>>>>>> 70e8816ee37cbf70ca07a0a16a3005566e57b1ea
     }
 }
