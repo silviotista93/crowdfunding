@@ -13,7 +13,7 @@ class ProjectsController extends Controller
     /**
      *Vista pagina de los proyectos
      */
-    
+
     public function index(){
         $projects = Project::select(DB::raw('projects.*, SUM(donations.amount) as total'))->withCount(['artists'])
             ->with('category')

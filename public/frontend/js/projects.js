@@ -47,7 +47,8 @@ function createCard(project){
     .replace(/__porcentajeBar__/g, porcetaje>100?100:porcetaje)
     .replace(/__tipo__/g, '<li><a href="">'+project.category.category+'</a></li>')
     .replace(/__days__/g, moment(project.end_time).fromNow(true))
-    .replace(/__img__/g, project.img);
+    .replace(/__img__/g, project.img).replace(/__url__/g, project.url);
+    /*Listo revisalo el problema es en el blade */
 }
 
 
@@ -70,7 +71,7 @@ const cardLayout = `
             <ul class="xs-simple-tag fundpress-simple-tag">
                 __tipo__
             </ul>
-            <a href="#"
+            <a href="__url__"
             class="xs-post-title color-navy-blue fundpress-post-title">__title__</a>
             <ul class="xs-list-with-content fundpress-list-item-content">
                 <li>$__coste__<span>Pledged</span></li>
