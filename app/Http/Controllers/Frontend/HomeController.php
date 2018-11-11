@@ -15,7 +15,7 @@ class HomeController extends Controller
             ->where('status',Project::PUBLISHED)
             ->latest()
             ->get();
-        $categories = Category::select('category')->get();
+        $categories = Category::select('category', 'id')->get();
 
         return view('frontend.home.home',compact('categories','projects'));
     }

@@ -39,6 +39,7 @@
     <link rel="stylesheet" href="/frontend/css/responsive.css" />
 
     <script src="/frontend/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    @stack('css')
 </head>
 <body class="woocommerce">
 <!--[if lt IE 10]>
@@ -183,6 +184,8 @@
 <script src="/frontend/js/scrollax.js"></script>
 
 <script src="/frontend/js/main.js"></script>
+
+@stack('js')
 @section('select_lang')
 @show
 </body>
