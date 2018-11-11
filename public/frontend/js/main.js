@@ -211,6 +211,9 @@ $(window).on('load', function() {
 		$("#preloader").fadeOut();
 		$('.fundpress-animate').addClass('load');
 		pie_chart_init();
+		if (typeof(fnRenderView) === "function"){
+			fnRenderView();
+		}
 	}, 500);
 
 
