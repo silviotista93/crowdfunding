@@ -52,6 +52,12 @@ class Project extends Model
     const PUBLISHED = 4;
     const REJECTED = 5;
 
+    protected $withCount = ['reviews','updates'];
+
+    public function getRouteKeyName(){
+        return 'slug';
+    }
+
     public function pathAttachment(){
         return '/images/projects/'. $this->project_picture;
     }

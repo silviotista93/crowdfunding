@@ -10,9 +10,13 @@
         <div class="xs-solid-overlay xs-bg-black"></div>
         <div class="container">
             <div class="fundpress-inner-welcome-content">
-                <h2 class="color-white">{{ __('proyectos') }}</h2>
+                @if( isset($category_name))
+                    <h2 class="color-white">{{ $category_name->category }}</h2>
+                @else
+                    <h2 class="color-white">{{ __('proyectos') }}</h2>
+                @endif
                 <ul class="xs-breadcumb fundpress-breadcumb">
-                    <li><a href="index.html" class="color-white"> {{ __('todos') }} /</a> {{ __('proyectos') }}</li>
+                    <li><a href="{{ route('projects') }}" class="color-white">{{ __('proyectos') }} /</a>{{ __('todos') }}</li>
                 </ul>
             </div>
         </div>

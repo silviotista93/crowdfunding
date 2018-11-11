@@ -45,7 +45,7 @@ Route::group(['namespace'=>'Frontend'],function (){
 
     //Rutas para el modulo PROJECTS
     Route::get('/projects','ProjectsController@index')->name('projects');
-
+    Route::get('/projects/{project}','ProjectsController@show')->name('projects.show ');
     //Rutas para las Categorias
     Route::get('/projects/category/{category}','CategoriesController@show')->name('categories.show');
 });

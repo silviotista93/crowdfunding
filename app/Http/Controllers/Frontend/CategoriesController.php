@@ -11,7 +11,8 @@ class CategoriesController extends Controller
 {
     public function show(Category $category){
         $projects = $category->projects()->where('status',Project::PUBLISHED)->paginate(8);
+        $category_name = $category;
         $categories = Category::select('*')->get();
-        return view('frontend.projects.projects',compact('projects','categories'));
+        return view('frontend.projects.projects',compact('projects','categories','category_name'));
     }
 }

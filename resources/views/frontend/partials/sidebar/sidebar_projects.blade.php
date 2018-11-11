@@ -2,7 +2,7 @@
     <!-- sidebar content -->
     <div class="xs-sidebar-content">
         <div class="sidebar sidebar-right" id="sidebar">
-
+            @if(@count($projects) > 0)
             <div class="widget widget_categories xs-single-sidebar border xs-content-padding">
                 <h3 class="widget-title xs-widget-title">{{ __('categorias') }}</h3>
                 <ul class="xs-side-bar-list xs-font-alt">
@@ -15,8 +15,7 @@
                     @endforelse
                 </ul>
             </div>
-            <!-- categories end -->
-            <!-- call to action start -->
+            @endif
             <div class="widget widget_call_to_action xs-single-sidebar">
                 <div class="xs-call-to-action-content text-center xs-content-padding"
                      style="background-image: url(assets/images/call-to-action-img.jpg);">
