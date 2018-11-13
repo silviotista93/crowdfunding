@@ -25,6 +25,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Reward extends Model
 {
+    protected $dates = ['estimated'];
     public function projects(){
         return $this->belongsTo(Project::class);
     }

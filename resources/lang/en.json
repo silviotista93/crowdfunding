@@ -6,6 +6,9 @@
   "select_language":"Language",
   "language_spanish":"Spanish",
   "language_english":"English",
+  "perfil":"profile",
+  "nuevo_proyecto":"new project",
+  "login":"log in",
 
   "_comment1":"LOGIN",
 
@@ -26,6 +29,9 @@
   "mas_informacion":"More information",
   "todos_proyectos":"All Projects",
 
+  "_comment6":"IDIOMA PARA EL NAVEGACION.............",
+  "inicio":"home",
+
   "_comment4":"IDIOMA PARA EL PROJECTS.............",
   "proyectos":"Projects",
   "todos":"All",
@@ -36,6 +42,17 @@
   "prometido": "Pledged",
   "meta": "Goal",
   "patrocinadores": "Backers",
+  "actualizaciones":"Updates",
+  "descripcion":"Description",
+  "comentarios":"Comments",
+  "proyecto_lanzado":"Project Launched",
+  "invertir_ahora":"invest now",
+  "deja_comentario":"Leave a comments",
+  "apoya_proyecto":"Support This Project",
+  "promesa":"Contribute",
+  "o_mas":"or more",
+  "entrega_estimada":"Estimated Delivery",
+  "envios_a":"Ships To",
 
   "_comment2":"IDIOMA PARA EL BACKEND....................................................................",
 

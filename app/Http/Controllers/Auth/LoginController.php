@@ -31,7 +31,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/dashboard';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -49,7 +49,7 @@ class LoginController extends Controller
     {
         auth()->logout();
         session()->flush();
-        return back();
+        return redirect('/');
     }
 
     /*=============================================
@@ -67,7 +67,7 @@ class LoginController extends Controller
         //Se valida primero la ruta que nos trae la red social
         if (!request()->has('code') || request()->has('denied')) {
             session()->flash('message', ['danger', __('Inicio de sesion cancelado')]);
-            return redirect(route('home_frontend'));
+            return redirect(route('home'));
         }
         //Traemos todos los datos y los almacenamos en la variable $socialUser
         $socialUser = Socialite::driver($driver)->stateless()->user();
@@ -75,6 +75,7 @@ class LoginController extends Controller
         $success = true; //$success es para al final del registro dar una alerta de que ha sido un exito
         $email = $socialUser->email; //$email la declaramos para almacenar el email que nos traer socialite
         $check = User::whereEmail($email)->first(); //verificamos con este metodo si el email que nos traer socialite existe en la base de datos
+
 
         if ($check) {
             $user = $check;
@@ -85,6 +86,7 @@ class LoginController extends Controller
                     $user = User::create([
                         'name' => $socialUser->name,
                         'email' => $email,
+                        'picture' => $socialUser->avatar
                     ]);
                     //a este usuario le asignamos los roles, Artista y Patrocinador
                     $user->roles()->attach(['2', '3']);
@@ -110,7 +112,7 @@ class LoginController extends Controller
 
                 \DB::commit();
                 auth()->loginUsingId($user->id);
-                return redirect(route('dashboard'));
+                return redirect(route('home'));
         }
         //Si el proceso no fue culminado con exito, error al iniciar sesion
         session()->flash('message', ['danger', $success]);

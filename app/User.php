@@ -60,7 +60,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','picture','last_name','phone_1','phone_2','slug','email'
     ];
 
     /**
@@ -73,6 +73,14 @@ class User extends Authenticatable
     ];
     const ACTIVE = 1;
     const INACTIVE = 2;
+
+    public static function navigation(){
+        return auth()->check() ? auth()->user()->pathAttachment() : 'guest';
+    }
+
+    public function pathAttachment(){
+        return '/images/users/'. $this->picture;
+    }
 
     public function artist(){
         return $this->hasOne(Artist::class);
@@ -87,5 +95,11 @@ class User extends Authenticatable
     }
     public function roles(){
         return $this->belongsToMany(User::class,'roles_users','user_idUser','role_idRole');
+    }
+
+    public function artist_user($id){
+        return User::select('*')
+            ->where('id',$id)
+            ->first();
     }
 }

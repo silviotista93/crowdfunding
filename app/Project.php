@@ -46,6 +46,19 @@ use Illuminate\Support\Facades\DB;
  */
 class Project extends Model
 {
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'published_at',
+    ];
+
+
+
     const REVISION = 1;
     const PREAPPROVAL = 2;
     const APPROVAL = 3;
@@ -78,7 +91,7 @@ class Project extends Model
     }
 
     public function rewards(){
-        return $this->hasMany(Reward::class)->select('id','title','description','price','project_id','created_at');
+        return $this->hasMany(Reward::class)->select('id','title','description','price','shipments','estimated','project_id','created_at');
     }
 
     public function artists(){
@@ -103,11 +116,17 @@ class Project extends Model
             ->select('level')
             ->where('id',$id)
             ->first();
-
     }
+
+    public function countryArtist($id){
+        return DB::table('countries')
+            ->select('*')
+            ->where('id',$id)
+            ->first();
+    }
+
     public function artist_user($id){
-        return DB::table('users')
-            ->select('name')
+        return User::select('*')
             ->where('id',$id)
             ->first();
     }

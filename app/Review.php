@@ -28,4 +28,8 @@ class Review extends Model
     public function projects(){
         return $this->belongsTo(Project::class);
     }
+
+    public function users(){
+        return $this->belongsTo(User::class,'user_id');
+    }
 }

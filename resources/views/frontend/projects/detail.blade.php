@@ -20,8 +20,7 @@
                 <ul class="xs-tag-category-with-icon xs-mb-30">
                     <li><a href="{{  route('categories.show',$project->category->slug) }}" class="color-white"><i
                                     class="fa fa-tags color-green"></i>{{ $project->category->category }}</a></li>
-                    <li><a href="" class="color-white"><i
-                                    class="fa fa-user color-green"></i>{{ $project->artists[0]->nickname }}</a>
+                    <li><a href="" class="color-white"><img src="{{ $project->countryArtist($project->artists[0]->country_id)->flag }}" width="21" style="margin-top: -3px"> {{ $project->artists[0]->nickname }}</a>
                     </li>
                 </ul>
                 <ul class="xs-breadcumb fundpress-breadcumb">
@@ -88,22 +87,22 @@
                                 <ul class="nav nav-tabs" role="tablist">
                                     <li class="nav-item">
                                         <a class="nav-link active" href="#description" role="tab" data-toggle="tab">
-                                            Description
+                                            {{ __('descripcion') }}
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="#updates" role="tab" data-toggle="tab">
-                                            Updates
+                                            {{ __('actualizaciones') }}
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="#comments_panel" role="tab" data-toggle="tab">
-                                            comments <span class="color-green">(9)</span>
+                                            {{ __('comentarios') }} <span class="color-green">({{ $project->reviews->count() }})</span>
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="#backers" role="tab" data-toggle="tab">
-                                            Backers
+                                            {{ __('patrocinadores') }}
                                         </a>
                                     </li>
                                 </ul>
@@ -117,64 +116,22 @@
                                 <div role="tabpanel" class="tab-pane fadeInRights fade" id="updates">
                                     <div class="xs-ul-list fundpress-content-text-list-wraper">
                                         <ul class="fundpress-content-text-list xs-content-text-list">
+                                            @forelse($project->updates as $update)
                                             <li>
                                                 <p class="xs-content-description fundpress-content-description color-navy-blue">
-                                                    December 28</p>
+                                                    {{ $update->created_at->toFormattedDateString() }}</p>
                                                 <div class="fundpress-title-text-content">
-                                                    <h4 class="color-navy-blue medium margin-bottom-0">Can you help us
-                                                        spread the word?</h4>
+                                                    <h4 class="color-navy-blue medium margin-bottom-0">{{ $update->title }}</h4>
                                                 </div>
-                                                <p class="xs-content-description fundpress-content-description xs-mb-30">
-                                                    Hi supporters! <br>
-                                                    Can you help us spread the word about this fundraiser with friends
-                                                    or family who might be interested?</p>
-                                                <p class="xs-content-description fundpress-content-description color-navy-blue">
-                                                    Here's the link:</p>
-                                                <a href="https://www.xpeedstudio.com/projects/923398342/bodycartography-projects-20th-anniversary"
-                                                   class="color-green">
-                                                    https://www.xpeedstudio.com/projects/923398342/bodycartography-projects-20th-anniversary
-                                                </a>
+                                                <p class="xs-content-description fundpress-content-description xs-mb-30">{{ $update->description }}</p>
                                             </li>
-                                            <li>
-                                                <p class="xs-content-description fundpress-content-description color-navy-blue">
-                                                    December 28</p>
-                                                <div class="fundpress-title-text-content">
-                                                    <h4 class="color-navy-blue medium margin-bottom-0">Can you help us
-                                                        spread the word?</h4>
-                                                </div>
-                                                <p class="xs-content-description fundpress-content-description xs-mb-30">
-                                                    Hi supporters! <br>
-                                                    Can you help us spread the word about this fundraiser with friends
-                                                    or family who might be interested?</p>
-                                                <p class="xs-content-description fundpress-content-description color-navy-blue">
-                                                    Here's the link:</p>
-                                                <a href="https://www.xpeedstudio.com/projects/923398342/bodycartography-projects-20th-anniversary"
-                                                   class="color-green">
-                                                    https://www.xpeedstudio.com/projects/923398342/bodycartography-projects-20th-anniversary
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <p class="xs-content-description fundpress-content-description color-navy-blue">
-                                                    December 28</p>
-                                                <div class="fundpress-title-text-content">
-                                                    <h4 class="color-navy-blue medium margin-bottom-0">Can you help us
-                                                        spread the word?</h4>
-                                                </div>
-                                                <p class="xs-content-description fundpress-content-description xs-mb-30">
-                                                    Hi supporters! <br>
-                                                    Can you help us spread the word about this fundraiser with friends
-                                                    or family who might be interested?</p>
-                                                <p class="xs-content-description fundpress-content-description color-navy-blue">
-                                                    Here's the link:</p>
-                                                <a href="https://www.xpeedstudio.com/projects/923398342/bodycartography-projects-20th-anniversary"
-                                                   class="color-green">
-                                                    https://www.xpeedstudio.com/projects/923398342/bodycartography-projects-20th-anniversary
-                                                </a>
-                                            </li>
+                                             @empty
+                                                <h1>No hay actualizaciones</h1>
+                                            @endforelse
                                         </ul>
                                         <div class="xs-navy-blue-bg fundpress-porject-lunch xs-content-padding text-center content-left">
-                                            <h3 class="color-white xs-mb-10 regular">january 16, 2018</h3>
-                                            <h4 class="color-white xs-mb-0 semi-bold">Project Launched</h4>
+                                            <h3 class="color-white xs-mb-10 regular">{{ $project->created_at->toFormattedDateString() }}</h3>
+                                            <h4 class="color-white xs-mb-0 semi-bold">{{ __('proyecto_lanzado') }}</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -182,158 +139,41 @@
                                     <div class="xs-blog-post-comment border xs-content-padding">
                                         <!-- post comment -->
                                         <div id="comments" class="comments-area">
-                                            <h4 class="comments-title"> 4 Comments</h4>
+                                            <h4 class="comments-title"> {{ $project->reviews->count() }} {{ __('comentarios') }}</h4>
                                             <!-- start comment -->
                                             <ol class="comment-list">
+                                                @forelse($project->reviews as  $review)
                                                 <li id="comment-1"
                                                     class="comment byuser comment-author-admin bypostauthor even thread-even depth-1 parent">
                                                     <article id="div-comment-1" class="comment-body">
                                                         <footer class="comment-meta">
                                                             <div class="comment-author vcard">
                                                                 <img alt="comment avatar image"
-                                                                     src="assets/images/avatar/avatar_9.jpg"
+                                                                     src="{{ $review->users->pathAttachment() }}"
                                                                      class="avatar avatar-34 photo">
-                                                                <b class="fn">Jhony WIlliamson</b>
+                                                                <b class="fn">{{ $review->users->name }}</b>
                                                             </div><!-- .comment-author -->
                                                             <div class="comment-metadata">
                                                                 <a href="">
-                                                                    <time datetime="2018-08-17T04:24:26+00:00">17th
-                                                                        August 2018
+                                                                    <time datetime="2018-08-17T04:24:26+00:00">{{ $review->created_at->toFormattedDateString() }}
                                                                     </time>
                                                                 </a>
                                                             </div><!-- .comment-metadata -->
                                                         </footer><!-- .comment-meta -->
 
                                                         <div class="comment-content">
-                                                            <p>On the evening of November 10th, the audience at New
-                                                                York’s Metry opolitiona era was treated to the briefest
-                                                                of delights.</p>
+                                                            <p>{{ $review->comment }}</p>
                                                         </div><!-- .comment-content -->
-                                                        <div class="reply">
-                                                            <a href="" aria-label="Reply to admin">
-                                                                <i class="fa fa-mail-forward" aria-hidden="true"></i>
-                                                                Reply
-                                                            </a>
-                                                        </div>
                                                     </article><!-- .comment-body -->
-                                                </li><!-- #comment-## -->
-                                                <li id="comment-2"
-                                                    class="comment byuser comment-author-admin bypostauthor even thread-even depth-1 parent">
-                                                    <article id="div-comment-2" class="comment-body">
-                                                        <footer class="comment-meta">
-                                                            <div class="comment-author vcard">
-                                                                <img alt="comment avatar image"
-                                                                     src="assets/images/avatar/avatar_7.jpg"
-                                                                     class="avatar avatar-34 photo">
-                                                                <b class="fn">William Smith</b>
-                                                            </div><!-- .comment-author -->
-                                                            <div class="comment-metadata">
-                                                                <a href="">
-                                                                    <time datetime="2018-08-17T04:24:26+00:00">17th
-                                                                        August 2018
-                                                                    </time>
-                                                                </a>
-                                                            </div><!-- .comment-metadata -->
-                                                        </footer><!-- .comment-meta -->
-
-                                                        <div class="comment-content">
-                                                            <p>On the evening of November 10th, the audience at New
-                                                                York’s Metry opolitiona era was treated to the briefest
-                                                                of delights.</p>
-                                                        </div><!-- .comment-content -->
-                                                        <div class="reply">
-                                                            <a href="" aria-label="Reply to admin">
-                                                                <i class="fa fa-mail-forward" aria-hidden="true"></i>
-                                                                Reply
-                                                            </a>
-                                                        </div>
-                                                    </article><!-- .comment-body -->
-                                                    <ol class="children">
-                                                        <li id="comment-3"
-                                                            class="comment byuser comment-author-admin bypostauthor odd alt depth-2">
-                                                            <article id="div-comment-3" class="comment-body">
-                                                                <footer class="comment-meta">
-                                                                    <div class="comment-author vcard">
-                                                                        <img alt=""
-                                                                             src="assets/images/avatar/avatar_8.jpg"
-                                                                             class="avatar avatar-34 photo">
-                                                                        <b class="fn">Julian Jenny</b>
-                                                                    </div><!-- .comment-author -->
-
-                                                                    <div class="comment-metadata">
-                                                                        <a href="">
-                                                                            <time datetime="2018-08-17T04:24:41+00:00">
-                                                                                17th August 2018
-                                                                            </time>
-                                                                        </a>
-                                                                    </div><!-- .comment-metadata -->
-                                                                </footer><!-- .comment-meta -->
-
-                                                                <div class="comment-content">
-                                                                    <p>On the evening of November 10th, the audience at
-                                                                        New York’s Metry opolitans Opera was treated to
-                                                                        the briefest of delights.</p>
-                                                                </div><!-- .comment-content -->
-
-                                                                <div class="reply">
-                                                                    <a class="comment-reply-link" href=""
-                                                                       aria-label="Reply to admin">
-                                                                        <i class="fa fa-mail-forward"
-                                                                           aria-hidden="true"></i>
-                                                                        Reply
-                                                                    </a>
-                                                                </div>
-                                                            </article><!-- .comment-body -->
-                                                        </li><!-- #comment-## -->
-                                                        <li>
-                                                            <ol class="children">
-                                                                <li id="comment-4"
-                                                                    class="comment byuser comment-author-admin bypostauthor odd alt depth-2">
-                                                                    <article id="div-comment-4" class="comment-body">
-                                                                        <footer class="comment-meta">
-                                                                            <div class="comment-author vcard">
-                                                                                <img alt=""
-                                                                                     src="assets/images/avatar/avatar_10.jpg"
-                                                                                     class="avatar avatar-34 photo">
-                                                                                <b class="fn">Julian Jenny</b>
-                                                                            </div><!-- .comment-author -->
-
-                                                                            <div class="comment-metadata">
-                                                                                <a href="">
-                                                                                    <time datetime="2018-08-17T04:24:41+00:00">
-                                                                                        17th August 2018
-                                                                                    </time>
-                                                                                </a>
-                                                                            </div><!-- .comment-metadata -->
-                                                                        </footer><!-- .comment-meta -->
-
-                                                                        <div class="comment-content">
-                                                                            <p>On the evening of November 10th, the
-                                                                                audience at New York’s Metry opolitans
-                                                                                Opera was treated to the briefest of
-                                                                                delights.</p>
-                                                                        </div><!-- .comment-content -->
-
-                                                                        <div class="reply">
-                                                                            <a class="comment-reply-link" href=""
-                                                                               aria-label="Reply to admin">
-                                                                                <i class="fa fa-mail-forward"
-                                                                                   aria-hidden="true"></i>
-                                                                                Reply
-                                                                            </a>
-                                                                        </div>
-                                                                    </article><!-- .comment-body -->
-                                                                </li><!-- #comment-## -->
-                                                            </ol><!-- .children -->
-                                                        </li>
-                                                    </ol><!-- .children -->
-                                                </li><!-- #comment-## -->
+                                                </li>
+                                                    @empty
+                                                @endforelse
                                             </ol>
                                             <!-- end comment -->
 
                                             <!-- start respond form -->
                                             <div id="respond" class="comment-respond">
-                                                <h3 id="reply-title" class="comment-reply-title">Leave a comments
+                                                <h3 id="reply-title" class="comment-reply-title">{{ __('deja_comentario') }}
                                                     <small>
                                                         <a rel="nofollow" id="cancel-comment-reply-link"
                                                            href="/wp/premix/hello-world-2/#respond"
@@ -511,7 +351,7 @@
                                     <li class="color-navy-blue bold xs-mb-20">US $75,280<span
                                                 class="color-semi-black regular">{{ __('prometido') }}</span></li>
 
-                                    <li class="color-green bold xs-mb-20">US $87,000<span
+                                    <li class="color-green bold xs-mb-20">US ${{ $project->price }}<span
                                                 class="color-semi-black regular">{{ __('meta') }}</span></li>
 
                                     <li class="color-brick-light-2 bold">119<span class="color-semi-black regular">{{ __('patrocinadores') }}</span>
@@ -529,8 +369,8 @@
                             <div class="xs-single-sidebar xs-mb-50">
                                 <div class="xs-spilit-container">
                                     <div class="xs-btn-wraper">
-                                        <a href="#" class="icon-btn xs-btn radius-btn green-btn xs-btn-medium"><i
-                                                    class="fa fa-heart"></i>invest Now</a>
+                                        <a href="#" class="icon-btn xs-btn radius-btn green-btn xs-btn-medium" style="font-size: 13px"><i
+                                                    class="fa fa-heart"></i>{{ __('invertir_ahora') }}</a>
                                     </div>
                                     <div class="xs-social-list-wraper">
                                         <ul class="xs-social-list xs-social-list-v3 fundpress-social-list">
@@ -539,9 +379,9 @@
                                             <li><a href="" class="xs-box-shadow color-google-plus full-round"><i
                                                             class="fa fa-google-plus"></i></a></li>
                                             <li><a href="" class="xs-box-shadow color-twitter full-round"><i
-                                                            class="fa fa-twitter"></i></a></li>
-                                            <li><a href="" class="xs-box-shadow color-navy-blue full-round"><i
-                                                            class="fa fa-plus"></i></a></li>
+                                                            class="fa fa-instagram"></i></a></li>
+                                            <li><a href="" class="xs-box-shadow color-youtube full-round" style="background-color: #c4302b !important;"><i
+                                                            class="fa fa-youtube"></i></a></li>
                                         </ul>
                                     </div>
                                 </div><!-- xs buttons and social list -->
@@ -550,23 +390,22 @@
                             <div class="xs-single-sidebar xs-mb-50">
                                 <div class="xs-spilit-container xs-spilit-container-v2">
                                     <div class="xs-avatar xs-avatar-big full-round fundpress-avatar">
-                                        <img src="assets/images/avatar/avatar_2.jpg" alt="">
+                                        <img src="{{ $project->artist_user($project->artists[0]->id)->pathAttachment() }}" alt="">
                                     </div>
                                     <div class="xs-avatar-title fundpress-avatar-title fundpress-avatar-title-v2">
                                         <a href="#" class="xs-mb-10">{{ $project->artist_user($project->artists[0]->id)->name }}</a>
-                                        <p class="xs-content-description fundpress-content-description xs-mb-20">CEO &
-                                            Founder, Abstract Art Inc.</p>
-                                        <ul class="xs-list-item-icon-text flex-row px-2 mr-auto w-100">
-                                            <li class="xs-mb-0 align-items-start">
+                                        <p class="xs-content-description fundpress-content-description xs-mb-20">{{ $project->category->category }}</p>
+                                        <ul class="xs-list-item-icon-text list-inline">
+                                            <li class="xs-mb-0 align-items-start list-inline-item">
                                                 <p class="xs-content-description fundpress-content-description">
                                                     <i class="fa fa-signal color-green"></i>
                                                     {{ $project->levelArtist($project->artists[0]->level_id)->level }}
                                                 </p>
                                             </li>
-                                            <li class="xs-mb-0">
+                                            <li class="xs-mb-0 list-inline-item">
                                                 <p class="xs-content-description fundpress-content-description">
-                                                    <i class="fa fa-signal color-green"></i>
-                                                    {{ $project->levelArtist($project->artists[0]->level_id)->level }}
+                                                    <img src="{{ $project->countryArtist($project->artists[0]->country_id)->flag }}" width="21" alt=""style="margin-top: -3px">
+                                                    {{ $project->countryArtist($project->artists[0]->country_id)->country }}
                                                 </p>
                                             </li>
                                         </ul>
@@ -576,43 +415,28 @@
 
                             <div class="xs-single-sidebar">
                                 <div class="xs-sidebar-title fundpress-sidebar-title xs-mb-30">
-                                    <h3 class="color-navy-blue">Support This Project</h3>
+                                    <h3 class="color-navy-blue">{{ __('apoya_proyecto') }}</h3>
                                 </div>
-                                <div class="xs-info-card xs-purple-bg fundpress-info-card xs-box-shadow xs-mb-30 color-white">
-                                    <h3 class="xs-mb-30">Pledge $500 or more</h3>
-                                    <h4 class="xs-mb-20">HIS and HERS (or For Parents)</h4>
-                                    <p class="xs-mb-20 xs-content-description fundpress-content-description">Two XpeedX
-                                        Smart Systems beautifully packaged (will retail for $500 for two). </p>
-                                    <span class="xs-mb-40">Free access to DynoLife App.</span>
-                                    <div class="xs-spilit-container">
-                                        <div class="xs-info-card-times">
-                                            <h5>Estimated Delivery</h5>
-                                            <h6>17Th Aug 2017</h6>
-                                        </div>
-                                        <div class="xs-info-card-times">
-                                            <h5>Ships To</h5>
-                                            <h6>Anywhere in the world</h6>
-                                        </div>
-                                    </div>
-                                </div>
+                                @forelse( $project->rewards as $reward )
                                 <div class="xs-info-card xs-pink-bg fundpress-info-card xs-box-shadow color-white">
-                                    <h3 class="xs-mb-30">Pledge $700 or more</h3>
-                                    <h4 class="xs-mb-20">Trainer Special</h4>
-                                    <p class="xs-mb-20 xs-content-description fundpress-content-description">Ten XpeedX
-                                        Smart Systems beautifully packaged individually for each of your trainees (will
-                                        retail for $1380 for ten). </p>
-                                    <span class="xs-mb-40">Free access to DynoLife App.</span>
+                                    <h3 class="xs-mb-30">{{ __('promesa') }} ${{ $reward->price }} {{ __('o_mas') }}</h3>
+                                    <h4 class="xs-mb-20">{{ $reward->title }}</h4>
+                                    <p class="xs-mb-20 xs-content-description fundpress-content-description">{{ $reward->description }}</p>
                                     <div class="xs-spilit-container">
                                         <div class="xs-info-card-times">
-                                            <h5>Estimated Delivery</h5>
-                                            <h6>20Th Jun 2017</h6>
+                                            <h5>{{ __('entrega_estimada') }}</h5>
+                                            <h6>{{ $reward->estimated->toFormattedDateString() }}</h6>
                                         </div>
                                         <div class="xs-info-card-times">
-                                            <h5>Ships To</h5>
-                                            <h6>Anywhere in the world</h6>
+                                            <h5>{{ __('envios_a') }}</h5>
+                                            <h6 style="font-size: 17px">{{ $reward->shipments }}</h6>
                                         </div>
                                     </div>
                                 </div>
+                                    <br>
+                                    @empty
+                                    <h2>No hay recompesas</h2>
+                                @endforelse
                             </div>
                         </div>
                     </div>

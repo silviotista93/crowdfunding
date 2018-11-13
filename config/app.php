@@ -149,6 +149,8 @@ return [
         Yajra\DataTables\DataTablesServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
+        Jenssegers\Date\DateServiceProvider::class,
+
 
 
         /*
@@ -216,6 +218,7 @@ return [
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'Date' => Jenssegers\Date\Date::class,
 
     ],
 

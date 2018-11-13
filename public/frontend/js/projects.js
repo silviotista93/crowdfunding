@@ -1,11 +1,11 @@
-function start(){
+function start() {
     let container = $("#projectContainer");
-    if (projects.data.length>0){
+    if (projects.data.length > 0) {
         //console.clear();
         //console.log(projects.data);
         //let content = '<div class="row">';
         let content = '';
-        let num= 0;
+        let num = 0;
         projects.data.forEach(project => {
             /*
             if (num++ === 2){
@@ -17,37 +17,39 @@ function start(){
         });
         //content += "</div>";
         container.html(content);
-    }else{
+    } else {
         container.html("<div class='text-center'><p>No hay proyectos</p></div>");
     }
 
     //checkProjects();
 }
 
-function checkProjects(){
-    $("#sidebar").on('click', 'a', function (e){
+function checkProjects() {
+    $("#sidebar").on('click', 'a', function (e) {
         let spans = $(this).find("span");
         //console.log(spans[1].text());
-        if (spans[1].text() === "(0)"){
+        if (spans[1].text() === "(0)") {
             alert("No hay proyectos en esta categoria");
         }
         e.preventDefault();
     });
 }
 
-function createCard(project){
-    let porcetaje = (project.total*100)/project.price;
-    if (porcetaje < 1){
+function createCard(project) {
+    let porcetaje = (project.total * 100) / project.price;
+    if (porcetaje < 1) {
         porcetaje = 0;
     }
     return cardLayout
-    .replace(/__porcentaje__/g, porcetaje)
-    .replace(/__title__/g, project.nameLimit)
-    .replace(/__coste__/g, project.price)
-    .replace(/__porcentajeBar__/g, porcetaje>100?100:porcetaje)
-    .replace(/__tipo__/g, '<li><a href="">'+project.category.category+'</a></li>')
-    .replace(/__days__/g, moment(project.end_time).fromNow(true))
-    .replace(/__img__/g, project.img).replace(/__url__/g, project.url);
+        .replace(/__porcentaje__/g, porcetaje)
+        .replace(/__title__/g, project.nameLimit)
+        .replace(/__coste__/g, project.price)
+        .replace(/__porcentajeBar__/g, porcetaje > 100 ? 100 : porcetaje)
+        .replace(/__tipo__/g, '<li><a href="">' + project.category.category + '</a></li>')
+        .replace(/__days__/g, moment(project.end_time).fromNow(true))
+        .replace(/__img__/g, project.img)
+        .replace(/__url__/g, project.url)
+        .replace(/_userProfile_/g, project.userProfile);
     /*Listo revisalo el problema es en el blade */
 }
 
@@ -83,7 +85,7 @@ const cardLayout = `
             <span class="xs-separetor border-separetor xs-separetor-v2 fundpress-separetor"></span>
             <div class="row xs-margin-0">
                 <div class="full-round fundpress-avatar">
-                    <img src="assets/images/avatar/avatar_1.jpg" alt="">
+                    <img src="_userProfile_" alt="">
                 </div>
                 <div class="xs-avatar-title">
                     <a href="#"><span>By</span>Ema Watson</a>

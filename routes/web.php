@@ -17,7 +17,6 @@ Route::get('/count/{id}',function ($id){
     return \App\Project::where([['category_id',$id],['status',\App\Project::PUBLISHED]])
         ->count('id');
 });
-
 Route::get('/projects',function (){
    return \App\Project::withCount(['artists'])
        ->with('category','artists')

@@ -21,6 +21,7 @@ class CreateArtistsTable extends Migration
         Schema::create('countries', function (Blueprint $table) {
             $table->increments('id');
             $table->string('country');
+            $table->string('flag')->nullable();
             $table->unsignedInteger('city_id');
             $table->foreign('city_id')->references('id')->on('cities');
             $table->timestamps();

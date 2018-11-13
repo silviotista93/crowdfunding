@@ -4,8 +4,10 @@
   "select_language":"Idioma",
   "language_spanish":"Español",
   "language_english":"Inglés",
+  "perfil":"perfil",
+  "nuevo_proyecto":"nuevo proyecto",
 
-  "muestra_tu_talento":"Muestra tu talento",
+  "login":"iniciar sesión",
 
   "_comment1":"LOGIN",
 
@@ -26,6 +28,9 @@
   "mas_informacion":"Más información",
   "todos_proyectos":"Proyectos",
 
+  "_comment6":"IDIOMA PARA EL NAVEGACION.............",
+  "inicio":"inicio",
+
   "_comment4":"IDIOMA PARA EL PROJECTS.............",
   "proyectos":"Proyectos",
   "todos":"Todos",
@@ -36,6 +41,17 @@
   "prometido": "Prometido",
   "meta": "Meta",
   "patrocinadores": "Patrocinadores",
+  "actualizaciones":"Actualizaciones",
+  "descripcion":"Descripción",
+  "comentarios":"Comentarios",
+  "proyecto_lanzado":"Proyecto Lanzado",
+  "invertir_ahora":"Invertir ahora",
+  "deja_comentario":"Deja tu comentario",
+  "apoya_proyecto":"Apoya este proyecto",
+  "promesa":"Aporta",
+  "o_mas":"o más",
+  "entrega_estimada":"Entrega estimada",
+  "envios_a":"Realiza envíos a",
 
   "_comment2":"IDIOMA PARA EL BACKEND.................................................................",
 

@@ -1,3 +1,5 @@
+@auth
+@else
 <div class="modal fade bd-example-modal-lg xs-modal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -108,3 +110,4 @@
         </div>
     </div>
 </div><!-- End modal --><!-- End home section -->
+@endauth

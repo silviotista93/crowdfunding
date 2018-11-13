@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Category;
 use App\Project;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -16,18 +17,20 @@ class ProjectsController extends Controller
 
     public function index(){
         $projects = Project::select(DB::raw('projects.*, SUM(donations.amount) as total'))->withCount(['artists'])
-            ->with('category')
+            ->with('category','artists')
             ->join('donations', 'projects.id', '=', 'donations.project_id')
             ->where('status',Project::PUBLISHED)
             ->groupBy('projects.id')
             ->latest()
             ->paginate(8);
+        $user = User::first();
         $categories = Category::select('*')->get();
-        return view('frontend.projects.projects', compact('categories', 'projects'));
+        return view('frontend.projects.projects', compact('categories', 'projects','user'));
     }
 
 
     public function show(Project $project){
+
         $project->load([
             'category' => function ($q) {
                 $q->select('id', 'category','slug');
@@ -36,7 +39,8 @@ class ProjectsController extends Controller
                 $q->select('*');
             },
             'artists.users',
-            'reviews',
+            'reviews.users',
+            'rewards'
         ])->get();
 
         return view('frontend.projects.detail', compact('project'));

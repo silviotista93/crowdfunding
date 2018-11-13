@@ -30,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -68,6 +68,7 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'picture' => '/backend/assets/app/media/img/users/perfil.jpg',
             'password' => Hash::make($data['password']),
         ]);
     }
@@ -78,6 +79,6 @@ class RegisterController extends Controller
            'user_id' => $user->id
         ]);
         $user->roles()->attach(['2','3']);
-        return redirect('/');
+        return redirect('/dashboard');
     }
 }
