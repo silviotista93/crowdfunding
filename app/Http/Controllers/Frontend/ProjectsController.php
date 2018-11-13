@@ -40,7 +40,8 @@ class ProjectsController extends Controller
             },
             'artists.users',
             'reviews.users',
-            'rewards'
+            'rewards',
+            'images'
         ])->get();
 
         return view('frontend.projects.detail', compact('project'));

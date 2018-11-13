@@ -43,6 +43,14 @@ use Illuminate\Support\Facades\DB;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Project whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Project whereUpdateId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Project whereUpdatedAt($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Artist[] $artists
+ * @property-read \App\Category $category
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Donation[] $donations
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\ProjectImage[] $images
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Management[] $management
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Review[] $reviews
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Reward[] $rewards
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Update[] $updates
  */
 class Project extends Model
 {
@@ -100,6 +108,10 @@ class Project extends Model
 
     public function management(){
         return $this->belongsToMany(Management::class,'management_project','project_id','management_id');
+    }
+
+    public function images(){
+        return $this->hasMany(ProjectImage::class);
     }
 
     /*

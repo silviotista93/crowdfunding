@@ -18,6 +18,10 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Country whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Country whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Country whereUpdatedAt($value)
+ * @property string|null $flag
+ * @property-read \App\Artist $artist
+ * @property-read \App\City $cities
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Country whereFlag($value)
  */
 class Country extends Model
 {

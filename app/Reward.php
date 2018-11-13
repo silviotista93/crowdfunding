@@ -22,6 +22,11 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Reward whereProjectId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Reward whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Reward whereUpdatedAt($value)
+ * @property string|null $shipments
+ * @property \Illuminate\Support\Carbon|null $estimated
+ * @property-read \App\Project $projects
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Reward whereEstimated($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Reward whereShipments($value)
  */
 class Reward extends Model
 {

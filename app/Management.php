@@ -22,6 +22,9 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Management whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Management whereUserId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Management whereWebsiteUrl($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Category[] $categories
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Project[] $projects
+ * @property-read \App\User $users
  */
 class Management extends Model
 {

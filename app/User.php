@@ -39,6 +39,10 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereState($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereUpdatedAt($value)
+ * @property-read \App\Artist $artist
+ * @property-read \App\Management $managements
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\User[] $roles
+ * @property-read \App\UserSocialAccount $socialAcounts
  */
 class User extends Authenticatable
 {

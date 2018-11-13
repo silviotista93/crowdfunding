@@ -20,6 +20,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Donation whereProjectId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Donation whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Donation whereUserId($value)
+ * @property-read \App\Project $projects
  */
 class Donation extends Model
 {

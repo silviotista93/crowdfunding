@@ -12,6 +12,7 @@ $factory->define(App\Project::class, function (Faker $faker) {
         'price' => $faker->randomFloat($nbMaxDecimals = 0, $min = 1000, $max = 10000),
         'description' => $faker->text(1500),
         'short_description' => $faker->sentence,
+        'iframe_video' => '<iframe width="560" height="315" src="https://www.youtube.com/embed/vXHOorXZ8qY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
         'project_picture' => \Faker\Provider\Image::image(storage_path() . '/app/public/projects', 370,240,'fashion', false),
         'status' => $status,
         'previous_approved' => $status !== \App\Project::PUBLISHED ? false : true,

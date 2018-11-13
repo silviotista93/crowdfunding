@@ -33,6 +33,10 @@ use Illuminate\Support\Facades\DB;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Artist whereUserId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Artist whereWebsiteUrl($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Artist whereYoutube($value)
+ * @property-read \App\Country|null $countries
+ * @property-read \App\Level|null $levels
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Project[] $projects
+ * @property-read \App\User $users
  */
 class Artist extends Model
 {

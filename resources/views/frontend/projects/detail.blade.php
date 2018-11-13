@@ -40,45 +40,32 @@
                     <div class="col-md-12 col-sm-12 col-lg-7">
                         <div class="xs-sync-slider-wraper xs-mb-50">
                             <div class="owl-carousel xs-sync-slider-preview xs-mb-10">
+                                @foreach($project->images as $image)
                                 <div class="xs-sync-slider-preview-content">
-                                    <img src="assets/images/product/product_1.jpg" alt="">
+                                    <img src="{{ $image->pathAttachment() }}" alt="">
                                 </div>
+                                @endforeach
                                 <div class="xs-sync-slider-preview-content">
-                                    <img src="assets/images/product/product_2.jpg" alt="">
+                                    {!! $project->iframe_video !!}
                                 </div>
-                                <div class="xs-sync-slider-preview-content">
-                                    <iframe class="xs-youtube-iframe" src="https://www.youtube.com/embed/Hn89qD03Tzc"
-                                            allowfullscreen></iframe>
-                                </div>
-                                <div class="xs-sync-slider-preview-content">
-                                    <img src="assets/images/product/product_3.jpg" alt="">
-                                </div>
-                                <div class="xs-sync-slider-preview-content">
-                                    <img src="assets/images/product/product_4.jpg" alt="">
-                                </div>
+
                             </div><!-- xs-sync-slider-preview -->
 
                             <div class="owl-carousel xs-sync-slider-thumb">
+                                @foreach($project->images as $image)
                                 <div class="xs-sync-slider-thumb-content">
-                                    <img src="assets/images/product/product_thumb_1.jpg" alt="">
+                                    <img src="{{ $image->pathAttachment() }}" width="10" alt="" style="height: 74px">
                                 </div>
+                                @endforeach
                                 <div class="xs-sync-slider-thumb-content">
-                                    <img src="assets/images/product/product_thumb_2.jpg" alt="">
-                                </div>
-                                <div class="xs-sync-slider-thumb-content">
-                                    <img src="assets/images/product/product_thumb_5.jpg" alt="">
+                                    <img src="/frontend//images/fondo_youtube.png" alt="">
                                     <div class="xs-sync-slider icon-position-center">
                                         <a href=""
                                            class="full-round icon-identify-btn blue-btn opacity-btn xs-box-shadow"><i
                                                     class="fa fa-play"></i></a>
                                     </div>
                                 </div>
-                                <div class="xs-sync-slider-thumb-content">
-                                    <img src="assets/images/product/product_thumb_3.jpg" alt="">
-                                </div>
-                                <div class="xs-sync-slider-thumb-content">
-                                    <img src="assets/images/product/product_thumb_4.jpg" alt="">
-                                </div>
+
                             </div><!-- xs-sync-slider-thumb -->
                         </div><!-- xs-sync-slider-wraper -->
                         <div class="xs-text-content-tab">

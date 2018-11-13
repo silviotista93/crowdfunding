@@ -129,7 +129,7 @@ class DatabaseSeeder extends Seeder
          CREANDO 50 PROYECTOS POR DEFECTO Y LE ESTAMOS ASIGNANDO UN DONACIONES, REVIEWS, RECOMPENSAS
         =============================================*/
 
-        factory(\App\Project::class,50)
+        factory(\App\Project::class,60)
             ->create()
             ->each(function (\App\Project $p){
                 $p->donations()->saveMany(factory(\App\Donation::class, 10)->create());
@@ -141,5 +141,9 @@ class DatabaseSeeder extends Seeder
                 $p->artists()->attach($artist);
                 $p->management()->attach($manage);
             });
+        /*=============================================
+        CREANDO IMAGENES PARA LOS PROYECTOS
+       =============================================*/
+        factory(\App\ProjectImage::class,60)->create();
     }
 }

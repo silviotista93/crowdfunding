@@ -18,6 +18,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Level whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Level whereLevel($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Level whereUpdatedAt($value)
+ * @property-read \App\Artist $artist
  */
 class Level extends Model
 {
