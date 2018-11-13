@@ -24,6 +24,6 @@ class ProjectImage extends Model
     protected $guarded = [];
 
     public function pathAttachment(){
-        return '/images/projectsimages/'. $this->url;
+        return '/images/projects/'. $this->url;
     }
 }
