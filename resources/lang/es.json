@@ -27,6 +27,7 @@
   "patrocinador":"Patrocinador",
   "mas_informacion":"Más información",
   "todos_proyectos":"Proyectos",
+  "ver_proyecto":"Ver proyecto",
 
   "_comment6":"IDIOMA PARA EL NAVEGACION.............",
   "inicio":"inicio",
@@ -52,6 +53,7 @@
   "o_mas":"o más",
   "entrega_estimada":"Entrega estimada",
   "envios_a":"Realiza envíos a",
+  "publicar_comentario":"Publicar Comentario",
 
   "_comment2":"IDIOMA PARA EL BACKEND.................................................................",
 

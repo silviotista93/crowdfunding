@@ -28,6 +28,7 @@
   "patrocinador":"Backer",
   "mas_informacion":"More information",
   "todos_proyectos":"All Projects",
+  "ver_proyecto":"See project",
 
   "_comment6":"IDIOMA PARA EL NAVEGACION.............",
   "inicio":"home",
@@ -53,6 +54,8 @@
   "o_mas":"or more",
   "entrega_estimada":"Estimated Delivery",
   "envios_a":"Ships To",
+  "publicar_comentario":"post comment",
+
 
   "_comment2":"IDIOMA PARA EL BACKEND....................................................................",
 

@@ -30,7 +30,7 @@ class CreateUsersTable extends Migration
                 \App\User::ACTIVE,
                 \App\User::INACTIVE])->default(\App\User::ACTIVE);
             $table->string('slug')->nullable();
-            $table->string('email')->unique();
+            $table->string('email')->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
             $table->rememberToken();

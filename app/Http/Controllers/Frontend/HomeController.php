@@ -16,7 +16,8 @@ class HomeController extends Controller
             ->latest()
             ->get();
         $categories = Category::select('category', 'id')->get();
+        $projects_slider = Project::with('artists')->take(3)->get();
 
-        return view('frontend.home.home',compact('categories','projects'));
+        return view('frontend.home.home',compact('categories','projects','projects_slider'));
     }
 }

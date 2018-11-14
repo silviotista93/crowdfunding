@@ -16,13 +16,13 @@
                     <li class="m-nav__separator">-</li>
                     <li class="m-nav__item">
                         <a href="" class="m-nav__link">
-                            <span class="m-nav__link-text">Base</span>
+                            <span class="m-nav__link-text">Dashboard</span>
                         </a>
                     </li>
                     <li class="m-nav__separator">-</li>
                     <li class="m-nav__item">
                         <a href="" class="m-nav__link">
-                            <span class="m-nav__link-text">State Colors</span>
+                            <span class="m-nav__link-text"></span>
                         </a>
                     </li>
                 </ul>

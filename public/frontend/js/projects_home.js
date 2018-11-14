@@ -7,7 +7,7 @@ $("#categoryProjects").on('click', 'li', function(e){
     let content = '<div class="row">';
     $.get('/projects-for-category', {id: id}, function (r){
         if (r.length < 1){
-            content += "<div class='text-center' style='width:100%;'><p>No hay proyectos registrados</p></div>";
+            content += "<div class='text-center' style='width:100%;'><p>No hay proyectos</p></div>";
         }
         if (cantidad !== r.length+""){
             container.attr('data-cantidad', r.length);

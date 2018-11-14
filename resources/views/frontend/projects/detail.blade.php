@@ -194,7 +194,7 @@
                                                     <p class="form-submit">
                                                         <input name="submit" type="submit" id="submit"
                                                                class="premix-btn light-red-btn coment-btn"
-                                                               value="Post Comment">
+                                                               value="{{ __('publicar_comentario') }}">
                                                         <input type="hidden" name="comment_post_ID" value="165"
                                                                id="comment_post_ID">
                                                         <input type="hidden" name="comment_parent" id="comment_parent"

@@ -8,25 +8,26 @@
     ======================================-->
     <section class="xs-screen-height xs-welcome-section xs-bg fundpress-welcome-section">
         <div class="xs-banner-slider owl-carousel">
-            <div class="xs-banner-slider-item" style="background-image: url(assets/images/welcome-bg-3.png);">
+            @forelse($projects_slider as $project)
+            <div class="xs-banner-slider-item" style="">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="xs-welcome-content version-3">
                                 <div class="xs-welcome-wraper">
-                                    <h2>Nion Powerful Minimal Device</h2>
+                                    <h2>{{ $project->title }}</h2>
                                     <div class="xs-skill-bar-v2" data-percent="65%">
                                         <div class="xs-skill-track">
                                             <p><span class="number-percentage-count">65</span>%</p>
                                         </div>
                                     </div>
                                     <ul class="fundpress-welcome-list-content list-inline">
-                                        <li>$45,280<span class="d-block">Pledged</span></li>
-                                        <li>$87,000<span class="d-block">Goal</span></li>
-                                        <li>119<span class="d-block">Backers</span></li>
+                                        <li>$45,280<span class="d-block">{{ __('prometido') }}</span></li>
+                                        <li>$87,000<span class="d-block">{{ __('meta') }}</span></li>
+                                        <li>119<span class="d-block">{{ __('patrocinadores') }}</span></li>
                                     </ul>
                                     <div class="xs-btn-wraper">
-                                        <a href="#" class="xs-btn navy-blue-btn round-btn">see campaign</a>
+                                        <a href="{{ route('projects.show',$project->slug) }}" class="xs-btn navy-blue-btn round-btn">{{ __('ver_proyecto') }}</a>
                                     </div>
                                 </div><!-- .xs-welcome-wraper END -->
                             </div><!-- .xs-welcome-content END -->
@@ -34,79 +35,15 @@
                         <div class="col-lg-6">
                             <div class="xs-welcome-content">
                                 <div class="xs-welcome-wraper">
-                                    <img src="assets/images/slider_3_1.png" alt="">
+                                    {!! $project->iframe_video !!}
                                 </div><!-- .xs-welcome-wraper END -->
                             </div><!-- .xs-welcome-content END -->
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="xs-banner-slider-item" style="background-image: url(assets/images/welcome-bg-3.png);">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="xs-welcome-content version-3">
-                                <div class="xs-welcome-wraper">
-                                    <h2>Nion Powerful Minimal Device</h2>
-                                    <div class="xs-skill-bar-v2" data-percent="65%">
-                                        <div class="xs-skill-track">
-                                            <p><span class="number-percentage-count">65</span>%</p>
-                                        </div>
-                                    </div>
-                                    <ul class="fundpress-welcome-list-content list-inline">
-                                        <li>$10,280<span class="d-block">Pledged</span></li>
-                                        <li>$50,000<span class="d-block">Goal</span></li>
-                                        <li>19<span class="d-block">Backers</span></li>
-                                    </ul>
-                                    <div class="xs-btn-wraper">
-                                        <a href="#" class="xs-btn navy-blue-btn round-btn">see campaign</a>
-                                    </div>
-                                </div><!-- .xs-welcome-wraper END -->
-                            </div><!-- .xs-welcome-content END -->
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="xs-welcome-content">
-                                <div class="xs-welcome-wraper">
-                                    <img src="assets/images/slider_3_2.png" alt="">
-                                </div><!-- .xs-welcome-wraper END -->
-                            </div><!-- .xs-welcome-content END -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="xs-banner-slider-item" style="background-image: url(assets/images/welcome-bg-3.png);">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="xs-welcome-content version-3">
-                                <div class="xs-welcome-wraper">
-                                    <h2>Nion Powerful Minimal Device</h2>
-                                    <div class="xs-skill-bar-v2" data-percent="65%">
-                                        <div class="xs-skill-track">
-                                            <p><span class="number-percentage-count">65</span>%</p>
-                                        </div>
-                                    </div>
-                                    <ul class="fundpress-welcome-list-content list-inline">
-                                        <li>$55,280<span class="d-block">Pledged</span></li>
-                                        <li>$80,000<span class="d-block">Goal</span></li>
-                                        <li>100<span class="d-block">Backers</span></li>
-                                    </ul>
-                                    <div class="xs-btn-wraper">
-                                        <a href="#" class="xs-btn navy-blue-btn round-btn">see campaign</a>
-                                    </div>
-                                </div><!-- .xs-welcome-wraper END -->
-                            </div><!-- .xs-welcome-content END -->
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="xs-welcome-content">
-                                <div class="xs-welcome-wraper">
-                                    <img src="assets/images/slider_3_3.png" alt="">
-                                </div><!-- .xs-welcome-wraper END -->
-                            </div><!-- .xs-welcome-content END -->
-                        </div>
-                    </div>
-                </div>
-            </div>
+                @empty
+                @endforelse
         </div>
     </section>
     <!--=====================================

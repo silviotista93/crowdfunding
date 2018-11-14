@@ -75,8 +75,8 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"
                                  style="margin-left: -100px !important;">
 
-                                <a class="dropdown-item inline" href="" {{request()->is('/') ? 'style=color:#031F53' : 'style=color:#031F53' }}><i></i>{{ __('perfil') }}</a>
-                                <a class="dropdown-item inline" href="" {{request()->is('/') ? 'style=color:#031F53' : 'style=color:#031F53' }}><i></i>{{ __('nuevo_proyecto') }}</a>
+                                <a class="dropdown-item inline" href="{{ route('dashboard') }}" {{request()->is('/') ? 'style=color:#031F53' : 'style=color:#031F53' }}><i></i>{{ __('perfil') }}</a>
+                                <a class="dropdown-item inline" href="{{ route('dashboard') }}" {{request()->is('/') ? 'style=color:#031F53' : 'style=color:#031F53' }}><i></i>{{ __('nuevo_proyecto') }}</a>
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
                                 <button class="dropdown-item cursor" href="" {{request()->is('/') ? 'style=cursor:pointer;;margin-left:4px;font-size:14px;color:#031F53' : 'style=cursor:pointer;margin-left:4px;font-size:14px;color:#031F53' }}><i></i>{{ __('cerrar_cesion_backend') }}</button>
