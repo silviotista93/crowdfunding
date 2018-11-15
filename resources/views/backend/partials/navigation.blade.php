@@ -1,75 +1,192 @@
 <div class="m-stack__item m-stack__item--fluid m-header-head" id="m_header_nav">
 
     <!-- BEGIN: Horizontal Menu -->
-    <button class="m-aside-header-menu-mobile-close  m-aside-header-menu-mobile-close--skin-dark " id="m_aside_header_menu_mobile_close_btn"><i class="la la-close"></i></button>
-    <div id="m_header_menu" class="m-header-menu m-aside-header-menu-mobile m-aside-header-menu-mobile--offcanvas  m-header-menu--skin-light m-header-menu--submenu-skin-light m-aside-header-menu-mobile--skin-dark m-aside-header-menu-mobile--submenu-skin-dark ">
+    <button class="m-aside-header-menu-mobile-close  m-aside-header-menu-mobile-close--skin-dark "
+            id="m_aside_header_menu_mobile_close_btn"><i class="la la-close"></i></button>
+    <div id="m_header_menu"
+         class="m-header-menu m-aside-header-menu-mobile m-aside-header-menu-mobile--offcanvas  m-header-menu--skin-light m-header-menu--submenu-skin-light m-aside-header-menu-mobile--skin-dark m-aside-header-menu-mobile--submenu-skin-dark ">
         <ul class="m-menu__nav  m-menu__nav--submenu-arrow ">
-            <li class="m-menu__item  m-menu__item--submenu m-menu__item--rel" m-menu-submenu-toggle="click" m-menu-link-redirect="1" aria-haspopup="true"><a href="javascript:;" class="m-menu__link m-menu__toggle" title="Non functional dummy link"><i
-                            class="m-menu__link-icon flaticon-add"></i><span class="m-menu__link-text">Actions</span><i class="m-menu__hor-arrow la la-angle-down"></i><i class="m-menu__ver-arrow la la-angle-right"></i></a>
-                <div class="m-menu__submenu m-menu__submenu--classic m-menu__submenu--left"><span class="m-menu__arrow m-menu__arrow--adjust"></span>
+            <li class="m-menu__item  m-menu__item--submenu m-menu__item--rel" m-menu-submenu-toggle="click"
+                m-menu-link-redirect="1" aria-haspopup="true"><a href="javascript:;" class="m-menu__link m-menu__toggle"
+                                                                 title="Non functional dummy link"><i
+                            class="m-menu__link-icon flaticon-add"></i><span class="m-menu__link-text">Actions</span><i
+                            class="m-menu__hor-arrow la la-angle-down"></i><i
+                            class="m-menu__ver-arrow la la-angle-right"></i></a>
+                <div class="m-menu__submenu m-menu__submenu--classic m-menu__submenu--left"><span
+                            class="m-menu__arrow m-menu__arrow--adjust"></span>
                     <ul class="m-menu__subnav">
-                        <li class="m-menu__item " aria-haspopup="true"><a href="header/actions.html" class="m-menu__link "><i class="m-menu__link-icon flaticon-file"></i><span class="m-menu__link-text">Create New Post</span></a></li>
-                        <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a href="header/actions.html" class="m-menu__link "><i class="m-menu__link-icon flaticon-diagram"></i><span class="m-menu__link-title"> <span class="m-menu__link-wrap">
-																<span class="m-menu__link-text">Generate Reports</span> <span class="m-menu__link-badge"><span class="m-badge m-badge--success">2</span></span> </span></span></a></li>
-                        <li class="m-menu__item  m-menu__item--submenu" m-menu-submenu-toggle="hover" m-menu-link-redirect="1" aria-haspopup="true"><a href="javascript:;" class="m-menu__link m-menu__toggle" title="Non functional dummy link"><i class="m-menu__link-icon flaticon-business"></i><span
-                                        class="m-menu__link-text">Manage Orders</span><i class="m-menu__hor-arrow la la-angle-right"></i><i class="m-menu__ver-arrow la la-angle-right"></i></a>
-                            <div class="m-menu__submenu m-menu__submenu--classic m-menu__submenu--right"><span class="m-menu__arrow "></span>
+                        <li class="m-menu__item " aria-haspopup="true"><a href="header/actions.html"
+                                                                          class="m-menu__link "><i
+                                        class="m-menu__link-icon flaticon-file"></i><span class="m-menu__link-text">Create New Post</span></a>
+                        </li>
+                        <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a
+                                    href="header/actions.html" class="m-menu__link "><i
+                                        class="m-menu__link-icon flaticon-diagram"></i><span class="m-menu__link-title"> <span
+                                            class="m-menu__link-wrap">
+																<span class="m-menu__link-text">Generate Reports</span> <span
+                                                class="m-menu__link-badge"><span
+                                                    class="m-badge m-badge--success">2</span></span> </span></span></a>
+                        </li>
+                        <li class="m-menu__item  m-menu__item--submenu" m-menu-submenu-toggle="hover"
+                            m-menu-link-redirect="1" aria-haspopup="true"><a href="javascript:;"
+                                                                             class="m-menu__link m-menu__toggle"
+                                                                             title="Non functional dummy link"><i
+                                        class="m-menu__link-icon flaticon-business"></i><span
+                                        class="m-menu__link-text">Manage Orders</span><i
+                                        class="m-menu__hor-arrow la la-angle-right"></i><i
+                                        class="m-menu__ver-arrow la la-angle-right"></i></a>
+                            <div class="m-menu__submenu m-menu__submenu--classic m-menu__submenu--right"><span
+                                        class="m-menu__arrow "></span>
                                 <ul class="m-menu__subnav">
-                                    <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a href="header/actions.html" class="m-menu__link "><span class="m-menu__link-text">Latest Orders</span></a></li>
-                                    <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a href="header/actions.html" class="m-menu__link "><span class="m-menu__link-text">Pending Orders</span></a></li>
-                                    <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a href="header/actions.html" class="m-menu__link "><span class="m-menu__link-text">Processed Orders</span></a></li>
-                                    <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a href="header/actions.html" class="m-menu__link "><span class="m-menu__link-text">Delivery Reports</span></a></li>
-                                    <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a href="header/actions.html" class="m-menu__link "><span class="m-menu__link-text">Payments</span></a></li>
-                                    <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a href="header/actions.html" class="m-menu__link "><span class="m-menu__link-text">Customers</span></a></li>
+                                    <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a
+                                                href="header/actions.html" class="m-menu__link "><span
+                                                    class="m-menu__link-text">Latest Orders</span></a></li>
+                                    <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a
+                                                href="header/actions.html" class="m-menu__link "><span
+                                                    class="m-menu__link-text">Pending Orders</span></a></li>
+                                    <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a
+                                                href="header/actions.html" class="m-menu__link "><span
+                                                    class="m-menu__link-text">Processed Orders</span></a></li>
+                                    <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a
+                                                href="header/actions.html" class="m-menu__link "><span
+                                                    class="m-menu__link-text">Delivery Reports</span></a></li>
+                                    <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a
+                                                href="header/actions.html" class="m-menu__link "><span
+                                                    class="m-menu__link-text">Payments</span></a></li>
+                                    <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a
+                                                href="header/actions.html" class="m-menu__link "><span
+                                                    class="m-menu__link-text">Customers</span></a></li>
                                 </ul>
                             </div>
                         </li>
-                        <li class="m-menu__item  m-menu__item--submenu" m-menu-submenu-toggle="hover" m-menu-link-redirect="1" aria-haspopup="true"><a href="#" class="m-menu__link m-menu__toggle"><i class="m-menu__link-icon flaticon-chat-1"></i><span class="m-menu__link-text">Customer
-															Feedbacks</span><i class="m-menu__hor-arrow la la-angle-right"></i><i class="m-menu__ver-arrow la la-angle-right"></i></a>
-                            <div class="m-menu__submenu m-menu__submenu--classic m-menu__submenu--right"><span class="m-menu__arrow "></span>
+                        <li class="m-menu__item  m-menu__item--submenu" m-menu-submenu-toggle="hover"
+                            m-menu-link-redirect="1" aria-haspopup="true"><a href="#"
+                                                                             class="m-menu__link m-menu__toggle"><i
+                                        class="m-menu__link-icon flaticon-chat-1"></i><span class="m-menu__link-text">Customer
+															Feedbacks</span><i
+                                        class="m-menu__hor-arrow la la-angle-right"></i><i
+                                        class="m-menu__ver-arrow la la-angle-right"></i></a>
+                            <div class="m-menu__submenu m-menu__submenu--classic m-menu__submenu--right"><span
+                                        class="m-menu__arrow "></span>
                                 <ul class="m-menu__subnav">
-                                    <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a href="header/actions.html" class="m-menu__link "><span class="m-menu__link-text">Customer Feedbacks</span></a></li>
-                                    <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a href="header/actions.html" class="m-menu__link "><span class="m-menu__link-text">Supplier Feedbacks</span></a></li>
-                                    <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a href="header/actions.html" class="m-menu__link "><span class="m-menu__link-text">Reviewed Feedbacks</span></a></li>
-                                    <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a href="header/actions.html" class="m-menu__link "><span class="m-menu__link-text">Resolved Feedbacks</span></a></li>
-                                    <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a href="header/actions.html" class="m-menu__link "><span class="m-menu__link-text">Feedback Reports</span></a></li>
+                                    <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a
+                                                href="header/actions.html" class="m-menu__link "><span
+                                                    class="m-menu__link-text">Customer Feedbacks</span></a></li>
+                                    <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a
+                                                href="header/actions.html" class="m-menu__link "><span
+                                                    class="m-menu__link-text">Supplier Feedbacks</span></a></li>
+                                    <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a
+                                                href="header/actions.html" class="m-menu__link "><span
+                                                    class="m-menu__link-text">Reviewed Feedbacks</span></a></li>
+                                    <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a
+                                                href="header/actions.html" class="m-menu__link "><span
+                                                    class="m-menu__link-text">Resolved Feedbacks</span></a></li>
+                                    <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a
+                                                href="header/actions.html" class="m-menu__link "><span
+                                                    class="m-menu__link-text">Feedback Reports</span></a></li>
                                 </ul>
                             </div>
                         </li>
-                        <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a href="header/actions.html" class="m-menu__link "><i class="m-menu__link-icon flaticon-users"></i><span class="m-menu__link-text">Register Member</span></a></li>
+                        <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a
+                                    href="header/actions.html" class="m-menu__link "><i
+                                        class="m-menu__link-icon flaticon-users"></i><span class="m-menu__link-text">Register Member</span></a>
+                        </li>
                     </ul>
                 </div>
             </li>
-            <li class="m-menu__item  m-menu__item--submenu m-menu__item--rel" m-menu-submenu-toggle="click" m-menu-link-redirect="1" aria-haspopup="true"><a href="javascript:;" class="m-menu__link m-menu__toggle" title="Non functional dummy link"><i
-                            class="m-menu__link-icon flaticon-paper-plane"></i><span class="m-menu__link-title"> <span class="m-menu__link-wrap"> <span class="m-menu__link-text">Apps</span> <span class="m-menu__link-badge"><span class="m-badge m-badge--brand m-badge--wide">new</span></span>
-												</span></span><i class="m-menu__hor-arrow la la-angle-down"></i><i class="m-menu__ver-arrow la la-angle-right"></i></a>
-                <div class="m-menu__submenu m-menu__submenu--classic m-menu__submenu--left"><span class="m-menu__arrow m-menu__arrow--adjust"></span>
+            <li class="m-menu__item  m-menu__item--submenu m-menu__item--rel" m-menu-submenu-toggle="click"
+                m-menu-link-redirect="1" aria-haspopup="true"><a href="javascript:;" class="m-menu__link m-menu__toggle"
+                                                                 title="Non functional dummy link"><i
+                            class="m-menu__link-icon flaticon-paper-plane"></i><span class="m-menu__link-title"> <span
+                                class="m-menu__link-wrap"> <span class="m-menu__link-text">Apps</span> <span
+                                    class="m-menu__link-badge"><span
+                                        class="m-badge m-badge--brand m-badge--wide">new</span></span>
+												</span></span><i
+                            class="m-menu__hor-arrow la la-angle-down"></i><i
+                            class="m-menu__ver-arrow la la-angle-right"></i></a>
+                <div class="m-menu__submenu m-menu__submenu--classic m-menu__submenu--left"><span
+                            class="m-menu__arrow m-menu__arrow--adjust"></span>
                     <ul class="m-menu__subnav">
-                        <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a href="header/actions.html" class="m-menu__link "><i class="m-menu__link-icon flaticon-business"></i><span class="m-menu__link-text">eCommerce</span></a></li>
-                        <li class="m-menu__item  m-menu__item--submenu" m-menu-submenu-toggle="hover" m-menu-link-redirect="1" aria-haspopup="true"><a href="crud/datatable_v1.html" class="m-menu__link m-menu__toggle"><i class="m-menu__link-icon flaticon-computer"></i><span
-                                        class="m-menu__link-text">Audience</span><i class="m-menu__hor-arrow la la-angle-right"></i><i class="m-menu__ver-arrow la la-angle-right"></i></a>
-                            <div class="m-menu__submenu m-menu__submenu--classic m-menu__submenu--right"><span class="m-menu__arrow "></span>
+                        <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a
+                                    href="header/actions.html" class="m-menu__link "><i
+                                        class="m-menu__link-icon flaticon-business"></i><span class="m-menu__link-text">eCommerce</span></a>
+                        </li>
+                        <li class="m-menu__item  m-menu__item--submenu" m-menu-submenu-toggle="hover"
+                            m-menu-link-redirect="1" aria-haspopup="true"><a href="crud/datatable_v1.html"
+                                                                             class="m-menu__link m-menu__toggle"><i
+                                        class="m-menu__link-icon flaticon-computer"></i><span
+                                        class="m-menu__link-text">Audience</span><i
+                                        class="m-menu__hor-arrow la la-angle-right"></i><i
+                                        class="m-menu__ver-arrow la la-angle-right"></i></a>
+                            <div class="m-menu__submenu m-menu__submenu--classic m-menu__submenu--right"><span
+                                        class="m-menu__arrow "></span>
                                 <ul class="m-menu__subnav">
-                                    <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a href="header/actions.html" class="m-menu__link "><i class="m-menu__link-icon flaticon-users"></i><span class="m-menu__link-text">Active Users</span></a></li>
-                                    <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a href="header/actions.html" class="m-menu__link "><i class="m-menu__link-icon flaticon-interface-1"></i><span class="m-menu__link-text">User Explorer</span></a></li>
-                                    <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a href="header/actions.html" class="m-menu__link "><i class="m-menu__link-icon flaticon-lifebuoy"></i><span class="m-menu__link-text">Users Flows</span></a></li>
-                                    <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a href="header/actions.html" class="m-menu__link "><i class="m-menu__link-icon flaticon-graphic-1"></i><span class="m-menu__link-text">Market Segments</span></a></li>
-                                    <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a href="header/actions.html" class="m-menu__link "><i class="m-menu__link-icon flaticon-graphic"></i><span class="m-menu__link-text">User Reports</span></a></li>
+                                    <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a
+                                                href="header/actions.html" class="m-menu__link "><i
+                                                    class="m-menu__link-icon flaticon-users"></i><span
+                                                    class="m-menu__link-text">Active Users</span></a></li>
+                                    <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a
+                                                href="header/actions.html" class="m-menu__link "><i
+                                                    class="m-menu__link-icon flaticon-interface-1"></i><span
+                                                    class="m-menu__link-text">User Explorer</span></a></li>
+                                    <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a
+                                                href="header/actions.html" class="m-menu__link "><i
+                                                    class="m-menu__link-icon flaticon-lifebuoy"></i><span
+                                                    class="m-menu__link-text">Users Flows</span></a></li>
+                                    <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a
+                                                href="header/actions.html" class="m-menu__link "><i
+                                                    class="m-menu__link-icon flaticon-graphic-1"></i><span
+                                                    class="m-menu__link-text">Market Segments</span></a></li>
+                                    <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a
+                                                href="header/actions.html" class="m-menu__link "><i
+                                                    class="m-menu__link-icon flaticon-graphic"></i><span
+                                                    class="m-menu__link-text">User Reports</span></a></li>
                                 </ul>
                             </div>
                         </li>
-                        <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a href="header/actions.html" class="m-menu__link "><i class="m-menu__link-icon flaticon-map"></i><span class="m-menu__link-text">Marketing</span></a></li>
-                        <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a href="header/actions.html" class="m-menu__link "><i class="m-menu__link-icon flaticon-graphic-2"></i><span class="m-menu__link-title"> <span class="m-menu__link-wrap">
-																<span class="m-menu__link-text">Campaigns</span> <span class="m-menu__link-badge"><span class="m-badge m-badge--success">3</span></span> </span></span></a></li>
-                        <li class="m-menu__item  m-menu__item--submenu" m-menu-submenu-toggle="hover" m-menu-link-redirect="1" aria-haspopup="true"><a href="javascript:;" class="m-menu__link m-menu__toggle" title="Non functional dummy link"><i class="m-menu__link-icon flaticon-infinity"></i><span
-                                        class="m-menu__link-text">Cloud Manager</span><i class="m-menu__hor-arrow la la-angle-right"></i><i class="m-menu__ver-arrow la la-angle-right"></i></a>
-                            <div class="m-menu__submenu m-menu__submenu--classic m-menu__submenu--left"><span class="m-menu__arrow "></span>
+                        <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a
+                                    href="header/actions.html" class="m-menu__link "><i
+                                        class="m-menu__link-icon flaticon-map"></i><span class="m-menu__link-text">Marketing</span></a>
+                        </li>
+                        <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a
+                                    href="header/actions.html" class="m-menu__link "><i
+                                        class="m-menu__link-icon flaticon-graphic-2"></i><span
+                                        class="m-menu__link-title"> <span class="m-menu__link-wrap">
+																<span class="m-menu__link-text">Campaigns</span> <span
+                                                class="m-menu__link-badge"><span
+                                                    class="m-badge m-badge--success">3</span></span> </span></span></a>
+                        </li>
+                        <li class="m-menu__item  m-menu__item--submenu" m-menu-submenu-toggle="hover"
+                            m-menu-link-redirect="1" aria-haspopup="true"><a href="javascript:;"
+                                                                             class="m-menu__link m-menu__toggle"
+                                                                             title="Non functional dummy link"><i
+                                        class="m-menu__link-icon flaticon-infinity"></i><span
+                                        class="m-menu__link-text">Cloud Manager</span><i
+                                        class="m-menu__hor-arrow la la-angle-right"></i><i
+                                        class="m-menu__ver-arrow la la-angle-right"></i></a>
+                            <div class="m-menu__submenu m-menu__submenu--classic m-menu__submenu--left"><span
+                                        class="m-menu__arrow "></span>
                                 <ul class="m-menu__subnav">
-                                    <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a href="header/actions.html" class="m-menu__link "><i class="m-menu__link-icon flaticon-add"></i><span class="m-menu__link-title"> <span class="m-menu__link-wrap">
-																			<span class="m-menu__link-text">File Upload</span> <span class="m-menu__link-badge"><span class="m-badge m-badge--danger">3</span></span> </span></span></a></li>
-                                    <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a href="header/actions.html" class="m-menu__link "><i class="m-menu__link-icon flaticon-signs-1"></i><span class="m-menu__link-text">File Attributes</span></a></li>
-                                    <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a href="header/actions.html" class="m-menu__link "><i class="m-menu__link-icon flaticon-folder"></i><span class="m-menu__link-text">Folders</span></a></li>
-                                    <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a href="header/actions.html" class="m-menu__link "><i class="m-menu__link-icon flaticon-cogwheel-2"></i><span class="m-menu__link-text">System Settings</span></a></li>
+                                    <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a
+                                                href="header/actions.html" class="m-menu__link "><i
+                                                    class="m-menu__link-icon flaticon-add"></i><span
+                                                    class="m-menu__link-title"> <span class="m-menu__link-wrap">
+																			<span class="m-menu__link-text">File Upload</span> <span
+                                                            class="m-menu__link-badge"><span
+                                                                class="m-badge m-badge--danger">3</span></span> </span></span></a>
+                                    </li>
+                                    <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a
+                                                href="header/actions.html" class="m-menu__link "><i
+                                                    class="m-menu__link-icon flaticon-signs-1"></i><span
+                                                    class="m-menu__link-text">File Attributes</span></a></li>
+                                    <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a
+                                                href="header/actions.html" class="m-menu__link "><i
+                                                    class="m-menu__link-icon flaticon-folder"></i><span
+                                                    class="m-menu__link-text">Folders</span></a></li>
+                                    <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a
+                                                href="header/actions.html" class="m-menu__link "><i
+                                                    class="m-menu__link-icon flaticon-cogwheel-2"></i><span
+                                                    class="m-menu__link-text">System Settings</span></a></li>
                                 </ul>
                             </div>
                         </li>
@@ -85,7 +202,8 @@
     <div id="m_header_topbar" class="m-topbar  m-stack m-stack--ver m-stack--general m-stack--fluid">
         <div class="m-stack__item m-topbar__nav-wrapper">
             <ul class="m-topbar__nav m-nav m-nav--inline">
-                <li class="m-nav__item m-dropdown m-dropdown--large m-dropdown--arrow m-dropdown--align-center m-dropdown--mobile-full-width m-dropdown--skin-light	m-list-search m-list-search--skin-light" m-dropdown-toggle="click" id="m_quicksearch"
+                <li class="m-nav__item m-dropdown m-dropdown--large m-dropdown--arrow m-dropdown--align-center m-dropdown--mobile-full-width m-dropdown--skin-light	m-list-search m-list-search--skin-light"
+                    m-dropdown-toggle="click" id="m_quicksearch"
                     m-quicksearch-mode="dropdown" m-dropdown-persistent="1">
                     <a href="#" class="m-nav__link m-dropdown__toggle">
                         <span class="m-nav__link-icon"><i class="flaticon-search-1"></i></span>
@@ -97,7 +215,12 @@
                                 <form class="m-list-search__form">
                                     <div class="m-list-search__form-wrapper">
 																<span class="m-list-search__form-input-wrapper">
-																	<input id="m_quicksearch_input" autocomplete="off" type="text" name="q" class="m-list-search__form-input" value="" placeholder="Search...">
+																	<input id="m_quicksearch_input"
+                                                                                            autocomplete="off"
+                                                                                            type="text" name="q"
+                                                                                            class="m-list-search__form-input"
+                                                                                            value=""
+                                                                                            placeholder="Search...">
 																</span>
                                         <span class="m-list-search__form-icon-close" id="m_quicksearch_close">
 																	<i class="la la-remove"></i>
@@ -106,7 +229,8 @@
                                 </form>
                             </div>
                             <div class="m-dropdown__body">
-                                <div class="m-dropdown__scrollable m-scrollable" data-scrollable="true" data-height="300" data-mobile-height="200">
+                                <div class="m-dropdown__scrollable m-scrollable" data-scrollable="true"
+                                     data-height="300" data-mobile-height="200">
                                     <div class="m-dropdown__content">
                                     </div>
                                 </div>
@@ -114,7 +238,8 @@
                         </div>
                     </div>
                 </li>
-                <li class="m-nav__item m-topbar__notifications m-topbar__notifications--img m-dropdown m-dropdown--large m-dropdown--header-bg-fill m-dropdown--arrow m-dropdown--align-center 	m-dropdown--mobile-full-width" m-dropdown-toggle="click"
+                <li class="m-nav__item m-topbar__notifications m-topbar__notifications--img m-dropdown m-dropdown--large m-dropdown--header-bg-fill m-dropdown--arrow m-dropdown--align-center 	m-dropdown--mobile-full-width"
+                    m-dropdown-toggle="click"
                     m-dropdown-persistent="1">
                     <a href="#" class="m-nav__link m-dropdown__toggle" id="m_topbar_notification_icon">
                         <span class="m-nav__link-badge m-badge m-badge--dot m-badge--dot-small m-badge--danger"></span>
@@ -123,7 +248,8 @@
                     <div class="m-dropdown__wrapper">
                         <span class="m-dropdown__arrow m-dropdown__arrow--center"></span>
                         <div class="m-dropdown__inner">
-                            <div class="m-dropdown__header m--align-center" style="background: url(/backend/assets/app/media/img/misc/notification_bg.jpg); background-size: cover;">
+                            <div class="m-dropdown__header m--align-center"
+                                 style="background: url(/backend/assets/app/media/img/misc/notification_bg.jpg); background-size: cover;">
                                 <span class="m-dropdown__header-title">9 New</span>
                                 <span class="m-dropdown__header-subtitle">User Notifications</span>
                             </div>
@@ -131,20 +257,25 @@
                                 <div class="m-dropdown__content">
                                     <ul class="nav nav-tabs m-tabs m-tabs-line m-tabs-line--brand" role="tablist">
                                         <li class="nav-item m-tabs__item">
-                                            <a class="nav-link m-tabs__link active" data-toggle="tab" href="#topbar_notifications_notifications" role="tab">
+                                            <a class="nav-link m-tabs__link active" data-toggle="tab"
+                                               href="#topbar_notifications_notifications" role="tab">
                                                 Alerts
                                             </a>
                                         </li>
                                         <li class="nav-item m-tabs__item">
-                                            <a class="nav-link m-tabs__link" data-toggle="tab" href="#topbar_notifications_events" role="tab">Events</a>
+                                            <a class="nav-link m-tabs__link" data-toggle="tab"
+                                               href="#topbar_notifications_events" role="tab">Events</a>
                                         </li>
                                         <li class="nav-item m-tabs__item">
-                                            <a class="nav-link m-tabs__link" data-toggle="tab" href="#topbar_notifications_logs" role="tab">Logs</a>
+                                            <a class="nav-link m-tabs__link" data-toggle="tab"
+                                               href="#topbar_notifications_logs" role="tab">Logs</a>
                                         </li>
                                     </ul>
                                     <div class="tab-content">
-                                        <div class="tab-pane active" id="topbar_notifications_notifications" role="tabpanel">
-                                            <div class="m-scrollable" data-scrollable="true" data-height="250" data-mobile-height="200">
+                                        <div class="tab-pane active" id="topbar_notifications_notifications"
+                                             role="tabpanel">
+                                            <div class="m-scrollable" data-scrollable="true" data-height="250"
+                                                 data-mobile-height="200">
                                                 <div class="m-list-timeline m-list-timeline--skin-light">
                                                     <div class="m-list-timeline__items">
                                                         <div class="m-list-timeline__item">
@@ -154,7 +285,8 @@
                                                         </div>
                                                         <div class="m-list-timeline__item">
                                                             <span class="m-list-timeline__badge"></span>
-                                                            <span class="m-list-timeline__text">System shutdown <span class="m-badge m-badge--success m-badge--wide">pending</span></span>
+                                                            <span class="m-list-timeline__text">System shutdown <span
+                                                                        class="m-badge m-badge--success m-badge--wide">pending</span></span>
                                                             <span class="m-list-timeline__time">14 mins</span>
                                                         </div>
                                                         <div class="m-list-timeline__item">
@@ -164,17 +296,20 @@
                                                         </div>
                                                         <div class="m-list-timeline__item">
                                                             <span class="m-list-timeline__badge"></span>
-                                                            <span class="m-list-timeline__text">DB overloaded 80% <span class="m-badge m-badge--info m-badge--wide">settled</span></span>
+                                                            <span class="m-list-timeline__text">DB overloaded 80% <span
+                                                                        class="m-badge m-badge--info m-badge--wide">settled</span></span>
                                                             <span class="m-list-timeline__time">1 hr</span>
                                                         </div>
                                                         <div class="m-list-timeline__item">
                                                             <span class="m-list-timeline__badge"></span>
-                                                            <span class="m-list-timeline__text">System error - <a href="#" class="m-link">Check</a></span>
+                                                            <span class="m-list-timeline__text">System error - <a
+                                                                        href="#" class="m-link">Check</a></span>
                                                             <span class="m-list-timeline__time">2 hrs</span>
                                                         </div>
                                                         <div class="m-list-timeline__item m-list-timeline__item--read">
                                                             <span class="m-list-timeline__badge"></span>
-                                                            <span href="" class="m-list-timeline__text">New order received <span class="m-badge m-badge--danger m-badge--wide">urgent</span></span>
+                                                            <span href="" class="m-list-timeline__text">New order received <span
+                                                                        class="m-badge m-badge--danger m-badge--wide">urgent</span></span>
                                                             <span class="m-list-timeline__time">7 hrs</span>
                                                         </div>
                                                         <div class="m-list-timeline__item m-list-timeline__item--read">
@@ -192,27 +327,32 @@
                                             </div>
                                         </div>
                                         <div class="tab-pane" id="topbar_notifications_events" role="tabpanel">
-                                            <div class="m-scrollable" data-scrollable="true" data-height="250" data-mobile-height="200">
+                                            <div class="m-scrollable" data-scrollable="true" data-height="250"
+                                                 data-mobile-height="200">
                                                 <div class="m-list-timeline m-list-timeline--skin-light">
                                                     <div class="m-list-timeline__items">
                                                         <div class="m-list-timeline__item">
                                                             <span class="m-list-timeline__badge m-list-timeline__badge--state1-success"></span>
-                                                            <a href="" class="m-list-timeline__text">New order received</a>
+                                                            <a href="" class="m-list-timeline__text">New order
+                                                                received</a>
                                                             <span class="m-list-timeline__time">Just now</span>
                                                         </div>
                                                         <div class="m-list-timeline__item">
                                                             <span class="m-list-timeline__badge m-list-timeline__badge--state1-danger"></span>
-                                                            <a href="" class="m-list-timeline__text">New invoice received</a>
+                                                            <a href="" class="m-list-timeline__text">New invoice
+                                                                received</a>
                                                             <span class="m-list-timeline__time">20 mins</span>
                                                         </div>
                                                         <div class="m-list-timeline__item">
                                                             <span class="m-list-timeline__badge m-list-timeline__badge--state1-success"></span>
-                                                            <a href="" class="m-list-timeline__text">Production server up</a>
+                                                            <a href="" class="m-list-timeline__text">Production server
+                                                                up</a>
                                                             <span class="m-list-timeline__time">5 hrs</span>
                                                         </div>
                                                         <div class="m-list-timeline__item">
                                                             <span class="m-list-timeline__badge m-list-timeline__badge--state1-info"></span>
-                                                            <a href="" class="m-list-timeline__text">New order received</a>
+                                                            <a href="" class="m-list-timeline__text">New order
+                                                                received</a>
                                                             <span class="m-list-timeline__time">7 hrs</span>
                                                         </div>
                                                         <div class="m-list-timeline__item">
@@ -222,7 +362,8 @@
                                                         </div>
                                                         <div class="m-list-timeline__item">
                                                             <span class="m-list-timeline__badge m-list-timeline__badge--state1-info"></span>
-                                                            <a href="" class="m-list-timeline__text">Production server down</a>
+                                                            <a href="" class="m-list-timeline__text">Production server
+                                                                down</a>
                                                             <span class="m-list-timeline__time">3 hrs</span>
                                                         </div>
                                                     </div>
@@ -230,7 +371,8 @@
                                             </div>
                                         </div>
                                         <div class="tab-pane" id="topbar_notifications_logs" role="tabpanel">
-                                            <div class="m-stack m-stack--ver m-stack--general" style="min-height: 180px;">
+                                            <div class="m-stack m-stack--ver m-stack--general"
+                                                 style="min-height: 180px;">
                                                 <div class="m-stack__item m-stack__item--center m-stack__item--middle">
                                                     <span class="">All caught up!<br>No new logs.</span>
                                                 </div>
@@ -251,7 +393,8 @@
                     <div class="m-dropdown__wrapper">
                         <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
                         <div class="m-dropdown__inner">
-                            <div class="m-dropdown__header m--align-center" style="background: url(/backend/assets/app/media/img/misc/quick_actions_bg.jpg); background-size: cover;">
+                            <div class="m-dropdown__header m--align-center"
+                                 style="background: url(/backend/assets/app/media/img/misc/quick_actions_bg.jpg); background-size: cover;">
                                 <span class="m-dropdown__header-title">Quick Actions</span>
                                 <span class="m-dropdown__header-subtitle">Shortcuts</span>
                             </div>
@@ -286,30 +429,36 @@
                         </div>
                     </div>
                 </li>
-                <li class="m-nav__item m-topbar__languages m-dropdown m-dropdown--small m-dropdown--header-bg-fill m-dropdown--arrow m-dropdown--align-right m-dropdown--mobile-full-width" m-dropdown-toggle="click">
+                <li class="m-nav__item m-topbar__languages m-dropdown m-dropdown--small m-dropdown--header-bg-fill m-dropdown--arrow m-dropdown--align-right m-dropdown--mobile-full-width"
+                    m-dropdown-toggle="click">
                     <a href="#" class="m-nav__link m-dropdown__toggle">
 												<span class="m-nav__link-text">
-													<img class="m-topbar__language-selected-img" src="{{Config::get('app.locale') == 'en' ? '/backend/assets/app/media/img/flags/020-flag.svg' : '/backend/assets/app/media/img/flags/016-spain.svg'}}">
+													<img class="m-topbar__language-selected-img"
+                                                                      src="{{Config::get('app.locale') == 'en' ? '/backend/assets/app/media/img/flags/020-flag.svg' : '/backend/assets/app/media/img/flags/016-spain.svg'}}">
 												</span>
                     </a>
                     <div class="m-dropdown__wrapper">
                         <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
                         <div class="m-dropdown__inner">
-                            <div class="m-dropdown__header m--align-center" style="background: url(/backend/assets/app/media/img/misc/quick_actions_bg.jpg); background-size: cover;">
+                            <div class="m-dropdown__header m--align-center"
+                                 style="background: url(/backend/assets/app/media/img/misc/quick_actions_bg.jpg); background-size: cover;">
                                 <span class="m-dropdown__header-subtitle">{{ __('seleccione_lenguaje') }}</span>
                             </div>
                             <div class="m-dropdown__body">
                                 <div class="m-dropdown__content">
                                     <ul class="m-nav m-nav--skin-light">
                                         <li class="m-nav__item m-nav__item--active">
-                                            <a href="{{ route('set_language', ['en']) }}" class="m-nav__link m-nav__link--active">
-                                                <span class="m-nav__link-icon"><img class="m-topbar__language-img" src="/backend/assets/app/media/img/flags/020-flag.svg"></span>
+                                            <a href="{{ route('set_language', ['en']) }}"
+                                               class="m-nav__link m-nav__link--active">
+                                                <span class="m-nav__link-icon"><img class="m-topbar__language-img"
+                                                                                    src="/backend/assets/app/media/img/flags/020-flag.svg"></span>
                                                 <span class="m-nav__link-title m-topbar__language-text m-nav__link-text">USA</span>
                                             </a>
                                         </li>
                                         <li class="m-nav__item">
                                             <a href="{{ route('set_language', ['es']) }}" class="m-nav__link">
-                                                <span class="m-nav__link-icon"><img class="m-topbar__language-img" src="/backend/assets/app/media/img/flags/016-spain.svg"></span>
+                                                <span class="m-nav__link-icon"><img class="m-topbar__language-img"
+                                                                                    src="/backend/assets/app/media/img/flags/016-spain.svg"></span>
                                                 <span class="m-nav__link-title m-topbar__language-text m-nav__link-text">Spain</span>
                                             </a>
                                         </li>
@@ -323,25 +472,41 @@
                     m-dropdown-toggle="click">
                     <a href="#" class="m-nav__link m-dropdown__toggle">
 												<span class="m-topbar__userpic">
-													<img src="{{ auth()->user()->picture }}" class="m--img-rounded m--marginless" alt="" />
+
+                                                                @if(Storage::disk('public')->exists('users/'.auth()->user()->picture))
+                                                                    <img src="{{ auth()->user()->pathAttachment() }}"
+                                                                         class="m--img-rounded m--marginless" alt=""/>
+                                                                @else
+                                                                    <img src="{{ auth()->user()->picture}}" class="m--img-rounded m--marginless"
+                                                                         alt=""/>
+
+                                                                @endif
+
+
 												</span>
                         <span class="m-topbar__username m--hide">Nick</span>
                     </a>
                     <div class="m-dropdown__wrapper">
                         <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
                         <div class="m-dropdown__inner">
-                            <div class="m-dropdown__header m--align-center" style="background: url(/backend/assets/app/media/img/misc/user_profile_bg.jpg); background-size: cover;">
+                            <div class="m-dropdown__header m--align-center"
+                                 style="background: url(/backend/assets/app/media/img/misc/user_profile_bg.jpg); background-size: cover;">
                                 <div class="m-card-user m-card-user--skin-dark">
                                     <div class="m-card-user__pic">
-                                        <img src="{{ auth()->user()->picture }}" class="m--img-rounded m--marginless" alt="" />
 
-                                        <!--
-              <span class="m-type m-type--lg m--bg-danger"><span class="m--font-light">S<span><span>
-              -->
+                                        @if(Storage::disk('public')->exists('users/'.auth()->user()->picture))
+                                            <img src="{{ auth()->user()->pathAttachment()}}"
+                                                 class="m--img-rounded m--marginless" alt=""/>
+                                        @else
+                                            <img src="{{ auth()->user()->picture}}" class="m--img-rounded m--marginless"
+                                                 alt=""/>
+
+                                        @endif
                                     </div>
                                     <div class="m-card-user__details">
                                         <span class="m-card-user__name m--font-weight-500">{{ auth()->user()->name }}</span>
-                                        <a href="" class="m-card-user__email m--font-weight-300 m-link">{{ auth()->user()->email }}</a>
+                                        <a href=""
+                                           class="m-card-user__email m--font-weight-300 m-link">{{ auth()->user()->email }}</a>
                                     </div>
                                 </div>
                             </div>
@@ -357,7 +522,8 @@
                                                 <span class="m-nav__link-title">
 																			<span class="m-nav__link-wrap">
 																				<span class="m-nav__link-text">My Profile</span>
-																				<span class="m-nav__link-badge"><span class="m-badge m-badge--success">2</span></span>
+																				<span class="m-nav__link-badge"><span
+                                                                                                                class="m-badge m-badge--success">2</span></span>
 																			</span>
 																		</span>
                                             </a>
@@ -393,7 +559,8 @@
                                         <li class="m-nav__item">
                                             <form method="POST" action="{{ route('logout') }}">
                                                 @csrf
-                                            <button type="submit" class="btn m-btn--pill btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">{{ __('cerrar_cesion_backend') }}</button>
+                                                <button type="submit"
+                                                        class="btn m-btn--pill btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">{{ __('cerrar_cesion_backend') }}</button>
                                             </form>
                                         </li>
                                     </ul>

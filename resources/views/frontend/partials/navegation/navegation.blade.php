@@ -70,12 +70,18 @@
                         <li class="nav-item dropdown">
                             <a href="" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="padding: 0px">
-                                <img class="rounded-circle" src="{{ auth()->user()->picture }}" width="44" alt="">
+                                @if(Storage::disk('public')->exists('users/'.auth()->user()->picture))
+                                    <img class="rounded-circle" src="{{ auth()->user()->pathAttachment()}}" width="44" alt="">
+                                @else
+                                    <img class="rounded-circle" src="{{ auth()->user()->picture}}" width="44" alt="">
+
+                                @endif
+
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"
                                  style="margin-left: -100px !important;">
 
-                                <a class="dropdown-item inline" href="{{ route('dashboard') }}" {{request()->is('/') ? 'style=color:#031F53' : 'style=color:#031F53' }}><i></i>{{ __('perfil') }}</a>
+                                <a class="dropdown-item inline" href="{{ route('profile.artist') }}" {{request()->is('/') ? 'style=color:#031F53' : 'style=color:#031F53' }}><i></i>{{ __('perfil') }}</a>
                                 <a class="dropdown-item inline" href="{{ route('dashboard') }}" {{request()->is('/') ? 'style=color:#031F53' : 'style=color:#031F53' }}><i></i>{{ __('nuevo_proyecto') }}</a>
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf

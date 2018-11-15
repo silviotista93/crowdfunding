@@ -156,7 +156,7 @@ return [
         /*
          * Package Service Providers...
          */
-
+        UxWeb\SweetAlert\SweetAlertServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -219,6 +219,7 @@ return [
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Date' => Jenssegers\Date\Date::class,
+        'Alert' => UxWeb\SweetAlert\SweetAlert::class,
 
     ],
 

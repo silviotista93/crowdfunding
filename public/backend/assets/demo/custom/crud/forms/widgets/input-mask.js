@@ -17,7 +17,11 @@ var Inputmask = function () {
         // phone number format
         $("#m_inputmask_3").inputmask("mask", {
             "mask": "(999) 999-9999"
-        }); 
+        });
+
+        $("#m_inputmask_opcional").inputmask("mask", {
+            "mask": "(999) 999-9999"
+        });
 
         // empty placeholder
         $("#m_inputmask_4").inputmask({

@@ -768,6 +768,13 @@ License: You must have a valid license purchased only from themeforest(the above
 
 <!--begin::Global Theme Bundle -->
 <script src="/backend/assets/demo/base/scripts.bundle.js" type="text/javascript"></script>
+<script src="/backend/assets/demo/custom/crud/forms/widgets/select2.js" type="text/javascript"></script>
+<script src="/backend/assets/demo/custom/crud/forms/widgets/bootstrap-select.js" type="text/javascript"></script>
+<script src="/backend/assets/demo/custom/crud/forms/widgets/input-mask.js" type="text/javascript"></script>
+<script src="/backend/assets/demo/custom/components/base/sweetalert2.js" type="text/javascript"></script>
+
+
+
 
 <!--end::Global Theme Bundle -->
 
@@ -780,6 +787,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <script src="/backend/assets/app/js/dashboard.js" type="text/javascript"></script>
 
 <!--end::Page Scripts -->
+@include('sweet::alert')
 </body>
 
 <!-- end::Body -->

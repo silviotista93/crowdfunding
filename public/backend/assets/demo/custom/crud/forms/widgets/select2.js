@@ -6,6 +6,14 @@ var Select2 = function() {
         $('#m_select2_1, #m_select2_1_validate').select2({
             placeholder: "Select a state"
         });
+gn
+        $('#select_2_gnre').select2({
+            placeholder: "Select a state"
+        });
+
+        $('#select_2_country').select2({
+            placeholder: "Select a state"
+        });
 
         // nested
         $('#m_select2_2, #m_select2_2_validate').select2({

@@ -24,8 +24,8 @@ Route::get('/projects',function (){
        ->latest()
        ->get();
 });
-Route::get('/artists',function (){
-    return \App\Artist::with(['projects','levels','countries'])->get();
+Route::get('/artists/{id}',function ($id){
+    return \App\Artist::where('id',$id)->with(['projects','levels','countries'])->get();
 });
 Route::get('/managaments',function (){
    return \App\Management::with(['projects','categories'])->get();
@@ -60,6 +60,13 @@ BACKEND
 Route::group(['namespace'=>'Backend','prefix' => 'dashboard','middleware' => 'auth'],function (){
     //Rutas para el modulo Dashboard
     Route::get('/','DashboardController@index')->name('dashboard');
+
+    //RUTAS PARA EL PERFIL
+    //Perfil Artista
+    Route::get('/profile','ProfileController@index_artist')->name('profile.artist');
+    Route::put('/update-profile-artist/{id_artis}','ProfileController@profile_update_artist')->name('update.profile.artist');
+    //Perfil Artista
+    Route::get('/my-projects','MyProjectsController@index_artist')->name('myprojects.artist');
 });
 
 /*=============================================
