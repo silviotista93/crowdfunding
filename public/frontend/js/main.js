@@ -1059,8 +1059,8 @@ $(window).on('scroll', function() {
 			pos = footer_content.position(),
 			windowpos = $(window).scrollTop();
 
-			console.log(windowpos);
-			console.log(pos);
+			//console.log(windowpos);
+			//console.log(pos);
 
 		if (windowpos == pos.top && windowpos <= xs_all_wrap_content.height()) {
 			footer_content.removeClass('xs_footer_sticky');	

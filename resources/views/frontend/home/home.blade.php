@@ -674,5 +674,6 @@
 
 @push('js')
     <script src="/js/libs/moment-with-locales.min.js"></script>
+    <script src="/frontend/js/card_project.js"></script>
     <script src="/frontend/js/projects_home.js"></script>
 @endpush

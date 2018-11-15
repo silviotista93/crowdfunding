@@ -13,6 +13,7 @@ class CategoriesController extends Controller
     public function show(Category $category){
         $projects = $projects = Project::select(DB::raw('projects.*, SUM(donations.amount) as total'))->withCount(['artists'])
             ->with('category')
+            ->with('artists.users')
             ->join('donations', 'projects.id', '=', 'donations.project_id')
             ->where('status',Project::PUBLISHED)
             ->where('category_id', $category->id)

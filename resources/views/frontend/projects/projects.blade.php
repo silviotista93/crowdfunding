@@ -41,6 +41,7 @@
                                         $project->img = $project->pathAttachment();
                                         $project->nameLimit = str_limit($project->title, 35);
                                         $project->url = route('projects.show',$project->slug);
+                                        $project->fotoUsuario = $project->artists[0]->users->pathAttachment();
                                         $pro->data[] = $project;
                                     }
                                 @endphp
@@ -72,6 +73,6 @@
         }
     </script>
     <script src="/js/libs/moment-with-locales.min.js"></script>
-    <script src="/frontend/js/projects_home.js"></script>
+    <script src="/frontend/js/card_project.js"></script>
     <script src="/frontend/js/projects.js"></script>
 @endpush

@@ -18,6 +18,7 @@ class ProjectsController extends Controller
     public function index(){
         $projects = Project::select(DB::raw('projects.*, SUM(donations.amount) as total'))->withCount(['artists'])
             ->with('category','artists')
+            ->with('artists.users')
             ->join('donations', 'projects.id', '=', 'donations.project_id')
             ->where('status',Project::PUBLISHED)
             ->groupBy('projects.id')
@@ -49,11 +50,26 @@ class ProjectsController extends Controller
 
 
     public function getByCategory(Request $request){
+        $projects = Project::select(DB::raw('projects.*, SUM(donations.amount) as total'))->withCount(['artists'])
+        ->with('category','artists')
+        ->with('artists.users')
+        ->join('donations', 'projects.id', '=', 'donations.project_id')
+        ->where('status',Project::PUBLISHED)
+        ->where('category_id', intval($request->input('id')))
+        ->groupBy('projects.id')
+        ->latest()
+        ->limit(6)->get();
 
-        return Project::
-        select(DB::raw('projects.*, SUM(donations.amount) as total'))->join('donations', 'projects.id', '=', 'donations.project_id')
-            ->where('status', Project::PUBLISHED)->where('category_id', intval($request->input('id')))
-            ->groupBy('projects.id')
-            ->limit(6)->get();
+        $pro = new \stdClass();
+        $pro = [];
+        foreach ($projects as $project){
+            $project->img = $project->pathAttachment();
+            $project->nameLimit = str_limit($project->title, 35);
+            $project->url = route('projects.show',$project->slug);
+            $project->fotoUsuario = $project->artists[0]->users->pathAttachment();
+            $pro[] = $project;
+        }
+
+        return json_encode($pro);
     }
 }

@@ -6,6 +6,7 @@ $("#categoryProjects").on('click', 'li', function(e){
     let cantidad = container.attr("data-cantidad");
     let content = '<div class="row">';
     $.get('/projects-for-category', {id: id}, function (r){
+        //console.log(r);
         if (r.length < 1){
             content += "<div class='text-center' style='width:100%;'><p>No hay proyectos</p></div>";
         }
@@ -15,17 +16,17 @@ $("#categoryProjects").on('click', 'li', function(e){
                 if (key==3){
                     content += '</div><div class="row">';
                 }
-                console.log(project);
-                content += createCard(project, category);
+                //console.log(project);
+                content += '<div class="col-lg-4">'+createCard(project)+'</div>';
             });
             content += "</div>";
             container.html(content);
             
             startCard();
         }
-    });
+    }, 'JSON');
 });
-
+/*
 function createCard(project, category){
     let porcetaje = (project.total*100)/project.price;
     if (porcetaje < 1){
@@ -40,50 +41,6 @@ function createCard(project, category){
     .replace(/__days__/g, moment(project.end_time).fromNow(true));
 }
 
-function startCard(){
-    let number_percentage = $(".number-percentage:not(.setLoad)");
-    number_percentage.each(function() {
-        let value = $(this).attr("data-value");
-        let duration = $(this).attr("data-animation-duration");
-        if (parseInt(value)< 1) {
-            return;
-        }
-        fnAnima($(this), $(this).attr("data-value"), true, parseInt(duration, 10));
-        $(this).closest('.xs-skill-bar').find('.xs-skill-track').animate({
-            width: value + '%'
-            }, 4500);
-        $(this).addClass("setLoad");
-    });
-}
-
-function fnAnima (element, stop, commas, duration, ease) {
-    return element.each(function() {
-        let start = parseInt(element.text().replace(/,/g, ""), 10);
-        commas = (commas === undefined) ? true : commas;
-        $({
-            value: start
-        }).animate({
-            value: stop
-        }, {
-            duration: duration == undefined ? 500 : duration,
-            easing: ease == undefined ? "swing" : ease,
-            step: function() {
-                element.text(Math.floor(this.value));
-                if (commas) {
-                    element.text(element.text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-                }
-            },
-            complete: function() {
-                if (parseInt(element.text(), 10) !== stop) {
-                    element.text(stop);
-                    if (commas) {
-                        element.text(element.text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-                    }
-                }
-            }
-        });
-    });
-}
 
 const show = `
 <div class="col-lg-4">
@@ -113,7 +70,5 @@ const show = `
     </div>
 </div>
 `;
-
-
-
+*/
 $("#categoryProjects li a")[0].click();
