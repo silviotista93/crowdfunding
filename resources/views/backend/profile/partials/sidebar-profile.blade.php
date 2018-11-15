@@ -17,8 +17,10 @@
                 <span class="m-card-profile__name">{{ auth()->user()->name }}</span>
                 <a href="" class="m-card-profile__email m-link">{{ auth()->user()->email }}</a>
             </div>
+            @if($artist->countries->flag !== null)
             <div class="text-center" style="margin-top: 5px"><img src="{{ $artist->countries->flag }}"
                                                                   width="21" alt="" style="margin-top: -3px"></div>
+            @endif
 
         </div>
         <ul class="m-nav m-nav--hover-bg m-portlet-fit--sides">
