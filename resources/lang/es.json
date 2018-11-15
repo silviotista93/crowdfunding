@@ -79,9 +79,11 @@
   "revision":"En revisión",
   "pre_aprobado":"Pre aprobado",
   "aprobado":"Aprobado",
-  "publicado":"Publicado",
+  "aprobados_publicados":"Aprob Publicado",
   "rechazado":"Rechazado",
+  "rechazados":"Rechazados",
   "publicados":"Publicados",
+  "ver_online":"Ver online",
   "no_hay_proyectos":"Todavía no tienes ningún proyecto.",
   "cancelar":"Cancelar",
   "bienvenido":"Bienvenido"

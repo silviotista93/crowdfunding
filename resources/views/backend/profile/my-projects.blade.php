@@ -64,7 +64,13 @@
                                 <li class="nav-item m-tabs__item">
                                     <a class="nav-link m-tabs__link" data-toggle="tab" href="#m_widget5_tab3_content"
                                        role="tab">
-                                        {{ __('publicados') }}
+                                        {{ __('aprobados_publicados') }}
+                                    </a>
+                                </li>
+                                <li class="nav-item m-tabs__item">
+                                    <a class="nav-link m-tabs__link" data-toggle="tab" href="#m_widget5_tab4_content"
+                                       role="tab">
+                                        {{ __('rechazados') }}
                                     </a>
                                 </li>
                             </ul>
@@ -112,6 +118,169 @@
                                                         <span class="m-widget5__author">{{ $projects->short_description }}</span>
                                                     </div>
                                                 </div>
+                                                <div class="m-widget5__stats1">
+                                                    <a href="#" class="btn btn-secondary m-btn m-btn--icon m-btn--pill">
+                                                    <span><i class="la la-info-circle"></i>
+                                                    <span>{{ __('mas_informacion') }}</span></span>
+                                                    </a>
+                                                    @if($projects->status == 4)
+                                                        <a href="#"
+                                                           class="btn btn-secondary m-btn m-btn--icon m-btn--pill">
+                                                    <span><i class="la la-eye"></i>
+                                                    <span>{{ __('ver_online') }}</span></span>
+                                                        </a>
+                                                    @endif
+                                                </div>
+
+                                            </div>
+
+                                            <div class="m-widget5__content">
+
+                                                <div class="m-widget5__stats1">
+                                                    <span class="m-widget5__number">${{ $projects->price }}</span><br>
+                                                    <span class="m-widget5__sales">{{ __('meta') }}</span>
+                                                </div>
+                                                <div class="m-widget5__stats2">
+                                                    <span class="m-widget5__number">$0</span><br>
+                                                    <span class="m-widget5__votes">{{ __('fondos_recaudados') }}</span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    @empty
+                                        <h4 class="text-center">{{ __('no_hay_proyectos') }}</h4>
+                                    @endforelse
+                                </div>
+
+                                <!--end::m-widget5-->
+                            </div>
+                            <!--=====================================
+                           PROYECTOS  PENDIENTES
+                           ======================================-->
+                            <div class="tab-pane" id="m_widget5_tab2_content" aria-expanded="false">
+
+                                <!--begin::m-widget5-->
+                                <div class="m-widget5">
+                                    @forelse($projects_revision->projects as $projects)
+                                        @if($projects->status == 1)
+                                            <span class="m-badge m-badge--metal m-badge--wide pull-right">{{ __('revision') }}</span>
+                                        @elseif($projects->status == 2)
+                                            <span class="m-badge m-badge--focus m-badge--wide pull-right">{{ __('pre_aprobado') }}</span>
+                                        @elseif($projects->status == 3)
+                                            <span class="m-badge m-badge--success m-badge--wide pull-right">{{ __('aprobado') }}</span>
+                                        @elseif($projects->status == 4)
+                                            <span class="m-badge m-badge--info m-badge--wide pull-right">{{ __('publicado') }}</span>
+                                        @else
+                                            <span class="m-badge m-badge--danger m-badge--wide pull-right">{{ __('rechazado') }}</span>
+                                        @endif
+                                        <div class="m-widget5__item">
+                                            <div class="m-widget5__content">
+                                                <div class="m-widget5__pic">
+                                                    <img class="m-widget7__img" src="{{ $projects->pathAttachment() }}"
+                                                         alt="">
+                                                </div>
+                                                <div class="m-widget5__section">
+                                                    <h4 class="m-widget5__title">
+                                                        {{ str_limit($projects->title,40) }}
+                                                    </h4>
+                                                    <span class="m-widget5__desc m--font-success"
+                                                          style="font-size: 14px">
+                                                    {{ $projects->category->category }}
+                                                </span>
+                                                    <div class="m-widget5__info">
+                                                        <span class="m-widget5__author">{{ $projects->short_description }}</span>
+                                                    </div>
+                                                </div>
+                                                <div class="m-widget5__stats1">
+                                                    <a href="#" class="btn btn-secondary m-btn m-btn--icon m-btn--pill">
+                                                    <span><i class="la la-info-circle"></i>
+                                                    <span>{{ __('mas_informacion') }}</span></span>
+                                                    </a>
+                                                    @if($projects->status == 4)
+                                                        <a href="#"
+                                                           class="btn btn-secondary m-btn m-btn--icon m-btn--pill">
+                                                    <span><i class="la la-eye"></i>
+                                                    <span>{{ __('ver_online') }}</span></span>
+                                                        </a>
+                                                    @endif
+                                                </div>
+
+                                            </div>
+
+                                            <div class="m-widget5__content">
+
+                                                <div class="m-widget5__stats1">
+                                                    <span class="m-widget5__number">${{ $projects->price }}</span><br>
+                                                    <span class="m-widget5__sales">{{ __('meta') }}</span>
+                                                </div>
+                                                <div class="m-widget5__stats2">
+                                                    <span class="m-widget5__number">$0</span><br>
+                                                    <span class="m-widget5__votes">{{ __('fondos_recaudados') }}</span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    @empty
+                                        <div class="alert m-alert--default text-center">
+                                            <strong>{{ __('no_hay_proyectos') }}</strong>
+                                        </div>
+                                    @endforelse
+                                </div>
+
+                                <!--end::m-widget5-->
+                            </div>
+                            <!--=====================================
+                           PROYECTOS APROVADOS Y PUBLICADOS
+                           ======================================-->
+                            <div class="tab-pane" id="m_widget5_tab3_content" aria-expanded="false">
+
+                                <!--begin::m-widget5-->
+                                <div class="m-widget5">
+                                    @forelse($projects_approv_published->projects as $projects)
+                                        @if($projects->status == 1)
+                                            <span class="m-badge m-badge--metal m-badge--wide pull-right">{{ __('revision') }}</span>
+                                        @elseif($projects->status == 2)
+                                            <span class="m-badge m-badge--focus m-badge--wide pull-right">{{ __('pre_aprobado') }}</span>
+                                        @elseif($projects->status == 3)
+                                            <span class="m-badge m-badge--success m-badge--wide pull-right">{{ __('aprobado') }}</span>
+                                        @elseif($projects->status == 4)
+                                            <span class="m-badge m-badge--info m-badge--wide pull-right">{{ __('publicado') }}</span>
+                                        @else
+                                            <span class="m-badge m-badge--danger m-badge--wide pull-right">{{ __('rechazado') }}</span>
+                                        @endif
+                                        <div class="m-widget5__item">
+                                            <div class="m-widget5__content">
+                                                <div class="m-widget5__pic">
+                                                    <img class="m-widget7__img" src="{{ $projects->pathAttachment() }}"
+                                                         alt="">
+                                                </div>
+                                                <div class="m-widget5__section">
+                                                    <h4 class="m-widget5__title">
+                                                        {{ str_limit($projects->title,40) }}
+                                                    </h4>
+                                                    <span class="m-widget5__desc m--font-success"
+                                                          style="font-size: 14px">
+                                                    {{ $projects->category->category }}
+                                                </span>
+                                                    <div class="m-widget5__info">
+                                                        <span class="m-widget5__author">{{ $projects->short_description }}</span>
+                                                    </div>
+                                                </div>
+                                                <div class="m-widget5__stats1">
+                                                    <a href="#" class="btn btn-secondary m-btn m-btn--icon m-btn--pill">
+                                                    <span><i class="la la-info-circle"></i>
+                                                    <span>{{ __('mas_informacion') }}</span></span>
+                                                    </a>
+                                                    @if($projects->status == 4)
+                                                        <a href="#"
+                                                           class="btn btn-secondary m-btn m-btn--icon m-btn--pill">
+                                                    <span><i class="la la-eye"></i>
+                                                    <span>{{ __('ver_online') }}</span></span>
+                                                        </a>
+                                                    @endif
+                                                </div>
+
                                             </div>
 
                                             <div class="m-widget5__content">
@@ -127,270 +296,84 @@
                                             </div>
                                         </div>
                                     @empty
-                                        <h4 class="text-center">{{ __('no_hay_proyectos') }}</h4>
+                                        <div class="alert m-alert--default text-center">
+                                            <strong>{{ __('no_hay_proyectos') }}</strong>
+                                        </div>
                                     @endforelse
                                 </div>
 
                                 <!--end::m-widget5-->
                             </div>
                             <!--=====================================
-                           PROYECTOS  PENDIENTES
-                           ======================================-->
-                            <div class="tab-pane" id="m_widget5_tab2_content" aria-expanded="false">
+                          PROYECTOS RECHAZADOS
+                          ======================================-->
+                            <div class="tab-pane" id="m_widget5_tab4_content" aria-expanded="false">
 
                                 <!--begin::m-widget5-->
                                 <div class="m-widget5">
-                                    <div class="m-widget5__item">
-                                        <div class="m-widget5__content">
-                                            <div class="m-widget5__pic">
-                                                <img class="m-widget7__img"
-                                                     src="../../assets/app/media/img//products/product11.jpg" alt="">
-                                            </div>
-                                            <div class="m-widget5__section">
-                                                <h4 class="m-widget5__title">
-                                                    Branding Mockup
-                                                </h4>
-                                                <span class="m-widget5__desc">
-																	Make Metronic Great Again.Lorem Ipsum Amet
-																</span>
-                                                <div class="m-widget5__info">
-																	<span class="m-widget5__author">
-																		Author:
-																	</span>
-                                                    <span class="m-widget5__info-author m--font-info">
-																		Fly themes
-																	</span>
-                                                    <span class="m-widget5__info-label">
-																		Released:
-																	</span>
-                                                    <span class="m-widget5__info-date m--font-info">
-																		23.08.17
-																	</span>
+                                    @forelse($projects_rejected->projects as $projects)
+                                        @if($projects->status == 1)
+                                            <span class="m-badge m-badge--metal m-badge--wide pull-right">{{ __('revision') }}</span>
+                                        @elseif($projects->status == 2)
+                                            <span class="m-badge m-badge--focus m-badge--wide pull-right">{{ __('pre_aprobado') }}</span>
+                                        @elseif($projects->status == 3)
+                                            <span class="m-badge m-badge--success m-badge--wide pull-right">{{ __('aprobado') }}</span>
+                                        @elseif($projects->status == 4)
+                                            <span class="m-badge m-badge--info m-badge--wide pull-right">{{ __('publicado') }}</span>
+                                        @else
+                                            <span class="m-badge m-badge--danger m-badge--wide pull-right">{{ __('rechazado') }}</span>
+                                        @endif
+                                        <div class="m-widget5__item">
+                                            <div class="m-widget5__content">
+                                                <div class="m-widget5__pic">
+                                                    <img class="m-widget7__img" src="{{ $projects->pathAttachment() }}"
+                                                         alt="">
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="m-widget5__content">
-                                            <div class="m-widget5__stats1">
-                                                <span class="m-widget5__number">24,583</span><br>
-                                                <span class="m-widget5__sales">sales</span>
-                                            </div>
-                                            <div class="m-widget5__stats2">
-                                                <span class="m-widget5__number">3809</span><br>
-                                                <span class="m-widget5__votes">votes</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="m-widget5__item">
-                                        <div class="m-widget5__content">
-                                            <div class="m-widget5__pic">
-                                                <img class="m-widget7__img"
-                                                     src="../../assets/app/media/img//products/product6.jpg" alt="">
-                                            </div>
-                                            <div class="m-widget5__section">
-                                                <h4 class="m-widget5__title">
-                                                    Great Logo Designn
-                                                </h4>
-                                                <span class="m-widget5__desc">
-																	Make Metronic Great Again.Lorem Ipsum Amet
-																</span>
-                                                <div class="m-widget5__info">
-																	<span class="m-widget5__author">
-																		Author:
-																	</span>
-                                                    <span class="m-widget5__info-author m--font-info">
-																		Fly themes
-																	</span>
-                                                    <span class="m-widget5__info-label">
-																		Released:
-																	</span>
-                                                    <span class="m-widget5__info-date m--font-info">
-																		23.08.17
-																	</span>
+                                                <div class="m-widget5__section">
+                                                    <h4 class="m-widget5__title">
+                                                        {{ str_limit($projects->title,40) }}
+                                                    </h4>
+                                                    <span class="m-widget5__desc m--font-success"
+                                                          style="font-size: 14px">
+                                                    {{ $projects->category->category }}
+                                                </span>
+                                                    <div class="m-widget5__info">
+                                                        <span class="m-widget5__author">{{ $projects->short_description }}</span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="m-widget5__content">
-                                            <div class="m-widget5__stats1">
-                                                <span class="m-widget5__number">19,200</span><br>
-                                                <span class="m-widget5__sales">sales</span>
-                                            </div>
-                                            <div class="m-widget5__stats2">
-                                                <span class="m-widget5__number">1046</span><br>
-                                                <span class="m-widget5__votes">votes</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="m-widget5__item">
-                                        <div class="m-widget5__content">
-                                            <div class="m-widget5__pic">
-                                                <img class="m-widget7__img"
-                                                     src="../../assets/app/media/img//products/product10.jpg" alt="">
-                                            </div>
-                                            <div class="m-widget5__section">
-                                                <h4 class="m-widget5__title">
-                                                    Awesome Mobile App
-                                                </h4>
-                                                <span class="m-widget5__desc">
-																	Make Metronic Great Again.Lorem Ipsum Amet
-																</span>
-                                                <div class="m-widget5__info">
-																	<span class="m-widget5__author">
-																		Author:
-																	</span>
-                                                    <span class="m-widget5__info-author m--font-info">
-																		Fly themes
-																	</span>
-                                                    <span class="m-widget5__info-label">
-																		Released:
-																	</span>
-                                                    <span class="m-widget5__info-date m--font-info">
-																		23.08.17
-																	</span>
+                                                <div class="m-widget5__stats1">
+                                                    <a href="#" class="btn btn-secondary m-btn m-btn--icon m-btn--pill">
+                                                    <span><i class="la la-info-circle"></i>
+                                                    <span>{{ __('mas_informacion') }}</span></span>
+                                                    </a>
+                                                    @if($projects->status == 4)
+                                                        <a href="#"
+                                                           class="btn btn-secondary m-btn m-btn--icon m-btn--pill">
+                                                    <span><i class="la la-eye"></i>
+                                                    <span>{{ __('ver_online') }}</span></span>
+                                                        </a>
+                                                    @endif
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="m-widget5__content">
-                                            <div class="m-widget5__stats1">
-                                                <span class="m-widget5__number">10,054</span><br>
-                                                <span class="m-widget5__sales">sales</span>
-                                            </div>
-                                            <div class="m-widget5__stats2">
-                                                <span class="m-widget5__number">1103</span><br>
-                                                <span class="m-widget5__votes">votes</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <!--end::m-widget5-->
-                            </div>
-                            <!--=====================================
-                           PROYECTOS PUBLICADOS
-                           ======================================-->
-                            <div class="tab-pane" id="m_widget5_tab3_content" aria-expanded="false">
+                                            </div>
 
-                                <!--begin::m-widget5-->
-                                <div class="m-widget5">
-                                    <div class="m-widget5__item">
-                                        <div class="m-widget5__content">
-                                            <div class="m-widget5__pic">
-                                                <img class="m-widget7__img"
-                                                     src="../../assets/app/media/img//products/product10.jpg" alt="">
-                                            </div>
-                                            <div class="m-widget5__section">
-                                                <h4 class="m-widget5__title">
-                                                    Branding Mockup
-                                                </h4>
-                                                <span class="m-widget5__desc">
-																	Make Metronic Great Again.Lorem Ipsum Amet
-																</span>
-                                                <div class="m-widget5__info">
-																	<span class="m-widget5__author">
-																		Author:
-																	</span>
-                                                    <span class="m-widget5__info-author m--font-info">
-																		Fly themes
-																	</span>
-                                                    <span class="m-widget5__info-label">
-																		Released:
-																	</span>
-                                                    <span class="m-widget5__info-date m--font-info">
-																		23.08.17
-																	</span>
+                                            <div class="m-widget5__content">
+
+                                                <div class="m-widget5__stats1">
+                                                    <span class="m-widget5__number">${{ $projects->price }}</span><br>
+                                                    <span class="m-widget5__sales">{{ __('meta') }}</span>
+                                                </div>
+                                                <div class="m-widget5__stats2">
+                                                    <span class="m-widget5__number">$0</span><br>
+                                                    <span class="m-widget5__votes">{{ __('fondos_recaudados') }}</span>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="m-widget5__content">
-                                            <div class="m-widget5__stats1">
-                                                <span class="m-widget5__number">10.054</span><br>
-                                                <span class="m-widget5__sales">sales</span>
-                                            </div>
-                                            <div class="m-widget5__stats2">
-                                                <span class="m-widget5__number">1103</span><br>
-                                                <span class="m-widget5__votes">votes</span>
-                                            </div>
+                                    @empty
+                                        <div class="alert m-alert--default text-center">
+                                            <strong>{{ __('no_hay_proyectos') }}</strong>
                                         </div>
-                                    </div>
-                                    <div class="m-widget5__item">
-                                        <div class="m-widget5__content">
-                                            <div class="m-widget5__pic">
-                                                <img class="m-widget7__img"
-                                                     src="../../assets/app/media/img//products/product11.jpg" alt="">
-                                            </div>
-                                            <div class="m-widget5__section">
-                                                <h4 class="m-widget5__title">
-                                                    Great Logo Designn
-                                                </h4>
-                                                <span class="m-widget5__desc">
-																	Make Metronic Great Again.Lorem Ipsum Amet
-																</span>
-                                                <div class="m-widget5__info">
-																	<span class="m-widget5__author">
-																		Author:
-																	</span>
-                                                    <span class="m-widget5__info-author m--font-info">
-																		Fly themes
-																	</span>
-                                                    <span class="m-widget5__info-label">
-																		Released:
-																	</span>
-                                                    <span class="m-widget5__info-date m--font-info">
-																		23.08.17
-																	</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="m-widget5__content">
-                                            <div class="m-widget5__stats1">
-                                                <span class="m-widget5__number">24,583</span><br>
-                                                <span class="m-widget5__sales">sales</span>
-                                            </div>
-                                            <div class="m-widget5__stats2">
-                                                <span class="m-widget5__number">3809</span><br>
-                                                <span class="m-widget5__votes">votes</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="m-widget5__item">
-                                        <div class="m-widget5__content">
-                                            <div class="m-widget5__pic">
-                                                <img class="m-widget7__img"
-                                                     src="../../assets/app/media/img//products/product6.jpg" alt="">
-                                            </div>
-                                            <div class="m-widget5__section">
-                                                <h4 class="m-widget5__title">
-                                                    Awesome Mobile App
-                                                </h4>
-                                                <span class="m-widget5__desc">
-																	Make Metronic Great Again.Lorem Ipsum Amet
-																</span>
-                                                <div class="m-widget5__info">
-																	<span class="m-widget5__author">
-																		Author:
-																	</span>
-                                                    <span class="m-widget5__info-author m--font-info">
-																		Fly themes
-																	</span>
-                                                    <span class="m-widget5__info-label">
-																		Released:
-																	</span>
-                                                    <span class="m-widget5__info-date m--font-info">
-																		23.08.17
-																	</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="m-widget5__content">
-                                            <div class="m-widget5__stats1">
-                                                <span class="m-widget5__number">19,200</span><br>
-                                                <span class="m-widget5__sales">1046</span>
-                                            </div>
-                                            <div class="m-widget5__stats2">
-                                                <span class="m-widget5__number">1046</span><br>
-                                                <span class="m-widget5__votes">votes</span>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforelse
                                 </div>
 
                                 <!--end::m-widget5-->
