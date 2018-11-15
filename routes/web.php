@@ -65,8 +65,10 @@ Route::group(['namespace'=>'Backend','prefix' => 'dashboard','middleware' => 'au
     //Perfil Artista
     Route::get('/profile','ProfileController@index_artist')->name('profile.artist');
     Route::put('/update-profile-artist/{id_artis}','ProfileController@profile_update_artist')->name('update.profile.artist');
-    //Perfil Artista
+    //Proyesctos del Artista
     Route::get('/my-projects','MyProjectsController@index_artist')->name('myprojects.artist');
+    //Apoyos hechos
+    Route::get('/backings-made','BackingsMadeController@index_artist')->name('backings.made.artist');
 });
 
 /*=============================================

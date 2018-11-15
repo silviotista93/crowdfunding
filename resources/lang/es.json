@@ -30,7 +30,7 @@
   "ver_proyecto":"Ver proyecto",
 
   "_comment6":"IDIOMA PARA EL NAVEGACION.............",
-  "inicio":"inicio",
+  "inicio":"Inicio",
 
   "_comment4":"IDIOMA PARA EL PROJECTS.............",
   "proyectos":"Proyectos",
@@ -83,7 +83,12 @@
   "rechazado":"Rechazado",
   "rechazados":"Rechazados",
   "publicados":"Publicados",
+  "apoyos_hechos":"Apoyos",
+  "total_recaudado":"Total Recaudado",
+  "proyectos_subidos":"Proyectos Creados",
+  "total_patrocinadores":"Total Patrocinadores",
   "ver_online":"Ver online",
+  "ir_web":"Web",
   "no_hay_proyectos":"Todavía no tienes ningún proyecto.",
   "cancelar":"Cancelar",
   "bienvenido":"Bienvenido"

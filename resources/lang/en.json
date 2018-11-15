@@ -31,7 +31,7 @@
   "ver_proyecto":"See project",
 
   "_comment6":"IDIOMA PARA EL NAVEGACION.............",
-  "inicio":"home",
+  "inicio":"Home",
 
   "_comment4":"IDIOMA PARA EL PROJECTS.............",
   "proyectos":"Projects",
@@ -85,6 +85,11 @@
   "rechazado":"Rejected",
   "rechazados":"Rejected",
   "ver_online":"Watch online",
+  "apoyos_hechos":"Backings made",
+  "total_recaudado":"Total collected",
+  "proyectos_subidos":"Uploaded Projects",
+  "total_patrocinadores":"Total Backers",
+  "ir_web":"Web",
   "publicados":"Published",
   "no_hay_proyectos":"You still have not any project",
   "cancelar":"Cancel",

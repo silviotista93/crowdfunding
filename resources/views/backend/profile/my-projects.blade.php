@@ -124,7 +124,7 @@
                                                     <span>{{ __('mas_informacion') }}</span></span>
                                                     </a>
                                                     @if($projects->status == 4)
-                                                        <a href="#"
+                                                        <a href="{{ route('projects.show',$projects->slug) }}"
                                                            class="btn btn-secondary m-btn m-btn--icon m-btn--pill">
                                                     <span><i class="la la-eye"></i>
                                                     <span>{{ __('ver_online') }}</span></span>
@@ -200,7 +200,7 @@
                                                     <span>{{ __('mas_informacion') }}</span></span>
                                                     </a>
                                                     @if($projects->status == 4)
-                                                        <a href="#"
+                                                        <a href="{{ route('projects.show',$projects->slug) }}"
                                                            class="btn btn-secondary m-btn m-btn--icon m-btn--pill">
                                                     <span><i class="la la-eye"></i>
                                                     <span>{{ __('ver_online') }}</span></span>
@@ -275,7 +275,7 @@
                                                     <span>{{ __('mas_informacion') }}</span></span>
                                                     </a>
                                                     @if($projects->status == 4)
-                                                        <a href="#"
+                                                        <a href="{{ route('projects.show',$projects->slug) }}"
                                                            class="btn btn-secondary m-btn m-btn--icon m-btn--pill">
                                                     <span><i class="la la-eye"></i>
                                                     <span>{{ __('ver_online') }}</span></span>
@@ -349,7 +349,7 @@
                                                     <span>{{ __('mas_informacion') }}</span></span>
                                                     </a>
                                                     @if($projects->status == 4)
-                                                        <a href="#"
+                                                        <a href="{{ route('projects.show',$projects->slug) }}"
                                                            class="btn btn-secondary m-btn m-btn--icon m-btn--pill">
                                                     <span><i class="la la-eye"></i>
                                                     <span>{{ __('ver_online') }}</span></span>

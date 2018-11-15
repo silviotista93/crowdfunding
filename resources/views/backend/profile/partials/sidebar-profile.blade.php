@@ -21,7 +21,7 @@
             </div>
             @if($artist->countries !== null)
                 <div class="text-center" style="margin-top: 5px"><img src="{{ $artist->countries->flag }}"
-                                                                      width="21" alt="" style="margin-top: -3px"></div>
+                                                                      width="21" alt="" style="margin-top: 6px;margin-left: -10px"></div>
             @endif
 
         </div>
@@ -47,13 +47,13 @@
                     <span class="m-nav__link-text" {{request()->is('dashboard/my-projects') ? 'style=color:#716aca !important' : '' }}>{{ __('mis_proyectos') }}</span>
                 </a>
             </li>
-            <li class="m-nav__item">
-                <a href="../header/profile&amp;demo=default.html" class="m-nav__link">
-                    <i class="m-nav__link-icon flaticon-chat-1"></i>
-                    <span class="m-nav__link-text">Messages</span>
+            <li class="m-nav__item" {{request()->is('dashboard/backings-made') ? 'style=background-color:#f2f4f9' : '' }}>
+                <a href="{{ route('backings.made.artist') }}" class="m-nav__link">
+                    <i class="m-nav__link-icon la la-hand-o-right"></i>
+                    <span class="m-nav__link-text" {{request()->is('dashboard/backings-made') ? 'style=color:#716aca !important' : '' }}>{{ __('apoyos_hechos') }}</span>
                 </a>
             </li>
-            <li class="m-nav__item">
+            {{--<li class="m-nav__item">
                 <a href="../header/profile&amp;demo=default.html" class="m-nav__link">
                     <i class="m-nav__link-icon flaticon-graphic-2"></i>
                     <span class="m-nav__link-text">Sales</span>
@@ -70,40 +70,37 @@
                     <i class="m-nav__link-icon flaticon-lifebuoy"></i>
                     <span class="m-nav__link-text">Support</span>
                 </a>
-            </li>
+            </li>--}}
         </ul>
         <div class="m-portlet__body-separator"></div>
         <div class="m-widget1 m-widget1--paddingless">
             <div class="m-widget1__item">
                 <div class="row m-row--no-padding align-items-center">
                     <div class="col">
-                        <h3 class="m-widget1__title">Member Profit</h3>
-                        <span class="m-widget1__desc">Awerage Weekly Profit</span>
+                        <h3 class="m-widget1__title text-center">{{ __('total_recaudado') }}</h3>
                     </div>
-                    <div class="col m--align-right">
-                        <span class="m-widget1__number m--font-brand">+$17,800</span>
-                    </div>
-                </div>
-            </div>
-            <div class="m-widget1__item">
-                <div class="row m-row--no-padding align-items-center">
-                    <div class="col">
-                        <h3 class="m-widget1__title">Orders</h3>
-                        <span class="m-widget1__desc">Weekly Customer Orders</span>
-                    </div>
-                    <div class="col m--align-right">
-                        <span class="m-widget1__number m--font-danger">+1,800</span>
+                    <div class="col m--align-center">
+                        <span class="m-widget1__number m--font-brand">$17,800</span>
                     </div>
                 </div>
             </div>
             <div class="m-widget1__item">
                 <div class="row m-row--no-padding align-items-center">
                     <div class="col">
-                        <h3 class="m-widget1__title">Issue Reports</h3>
-                        <span class="m-widget1__desc">System bugs and issues</span>
+                        <h3 class="m-widget1__title">{{ __('proyectos_subidos') }}</h3>
                     </div>
                     <div class="col m--align-right">
-                        <span class="m-widget1__number m--font-success">-27,49%</span>
+                        <span class="m-widget1__number m--font-danger">3</span>
+                    </div>
+                </div>
+            </div>
+            <div class="m-widget1__item">
+                <div class="row m-row--no-padding align-items-center">
+                    <div class="col">
+                        <h3 class="m-widget1__title">{{ __('total_patrocinadores') }}</h3>
+                    </div>
+                    <div class="col m--align-right">
+                        <span class="m-widget1__number m--font-success">22</span>
                     </div>
                 </div>
             </div>
