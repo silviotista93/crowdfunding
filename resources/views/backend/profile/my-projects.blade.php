@@ -149,7 +149,9 @@
                                         </div>
 
                                     @empty
-                                        <h4 class="text-center">{{ __('no_hay_proyectos') }}</h4>
+                                        <div class="alert m-alert--default text-center">
+                                            <strong>{{ __('no_hay_proyectos') }}</strong>
+                                        </div>
                                     @endforelse
                                 </div>
 
