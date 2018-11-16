@@ -1,7 +1,6 @@
 @extends('backend.layout')
 
 @section('header')
-    <div class="m-subheader ">
         <div class="d-flex align-items-center">
             <div class="mr-auto">
                 <h3 class="m-subheader__title m-subheader__title--separator">{{ __('bienvenido') }}</h3>
@@ -28,7 +27,6 @@
             <div>
             </div>
         </div>
-    </div>
 @stop
 @section('content')
     <div class="m-content">

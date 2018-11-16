@@ -16,7 +16,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 <!-- begin::Head -->
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <title>{{config('app.name')}} | {{ auth()->user()->name }}</title>
     <meta name="description" content="Latest updates and statistic charts">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
@@ -25,8 +25,8 @@ License: You must have a valid license purchased only from themeforest(the above
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
     <script>
         WebFont.load({
-            google: {"families":["Poppins:300,400,500,600,700","Roboto:300,400,500,600,700"]},
-            active: function() {
+            google: {"families": ["Poppins:300,400,500,600,700", "Roboto:300,400,500,600,700"]},
+            active: function () {
                 sessionStorage.fonts = true;
             }
         });
@@ -35,56 +35,61 @@ License: You must have a valid license purchased only from themeforest(the above
     <!--end::Web font -->
 
     <!--begin:: Global Mandatory Vendors -->
-    <link href="/backend/vendors/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" type="text/css" />
+    <link href="/backend/vendors/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" type="text/css"/>
 
     <!--end:: Global Mandatory Vendors -->
 
     <!--begin:: Global Optional Vendors -->
-    <link href="/backend/vendors/tether/dist/css/tether.css" rel="stylesheet" type="text/css" />
-    <link href="/backend/vendors/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />
-    <link href="/backend/vendors/bootstrap-datetime-picker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css" />
-    <link href="/backend/vendors/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css" />
-    <link href="/backend/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css" />
-    <link href="/backend/vendors/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.css" rel="stylesheet" type="text/css" />
-    <link href="/backend/vendors/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css" rel="stylesheet" type="text/css" />
-    <link href="/backend/vendors/bootstrap-select/dist/css/bootstrap-select.css" rel="stylesheet" type="text/css" />
-    <link href="/backend/vendors/select2/dist/css/select2.css" rel="stylesheet" type="text/css" />
-    <link href="/backend/vendors/nouislider/distribute/nouislider.css" rel="stylesheet" type="text/css" />
-    <link href="/backend/vendors/owl.carousel/dist/assets/owl.carousel.css" rel="stylesheet" type="text/css" />
-    <link href="/backend/vendors/owl.carousel/dist/assets/owl.theme.default.css" rel="stylesheet" type="text/css" />
-    <link href="/backend/vendors/ion-rangeslider/css/ion.rangeSlider.css" rel="stylesheet" type="text/css" />
-    <link href="/backend/vendors/ion-rangeslider/css/ion.rangeSlider.skinFlat.css" rel="stylesheet" type="text/css" />
-    <link href="/backend/vendors/dropzone/dist/dropzone.css" rel="stylesheet" type="text/css" />
-    <link href="/backend/vendors/summernote/dist/summernote.css" rel="stylesheet" type="text/css" />
-    <link href="/backend/vendors/bootstrap-markdown/css/bootstrap-markdown.min.css" rel="stylesheet" type="text/css" />
-    <link href="/backend/vendors/animate.css/animate.css" rel="stylesheet" type="text/css" />
-    <link href="/backend/vendors/toastr/build/toastr.css" rel="stylesheet" type="text/css" />
-    <link href="/backend/vendors/jstree/dist/themes/default/style.css" rel="stylesheet" type="text/css" />
-    <link href="/backend/vendors/morris.js/morris.css" rel="stylesheet" type="text/css" />
-    <link href="/backend/vendors/chartist/dist/chartist.min.css" rel="stylesheet" type="text/css" />
-    <link href="/backend/vendors/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet" type="text/css" />
-    <link href="/backend/vendors/socicon/css/socicon.css" rel="stylesheet" type="text/css" />
-    <link href="/backend/vendors/vendors/line-awesome/css/line-awesome.css" rel="stylesheet" type="text/css" />
-    <link href="/backend/vendors/vendors/flaticon/css/flaticon.css" rel="stylesheet" type="text/css" />
-    <link href="/backend/vendors/vendors/metronic/css/styles.css" rel="stylesheet" type="text/css" />
-    <link href="/backend/vendors/vendors/fontawesome5/css/all.min.css" rel="stylesheet" type="text/css" />
+    <link href="/backend/vendors/tether/dist/css/tether.css" rel="stylesheet" type="text/css"/>
+    <link href="/backend/vendors/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="/backend/vendors/bootstrap-datetime-picker/css/bootstrap-datetimepicker.min.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="/backend/vendors/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="/backend/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css"/>
+    <link href="/backend/vendors/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="/backend/vendors/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="/backend/vendors/bootstrap-select/dist/css/bootstrap-select.css" rel="stylesheet" type="text/css"/>
+    <link href="/backend/vendors/select2/dist/css/select2.css" rel="stylesheet" type="text/css"/>
+    <link href="/backend/vendors/nouislider/distribute/nouislider.css" rel="stylesheet" type="text/css"/>
+    <link href="/backend/vendors/owl.carousel/dist/assets/owl.carousel.css" rel="stylesheet" type="text/css"/>
+    <link href="/backend/vendors/owl.carousel/dist/assets/owl.theme.default.css" rel="stylesheet" type="text/css"/>
+    <link href="/backend/vendors/ion-rangeslider/css/ion.rangeSlider.css" rel="stylesheet" type="text/css"/>
+    <link href="/backend/vendors/ion-rangeslider/css/ion.rangeSlider.skinFlat.css" rel="stylesheet" type="text/css"/>
+    <link href="/backend/vendors/dropzone/dist/dropzone.css" rel="stylesheet" type="text/css"/>
+    <link href="/backend/vendors/summernote/dist/summernote.css" rel="stylesheet" type="text/css"/>
+    <link href="/backend/vendors/bootstrap-markdown/css/bootstrap-markdown.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/backend/vendors/animate.css/animate.css" rel="stylesheet" type="text/css"/>
+    <link href="/backend/vendors/toastr/build/toastr.css" rel="stylesheet" type="text/css"/>
+    <link href="/backend/vendors/jstree/dist/themes/default/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/backend/vendors/morris.js/morris.css" rel="stylesheet" type="text/css"/>
+    <link href="/backend/vendors/chartist/dist/chartist.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/backend/vendors/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/backend/vendors/socicon/css/socicon.css" rel="stylesheet" type="text/css"/>
+    <link href="/backend/vendors/vendors/line-awesome/css/line-awesome.css" rel="stylesheet" type="text/css"/>
+    <link href="/backend/vendors/vendors/flaticon/css/flaticon.css" rel="stylesheet" type="text/css"/>
+    <link href="/backend/vendors/vendors/metronic/css/styles.css" rel="stylesheet" type="text/css"/>
+    <link href="/backend/vendors/vendors/fontawesome5/css/all.min.css" rel="stylesheet" type="text/css"/>
 
     <!--end:: Global Optional Vendors -->
 
     <!--begin::Global Theme Styles -->
-    <link href="/backend/assets/demo/base/style.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="/backend/assets/demo/base/style.bundle.css" rel="stylesheet" type="text/css"/>
 
     <!--RTL version:<link href="assets/demo/base/style.bundle.rtl.css" rel="stylesheet" type="text/css" />-->
 
     <!--end::Global Theme Styles -->
 
     <!--begin::Page Vendors Styles -->
-    <link href="/backend/assets/vendors/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="/backend/assets/vendors/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css"/>
 
     <!--RTL version:<link href="assets/vendors/custom/fullcalendar/fullcalendar.bundle.rtl.css" rel="stylesheet" type="text/css" />-->
 
     <!--end::Page Vendors Styles -->
-    <link rel="shortcut icon" href="/backend/assets/demo/media/img/logo/favicon.ico" />
+    <link rel="shortcut icon" href="/backend/assets/demo/media/img/logo/favicon.ico"/>
 </head>
 
 <!-- end::Head -->
@@ -111,28 +116,32 @@ License: You must have a valid license purchased only from themeforest(the above
                         <div class="m-stack__item m-stack__item--middle m-brand__tools">
 
                             <!-- BEGIN: Left Aside Minimize Toggle -->
-                            <a href="javascript:;" id="m_aside_left_minimize_toggle" class="m-brand__icon m-brand__toggler m-brand__toggler--left m--visible-desktop-inline-block  ">
+                            <a href="javascript:;" id="m_aside_left_minimize_toggle"
+                               class="m-brand__icon m-brand__toggler m-brand__toggler--left m--visible-desktop-inline-block  ">
                                 <span></span>
                             </a>
 
                             <!-- END -->
 
                             <!-- BEGIN: Responsive Aside Left Menu Toggler -->
-                            <a href="javascript:;" id="m_aside_left_offcanvas_toggle" class="m-brand__icon m-brand__toggler m-brand__toggler--left m--visible-tablet-and-mobile-inline-block">
+                            <a href="javascript:;" id="m_aside_left_offcanvas_toggle"
+                               class="m-brand__icon m-brand__toggler m-brand__toggler--left m--visible-tablet-and-mobile-inline-block">
                                 <span></span>
                             </a>
 
                             <!-- END -->
 
                             <!-- BEGIN: Responsive Header Menu Toggler -->
-                            <a id="m_aside_header_menu_mobile_toggle" href="javascript:;" class="m-brand__icon m-brand__toggler m--visible-tablet-and-mobile-inline-block">
+                            <a id="m_aside_header_menu_mobile_toggle" href="javascript:;"
+                               class="m-brand__icon m-brand__toggler m--visible-tablet-and-mobile-inline-block">
                                 <span></span>
                             </a>
 
                             <!-- END -->
 
                             <!-- BEGIN: Topbar Toggler -->
-                            <a id="m_aside_header_topbar_mobile_toggle" href="javascript:;" class="m-brand__icon m--visible-tablet-and-mobile-inline-block">
+                            <a id="m_aside_header_topbar_mobile_toggle" href="javascript:;"
+                               class="m-brand__icon m--visible-tablet-and-mobile-inline-block">
                                 <i class="flaticon-more"></i>
                             </a>
 
@@ -153,7 +162,8 @@ License: You must have a valid license purchased only from themeforest(the above
     <div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-body">
 
         <!-- BEGIN: Left Aside -->
-        <button class="m-aside-left-close  m-aside-left-close--skin-dark " id="m_aside_left_close_btn"><i class="la la-close"></i></button>
+        <button class="m-aside-left-close  m-aside-left-close--skin-dark " id="m_aside_left_close_btn"><i
+                    class="la la-close"></i></button>
         <div id="m_aside_left" class="m-grid__item	m-aside-left  m-aside-left--skin-dark ">
 
             <!--=====================================
@@ -163,9 +173,19 @@ License: You must have a valid license purchased only from themeforest(the above
 
         </div>
         <div class="m-grid__item m-grid__item--fluid m-wrapper">
-        @yield('header')
-        <!-- END: Left Aside -->
-        @yield('content')
+
+            <div class="m-subheader ">
+                @if(session()->has('eliminar'))
+                    <div class="container">
+                        <div class="alert alert-danger" role="alert">
+                            <strong>Oh!</strong> {{session('eliminar')}}
+                        </div>
+                    </div>
+
+                @endif
+                @yield('header')
+            </div>
+            @yield('content')
         </div>
     </div>
 
@@ -203,7 +223,8 @@ License: You must have a valid license purchased only from themeforest(the above
                             </a>
                         </li>
                         <li class="m-nav__item m-nav__item">
-                            <a href="#" class="m-nav__link" data-toggle="m-tooltip" title="Support Center" data-placement="left">
+                            <a href="#" class="m-nav__link" data-toggle="m-tooltip" title="Support Center"
+                               data-placement="left">
                                 <i class="m-nav__link-icon flaticon-info m--icon-font-size-lg3"></i>
                             </a>
                         </li>
@@ -224,7 +245,8 @@ License: You must have a valid license purchased only from themeforest(the above
         <span id="m_quick_sidebar_close" class="m-quick-sidebar__close"><i class="la la-close"></i></span>
         <ul id="m_quick_sidebar_tabs" class="nav nav-tabs m-tabs m-tabs-line m-tabs-line--brand" role="tablist">
             <li class="nav-item m-tabs__item">
-                <a class="nav-link m-tabs__link active" data-toggle="tab" href="#m_quick_sidebar_tabs_messenger" role="tab">Messages</a>
+                <a class="nav-link m-tabs__link active" data-toggle="tab" href="#m_quick_sidebar_tabs_messenger"
+                   role="tab">Messages</a>
             </li>
             <li class="nav-item m-tabs__item">
                 <a class="nav-link m-tabs__link" data-toggle="tab" href="#m_quick_sidebar_tabs_settings" role="tab">Settings</a>
@@ -240,7 +262,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         <div class="m-messenger__wrapper">
                             <div class="m-messenger__message m-messenger__message--in">
                                 <div class="m-messenger__message-pic">
-                                    <img src="/backend/assets/app/media/img//users/user3.jpg" alt="" />
+                                    <img src="/backend/assets/app/media/img//users/user3.jpg" alt=""/>
                                 </div>
                                 <div class="m-messenger__message-body">
                                     <div class="m-messenger__message-arrow"></div>
@@ -270,7 +292,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         <div class="m-messenger__wrapper">
                             <div class="m-messenger__message m-messenger__message--in">
                                 <div class="m-messenger__message-pic">
-                                    <img src="/backend/assets/app/media/img//users/user3.jpg" alt="" />
+                                    <img src="/backend/assets/app/media/img//users/user3.jpg" alt=""/>
                                 </div>
                                 <div class="m-messenger__message-body">
                                     <div class="m-messenger__message-arrow"></div>
@@ -301,7 +323,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         <div class="m-messenger__wrapper">
                             <div class="m-messenger__message m-messenger__message--in">
                                 <div class="m-messenger__message-pic">
-                                    <img src="/backend/assets/app/media/img//users/user3.jpg" alt="" />
+                                    <img src="/backend/assets/app/media/img//users/user3.jpg" alt=""/>
                                 </div>
                                 <div class="m-messenger__message-body">
                                     <div class="m-messenger__message-arrow"></div>
@@ -374,7 +396,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         <div class="m-messenger__wrapper">
                             <div class="m-messenger__message m-messenger__message--in">
                                 <div class="m-messenger__message-pic">
-                                    <img src="/backend/assets/app/media/img//users/user3.jpg" alt="" />
+                                    <img src="/backend/assets/app/media/img//users/user3.jpg" alt=""/>
                                 </div>
                                 <div class="m-messenger__message-body">
                                     <div class="m-messenger__message-arrow"></div>
@@ -532,7 +554,8 @@ License: You must have a valid license purchased only from themeforest(the above
                         <div class="m-list-timeline__items">
                             <div class="m-list-timeline__item">
                                 <span class="m-list-timeline__badge m-list-timeline__badge--state-success"></span>
-                                <a href="" class="m-list-timeline__text">12 new users registered <span class="m-badge m-badge--warning m-badge--wide">important</span></a>
+                                <a href="" class="m-list-timeline__text">12 new users registered <span
+                                            class="m-badge m-badge--warning m-badge--wide">important</span></a>
                                 <span class="m-list-timeline__time">Just now</span>
                             </div>
                             <div class="m-list-timeline__item">
@@ -547,7 +570,8 @@ License: You must have a valid license purchased only from themeforest(the above
                             </div>
                             <div class="m-list-timeline__item">
                                 <span class="m-list-timeline__badge m-list-timeline__badge--state-warning"></span>
-                                <a href="" class="m-list-timeline__text">Database overloaded 89% <span class="m-badge m-badge--success m-badge--wide">resolved</span></a>
+                                <a href="" class="m-list-timeline__text">Database overloaded 89% <span
+                                            class="m-badge m-badge--success m-badge--wide">resolved</span></a>
                                 <span class="m-list-timeline__time">1 hr</span>
                             </div>
                             <div class="m-list-timeline__item">
@@ -557,7 +581,8 @@ License: You must have a valid license purchased only from themeforest(the above
                             </div>
                             <div class="m-list-timeline__item">
                                 <span class="m-list-timeline__badge m-list-timeline__badge--state-info"></span>
-                                <a href="" class="m-list-timeline__text">Production server down <span class="m-badge m-badge--danger m-badge--wide">pending</span></a>
+                                <a href="" class="m-list-timeline__text">Production server down <span
+                                            class="m-badge m-badge--danger m-badge--wide">pending</span></a>
                                 <span class="m-list-timeline__time">3 hrs</span>
                             </div>
                             <div class="m-list-timeline__item">
@@ -574,7 +599,8 @@ License: You must have a valid license purchased only from themeforest(the above
                         <div class="m-list-timeline__items">
                             <div class="m-list-timeline__item">
                                 <span class="m-list-timeline__badge m-list-timeline__badge--state-info"></span>
-                                <a href="" class="m-list-timeline__text">New order received <span class="m-badge m-badge--info m-badge--wide">urgent</span></a>
+                                <a href="" class="m-list-timeline__text">New order received <span
+                                            class="m-badge m-badge--info m-badge--wide">urgent</span></a>
                                 <span class="m-list-timeline__time">7 hrs</span>
                             </div>
                             <div class="m-list-timeline__item">
@@ -599,7 +625,8 @@ License: You must have a valid license purchased only from themeforest(the above
                             </div>
                             <div class="m-list-timeline__item">
                                 <span class="m-list-timeline__badge m-list-timeline__badge--state-success"></span>
-                                <a href="" class="m-list-timeline__text">System error <span class="m-badge m-badge--info m-badge--wide">pending</span></a>
+                                <a href="" class="m-list-timeline__text">System error <span
+                                            class="m-badge m-badge--info m-badge--wide">pending</span></a>
                                 <span class="m-list-timeline__time">2 hrs</span>
                             </div>
                             <div class="m-list-timeline__item">
@@ -684,7 +711,8 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- begin::Quick Nav -->
 <ul class="m-nav-sticky" style="margin-top: 30px;">
     <li class="m-nav-sticky__item" data-toggle="m-tooltip" title="Purchase" data-placement="left">
-        <a href="https://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes" target="_blank"><i class="la la-cart-arrow-down"></i></a>
+        <a href="https://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes"
+           target="_blank"><i class="la la-cart-arrow-down"></i></a>
     </li>
     <li class="m-nav-sticky__item" data-toggle="m-tooltip" title="Documentation" data-placement="left">
         <a href="https://keenthemes.com/metronic/documentation.html" target="_blank"><i class="la la-code-fork"></i></a>
@@ -715,17 +743,23 @@ License: You must have a valid license purchased only from themeforest(the above
 <script src="/backend/vendors/jquery-form/dist/jquery.form.min.js" type="text/javascript"></script>
 <script src="/backend/vendors/block-ui/jquery.blockUI.js" type="text/javascript"></script>
 <script src="/backend/vendors/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
-<script src="/backend/vendors/js/framework/components/plugins/forms/bootstrap-datepicker.init.js" type="text/javascript"></script>
-<script src="/backend/vendors/bootstrap-datetime-picker/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+<script src="/backend/vendors/js/framework/components/plugins/forms/bootstrap-datepicker.init.js"
+        type="text/javascript"></script>
+<script src="/backend/vendors/bootstrap-datetime-picker/js/bootstrap-datetimepicker.min.js"
+        type="text/javascript"></script>
 <script src="/backend/vendors/bootstrap-timepicker/js/bootstrap-timepicker.min.js" type="text/javascript"></script>
-<script src="/backend/vendors/js/framework/components/plugins/forms/bootstrap-timepicker.init.js" type="text/javascript"></script>
+<script src="/backend/vendors/js/framework/components/plugins/forms/bootstrap-timepicker.init.js"
+        type="text/javascript"></script>
 <script src="/backend/vendors/bootstrap-daterangepicker/daterangepicker.js" type="text/javascript"></script>
-<script src="/backend/vendors/js/framework/components/plugins/forms/bootstrap-daterangepicker.init.js" type="text/javascript"></script>
+<script src="/backend/vendors/js/framework/components/plugins/forms/bootstrap-daterangepicker.init.js"
+        type="text/javascript"></script>
 <script src="/backend/vendors/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.js" type="text/javascript"></script>
 <script src="/backend/vendors/bootstrap-maxlength/src/bootstrap-maxlength.js" type="text/javascript"></script>
 <script src="/backend/vendors/bootstrap-switch/dist/js/bootstrap-switch.js" type="text/javascript"></script>
-<script src="/backend/vendors/js/framework/components/plugins/forms/bootstrap-switch.init.js" type="text/javascript"></script>
-<script src="/backend/vendors/vendors/bootstrap-multiselectsplitter/bootstrap-multiselectsplitter.min.js" type="text/javascript"></script>
+<script src="/backend/vendors/js/framework/components/plugins/forms/bootstrap-switch.init.js"
+        type="text/javascript"></script>
+<script src="/backend/vendors/vendors/bootstrap-multiselectsplitter/bootstrap-multiselectsplitter.min.js"
+        type="text/javascript"></script>
 <script src="/backend/vendors/bootstrap-select/dist/js/bootstrap-select.js" type="text/javascript"></script>
 <script src="/backend/vendors/select2/dist/js/select2.full.js" type="text/javascript"></script>
 <script src="/backend/vendors/typeahead.js/dist/typeahead.bundle.js" type="text/javascript"></script>
@@ -743,12 +777,15 @@ License: You must have a valid license purchased only from themeforest(the above
 <script src="/backend/vendors/summernote/dist/summernote.js" type="text/javascript"></script>
 <script src="/backend/vendors/markdown/lib/markdown.js" type="text/javascript"></script>
 <script src="/backend/vendors/bootstrap-markdown/js/bootstrap-markdown.js" type="text/javascript"></script>
-<script src="/backend/vendors/js/framework/components/plugins/forms/bootstrap-markdown.init.js" type="text/javascript"></script>
+<script src="/backend/vendors/js/framework/components/plugins/forms/bootstrap-markdown.init.js"
+        type="text/javascript"></script>
 <script src="/backend/vendors/jquery-validation/dist/jquery.validate.js" type="text/javascript"></script>
 <script src="/backend/vendors/jquery-validation/dist/additional-methods.js" type="text/javascript"></script>
-<script src="/backend/vendors/js/framework/components/plugins/forms/jquery-validation.init.js" type="text/javascript"></script>
+<script src="/backend/vendors/js/framework/components/plugins/forms/jquery-validation.init.js"
+        type="text/javascript"></script>
 <script src="/backend/vendors/bootstrap-notify/bootstrap-notify.min.js" type="text/javascript"></script>
-<script src="/backend/vendors/js/framework/components/plugins/base/bootstrap-notify.init.js" type="text/javascript"></script>
+<script src="/backend/vendors/js/framework/components/plugins/base/bootstrap-notify.init.js"
+        type="text/javascript"></script>
 <script src="/backend/vendors/toastr/build/toastr.min.js" type="text/javascript"></script>
 <script src="/backend/vendors/jstree/dist/jstree.js" type="text/javascript"></script>
 <script src="/backend/vendors/raphael/raphael.js" type="text/javascript"></script>
@@ -756,13 +793,15 @@ License: You must have a valid license purchased only from themeforest(the above
 <script src="/backend/vendors/chartist/dist/chartist.js" type="text/javascript"></script>
 <script src="/backend/vendors/chart.js/dist/Chart.bundle.js" type="text/javascript"></script>
 <script src="/backend/vendors/js/framework/components/plugins/charts/chart.init.js" type="text/javascript"></script>
-<script src="/backend/vendors/vendors/bootstrap-session-timeout/dist/bootstrap-session-timeout.min.js" type="text/javascript"></script>
+<script src="/backend/vendors/vendors/bootstrap-session-timeout/dist/bootstrap-session-timeout.min.js"
+        type="text/javascript"></script>
 <script src="/backend/vendors/vendors/jquery-idletimer/idle-timer.min.js" type="text/javascript"></script>
 <script src="/backend/vendors/waypoints/lib/jquery.waypoints.js" type="text/javascript"></script>
 <script src="/backend/vendors/counterup/jquery.counterup.js" type="text/javascript"></script>
 <script src="/backend/vendors/es6-promise-polyfill/promise.min.js" type="text/javascript"></script>
 <script src="/backend/vendors/sweetalert2/dist/sweetalert2.min.js" type="text/javascript"></script>
-<script src="/backend//vendors/js/framework/components/plugins/base/sweetalert2.init.js" type="text/javascript"></script>
+<script src="/backend//vendors/js/framework/components/plugins/base/sweetalert2.init.js"
+        type="text/javascript"></script>
 
 <!--end:: Global Optional Vendors -->
 
@@ -772,8 +811,6 @@ License: You must have a valid license purchased only from themeforest(the above
 <script src="/backend/assets/demo/custom/crud/forms/widgets/bootstrap-select.js" type="text/javascript"></script>
 <script src="/backend/assets/demo/custom/crud/forms/widgets/input-mask.js" type="text/javascript"></script>
 <script src="/backend/assets/demo/custom/components/base/sweetalert2.js" type="text/javascript"></script>
-
-
 
 
 <!--end::Global Theme Bundle -->

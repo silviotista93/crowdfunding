@@ -1,7 +1,19 @@
 @extends('backend.layout')
 
 @section('header')
-    <div class="m-subheader ">
+    @if($errors->any())
+
+        <ul class="list-group">
+
+            @foreach($errors->all() as $error)
+                <div class="alert alert-danger" role="alert">
+                    <strong>Error!</strong> {{$error}}
+                </div>
+            @endforeach
+
+        </ul>
+
+    @endif
         <div class="d-flex align-items-center">
             <div class="mr-auto">
                 <h3 class="m-subheader__title m-subheader__title--separator">{{ __('bienvenido') }}</h3>
@@ -28,7 +40,7 @@
             <div>
             </div>
         </div>
-    </div>
+
 @stop
 @section('content')
     <div class="m-content">
@@ -66,6 +78,9 @@
                         @include('backend.profile.partials.actions-perfil')
                     </div>
                     <div class="tab-content">
+                        <!--=====================================
+		               ACTUALIZAR PERFIL DEL USUARIO
+                        ======================================-->
                         <div class="tab-pane active" id="m_user_profile_tab_1">
                             <form method="post" action="{{ route('update.profile.artist',auth()->user()->id) }}"
                                   class="m-form m-form--fit m-form--label-align-right">
@@ -214,6 +229,9 @@
                                 </div>
                             </form>
                         </div>
+                        <!--=====================================
+		               MENSAJES
+                        ======================================-->
                         <div class="tab-pane " id="m_user_profile_tab_2">
                             <div class="m-portlet__body">
                                 <div class="m-widget3">
@@ -300,8 +318,97 @@
                                 </div>
                             </div>
                         </div>
-
+                        <!--=====================================
+		               CONFIGURACIONES
+                        ======================================-->
                         <div class="tab-pane " id="m_user_profile_tab_3">
+                            <div class="m-portlet__body">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="m-section">
+                                            <!--=====================================
+		                                  CONFIGURACIONES PARA EL BACKER
+                                            ======================================-->
+                                            <span class="m-section__sub">
+												{{ __('patrocinador') }}
+											</span>
+                                            <div class="m-section__content">
+                                                <div class="m-demo" data-code-preview="true" data-code-html="true"
+                                                     data-code-js="false">
+                                                    <div class="m-demo__preview">
+
+                                                        <!--begin::Form-->
+                                                        <form class="m-form">
+                                                            <div class="m-form__group form-group row">
+                                                                <label class="col-12 col-form-label">{{ __('mostrar_patrocinador') }}</label>
+                                                                <div class="col-12">
+                                                                    <span class="m-switch m-switch--icon">
+                                                                        <label>
+                                                                            <input type="checkbox" checked="checked"
+                                                                                   name="">
+                                                                            <span></span>
+                                                                        </label>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                        <!--end::Form-->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="m-section">
+                                            <!--=====================================
+                                           CONFIGURACIONES PARA EL PERFIL DE USUARIO
+                                           ======================================-->
+                                            <span class="m-section__sub">
+												{{ __('perfil') }}
+                                            </span>
+
+                                            <div class="m-section__content">
+                                                <div class="m-demo" data-code-preview="true" data-code-html="true"
+                                                     data-code-js="false">
+                                                    <div class="m-demo__preview">
+                                                        <!-- CAMBIAR LA CONTRASEÑA DEL USUARIO, PERO PRIMERO SE VALIDA SI EL USUARIO ES NO ES DE ALGUNA RED SOCIAL -->
+                                                        @if(!$artist->users->socialAcounts)
+                                                            <form method="post" action="{{ route('update.password.artist',auth()->user()->id) }}">
+                                                                @csrf {{ method_field('PUT') }}
+                                                                <div class="row">
+                                                                    <div class="col-lg-6">
+                                                                        <div class="form-group m-form__group {{$errors->has('password')? 'has-danger':''}}">
+                                                                            <label for="exampleInputPassword1">{{ __('actualizar_contraseña') }}</label>
+                                                                            <input type="password" name="password"
+                                                                                   class="form-control m-input"
+                                                                                   id="exampleInputPassword1"
+                                                                                   placeholder="{{ __('actualizar_contraseña') }}">
+                                                                            {!! $errors->first('password','<div class="form-control-feedback">*:message</div>')!!}
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-6">
+                                                                        <div class="form-group m-form__group {{$errors->has('password_confirmation')? 'has-danger':''}}">
+                                                                            <label for="exampleInputPassword1">{{ __('confirmar_contraseña') }}</label>
+                                                                            <input type="password"
+                                                                                   name="password_confirmation"
+                                                                                   class="form-control m-input"
+                                                                                   id="exampleInputPassword1"
+                                                                                   placeholder="{{ __('confirmar_contraseña') }}">
+                                                                            {!! $errors->first('password_confirmation','<div class="form-control-feedback">*:message</div>')!!}
+                                                                        </div>
+                                                                        <button type="submit" class="btn btn-outline-success btn-sm m-btn m-btn--custom pull-right">{{ __('actualizar') }}</button>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
                 </div>

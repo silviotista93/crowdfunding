@@ -15,7 +15,7 @@ class ProfileController extends Controller
     public function index_artist(){
         $countries = Country::all();
         $levels = Level::all();
-        $artist = Artist::where('user_id',auth()->user()->id)->with('users','countries')->first();
+        $artist = Artist::where('user_id',auth()->user()->id)->with('users.socialAcounts','countries')->first();
         return view('backend.profile.profile-artist',compact('countries','levels','artist'));
     }
 
@@ -47,5 +47,28 @@ class ProfileController extends Controller
         ]);
         alert()->success('Tu perfil ha sido actualizado','¡Muy bien!')->autoClose(3000);
         return back();
+    }
+
+    public function update_password(Request $request, User $user){
+
+        if ($request->filled('password')) {
+
+            $this->validate($request, [
+
+                'password' => 'confirmed|min:6',
+
+            ]);
+            $password = $request->get('password');
+            $user->password = bcrypt($password);
+
+            $user->update();
+
+            alert()->success('Contraseña Actualizada','¡Muy bien!')->autoClose(3000);
+            return back();
+        } else {
+
+
+            return back()->with('eliminar','Ningún Cambio');
+        }
     }
 }
