@@ -825,6 +825,8 @@ License: You must have a valid license purchased only from themeforest(the above
 
 <!--end::Page Scripts -->
 @include('sweet::alert')
+@section('dropzonePhotoArtist')
+@show
 </body>
 
 <!-- end::Body -->

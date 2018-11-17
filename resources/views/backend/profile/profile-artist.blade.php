@@ -401,6 +401,19 @@
                                                                 </div>
                                                             </form>
                                                         @endif
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group m-form__group">
+                                                                    <label for="">Imagén de Perfil</label>
+                                                                    <div class="m-dropzone dropzone m-dropzone--success" action="inc/api/dropzone/upload.php" id="m-dropzone-three">
+                                                                        <div class="m-dropzone__msg dz-message needsclick">
+                                                                            <h3 class="m-dropzone__msg-title">Actualiza tu foto de perfil</h3>
+                                                                            <span class="m-dropzone__msg-desc">Arrastra, o has click aqui para subir</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -416,3 +429,24 @@
         </div>
     </div>
 @stop
+@section('dropzonePhotoArtist')
+    <script>
+        new Dropzone('.dropzone', {
+            url: '{{ route('profile.photo.artist') }}',
+            acceptedFiles: 'image/*',
+            maxFiles: 1,
+            paramName: 'photo',
+            headers: {
+                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            },
+            success: function (file, response) {
+
+                $('#inputImagenesPostPlan').val(response);
+                location.reload();
+            }
+
+        });
+
+        Dropzone.autoDiscover = false;
+    </script>
+@endsection

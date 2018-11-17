@@ -9,6 +9,7 @@ use App\Update;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
@@ -70,5 +71,19 @@ class ProfileController extends Controller
 
             return back()->with('eliminar','Ningún Cambio');
         }
+    }
+    public function photo (Request $request){
+        $user = User::where('id',auth()->user()->id)->first();
+        $user_picture =  str_replace('storage','',$user->picture);;
+        //Elimnar foto de perfil del servidor
+        Storage::delete($user_picture);
+        //Agregar la nueva foto de perfil
+        $photo = $request->file('photo')->store('users');
+        User::where('id',auth()->user()->id)->update([
+            'picture' => '/storage/'.$photo
+        ]);
+
+        return $user_picture;
+
     }
 }

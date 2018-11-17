@@ -65,6 +65,7 @@ Route::group(['namespace'=>'Backend','prefix' => 'dashboard','middleware' => 'au
     //RUTAS PARA EL PERFIL
     //Perfil Artista
     Route::get('/profile','ProfileController@index_artist')->name('profile.artist');
+    Route::post('/profile-photo-artist','ProfileController@photo')->name('profile.photo.artist');
     Route::put('/update-profile-artist/{id_artis}','ProfileController@profile_update_artist')->name('update.profile.artist');
     Route::put('update-password-artist/{user}','ProfileController@update_password')->name('update.password.artist');
     //Proyesctos del Artista
