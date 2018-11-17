@@ -89,7 +89,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <!--RTL version:<link href="assets/vendors/custom/fullcalendar/fullcalendar.bundle.rtl.css" rel="stylesheet" type="text/css" />-->
 
     <!--end::Page Vendors Styles -->
-    <link rel="shortcut icon" href="/backend/assets/demo/media/img/logo/favicon.ico"/>
+    {{--<link rel="shortcut icon" href="/backend/assets/demo/media/img/logo/favicon.ico"/>--}}
 </head>
 
 <!-- end::Head -->
