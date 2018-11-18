@@ -68,10 +68,15 @@ Route::group(['namespace'=>'Backend','prefix' => 'dashboard','middleware' => 'au
     Route::post('/profile-photo-artist','ProfileController@photo')->name('profile.photo.artist');
     Route::put('/update-profile-artist/{id_artis}','ProfileController@profile_update_artist')->name('update.profile.artist');
     Route::put('update-password-artist/{user}','ProfileController@update_password')->name('update.password.artist');
-    //Proyesctos del Artista
+    //Proyectos del Artista
     Route::get('/my-projects','MyProjectsController@index_artist')->name('myprojects.artist');
     //Apoyos hechos
     Route::get('/backings-made','BackingsMadeController@index_artist')->name('backings.made.artist');
+
+    //RUTAS PARA AGREGAR PROYECTOS
+    Route::get('/new-project','AddProjectController@index')->name('add.project');
+    Route::post('/add-project-imagen','AddProjectController@upload_image')->name('add.project.image');
+
 });
 
 /*=============================================

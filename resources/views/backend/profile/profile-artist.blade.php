@@ -16,7 +16,7 @@
     @endif
         <div class="d-flex align-items-center">
             <div class="mr-auto">
-                <h3 class="m-subheader__title m-subheader__title--separator">{{ __('bienvenido') }}</h3>
+                <h3 class="m-subheader__title m-subheader__title--separator">{{ __('perfil') }}</h3>
                 <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
                     <li class="m-nav__item m-nav__item--home">
                         <a href="#" class="m-nav__link m-nav__link--icon">
@@ -407,8 +407,8 @@
                                                                     <label for="">Imagén de Perfil</label>
                                                                     <div class="m-dropzone dropzone m-dropzone--success" action="inc/api/dropzone/upload.php" id="m-dropzone-three">
                                                                         <div class="m-dropzone__msg dz-message needsclick">
-                                                                            <h3 class="m-dropzone__msg-title">Actualiza tu foto de perfil</h3>
-                                                                            <span class="m-dropzone__msg-desc">Arrastra, o has click aqui para subir</span>
+                                                                            <h3 class="m-dropzone__msg-title">{{ __('actualizar_foto_perfil') }}</h3>
+                                                                            <span class="m-dropzone__msg-desc">{{ __('arrastra_click_subir') }}</span>
                                                                         </div>
                                                                     </div>
                                                                 </div>

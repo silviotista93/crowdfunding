@@ -811,6 +811,9 @@ License: You must have a valid license purchased only from themeforest(the above
 <script src="/backend/assets/demo/custom/crud/forms/widgets/bootstrap-select.js" type="text/javascript"></script>
 <script src="/backend/assets/demo/custom/crud/forms/widgets/input-mask.js" type="text/javascript"></script>
 <script src="/backend/assets/demo/custom/components/base/sweetalert2.js" type="text/javascript"></script>
+<script src="/backend/assets/demo/custom/crud/wizard/wizard.js" type="text/javascript"></script>
+<script src="/backend/assets/js/jqueryNumber.js" type="text/javascript"></script>
+
 
 
 <!--end::Global Theme Bundle -->
@@ -826,6 +829,8 @@ License: You must have a valid license purchased only from themeforest(the above
 <!--end::Page Scripts -->
 @include('sweet::alert')
 @section('dropzonePhotoArtist')
+@show
+@section('js.add-project')
 @show
 </body>
 

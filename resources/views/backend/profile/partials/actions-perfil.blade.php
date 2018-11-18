@@ -5,7 +5,7 @@
                  m-dropdown-toggle="hover" aria-expanded="true">
                 <a href="#"
                    class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle">
-                    <i class="la la-gear"></i>
+                    <i class="la la-ellipsis-h m--font-brand"></i>
                 </a>
                 <div class="m-dropdown__wrapper">
                     <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
