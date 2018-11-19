@@ -725,6 +725,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- begin::Quick Nav -->
 
 <!--begin:: Global Mandatory Vendors -->
+<meta name="_token" content="{!! csrf_token() !!}"/>
 <script src="/backend/vendors/jquery/dist/jquery.js" type="text/javascript"></script>
 <script src="/backend/vendors/popper.js/dist/umd/popper.js" type="text/javascript"></script>
 <script src="/backend//vendors/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>

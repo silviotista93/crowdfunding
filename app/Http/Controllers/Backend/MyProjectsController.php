@@ -21,7 +21,8 @@ class MyProjectsController extends Controller
                         ->where('status',Project::REVISION)
                         ->OrWhere('status',Project::PREAPPROVAL);
                 }
-            ])->first();
+            ])->latest()
+            ->first();
         $projects_approv_published = Artist::where('user_id',auth()->user()->id)->with(
             [   'users',
                 'countries',
@@ -30,7 +31,8 @@ class MyProjectsController extends Controller
                         ->where('status',Project::APPROVAL)
                         ->OrWhere('status',Project::PUBLISHED);
                 }
-            ])->first();
+            ])->latest()
+            ->first();
         $projects_rejected = Artist::where('user_id',auth()->user()->id)->with(
             [   'users',
                 'countries',
@@ -38,7 +40,8 @@ class MyProjectsController extends Controller
                     $q->select('*')
                         ->where('status',Project::REJECTED);
                 }
-            ])->first();
+            ])->latest()
+            ->first();
 
         return view('backend.profile.my-projects',compact('artist','projects_revision','projects_approv_published','projects_rejected'));
     }

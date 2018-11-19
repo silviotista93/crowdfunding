@@ -76,6 +76,10 @@ Route::group(['namespace'=>'Backend','prefix' => 'dashboard','middleware' => 'au
     //RUTAS PARA AGREGAR PROYECTOS
     Route::get('/new-project','AddProjectController@index')->name('add.project');
     Route::post('/add-project-imagen','AddProjectController@upload_image')->name('add.project.image');
+    Route::post('/add-project','AddProjectController@store')->name('add.store.project');
+
+    //RUTAS PARA VER EL PROJECT
+    Route::get('/project/{project}','ShowProjectController@index')->name('show.backend.project');
 
 });
 

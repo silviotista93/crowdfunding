@@ -31,6 +31,7 @@ class LoginController extends Controller
      *
      * @var string
      */
+
     protected $redirectTo = '/';
 
     /**
@@ -45,12 +46,31 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-    public function logout(Request $request)
-    {
-        auth()->logout();
-        session()->flush();
+
+    public function redirectTo(){
         return redirect('/');
     }
+
+    public function authenticated()
+    {
+        $users = User::where('id',\Auth::user()->id)->with(['roles'])->first();
+        $rol = array_pluck($users->roles,'rol');
+        if (in_array('Admin',$rol)){
+            return redirect('/dashboard');
+        }else{
+            return redirect('/');
+        }
+    }
+
+    public function logout(Request $request)
+    {
+        $this->guard()->logout();
+
+        $request->session()->invalidate();
+
+        return redirect('/');
+    }
+
 
     /*=============================================
      REDIRECTTOPROVIDER ES LA FUNCION QUE RECIBE LA URL DE LA RED SOCIAL, AL INGRESAR EJECUTA LA CLASE SOCIALITE Y LE REDIRECCIONA A LA PAGINA DE LOGIN DE LA RED SOCIAL

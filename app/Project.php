@@ -74,6 +74,18 @@ class Project extends Model
     const REJECTED = 5;
 
     protected $withCount = ['reviews','updates'];
+    protected $fillable = [
+        'title',
+        'short_description',
+        'description',
+        'project_picture',
+        'status',
+        'iframe_video',
+        'end_time',
+        'price',
+        'slug',
+        'category_id',
+    ];
 
     public function getRouteKeyName(){
         return 'slug';

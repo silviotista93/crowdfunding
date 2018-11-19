@@ -145,7 +145,7 @@
                     m-dropdown-toggle="click"
                     m-dropdown-persistent="1">
                     <a href="#" class="m-nav__link m-dropdown__toggle" id="m_topbar_notification_icon">
-                        <span class="m-nav__link-badge m-badge m-badge--dot m-badge--dot-small m-badge--danger"></span>
+                        <span class="m-nav__link-badge m-badge  m-badge m-badge--danger m-badge--danger">2</span>
                         <span class="m-nav__link-icon"><i class="flaticon-alarm"></i></span>
                     </a>
                     <div class="m-dropdown__wrapper">
@@ -421,7 +421,7 @@
                                             <span class="m-nav__section-text">Section</span>
                                         </li>
                                         <li class="m-nav__item">
-                                            <a href="header/profile.html" class="m-nav__link">
+                                            <a href="{{ route('profile.artist') }}" class="m-nav__link">
                                                 <i class="m-nav__link-icon flaticon-profile-1"></i>
                                                 <span class="m-nav__link-title">
 																			<span class="m-nav__link-wrap">

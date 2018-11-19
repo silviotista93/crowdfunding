@@ -79,6 +79,6 @@ class RegisterController extends Controller
            'user_id' => $user->id
         ]);
         $user->roles()->attach(['2','3']);
-        return redirect('/');
+        return redirect('/dashboard/profile');
     }
 }

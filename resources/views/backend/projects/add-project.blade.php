@@ -140,8 +140,10 @@
 
                             <!--begin: Form Wizard Form-->
                             <div class="m-wizard__form">
-                                <form class="m-form m-form--label-align-left- m-form--state-" id="m_form">
-
+                                <form method="post" action="{{ route('add.store.project') }}" class="m-form m-form--label-align-left- m-form--state-" id="form_add_project">
+                                    @csrf
+                                    <input type="hidden" name="artist_id" value="{{ $artist_id->id }}">
+                                    <input type="hidden" name="status" value="1">
                                     <div class="m-portlet__body m-portlet__body--no-padding">
 
                                         <!--=====================================
@@ -207,7 +209,7 @@
                                                     <div class="col-lg-12 m-form__group-sub">
                                                         <label class="form-control-label">* {{ __('corta_descripcion') }}:</label>
                                                         <textarea class="form-control m-input m-input--solid corta_descr_add_proyecto" id="exampleTextarea"
-                                                                  name="short_decription"
+                                                                  name="short_description"
                                                                   rows="8">{{ old('biography') }}</textarea>
                                                         {!! $errors->first('biography','<div class="form-control-feedback">*:message</div>')!!}
                                                         <span class="m-form__help">{{ __('help_shorDescription_proyecto') }}</span>
@@ -223,6 +225,7 @@
                                                     <div class="col-lg-6 m-form__group-sub">
                                                         <label class="form-control-label">* {{ __('select_genero') }}:</label>
                                                         <select name="category_id" class="form-control m-bootstrap-select m_selectpicker" id="genero_add_proyecto">
+                                                            <option value="">{{ __('seleccione_genero') }}</option>
                                                             @foreach($categories as $categorie)
                                                                 <option value="{{ $categorie->id }}">{{ $categorie->category }}</option>
                                                             @endforeach
@@ -467,7 +470,7 @@
                                                     <a href="#" class="btn btn-secondary m-btn m-btn--custom m-btn--icon" data-wizard-action="prev">
 																		<span>
 																			<i class="la la-arrow-left"></i>&nbsp;&nbsp;
-																			<span>Back</span>
+																			<span>{{ __('btn_atras') }}</span>
 																		</span>
                                                     </a>
                                                 </div>
@@ -475,7 +478,7 @@
                                                     <a href="#" class="btn btn-primary m-btn m-btn--custom m-btn--icon" data-wizard-action="submit">
 																		<span>
 																			<i class="la la-check"></i>&nbsp;&nbsp;
-																			<span>Submit</span>
+																			<span>{{ __('enviar') }}</span>
 																		</span>
                                                     </a>
                                                     <button href="" class="btn btn-success m-btn m-btn--custom m-btn--icon btn_siguiente_proyecto" data-wizard-action="next">

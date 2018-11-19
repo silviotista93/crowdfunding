@@ -16,8 +16,8 @@ class CreateProjectsTable extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->mediumText('short_description');
-            $table->text('description')->nullable();
+            $table->longText('short_description');
+            $table->longText('description')->nullable();
             $table->string('project_picture')->nullable();
             $table->enum('status',[
                 \App\Project::REVISION,

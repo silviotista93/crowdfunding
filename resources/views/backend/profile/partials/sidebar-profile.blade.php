@@ -90,7 +90,7 @@
                         <h3 class="m-widget1__title">{{ __('proyectos_subidos') }}</h3>
                     </div>
                     <div class="col m--align-right">
-                        <span class="m-widget1__number m--font-danger">3</span>
+                        <span class="m-widget1__number m--font-danger">{{ $artist->projects->count() }}</span>
                     </div>
                 </div>
             </div>

@@ -37,7 +37,7 @@ class CreateArtistsTable extends Migration
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('nickname')->nullable();
-            $table->text('biography')->nullable();
+            $table->longText('biography')->nullable();
             $table->string('website_url')->nullable();
             $table->string('facebook')->nullable();
             $table->string('instagram')->nullable();

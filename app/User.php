@@ -98,7 +98,7 @@ class User extends Authenticatable
         return $this->hasOne(UserSocialAccount::class);
     }
     public function roles(){
-        return $this->belongsToMany(User::class,'roles_users','user_idUser','role_idRole');
+        return $this->belongsToMany(Role::class,'roles_users','user_idUser','role_idRole');
     }
 
     public function artist_user($id){

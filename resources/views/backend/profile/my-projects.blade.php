@@ -101,8 +101,13 @@
                                         <div class="m-widget5__item">
                                             <div class="m-widget5__content">
                                                 <div class="m-widget5__pic">
-                                                    <img class="m-widget7__img" src="{{ $projects->pathAttachment() }}"
-                                                         alt="">
+                                                    @if(Storage::disk('public')->exists('projects/'.$projects->project_picture))
+                                                        <img src="{{ auth()->user()->pathAttachment() }}" alt=""/>
+                                                    @else
+                                                        <img class="m-widget7__img" src="{{ $projects->project_picture }}"
+                                                             alt="">
+                                                    @endif
+
                                                 </div>
                                                 <div class="m-widget5__section">
                                                     <h4 class="m-widget5__title">
@@ -117,7 +122,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="m-widget5__stats1">
-                                                    <a href="#" class="btn btn-secondary m-btn m-btn--icon m-btn--pill">
+                                                    <a href="{{ route('show.backend.project',$projects->slug) }}" class="btn btn-secondary m-btn m-btn--icon m-btn--pill">
                                                     <span><i class="la la-info-circle"></i>
                                                     <span>{{ __('mas_informacion') }}</span></span>
                                                     </a>
@@ -177,8 +182,12 @@
                                         <div class="m-widget5__item">
                                             <div class="m-widget5__content">
                                                 <div class="m-widget5__pic">
-                                                    <img class="m-widget7__img" src="{{ $projects->pathAttachment() }}"
-                                                         alt="">
+                                                    @if(Storage::disk('public')->exists('projects/'.$projects->project_picture))
+                                                        <img src="{{ auth()->user()->pathAttachment() }}" alt=""/>
+                                                    @else
+                                                        <img class="m-widget7__img" src="{{ $projects->project_picture }}"
+                                                             alt="">
+                                                    @endif
                                                 </div>
                                                 <div class="m-widget5__section">
                                                     <h4 class="m-widget5__title">
@@ -252,8 +261,12 @@
                                         <div class="m-widget5__item">
                                             <div class="m-widget5__content">
                                                 <div class="m-widget5__pic">
-                                                    <img class="m-widget7__img" src="{{ $projects->pathAttachment() }}"
-                                                         alt="">
+                                                    @if(Storage::disk('public')->exists('projects/'.$projects->project_picture))
+                                                        <img src="{{ auth()->user()->pathAttachment() }}" alt=""/>
+                                                    @else
+                                                        <img class="m-widget7__img" src="{{ $projects->project_picture }}"
+                                                             alt="">
+                                                    @endif
                                                 </div>
                                                 <div class="m-widget5__section">
                                                     <h4 class="m-widget5__title">
@@ -326,8 +339,12 @@
                                         <div class="m-widget5__item">
                                             <div class="m-widget5__content">
                                                 <div class="m-widget5__pic">
-                                                    <img class="m-widget7__img" src="{{ $projects->pathAttachment() }}"
-                                                         alt="">
+                                                    @if(Storage::disk('public')->exists('projects/'.$projects->project_picture))
+                                                        <img src="{{ auth()->user()->pathAttachment() }}" alt=""/>
+                                                    @else
+                                                        <img class="m-widget7__img" src="{{ $projects->project_picture }}"
+                                                             alt="">
+                                                    @endif
                                                 </div>
                                                 <div class="m-widget5__section">
                                                     <h4 class="m-widget5__title">

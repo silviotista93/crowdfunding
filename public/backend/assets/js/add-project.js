@@ -2,7 +2,7 @@
 var WizardDemo = function () {
     //== Base elements
     var wizardEl = $('#wizard_project_add');
-    var formEl = $('#m_form');
+    var formEl = $('#form_add_project');
     var validator;
     var wizard;
 
@@ -14,26 +14,26 @@ var WizardDemo = function () {
         });
 
         //== Validation before going to next page
-        wizard.on('beforeNext', function(wizardObj) {
+        wizard.on('beforeNext', function (wizardObj) {
             if (validator.form() !== true) {
                 wizardObj.stop();  // don't go to the next step
             }
         })
 
         //== Change event
-        wizard.on('change', function(wizard) {
+        wizard.on('change', function (wizard) {
             mUtil.scrollTop();
         });
 
         //== Change event
-        wizard.on('change', function(wizard) {
+        wizard.on('change', function (wizard) {
             if (wizard.getStep() === 1) {
-                alert(1);
+
             }
         });
-    }
+    };
 
-    var initValidation = function() {
+    var initValidation = function () {
         validator = formEl.validate({
             //== Validate only visible fields
             ignore: ":hidden",
@@ -119,9 +119,7 @@ var WizardDemo = function () {
                 billing_address_1: {
                     required: true
                 },
-                billing_address_2: {
-
-                },
+                billing_address_2: {},
                 billing_city: {
                     required: true
                 },
@@ -153,7 +151,7 @@ var WizardDemo = function () {
             },
 
             //== Display error
-            invalidHandler: function(event, validator) {
+            invalidHandler: function (event, validator) {
                 mUtil.scrollTop();
 
                 swal({
@@ -164,47 +162,32 @@ var WizardDemo = function () {
                 });
             },
 
-            //== Submit valid form
-            submitHandler: function (form) {
 
-            }
         });
     };
 
-    var initSubmit = function() {
+    var initSubmit = function () {
         var btn = formEl.find('[data-wizard-action="submit"]');
-
-        btn.on('click', function(e) {
-            e.preventDefault();
-
-            if (validator.form()) {
-                //== See: src\js\framework\base\app.js
-                mApp.progress(btn);
-                //mApp.block(formEl);
-
-                //== See: http://malsup.com/jquery/form/#ajaxSubmit
-                formEl.ajaxSubmit({
-                    success: function() {
-                        mApp.unprogress(btn);
-                        //mApp.unblock(formEl);
-
-                        swal({
-                            "title": "",
-                            "text": "The application has been successfully submitted!",
-                            "type": "success",
-                            "confirmButtonClass": "btn btn-secondary m-btn m-btn--wide"
-                        });
-                    }
-                });
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
             }
         });
-    }
+        btn.on('click', function (e) {
+            e.preventDefault();
+            if (validator.form()) {
+
+                $('#form_add_project').submit();
+            }
+
+        });
+    };
 
     return {
         // public functions
-        init: function() {
+        init: function () {
             wizardEl = $('#wizard_project_add');
-            formEl = $('#m_form');
+            formEl = $('#form_add_project');
 
             initWizard();
             initValidation();
@@ -217,7 +200,7 @@ var WizardDemo = function () {
 CAMBIAR EL VALOR INGRESADO POR EL VALOR A GUARDAR EN LA DB
 =============================================*/
 
-jQuery(document).ready(function() {
+jQuery(document).ready(function () {
     WizardDemo.init();
 });
 
@@ -249,7 +232,7 @@ $(function () {
 AGREGAR VIDEO AL CONFIRMACION
 =============================================*/
 $(function () {
-    $(".iframe_add_proyecto").on('change',function (e){
+    $(".iframe_add_proyecto").on('change', function (e) {
         e.preventDefault();
         var videoYoutube = $(this).val();
         console.log(videoYoutube);
@@ -273,7 +256,7 @@ $(".corta_descr_add_proyecto").keyup(function () {
 
 });
 
-$("#genero_add_proyecto").change(function() {
+$("#genero_add_proyecto").change(function () {
     var texto = $(this).find('option:selected').text(); // Capturamos el texto del option seleccionado
 
     $(".genero_musical_confirmacion").text(texto);

@@ -17,7 +17,7 @@
                                         <span class="m-nav__section-text">Quick Actions</span>
                                     </li>
                                     <li class="m-nav__item">
-                                        <a href="" class="m-nav__link">
+                                        <a href="{{ route('add.project') }}" class="m-nav__link">
                                             <i class="m-nav__link-icon flaticon-share"></i>
                                             <span class="m-nav__link-text">Create Post</span>
                                         </a>
