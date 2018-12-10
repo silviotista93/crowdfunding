@@ -85,6 +85,8 @@ License: You must have a valid license purchased only from themeforest(the above
 
     <!--begin::Page Vendors Styles -->
     <link href="/backend/assets/vendors/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css"/>
+    <link href="/backend/assets/vendors/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
+
 
     <!--RTL version:<link href="assets/vendors/custom/fullcalendar/fullcalendar.bundle.rtl.css" rel="stylesheet" type="text/css" />-->
 
@@ -832,6 +834,8 @@ License: You must have a valid license purchased only from themeforest(the above
 @section('dropzonePhotoArtist')
 @show
 @section('js.add-project')
+@show
+@section('table.admin.projects')
 @show
 </body>
 

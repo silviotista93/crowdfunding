@@ -126,6 +126,14 @@
   "terminos_add_proyecto":"Haga clic aquí para indicar que ha leído y acepta los términos presentados en el acuerdo de términos y condiciones.",
   "no_hay_proyectos":"Todavía no tienes ningún proyecto.",
   "cancelar":"Cancelar",
-  "bienvenido":"Bienvenido"
+  "bienvenido":"Bienvenido",
+  "aprovado":"Aprobados",
+  "pre_aprovado":"Pre Aprobado",
+  "publicado":"Publicados",
+  "estado":"Estado",
+  "selecciona":"Selecciona",
+  "acciones":"Acciones",
+  "categoria":"Categoria",
+  "titulo":"Titulo"
 
 }

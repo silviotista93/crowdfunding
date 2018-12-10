@@ -81,6 +81,13 @@ Route::group(['namespace'=>'Backend','prefix' => 'dashboard','middleware' => 'au
     //RUTAS PARA VER EL PROJECT
     Route::get('/project/{project}','ShowProjectController@index')->name('show.backend.project');
 
+
+    //RUTAS PARA EL ADMINISTRADOR DEL SISTEMA -------------------------------------------------------------------------------------------
+
+    //Todos los proyectos....
+    Route::get('/projects-admin', 'Admin\ProjectsAdminController@index')->name('projects.admin');
+    Route::get('datatables-projects-admin','Admin\ProjectsAdminController@table_projects')->name('datatables.projects.admin');
+
 });
 
 /*=============================================

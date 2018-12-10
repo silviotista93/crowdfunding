@@ -128,5 +128,13 @@
   "agregar_video_youtube": "Add YouTube video",
   "no_hay_proyectos":"You still have not any project",
   "cancelar":"Cancel",
-  "bienvenido":"Welcome"
+  "bienvenido":"Welcome",
+  "aprovado":"Approved",
+  "pre_aprovado":"Pre Approved",
+  "publicado":"Published",
+  "estado":"State",
+  "selecciona":"Choose",
+  "categoria":"Category",
+  "acciones":"Actions",
+  "titulo":"Title"
 }
