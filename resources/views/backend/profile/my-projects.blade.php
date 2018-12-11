@@ -118,7 +118,7 @@
                                                     {{ $projects->category->category }}
                                                 </span>
                                                     <div class="m-widget5__info">
-                                                        <span class="m-widget5__author">{{ $projects->short_description }}</span>
+                                                        <span class="m-widget5__author">{{ str_limit($projects->short_description,200)}}</span>
                                                     </div>
                                                 </div>
                                                 <div class="m-widget5__stats1">
