@@ -1,5 +1,5 @@
 //== Class definition
-var WizardDemo = function () {
+var Wizard = function () {
     //== Base elements
     var wizardEl = $('#wizard_project_add');
     var formEl = $('#form_add_project');
@@ -40,35 +40,56 @@ var WizardDemo = function () {
 
             //== Validation rules
             rules: {
-                //=== Client Information(step 1)
-                //== Client details
-                name: {
+                //===(step 1)
+                txtFrame: {
                     required: true
                 },
+                //===(step 2)
+                nombreProyecto: {
+                    required: true 
+                },
+                descripcionProyecto:{
+                    required:true
+                },
+                category_id:{
+                    required: true,
+                },
+                costo_proyecto:{
+                    required: true
+                },
+                //===(step 3)
+                txtCardName:{
+                    required:true
+                },
+                txtCardNumber:{
+                    required: true
+                },
+                
+                //===(step 4)
                 email: {
                     required: true,
-                    email: true
-                },
+                    email: true 
+                },       
                 phone: {
                     required: true,
-                    phoneUS: true
-                },
+                    phoneUS: true 
+                },     
 
                 //== Mailing address
                 address1: {
-                    required: true
+                    required: true 
                 },
                 city: {
-                    required: true
+                    required: true 
                 },
                 state: {
-                    required: true
+                    required: true 
                 },
                 city: {
-                    required: true
+                    required: true 
                 },
                 country: {
-                    required: true
+                    required: true 
                 },
 
                 //=== Client Information(step 2)
@@ -84,12 +105,12 @@ var WizardDemo = function () {
                 account_password: {
                     required: true,
                     minlength: 6
-                },
+                },                
 
                 //== Client Settings
                 account_group: {
-                    required: true
-                },
+                     required: true
+                },                
                 'account_communication[]': {
                     required: true
                 },
@@ -119,7 +140,9 @@ var WizardDemo = function () {
                 billing_address_1: {
                     required: true
                 },
-                billing_address_2: {},
+                billing_address_2: {
+                    
+                },
                 billing_city: {
                     required: true
                 },
@@ -201,7 +224,7 @@ CAMBIAR EL VALOR INGRESADO POR EL VALOR A GUARDAR EN LA DB
 =============================================*/
 
 jQuery(document).ready(function () {
-    WizardDemo.init();
+    Wizard.init();
 });
 
 $(document).ready(function () {

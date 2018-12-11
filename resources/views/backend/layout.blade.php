@@ -92,6 +92,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
     <!--end::Page Vendors Styles -->
     {{--<link rel="shortcut icon" href="/backend/assets/demo/media/img/logo/favicon.ico"/>--}}
+    @stack('css')
 </head>
 
 <!-- end::Head -->
@@ -837,6 +838,7 @@ License: You must have a valid license purchased only from themeforest(the above
 @show
 @section('table.admin.projects')
 @show
+@stack('js')
 </body>
 
 <!-- end::Body -->

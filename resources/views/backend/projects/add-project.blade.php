@@ -1,4 +1,11 @@
 @extends('backend.layout')
+@push('css')
+    <style>
+        .m-wizard.m-wizard--4 .m-wizard__head .m-wizard__nav .m-wizard__steps .m-wizard__step .m-wizard__step-info .m-wizard__step-label{
+            padding-left: 1rem;
+        }
+    </style>
+@endpush
 @section('header')
     @if($errors->any())
 
@@ -140,30 +147,34 @@
 
                             <!--begin: Form Wizard Form-->
                             <div class="m-wizard__form">
-                                <form method="post" action="{{ route('add.store.project') }}" class="m-form m-form--label-align-left- m-form--state-" id="form_add_project">
+                                <form method="post" action="{{ route('add.store.project') }}" class="m-form m-form--label-align-left- m-form--state-"
+                                    id="form_add_project">
                                     @csrf
                                     <input type="hidden" name="artist_id" value="{{ $artist_id->id }}">
                                     <input type="hidden" name="status" value="1">
                                     <div class="m-portlet__body m-portlet__body--no-padding">
 
                                         <!--=====================================
-		                              AUDIO VISUAL
+                                        AUDIO VISUAL
                                         ======================================-->
                                         <div class="m-wizard__form-step m-wizard__form-step--current" id="m_wizard_form_step_1">
-                                            <img src="/backend/assets/app/media/img/projects/logo_youtube.png" width="15%" alt="">
+                                            <img src="/backend/assets/app/media/img/projects/logo_youtube.png" width="15%" alt="Logo youtube">
                                             <div class="m-form__section">
                                                 <div class="m-form__heading">
                                                     <h3 class="m-form__heading-title">
                                                         {{ __('agregar_video_youtube') }}
-                                                        <button type="button" data-toggle="modal" id="btn_help_youtube" data-target="#open_help_youtube" class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle" style="background-color: #ffffff !important;border-color: #ffffff !important;">
+                                                        <button type="button" data-toggle="modal" id="btn_help_youtube" data-target="#open_help_youtube"
+                                                            class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle"
+                                                            style="background-color: #ffffff !important;border-color: #ffffff !important;">
                                                             <i class="m-nav__link-icon flaticon-info m--icon-font-size-lg3"></i>
                                                         </button>
                                                     </h3>
                                                 </div>
                                                 <div class="form-group m-form__group row">
-                                                    <label class="col-xl-2 col-lg-2 col-form-label">* Iframe:</label>
+                                                    <label class="col-xl-2 col-lg-2 col-form-label" form="txtFrame">* Iframe:</label>
                                                     <div class="col-xl-9 col-lg-9">
-                                                        <input type="text" name="iframe_video" class="form-control m-input iframe_add_proyecto" placeholder="iframe video" value="">
+                                                        <input type="text" name="iframe_video" class="form-control m-input iframe_add_proyecto required"
+                                                            placeholder="iframe video" value="" id="txtFrame">
                                                         <span class="m-form__help">{{ __('video_youtube_add_project') }}</span>
                                                     </div>
                                                 </div>
@@ -171,7 +182,8 @@
                                                 <div class="m-form__heading">
                                                     <h3 class="m-form__heading-title">
                                                         {{ __('imagen_proyecto') }}
-                                                        <i data-toggle="m-tooltip" data-width="auto" class="m-form__heading-help-icon flaticon-info" title="Some help text goes here"></i>
+                                                        <i data-toggle="m-tooltip" data-width="auto" class="m-form__heading-help-icon flaticon-info"
+                                                            title="Some help text goes here"></i>
                                                     </h3>
                                                 </div>
                                                 <div class="form-group m-form__group row">
@@ -191,8 +203,8 @@
                                         </div>
 
                                         <!--=====================================
-		                              GENERAL
-                                        ======================================-->
+                                GENERAL
+                                ======================================-->
                                         <div class="m-wizard__form-step" id="m_wizard_form_step_2">
                                             <div class="m-form__section m-form__section--first">
                                                 <div class="m-form__heading">
@@ -200,17 +212,17 @@
                                                 </div>
                                                 <div class="form-group m-form__group row">
                                                     <div class="col-lg-12">
-                                                        <label class="form-control-label">* {{ __('nombre_proyecto') }}:</label>
-                                                        <input type="text" name="title" class="form-control m-input title_add_proyecto" placeholder="" value="">
+                                                        <label class="form-control-label" form="nombreProyecto">* {{ __('nombre_proyecto') }}:</label>
+                                                        <input type="text" name="title" class="form-control m-input title_add_proyecto required" id="nombreProyecto" placeholder=""
+                                                            value="">
                                                         <span class="m-form__help">{{ __('help_nombre_proyecto') }}</span>
                                                     </div>
                                                 </div>
                                                 <div class="form-group m-form__group row">
                                                     <div class="col-lg-12 m-form__group-sub">
-                                                        <label class="form-control-label">* {{ __('corta_descripcion') }}:</label>
-                                                        <textarea class="form-control m-input m-input--solid corta_descr_add_proyecto" id="exampleTextarea"
-                                                                  name="short_description"
-                                                                  rows="8">{{ old('biography') }}</textarea>
+                                                        <label class="form-control-label" form="descripcionProyecto">* {{ __('corta_descripcion') }}:</label>
+                                                        <textarea class="form-control m-input m-input--solid corta_descr_add_proyecto required" id="descripcionProyecto"
+                                                            name="short_description" rows="8">{{ old('biography') }}</textarea>
                                                         {!! $errors->first('biography','<div class="form-control-feedback">*:message</div>')!!}
                                                         <span class="m-form__help">{{ __('help_shorDescription_proyecto') }}</span>
                                                     </div>
@@ -223,24 +235,24 @@
                                                 </div>
                                                 <div class="form-group m-form__group row">
                                                     <div class="col-lg-6 m-form__group-sub">
-                                                        <label class="form-control-label">* {{ __('select_genero') }}:</label>
-                                                        <select name="category_id" class="form-control m-bootstrap-select m_selectpicker" id="genero_add_proyecto">
+                                                        <label class="form-control-label" form="category_id">* {{ __('select_genero') }}:</label>
+                                                        <select name="category_id" class="form-control m-bootstrap-select m_selectpicker required" id="genero_add_proyecto">
                                                             <option value="">{{ __('seleccione_genero') }}</option>
                                                             @foreach($categories as $categorie)
-                                                                <option value="{{ $categorie->id }}">{{ $categorie->category }}</option>
+                                                            <option value="{{ $categorie->id }}">{{ $categorie->category }}</option>
                                                             @endforeach
                                                             {!! $errors->first('category_id','<div class="form-control-feedback">*:message</div>')!!}
                                                         </select>
                                                         <span class="m-form__help">{{ __('o_categoria') }}</span>
                                                     </div>
                                                     <div class="col-lg-6 m-form__group-sub">
-                                                        <label class="form-control-label">* {{ __('costo_proyecto') }}:</label>
+                                                        <label class="form-control-label" form="costo_proyecto">* {{ __('costo_proyecto') }}:</label>
                                                         <div class="input-group">
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text">$</span>
                                                                 <span class="input-group-text">USD</span>
                                                             </div>
-                                                            <input type="text" class="form-control m-input valor_add_proyecto"  aria-label="">
+                                                            <input type="text" class="form-control m-input valor_add_proyecto required" id="costo_proyecto" aria-label="">
                                                             <input type="hidden" name="price" class="valorDBProject" value="">
                                                         </div>
                                                         <span class="m-form__help">{{ __('help_valor_dolares') }}</span>
@@ -250,7 +262,7 @@
                                         </div>
 
                                         <!--=====================================
-		                              ENCUESTA
+                                        ENCUESTA
                                         ======================================-->
                                         <div class="m-wizard__form-step" id="m_wizard_form_step_3">
                                             <div class="m-form__section m-form__section--first">
@@ -259,14 +271,14 @@
                                                 </div>
                                                 <div class="form-group m-form__group row">
                                                     <div class="col-lg-12">
-                                                        <label class="form-control-label">* Cardholder Name:</label>
-                                                        <input type="text" name="billing_card_name" class="form-control m-input" placeholder="" value="Nick Stone">
+                                                        <label class="form-control-label" for="txtCardName">* Cardholder Name:</label>
+                                                        <input type="text" name="billing_card_name" id="txtCardName" class="form-control m-input required" placeholder="" value="Nick Stone">
                                                     </div>
                                                 </div>
                                                 <div class="form-group m-form__group row">
                                                     <div class="col-lg-12">
-                                                        <label class="form-control-label">* Card Number:</label>
-                                                        <input type="text" name="billing_card_number" class="form-control m-input" placeholder="" value="372955886840581">
+                                                        <label class="form-control-label" for="txtCardNumber">* Card Number:</label>
+                                                        <input type="text" name="billing_card_number" id="txtCardNumber" class="form-control m-input required" placeholder="" value="372955886840581">
                                                     </div>
                                                 </div>
 
@@ -280,52 +292,52 @@
                                                     <div class="row">
                                                         <div class="col-lg-6">
                                                             <label class="m-option">
-																				<span class="m-option__control">
-																					<span class="m-radio m-radio--state-brand">
-																						<input type="radio" name="billing_delivery" value="">
-																						<span></span>
-																					</span>
-																				</span>
+                                                                <span class="m-option__control">
+                                                                    <span class="m-radio m-radio--state-brand">
+                                                                        <input type="radio" name="billing_delivery" value="">
+                                                                        <span></span>
+                                                                    </span>
+                                                                </span>
                                                                 <span class="m-option__label">
-																					<span class="m-option__head">
-																						<span class="m-option__title">
-																							Standart Delevery
-																						</span>
-																						<span class="m-option__focus">
-																							Free
-																						</span>
-																					</span>
-																					<span class="m-option__body">
-																						Estimated 14-20 Day Shipping
-																						(&nbsp;Duties end taxes may be due
-																						upon delivery&nbsp;)
-																					</span>
-																				</span>
+                                                                    <span class="m-option__head">
+                                                                        <span class="m-option__title">
+                                                                            Standart Delevery
+                                                                        </span>
+                                                                        <span class="m-option__focus">
+                                                                            Free
+                                                                        </span>
+                                                                    </span>
+                                                                    <span class="m-option__body">
+                                                                        Estimated 14-20 Day Shipping
+                                                                        (&nbsp;Duties end taxes may be due
+                                                                        upon delivery&nbsp;)
+                                                                    </span>
+                                                                </span>
                                                             </label>
                                                         </div>
                                                         <div class="col-lg-6">
                                                             <label class="m-option">
-																				<span class="m-option__control">
-																					<span class="m-radio m-radio--state-brand">
-																						<input type="radio" name="billing_delivery" value="">
-																						<span></span>
-																					</span>
-																				</span>
+                                                                <span class="m-option__control">
+                                                                    <span class="m-radio m-radio--state-brand">
+                                                                        <input type="radio" name="billing_delivery" value="">
+                                                                        <span></span>
+                                                                    </span>
+                                                                </span>
                                                                 <span class="m-option__label">
-																					<span class="m-option__head">
-																						<span class="m-option__title">
-																							Fast Delevery
-																						</span>
-																						<span class="m-option__focus">
-																							$&nbsp;8.00
-																						</span>
-																					</span>
-																					<span class="m-option__body">
-																						Estimated 2-5 Day Shipping
-																						(&nbsp;Duties end taxes may be due
-																						upon delivery&nbsp;)
-																					</span>
-																				</span>
+                                                                    <span class="m-option__head">
+                                                                        <span class="m-option__title">
+                                                                            Fast Delevery
+                                                                        </span>
+                                                                        <span class="m-option__focus">
+                                                                            $&nbsp;8.00
+                                                                        </span>
+                                                                    </span>
+                                                                    <span class="m-option__body">
+                                                                        Estimated 2-5 Day Shipping
+                                                                        (&nbsp;Duties end taxes may be due
+                                                                        upon delivery&nbsp;)
+                                                                    </span>
+                                                                </span>
                                                             </label>
                                                         </div>
                                                     </div>
@@ -338,20 +350,22 @@
                                         </div>
 
                                         <!--=====================================
-                                         CONFIRMACIÓN
-                                         ======================================-->
+                                            CONFIRMACIÓN
+                                        ======================================-->
                                         <div class="m-wizard__form-step" id="m_wizard_form_step_4">
 
                                             <div class="m-accordion m-accordion--default" id="m_accordion_1" role="tablist">
 
                                                 <!--begin::Item-->
                                                 <div class="m-accordion__item active">
-                                                    <div class="m-accordion__item-head" role="tab" id="m_accordion_1_item_1_head" data-toggle="collapse" href="#m_accordion_1_item_1_body" aria-expanded="  false">
+                                                    <div class="m-accordion__item-head" role="tab" id="m_accordion_1_item_1_head" data-toggle="collapse"
+                                                        href="#m_accordion_1_item_1_body" aria-expanded="  false">
                                                         <span class="m-accordion__item-icon"><i class="fa flaticon-imac"></i></span>
                                                         <span class="m-accordion__item-title">1. {{ __('audio_visual') }}</span>
                                                         <span class="m-accordion__item-mode"></span>
                                                     </div>
-                                                    <div class="m-accordion__item-body collapse show" id="m_accordion_1_item_1_body" class=" " role="tabpanel" aria-labelledby="m_accordion_1_item_1_head" data-parent="#m_accordion_1">
+                                                    <div class="m-accordion__item-body collapse show" id="m_accordion_1_item_1_body" class=" " role="tabpanel"
+                                                        aria-labelledby="m_accordion_1_item_1_head" data-parent="#m_accordion_1">
 
                                                         <!--begin::Content-->
                                                         <div class="tab-content active  m--padding-30">
@@ -390,12 +404,14 @@
 
                                                 <!--begin::Item-->
                                                 <div class="m-accordion__item">
-                                                    <div class="m-accordion__item-head collapsed" role="tab" id="m_accordion_1_item_2_head" data-toggle="collapse" href="#m_accordion_1_item_2_body" aria-expanded="    false">
+                                                    <div class="m-accordion__item-head collapsed" role="tab" id="m_accordion_1_item_2_head" data-toggle="collapse"
+                                                        href="#m_accordion_1_item_2_body" aria-expanded="    false">
                                                         <span class="m-accordion__item-icon"><i class="fa flaticon-exclamation-2"></i></span>
                                                         <span class="m-accordion__item-title">2. {{ __('informacion_general') }}</span>
                                                         <span class="m-accordion__item-mode"></span>
                                                     </div>
-                                                    <div class="m-accordion__item-body collapse" id="m_accordion_1_item_2_body" class=" " role="tabpanel" aria-labelledby="m_accordion_1_item_2_head" data-parent="#m_accordion_1">
+                                                    <div class="m-accordion__item-body collapse" id="m_accordion_1_item_2_body" class=" " role="tabpanel"
+                                                        aria-labelledby="m_accordion_1_item_2_head" data-parent="#m_accordion_1">
 
                                                         <!--begin::Content-->
                                                         <div class="tab-content  m--padding-30">
@@ -430,8 +446,8 @@
                                                                 <div class="form-group m-form__group m-form__group--sm row">
                                                                     <label class="col-xl-4 col-lg-4 col-form-label">{{ __('costo_proyecto') }}:</label>
                                                                     <div class="col-xl-8 col-lg-8">
-                                                                        $ <input disabled type="text" class="m-form__control-static costo_proyecto_confirmacion" id=""
-                                                                                 value="" style="width: 125px; border: 0; background: border-box; color: #0e0e0e">
+                                                                        $ <input disabled type="text" class="m-form__control-static costo_proyecto_confirmacion"
+                                                                            id="" value="" style="width: 125px; border: 0; background: border-box; color: #0e0e0e">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -468,24 +484,25 @@
                                             <div class="row">
                                                 <div class="col-lg-6 m--align-left">
                                                     <a href="#" class="btn btn-secondary m-btn m-btn--custom m-btn--icon" data-wizard-action="prev">
-																		<span>
-																			<i class="la la-arrow-left"></i>&nbsp;&nbsp;
-																			<span>{{ __('btn_atras') }}</span>
-																		</span>
+                                                        <span>
+                                                            <i class="la la-arrow-left"></i>&nbsp;&nbsp;
+                                                            <span>{{ __('btn_atras') }}</span>
+                                                        </span>
                                                     </a>
                                                 </div>
                                                 <div class="col-lg-6 m--align-right">
                                                     <a href="#" class="btn btn-primary m-btn m-btn--custom m-btn--icon" data-wizard-action="submit">
-																		<span>
-																			<i class="la la-check"></i>&nbsp;&nbsp;
-																			<span>{{ __('enviar') }}</span>
-																		</span>
+                                                        <span>
+                                                            <i class="la la-check"></i>&nbsp;&nbsp;
+                                                            <span>{{ __('enviar') }}</span>
+                                                        </span>
                                                     </a>
-                                                    <button href="" class="btn btn-success m-btn m-btn--custom m-btn--icon btn_siguiente_proyecto" data-wizard-action="next">
-																		<span>
-																			<span>{{ __('guardar') }} &amp; {{ __('continuar') }}</span>&nbsp;&nbsp;
-																			<i class="la la-arrow-right"></i>
-																		</span>
+                                                    <button href="" class="btn btn-success m-btn m-btn--custom m-btn--icon btn_siguiente_proyecto"
+                                                        data-wizard-action="next">
+                                                        <span>
+                                                            <span>{{ __('guardar') }} &amp; {{ __('continuar') }}</span>&nbsp;&nbsp;
+                                                            <i class="la la-arrow-right"></i>
+                                                        </span>
                                                     </button>
                                                 </div>
                                             </div>
