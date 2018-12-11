@@ -323,7 +323,7 @@
                         <div class="xs-sidebar-wraper">
                             <div class="xs-single-sidebar xs-mb-20">
                                 <div class="xs-pie-chart-wraper fundpress-pie-chart-wraper">
-                                    <div class="xs-pie-chart" data-percent="81">
+                                    <div class="xs-pie-chart porcentajeProject" data-percent="81">
                                         <div class="xs-pie-chart-percent-wraper icon-position-center bold color-navy-blue xs-spilit-container">
                                             <div class="xs-pie-chart-percent"></div>
                                             <span>%</span>
@@ -335,13 +335,13 @@
 
                             <div class="xs-single-sidebar xs-mb-30">
                                 <ul class="xs-list-with-content fundpress-simple-list-content">
-                                    <li class="color-navy-blue bold xs-mb-20">US $75,280<span
+                                    <li class="color-navy-blue bold xs-mb-20" >US $<span id="txtRecaudado" style="color:inherit;font: inherit;" >75,280</span><span
                                                 class="color-semi-black regular">{{ __('prometido') }}</span></li>
 
                                     <li class="color-green bold xs-mb-20">US ${{ $project->price }}<span
                                                 class="color-semi-black regular">{{ __('meta') }}</span></li>
 
-                                    <li class="color-brick-light-2 bold">119<span class="color-semi-black regular">{{ __('patrocinadores') }}</span>
+                                    <li class="color-brick-light-2 bold"><span id="txtNumPatrocinadores" style="color:inherit;font: inherit;">119</span><span class="color-semi-black regular">{{ __('patrocinadores') }}</span>
                                     </li>
                                 </ul><!-- xs-list-with-content fundpress-simple-list-content -->
                             </div>
@@ -563,3 +563,10 @@
         </section>     <!-- End popular campaigns -->
     </main>
 @stop
+
+@push('js')
+    <script>
+        const project = {!! $project !!};
+    </script>
+    <script src="/frontend/js/detail.js"></script>    
+@endpush

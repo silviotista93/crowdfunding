@@ -44,6 +44,10 @@ class ProjectsController extends Controller
             'rewards',
             'images'
         ])->get();
+        $project->informacionDonations = Project::select(DB::raw('SUM(donations.amount) as totalDonations, count(donations.user_id) as totalDonors'))
+                        ->where("projects.id", "=", $project->id)
+                        ->join('donations', 'projects.id', '=', 'donations.project_id')
+                        ->first();
 
         return view('frontend.projects.detail', compact('project'));
     }

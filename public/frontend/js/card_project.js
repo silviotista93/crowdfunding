@@ -47,7 +47,7 @@ function fnAnima (element, stop, commas, duration, ease) {
 function createCard(project) {
     
     //console.log(project);
-    let porcetaje = (project.total * 100) / project.price;
+    let porcetaje = 100-(((project.price-project.total)/100)*100);
     if (porcetaje < 1) {
         porcetaje = 0;
     }

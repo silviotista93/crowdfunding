@@ -183,10 +183,10 @@
 <script src="/frontend/js/jquery.waypoints.min.js"></script>
 <script src="/frontend/js/scrollax.js"></script>
 
-<script src="/frontend/js/main.js"></script>
-
 @stack('js')
+
 @section('select_lang')
 @show
+<script src="/frontend/js/main.js"></script>
 </body>
 </html>
