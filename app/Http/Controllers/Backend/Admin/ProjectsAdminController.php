@@ -13,11 +13,14 @@ class ProjectsAdminController extends Controller
         return view('backend.admin.projects-admin');
     }
 
-    public function table_projects(){
-
-        return datatables()->of(Project::with([
+    public function table_projects(Request $request){
+        $project = Project::with([
             'artists',
             'category'
-        ]))->toJson();
+        ]);
+        if ($request->input("tipoProyecto")){
+            $project->where('status', "=", $request->input("tipoProyecto"));
+        }
+        return datatables()->of($project)->toJson();
     }
 }
