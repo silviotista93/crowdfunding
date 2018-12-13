@@ -114,31 +114,31 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
                                 <span class="m-dropdown__arrow m-dropdown__arrow--right"></span>
                                 <div class="m-dropdown__inner">
                                     <div class="m-dropdown__body">
-                                        <div class="m-dropdown__content">
+                                        <div class="m-dropdown__content selectType">
                                             <ul class="m-nav">
                                                 <li class="m-nav__section m-nav__section--first">
                                                     <span class="m-nav__section-text">{{ __('selecciona') }}</span>
                                                 </li>
                                                 <li class="m-nav__item text-center">
-                                                    <a href="#" class="btn btn-outline-metal m-btn m-btn--pill m-btn--wide btn-sm">{{ __('revision') }}</a>
+                                                <span class="changeType w-100 btn btn-outline-metal m-btn m-btn--pill m-btn--wide btn-sm" data-type="{{\App\Project::REVISION}}">{{ __('revision') }}</span>
                                                 </li>
                                                 <li class="m-nav__item text-center">
-                                                    <a href="#" class="btn btn-outline-brand m-btn m-btn--pill m-btn--wide btn-sm">{{ __('pre_aprovado') }}</a>
+                                                    <span class="changeType w-100 btn btn-outline-brand m-btn m-btn--pill m-btn--wide btn-sm" data-type="{{\App\Project::PREAPPROVAL}}">{{ __('pre_aprovado') }}</span>
 
                                                 </li>
                                                 <li class="m-nav__item text-center">
-                                                    <a href="#" class="btn btn-outline-success m-btn m-btn--pill m-btn--wide btn-sm">{{ __('aprovado') }}</a>
+                                                    <span class="changeType w-100 btn btn-outline-success m-btn m-btn--pill m-btn--wide btn-sm" data-type="{{\App\Project::APPROVAL}}">{{ __('aprovado') }}</span>
                                                 </li>
                                                 <li class="m-nav__item text-center">
-                                                    <a href="#" class="btn btn-outline-info m-btn m-btn--pill m-btn--wide btn-sm">{{ __('publicado') }}</a>
+                                                    <span class="changeType w-100 btn btn-outline-info m-btn m-btn--pill m-btn--wide btn-sm" data-type="{{\App\Project::PUBLISHED}}">{{ __('publicado') }}</span>
                                                 </li>
                                                 <li class="m-nav__item text-center">
-                                                    <a href="#" class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">{{ __('rechazados') }}</a>
+                                                    <span class="changeType w-100 btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm" data-type="{{\App\Project::REJECTED}}">{{ __('rechazados') }}</span>
                                                 </li>
                                                 <li class="m-nav__separator m-nav__separator--fit">
                                                 </li>
                                                  <li class="m-nav__item">
-                                                     <a href="#" class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-block">{{ __('todos') }}</a>
+                                                     <span class="changeType w-100 btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-block">{{ __('todos') }}</span>
                                                  </li>
                                             </ul>
                                         </div>
@@ -168,74 +168,120 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
     </div>
 @stop
 
-@section('table.admin.projects')
+@push('js')
     <script src="/backend/assets/vendors/custom/datatables/datatables.bundle.js" type="text/javascript"></script>
     <script src="/backend/assets/demo/custom/crud/datatables/basic/headers.js" type="text/javascript"></script>
 
-
     <script>
-        $('#table_projects_admin').DataTable({
-            "processing": true,
-            "serverSide": true,
-            "data": null,
-            "ajax": "{{route('datatables.projects.admin')}}",
-            "columns": [
-                {
-                    "width": "1%",
-                    data: 'id',
-                    defaultContent: '<span class="label label-danger text-center">Ningún valor por defecto</span>'
+        var tipoProyecto = null;
+        var table = null;
+        const loadTable = function (){
+            if (table !== null){
+                table.destroy();
+            }
+            table = $('#table_projects_admin').DataTable({
+                "processing": true,
+                "serverSide": true,
+                "data": null,
+                "ajax": {
+                    url: "{{route('datatables.projects.admin')}}",
+                    data: {
+                        tipoProyecto: tipoProyecto
+                    }
                 },
-                {
-                    data: 'artists.nickname',
-                    defaultContent: '<span class="label label-danger text-center">Ningún valor por defecto</span>'
-                },
-                {
-                    data: 'title',
-                    defaultContent: '<span class="label label-danger text-center">Ningún valor por defecto</span>'
-                },
-                {
-                    data: 'category.category',
-                    defaultContent: '<span class="label label-danger text-center">Ningún valor por defecto</span>'
-                },
+                "columns": [
+                    {
+                        "width": "1%",
+                        data: 'id',
+                        defaultContent: '<span class="label label-danger text-center">Ningún valor por defecto</span>'
+                    },
+                    {
+                        data: 'artists.nickname',
+                        defaultContent: '<span class="label label-danger text-center">Ningún valor por defecto</span>',
+                        render : function (data, type, JsonResultRow, meta){
+                            return JsonResultRow.artists[0].nickname;
+                        }
+                    },
+                    {
+                        data: 'title',
+                        defaultContent: '<span class="label label-danger text-center">Ningún valor por defecto</span>'
+                    },
+                    {
+                        data: 'category.category',
+                        defaultContent: '<span class="label label-danger text-center">Ningún valor por defecto</span>'
+                    },
 
-                {
-                    render:function (data,type, JsonResultRow,meta) {
-                        return '<span class="m-badge m-badge--danger m-badge--wide">Hola</span>'
-
+                    {
+                        data: 'status',
+                        render:function (data) {
+                            let info = '<span class="m-badge m-badge--danger m-badge--wide">Hola</span>';
+                            switch(parseInt(data)){
+                                case 1:
+                                    info = '<span class="btn btn-outline-metal m-btn m-btn--pill m-btn--wide btn-sm">{{ __('revision') }}</span>';
+                                    break;
+                                case 2:
+                                    info = '<span class="btn btn-outline-brand m-btn m-btn--pill m-btn--wide btn-sm">{{ __('pre_aprovado') }}</span>';
+                                    break;
+                                case 3:
+                                    info = '<span class="btn btn-outline-success m-btn m-btn--pill m-btn--wide btn-sm">{{ __('aprovado') }}</span>';
+                                    break;
+                                case 4:
+                                    info = '<span class="btn btn-outline-info m-btn m-btn--pill m-btn--wide btn-sm">{{ __('publicado') }}</span>';
+                                    break;
+                                case 5:
+                                    info = '<span class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">{{ __('rechazados') }}</span>';
+                                    break;
+                            }
+                            return '<div class="text-center">'+info+'</div>';
                     }
                 },
                 {
                     render:function (data,type, JsonResultRow,meta) {
                         return '<div class="text-center"><a href="/dashboard/project/'+JsonResultRow.slug+'" class="btn m-btn--pill btn-secondary"><i class="fa fa-eye"></i></a></div>'
+                        }
+                    },
+                    /*{
+                        render:function (data,type, JsonResultRow,meta) {
+                            return '<div class="text-center"><a href="" class="btn m-btn--pill btn-secondary"><i class="fa fa-eye"></i></a></div>';
 
+                        }
+                    },*/
+                ],
+                "language": {
+                    "sProcessing": "Procesando...",
+                    "sLengthMenu": "Mostrar _MENU_ registros",
+                    "sZeroRecords": "No se encontraron resultados",
+                    "sEmptyTable": "Ningún dato disponible en esta tabla",
+                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sSearch": "Buscar:",
+                    "sUrl": "",
+                    "sInfoThousands": ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst": "Primero",
+                        "sLast": "Último",
+                        "sNext": "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
                     }
-                },
-            ],
-            "language": {
-                "sProcessing": "Procesando...",
-                "sLengthMenu": "Mostrar _MENU_ registros",
-                "sZeroRecords": "No se encontraron resultados",
-                "sEmptyTable": "Ningún dato disponible en esta tabla",
-                "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-                "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
-                "sInfoPostFix": "",
-                "sSearch": "Buscar:",
-                "sUrl": "",
-                "sInfoThousands": ",",
-                "sLoadingRecords": "Cargando...",
-                "oPaginate": {
-                    "sFirst": "Primero",
-                    "sLast": "Último",
-                    "sNext": "Siguiente",
-                    "sPrevious": "Anterior"
-                },
-                "oAria": {
-                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
                 }
+            });
+        }
+        $(".selectType").on('click', '.changeType', function(){
+            let tipo = parseInt($(this).attr("data-type"));
+            if (!(tipo >  0)){
+                tipo = null;
             }
+            tipoProyecto = tipo;
+            loadTable();
         });
+        loadTable();
     </script>
 
-@endsection
+@endpush

@@ -25,26 +25,22 @@
             ======================================-->
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane fadeInRights show fade in active" id="login">
-                    <form method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }} ">
+                    <form method="POST" id="frmLogin" action="{{ route('login') }}" aria-label="{{ __('Login') }} ">
                         @csrf
                         <div class="xs-input-group-v2">
                             <i class="icon icon-profile-male"></i>
-                            <input type="email" name="email" id="xs_user_login_name" class="xs-input-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('PlaceHolder_email') }}" value="{{ old('email') }}" required autofocus>
-                            @if ($errors->has('email'))
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                            @endif
+                            <input type="email" name="email" id="xs_user_login_name" class="xs-input-control" placeholder="{{ __('PlaceHolder_email') }}" value="{{ old('email') }}" required autofocus>
                         </div>
+                        <span class="invalid-feedback mesajesError d-block" role="alert">
+                            <strong id="error-email"></strong>
+                        </span>
                         <div class="xs-input-group-v2">
                             <i class="icon icon-key2"></i>
-                            <input type="password" name="password" id="xs_login_password" class="xs-input-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="{{ __('PlaceHolder_password') }}" required>
-                            @if ($errors->has('password'))
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                            @endif
+                            <input type="password" name="password" id="xs_login_password" class="xs-input-control" placeholder="{{ __('PlaceHolder_password') }}" required>
                         </div>
+                        <span class="invalid-feedback mesajesError d-block" role="alert">
+                            <strong id="error-password"></strong>
+                        </span>
                         <div class="xs-submit-wraper xs-mb-20">
                             <input type="submit" name="submit" value="{{ __('btn_login') }}" id="xs_contact_get_action" class="btn btn-warning btn-block">
                         </div>
@@ -111,3 +107,7 @@
     </div>
 </div><!-- End modal --><!-- End home section -->
 @endauth
+
+@push('js')
+    <script src="/js/login.js"></script>
+@endpush
