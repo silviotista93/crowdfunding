@@ -6,7 +6,6 @@ var DatatablesAdvancedColumnRendering = function() {
 		// begin first table
 		table.DataTable({
 			responsive: true,
-			paging: true,
 			columnDefs: [
 				{
 					targets: 0,

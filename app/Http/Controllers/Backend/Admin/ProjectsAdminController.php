@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Backend\Admin;
 
+use App\Management;
 use App\Project;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -19,5 +21,12 @@ class ProjectsAdminController extends Controller
             'artists',
             'category'
         ]))->toJson();
+    }
+    public function table_managements(){
+
+        return datatables()->of(Management::with('users','categories'))->toJson();
+    }
+    public function send_project_management(Request $request){
+
     }
 }

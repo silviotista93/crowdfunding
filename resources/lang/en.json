@@ -140,6 +140,16 @@
   "asignar_proyecto":"Assign Project",
   "buscar":"Search",
   "calificar":"rate",
-  "calificar_proyecto":"Rate Project"
+  "calificar_proyecto":"Rate Project",
+  "management":"Management",
+  "intereses":"Intereses",
+  "procesando":"Processing...",
+  "registros":"Records",
+  "mostrando_registros":"Showing records from",
+  "from":"to",
+  "total_de":"of a total of",
+  "anterior":"Previous",
+  "siguiente":"Next"
+
 
 }
