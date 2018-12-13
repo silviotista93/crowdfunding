@@ -21,12 +21,13 @@ $("#xs_contact_get_action").click(function (e) {
         console.log(e, "ssssssssssss");
     }, "JSON").fail(function (e) {
         startErrors();
-        e = e.responseJSON;
-        if (e && e.errors) {
-            showError(e.errors.password, "#error-password");
-            showError(e.errors.email, "#error-email");
+        if (e.responseJSON && e.responseJSON.errors) {
+            showError(e.responseJSON.errors.password, "#error-password");
+            showError(e.responseJSON.errors.email, "#error-email");
         } else {
-            window.location.reload();
+            if (e.responseText){
+                window.location.href = window.location.origin+e.responseText;
+            }
         }
         //showError(e.message, "#errorGeneral");
     });

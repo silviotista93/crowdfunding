@@ -51,13 +51,24 @@ class LoginController extends Controller
         return redirect('/');
     }
 
-    public function authenticated()
+    public function authenticated(Request $request)
     {
+        
         $users = User::where('id',\Auth::user()->id)->with(['roles'])->first();
         $rol = array_pluck($users->roles,'rol');
         if (in_array('Admin',$rol)){
+
+            if ($request->input("json") === "true"){
+                return "/dashboard";
+            }
+
             return redirect('/dashboard');
         }else{
+
+            if ($request->input("json") === "true"){
+                return "/";
+            }
+            
             return redirect('/');
         }
     }
