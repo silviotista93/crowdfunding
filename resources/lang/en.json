@@ -136,5 +136,10 @@
   "selecciona":"Choose",
   "categoria":"Category",
   "acciones":"Actions",
-  "titulo":"Title"
+  "titulo":"Title",
+  "asignar_proyecto":"Assign Project",
+  "buscar":"Search",
+  "calificar":"rate",
+  "calificar_proyecto":"Rate Project"
+
 }

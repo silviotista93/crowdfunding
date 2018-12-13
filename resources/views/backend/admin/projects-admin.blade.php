@@ -206,7 +206,7 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
                 },
                 {
                     render:function (data,type, JsonResultRow,meta) {
-                        return '<div class="text-center"><a href="" class="btn m-btn--pill btn-secondary"><i class="fa fa-eye"></i></a></div>'
+                        return '<div class="text-center"><a href="/dashboard/project/'+JsonResultRow.slug+'" class="btn m-btn--pill btn-secondary"><i class="fa fa-eye"></i></a></div>'
 
                     }
                 },

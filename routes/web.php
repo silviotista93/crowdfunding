@@ -88,6 +88,10 @@ Route::group(['namespace'=>'Backend','prefix' => 'dashboard','middleware' => 'au
     Route::get('/projects-admin', 'Admin\ProjectsAdminController@index')->name('projects.admin');
     Route::get('datatables-projects-admin','Admin\ProjectsAdminController@table_projects')->name('datatables.projects.admin');
 
+    Route::get('user-roles',function (){
+       return auth()->user()->roles[0]->rol;
+    });
+
 });
 
 /*=============================================

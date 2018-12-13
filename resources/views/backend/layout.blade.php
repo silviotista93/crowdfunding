@@ -78,6 +78,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
     <!--begin::Global Theme Styles -->
     <link href="/backend/assets/demo/base/style.bundle.css" rel="stylesheet" type="text/css"/>
+    <link href="/backend/assets/css/backend.css" rel="stylesheet" type="text/css"/>
 
     <!--RTL version:<link href="assets/demo/base/style.bundle.rtl.css" rel="stylesheet" type="text/css" />-->
 
@@ -837,6 +838,8 @@ License: You must have a valid license purchased only from themeforest(the above
 @section('js.add-project')
 @show
 @section('table.admin.projects')
+@show
+@section('rating.projects')
 @show
 @stack('js')
 </body>

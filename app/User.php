@@ -82,6 +82,10 @@ class User extends Authenticatable
         return auth()->check() ? auth()->user()->pathAttachment() : 'guest';
     }
 
+    public static function rating_proyect(){
+        return auth()->check() ? auth()->user()->roles[0]->rol : 'Artist';
+    }
+
     public function pathAttachment(){
         return '/images/users/'. $this->picture;
     }

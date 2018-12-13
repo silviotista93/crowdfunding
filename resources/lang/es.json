@@ -134,6 +134,10 @@
   "selecciona":"Selecciona",
   "acciones":"Acciones",
   "categoria":"Categoria",
-  "titulo":"Titulo"
+  "titulo":"Titulo",
+  "asignar_proyecto":"Asignar Proyecto",
+  "buscar":"Buscar",
+  "calificar":"Valorar",
+  "calificar_proyecto":"Calificar Proyecto"
 
 }
