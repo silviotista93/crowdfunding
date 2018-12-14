@@ -94,6 +94,7 @@ Route::group(['namespace'=>'Backend','prefix' => 'dashboard','middleware' => 'au
     //RUTAS PARA EL ADMINISTRADOR DEL SISTEMA -------------------------------------------------------------------------------------------
 
     //Todos los proyectos....
+
     Route::group(['middleware' => 'admin_permisos'],function (){
         Route::get('/projects-admin', 'Admin\ProjectsAdminController@index')->name('projects.admin');
         Route::get('datatables-projects-admin','Admin\ProjectsAdminController@table_projects')->name('datatables.projects.admin');
@@ -106,6 +107,12 @@ Route::group(['namespace'=>'Backend','prefix' => 'dashboard','middleware' => 'au
         Route::get('datatables-projects-manage','Manage\ProjectsManageController@table_projects')->name('datatables.projects.manage');
         Route::get('datatables-managements-manage','Manage\ProjectsManageController@table_managements')->name('datatables.management.admin');
     });
+
+
+    
+    //Enviar Mensajes a managers
+    Route::post("send-project-management", "Admin\ProjectsAdminController@send_project_management")->name("send.project.admin");
+
 });
 
 /*=============================================
