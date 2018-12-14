@@ -147,6 +147,7 @@
   "from":"de",
   "total_de":"de un total de",
   "anterior":"Anterior",
-  "siguiente":"Siguiente"
+  "siguiente":"Siguiente",
+  "no_permisos":"No tienes permisos para acceder"
 
 }

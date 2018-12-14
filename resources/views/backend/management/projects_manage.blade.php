@@ -120,7 +120,7 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
                                                     <span class="m-nav__section-text">{{ __('selecciona') }}</span>
                                                 </li>
                                                 <li class="m-nav__item text-center">
-                                                <span class="changeType w-100 btn btn-outline-metal m-btn m-btn--pill m-btn--wide btn-sm" data-type="{{\App\Project::REVISION}}">{{ __('revision') }}</span>
+                                                    <span class="changeType w-100 btn btn-outline-metal m-btn m-btn--pill m-btn--wide btn-sm" data-type="{{\App\Project::REVISION}}">{{ __('revision') }}</span>
                                                 </li>
                                                 <li class="m-nav__item text-center">
                                                     <span class="changeType w-100 btn btn-outline-brand m-btn m-btn--pill m-btn--wide btn-sm" data-type="{{\App\Project::PREAPPROVAL}}">{{ __('pre_aprovado') }}</span>
@@ -137,9 +137,9 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
                                                 </li>
                                                 <li class="m-nav__separator m-nav__separator--fit">
                                                 </li>
-                                                 <li class="m-nav__item">
-                                                     <span class="changeType w-100 btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-block">{{ __('todos') }}</span>
-                                                 </li>
+                                                <li class="m-nav__item">
+                                                    <span class="changeType w-100 btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-block">{{ __('todos') }}</span>
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>
@@ -151,7 +151,7 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
             </div>
             <div class="m-portlet__body">
                 <table class="table table-striped- table-bordered table-hover table-checkable"
-                       id="table_projects_admin">
+                       id="table_projects_management">
                     <thead>
                     <tr>
                         <th>#</th>
@@ -179,12 +179,12 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
             if (table !== null){
                 table.destroy();
             }
-            table = $('#table_projects_admin').DataTable({
+            table = $('#table_projects_management').DataTable({
                 "processing": true,
                 "serverSide": true,
                 "data": null,
                 "ajax": {
-                    url: "{{route('datatables.projects.admin')}}",
+                    url: "{{route('datatables.projects.manage')}}",
                     data: {
                         tipoProyecto: tipoProyecto
                     }
@@ -233,11 +233,11 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
                                     break;
                             }
                             return '<div class="text-center">'+info+'</div>';
-                    }
-                },
-                {
-                    render:function (data,type, JsonResultRow,meta) {
-                        return '<div class="text-center"><a href="/dashboard/project/'+JsonResultRow.slug+'" class="btn m-btn--pill btn-secondary"><i class="fa fa-eye"></i></a></div>'
+                        }
+                    },
+                    {
+                        render:function (data,type, JsonResultRow,meta) {
+                            return '<div class="text-center"><a href="/dashboard/project/'+JsonResultRow.slug+'" class="btn m-btn--pill btn-secondary"><i class="fa fa-eye"></i></a></div>'
                         }
                     },
                 ],

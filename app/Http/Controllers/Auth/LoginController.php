@@ -56,7 +56,7 @@ class LoginController extends Controller
         
         $users = User::where('id',\Auth::user()->id)->with(['roles'])->first();
         $rol = array_pluck($users->roles,'rol');
-        if (in_array('Admin',$rol)){
+        if (in_array('Admin',$rol) || in_array('Manage',$rol)){
 
             if ($request->input("json") === "true"){
                 return "/dashboard";

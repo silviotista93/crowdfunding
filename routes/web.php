@@ -15,8 +15,8 @@
 CONSULTAS DE PRUEBAS
 =============================================*/
 Route::get('/count/{id}',function ($id){
-    return \App\Project::where([['category_id',$id],['status',\App\Project::PUBLISHED]])
-        ->count('id');
+    $hola = \App\Management::select('id')->where('user_id',$id)->first();
+     dd($hola->id);
 });
 Route::get('/projects',function (){
    return \App\Project::withCount(['artists'])
@@ -28,8 +28,17 @@ Route::get('/projects',function (){
 Route::get('/artists/{id}',function ($id){
     return \App\Artist::where('id',$id)->with(['projects','levels','countries'])->get();
 });
-Route::get('/managaments',function (){
-   return \App\Management::with(['projects','categories'])->get();
+Route::get('/managements',function (){
+   $manage_project = \Illuminate\Support\Facades\DB::table('management_project')
+       ->select('project_id')->where('management_id',1)
+       ->get();
+    $array_project = '';
+   for ( $i=0; $i<count($manage_project); $i++) {
+       $projects = \App\Project::where('id', $manage_project[$i]->project_id)->with('artists')->get();
+       array_push($array_project,$projects);
+   }
+
+    return datatables()->of($array_project)->toJson();
 });
 /*=============================================
 SELECCIONAR IDIOMAS
@@ -85,11 +94,18 @@ Route::group(['namespace'=>'Backend','prefix' => 'dashboard','middleware' => 'au
     //RUTAS PARA EL ADMINISTRADOR DEL SISTEMA -------------------------------------------------------------------------------------------
 
     //Todos los proyectos....
-    Route::get('/projects-admin', 'Admin\ProjectsAdminController@index')->name('projects.admin');
-    Route::get('datatables-projects-admin','Admin\ProjectsAdminController@table_projects')->name('datatables.projects.admin');
-    Route::get('datatables-managements-admin','Admin\ProjectsAdminController@table_managements')->name('datatables.management.admin');
+    Route::group(['middleware' => 'admin_permisos'],function (){
+        Route::get('/projects-admin', 'Admin\ProjectsAdminController@index')->name('projects.admin');
+        Route::get('datatables-projects-admin','Admin\ProjectsAdminController@table_projects')->name('datatables.projects.admin');
+        Route::get('datatables-managements-admin','Admin\ProjectsAdminController@table_managements')->name('datatables.management.admin');
+    });
 
-
+    //RUTAS PARA EL MANAGEMENT -------------------------------------------------------------------------------------------
+    Route::group(['middleware' => 'manage_permisos'],function (){
+        Route::get('/projects-manage', 'Manage\ProjectsManageController@index')->name('projects.manage');
+        Route::get('datatables-projects-manage','Manage\ProjectsManageController@table_projects')->name('datatables.projects.manage');
+        Route::get('datatables-managements-manage','Manage\ProjectsManageController@table_managements')->name('datatables.management.admin');
+    });
 });
 
 /*=============================================

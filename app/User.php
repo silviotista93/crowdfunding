@@ -79,7 +79,7 @@ class User extends Authenticatable
     const INACTIVE = 2;
 
     public static function navigation(){
-        return auth()->check() ? auth()->user()->pathAttachment() : 'guest';
+        return auth()->check() ? auth()->user()->roles[0]->rol : 'Artist';
     }
 
     public static function rating_proyect(){

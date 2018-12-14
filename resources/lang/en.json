@@ -149,7 +149,8 @@
   "from":"to",
   "total_de":"of a total of",
   "anterior":"Previous",
-  "siguiente":"Next"
+  "siguiente":"Next",
+  "no_permisos":"You do not have permission to access"
 
 
 }
