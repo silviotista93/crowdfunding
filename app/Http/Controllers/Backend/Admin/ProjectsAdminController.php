@@ -30,6 +30,7 @@ class ProjectsAdminController extends Controller
         return datatables()->of(Management::with('users','categories'))->toJson();
     }
     public function send_project_management(Request $request){
-
+        //En la consola de el navegador se visualizan los datos que se envian
+        return json_encode($request->input("users"));
     }
 }

@@ -38,7 +38,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Send message</button>
+                <button type="button" class="btn btn-primary" id="btnSendMessage">Send message</button>
             </div>
         </div>
     </div>
@@ -46,8 +46,8 @@
 
 @section('table.admin.management')
     <script>
+        let usuarios = [];
         var DatatablesBasicBasic = function() {
-
             var initTable1 = function() {
                 var table = $('#m_table_managements');
 
@@ -89,7 +89,7 @@
                             render: function(data, type, full, meta) {
                                 return `
                         <label class="m-checkbox m-checkbox--single m-checkbox--solid m-checkbox--brand">
-                            <input type="checkbox" value="" class="m-checkable">
+                            <input type="checkbox" data-value='${JSON.stringify({id: full.id, user_id: full.user_id,email: full.email})}' class="m-checkable ckeck-${full.id}">
                             <span></span>
                         </label>`;
                             },
@@ -133,32 +133,54 @@
                             "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
                             "sSortDescending": ": Activar para ordenar la columna de manera descendente"
                         }
+                    },
+                    "drawCallback": function (){
+                        for (let i = 0; i<usuarios.length; i++){
+                            let check = $(".ckeck-"+usuarios[i].id);
+                            if (check && !check.is(":checked")){
+                                check.click();
+                            }
+                        }
                     }
                 });
 
                 table.on('change', '.m-group-checkable', function() {
                     var set = $(this).closest('table').find('td:first-child .m-checkable');
                     var checked = $(this).is(':checked');
-
                     $(set).each(function() {
                         if (checked) {
                             $(this).prop('checked', true);
-                            $(this).closest('tr').addClass('active');
+                            $(this).closest('tr').removeClass('active')
+                                .find(".m-checkbox").change();
                         }
                         else {
                             $(this).prop('checked', false);
-                            $(this).closest('tr').removeClass('active');
+                            $(this).closest('tr').addClass('active')
+                                .find(".m-checkbox").change();
                         }
                     });
                 });
 
                 table.on('change', 'tbody tr .m-checkbox', function() {
                     $(this).parents('tr').toggleClass('active');
+                    let user = JSON.parse($(this).find(".m-checkable").attr("data-value"));
+                    if ($(this).parents('tr').hasClass("active")){
+                        let index = usuarios.findIndex(function (u){
+                            return u.id === user.id;
+                        });
+                        if (index === -1){
+                            usuarios.push(user);
+                        }
+                    }else{
+                        let index = usuarios.findIndex(function (u){
+                            return u.id === user.id;
+                        });
+                        usuarios.splice(index, 1);
+                    }
                 });
             };
 
             return {
-
                 //main function to initiate the module
                 init: function() {
                     initTable1();
@@ -173,3 +195,27 @@
         });
     </script>
 @endsection
+
+@push('js')
+    <script>
+        (function (){
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $("#btnSendMessage").click(function (){
+                const 
+                    token = '{{ csrf_token() }}',
+                    url = '{{route("send.project.admin")}}';
+                let data = {
+                    __token: token,
+                    users: usuarios
+                };
+                $.post(url,data,function (r){
+                    console.log(r);
+                });
+            });
+        })();
+    </script>
+@endpush

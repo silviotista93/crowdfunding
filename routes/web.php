@@ -88,7 +88,9 @@ Route::group(['namespace'=>'Backend','prefix' => 'dashboard','middleware' => 'au
     Route::get('/projects-admin', 'Admin\ProjectsAdminController@index')->name('projects.admin');
     Route::get('datatables-projects-admin','Admin\ProjectsAdminController@table_projects')->name('datatables.projects.admin');
     Route::get('datatables-managements-admin','Admin\ProjectsAdminController@table_managements')->name('datatables.management.admin');
-
+    
+    //Enviar Mensajes a managers
+    Route::post("send-project-management", "Admin\ProjectsAdminController@send_project_management")->name("send.project.admin");
 
 });
 
