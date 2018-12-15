@@ -15,21 +15,12 @@ class ProjectsManageController extends Controller
 
     public function table_projects(Request $request){
 
-        $management = Management::select('id')->where('user_id',auth()->user()->id)->first();
-
-        $manage_project = DB::table('management_project')
-            ->select('project_id')->where('management_id',$management->id)
-            ->get();
-        $array_project = [];
-
-        for ($i=0; $i<count($manage_project); $i++) {
-            $project = \App\Project::where('id', $manage_project[$i]->project_id)->with('artists','category')->get();
-            array_push($array_project,$project);
-        }
-
+        $project = \App\Project::whereHas('management', function ($query) {
+            $query->where('managements.user_id', '=', auth()->user()->id);
+        })->with('category','artists');
         if ($request->input("tipoProyecto")){
-            $array_project->where('status', "=", $request->input("tipoProyecto"));
+            $project->where('status', "=", $request->input("tipoProyecto"));
         }
-     return datatables()->of($array_project)->toJson();
+     return datatables()->of($project)->toJson();
     }
 }

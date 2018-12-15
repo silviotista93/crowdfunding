@@ -105,8 +105,21 @@
                             }
                         },
                         {
-                            data: 'categories.category',
-                            defaultContent: '<span class="label label-danger text-center">Ningún valor por defecto</span>'
+                            data: 'categories',
+                            defaultContent: '<span class="label label-danger text-center">Ningún valor por defecto</span>',
+                            render:function (data,type, JsonResultRow,meta) {
+
+                                let categorias = JsonResultRow.categories;
+                                let categoriasNombre = '';
+                                categorias.forEach(function (categoria){
+                                    if(categoriasNombre!==''){
+                                        categoriasNombre += ', ';
+                                    }
+                                    categoriasNombre += categoria.category;
+                                });
+                                return categoriasNombre;
+
+                            }
                         },
 
                     ],
@@ -210,7 +223,8 @@
                     url = '{{route("send.project.admin")}}';
                 let data = {
                     __token: token,
-                    users: usuarios
+                    users: usuarios,
+                    project: {{ $project->id }}
                 };
                 $.post(url,data,function (r){
                     console.log(r);

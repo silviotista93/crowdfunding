@@ -14,6 +14,11 @@
 /*=============================================
 CONSULTAS DE PRUEBAS
 =============================================*/
+Route::get('email',function (){
+    $project = \App\Project::where('id',65)->first();
+
+    return new \App\Mail\NewProjectArtist($project,'admin');
+});
 Route::get('/count/{id}',function ($id){
     $hola = \App\Management::select('id')->where('user_id',$id)->first();
      dd($hola->id);
@@ -29,16 +34,21 @@ Route::get('/artists/{id}',function ($id){
     return \App\Artist::where('id',$id)->with(['projects','levels','countries'])->get();
 });
 Route::get('/managements',function (){
-   $manage_project = \Illuminate\Support\Facades\DB::table('management_project')
+   /*$manage_project = \Illuminate\Support\Facades\DB::table('management_project')
        ->select('project_id')->where('management_id',1)
        ->get();
-    $array_project = '';
+    $array_project = array();
    for ( $i=0; $i<count($manage_project); $i++) {
        $projects = \App\Project::where('id', $manage_project[$i]->project_id)->with('artists')->get();
-       array_push($array_project,$projects);
-   }
+       $json_project = json_decode($projects);
+       array_push($array_project,$json_project);
+   }*/
 
-    return datatables()->of($array_project)->toJson();
+   $project = \App\Project::whereHas('management', function ($query) {
+       $query->where('managements.id', '=', 1);
+   })->get();
+
+    return datatables()->of($project)->toJson();
 });
 /*=============================================
 SELECCIONAR IDIOMAS
@@ -105,7 +115,6 @@ Route::group(['namespace'=>'Backend','prefix' => 'dashboard','middleware' => 'au
     Route::group(['middleware' => 'manage_permisos'],function (){
         Route::get('/projects-manage', 'Manage\ProjectsManageController@index')->name('projects.manage');
         Route::get('datatables-projects-manage','Manage\ProjectsManageController@table_projects')->name('datatables.projects.manage');
-        Route::get('datatables-managements-manage','Manage\ProjectsManageController@table_managements')->name('datatables.management.admin');
     });
 
 

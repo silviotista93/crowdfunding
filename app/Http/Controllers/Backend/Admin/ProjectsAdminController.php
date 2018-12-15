@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Backend\Admin;
 
+use App\Artist;
+use App\Mail\NewProjectArtist;
 use App\Management;
 use App\Project;
 use App\User;
@@ -31,6 +33,13 @@ class ProjectsAdminController extends Controller
     }
     public function send_project_management(Request $request){
         //En la consola de el navegador se visualizan los datos que se envian
-        return json_encode($request->input("users"));
+        $data = $request->input("users");
+        $project = Project::where('id', $request->input('project'))->with('artists')->first();
+        foreach ($data as $key => $user){
+            //echo $user['email']."  ".$project->artists[0]->nickname."\n";
+            \Mail::to($user['email'])->send(new NewProjectArtist($project,$project->artists[0]->nickname));
+        }
+
+
     }
 }
