@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 class CategoriesController extends Controller
 {
     public function show(Category $category){
+        //hay que arreglar la consulta
         $projects = $projects = Project::select(DB::raw('projects.*, SUM(donations.amount) as total'))->withCount(['artists'])
             ->with('category')
             ->with('artists.users')

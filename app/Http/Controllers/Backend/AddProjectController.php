@@ -34,7 +34,6 @@ class AddProjectController extends Controller
     }
 
     public function store (Request $request){
-
         $slug = str_slug($request->get('title'));
         $ramdoNum = mt_rand(1,10000);
         $project = Project::create([

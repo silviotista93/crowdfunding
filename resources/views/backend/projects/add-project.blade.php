@@ -173,8 +173,9 @@
                                                 <div class="form-group m-form__group row">
                                                     <label class="col-xl-2 col-lg-2 col-form-label" form="txtFrame">* Iframe:</label>
                                                     <div class="col-xl-9 col-lg-9">
-                                                        <input type="text" name="iframe_video" class="form-control m-input iframe_add_proyecto required"
+                                                        <input type="text" name="url_video" class="form-control m-input iframe_add_proyecto required"
                                                             placeholder="iframe video" value="" id="txtFrame">
+                                                        <input type="hidden" name="iframe_video" id="txtIdVideo">
                                                         <span class="m-form__help">{{ __('video_youtube_add_project') }}</span>
                                                     </div>
                                                 </div>
@@ -378,6 +379,12 @@
                                                                 <div class="form-group m-form__group row">
                                                                     <div class="col-xl-9 col-lg-12 caja_video_youtube_add_proyect">
                                                                         <!--Mostra video de youtube -->
+                                                                        <iframe width="560" height="315" 
+                                                                        id="videoYoutube"
+                                                                        data-url="https://www.youtube.com/embed/"
+                                                                        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                                                                        allowfullscreen>
+                                                                        </iframe>
                                                                     </div>
                                                                 </div>
                                                             </div>

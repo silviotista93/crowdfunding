@@ -254,16 +254,6 @@ $(function () {
 /*=============================================
 AGREGAR VIDEO AL CONFIRMACION
 =============================================*/
-$(function () {
-    $(".iframe_add_proyecto").on('change', function (e) {
-        e.preventDefault();
-        var videoYoutube = $(this).val();
-        console.log(videoYoutube);
-        $(".caja_video_youtube_add_proyect").append(
-            videoYoutube
-        )
-    });
-});
 
 $(".title_add_proyecto").keyup(function () {
 
@@ -290,4 +280,24 @@ $(".valor_add_proyecto").keyup(function () {
     valorIngresado = $(this).val();
     $('.costo_proyecto_confirmacion').val(valorIngresado);
 
+});
+
+function getIdYoutube(url){
+    let paramsString = url.replace(/.+\?{1}/g, '');
+    let params = paramsString.split("&");
+    let idYoutube = "";
+    params.forEach(function (param){
+        if (param[0]==="v" && param[1]==="="){
+            idYoutube = param.substr(2);
+        }
+    });
+    return idYoutube;
+}
+
+$("#txtFrame").change(function (){
+    let id = getIdYoutube($(this).val());
+    $("#txtIdVideo").val(id);
+    let video = $("#videoYoutube");
+    let url = video.attr("data-url");
+    video.attr("src", url+id);
 });

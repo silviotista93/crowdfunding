@@ -34,7 +34,12 @@
                         <div class="m-section">
                             <div class="row">
                                 <div class="col-xs-4 col-lg-8">
-                                    {!! $project->iframe_video !!}
+                                    <iframe width="560" height="315" 
+                                    id="videoYoutube"
+                                    src="https://www.youtube.com/embed/{{$project->iframe_video}}"
+                                    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                                    allowfullscreen>
+                                    </iframe>
                                 </div>
                                 <div class="col-xs-4 col-lg-3">
                                     <div class="form-group">

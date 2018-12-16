@@ -46,7 +46,12 @@
                                 </div>
                                 @endforeach
                                 <div class="xs-sync-slider-preview-content">
-                                    {!! $project->iframe_video !!}
+                                    <iframe width="560" height="315" 
+                                    id="videoYoutube"
+                                    src="https://www.youtube.com/embed/{{$project->iframe_video}}"
+                                    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                                    allowfullscreen>
+                                    </iframe>
                                 </div>
 
                             </div><!-- xs-sync-slider-preview -->
