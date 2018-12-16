@@ -35,7 +35,12 @@
                         <div class="col-lg-6">
                             <div class="xs-welcome-content">
                                 <div class="xs-welcome-wraper">
-                                    {!! $project->iframe_video !!}
+                                    <iframe width="560" height="315" 
+                                    id="videoYoutube"
+                                    src="https://www.youtube.com/embed/{{$project->iframe_video}}"
+                                    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                                    allowfullscreen>
+                                    </iframe>
                                 </div><!-- .xs-welcome-wraper END -->
                             </div><!-- .xs-welcome-content END -->
                         </div>
