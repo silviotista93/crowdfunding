@@ -19,6 +19,11 @@ Route::get('email',function (){
 
     return new \App\Mail\NewProjectArtist($project,'admin');
 });
+Route::get('fecha',function (){
+    $date = date('Y-m-d H:i:s');
+   $semana2 = date("Y-m-d H:i:s",strtotime($date."+ 2 week"));
+    echo  $semana2;
+});
 Route::get('/count/{id}',function ($id){
     $hola = \App\Management::select('id')->where('user_id',$id)->first();
      dd($hola->id);

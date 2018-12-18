@@ -148,6 +148,8 @@
   "total_de":"de un total de",
   "anterior":"Anterior",
   "siguiente":"Siguiente",
-  "no_permisos":"No tienes permisos para acceder"
+  "no_permisos":"No tienes permisos para acceder",
+  "valoracion":"Valoración",
+  "tiempo_calificacion":"Recuerda calificar este proyecto antes de"
 
 }

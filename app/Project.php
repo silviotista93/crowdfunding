@@ -122,6 +122,10 @@ class Project extends Model
         return $this->belongsToMany(Management::class,'management_project','project_id','management_id');
     }
 
+    public function getRatingAttribute(){
+        return $this->reviews->avg('rating');
+    }
+
     public function images(){
         return $this->hasMany(ProjectImage::class);
     }

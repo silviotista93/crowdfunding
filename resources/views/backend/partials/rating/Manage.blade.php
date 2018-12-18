@@ -1,4 +1,5 @@
 <!-- Acciones para el Managment -->
+@if($project->status == 2)
 <div class="form-group">
     <h5 style="font-weight: bold">{{ __('calificar_proyecto') }}:</h5>
 </div>
@@ -29,3 +30,8 @@
                                             </span>
     </button>
 </form>
+<div class="form-group">
+    <span class="">{{ __('tiempo_calificacion') }}</span>
+    <span>{{ \Carbon\Carbon::parse($end_time->end_time)->toFormattedDateString()}}</span>
+</div>
+@endif

@@ -6,9 +6,11 @@ use App\Artist;
 use App\Mail\NewProjectArtist;
 use App\Management;
 use App\Project;
+use App\Review;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class ProjectsAdminController extends Controller
 {
@@ -34,15 +36,25 @@ class ProjectsAdminController extends Controller
     public function send_project_management(Request $request){
         //En la consola de el navegador se visualizan los datos que se envian
         $data = $request->input("users");
+        $dateNow = date('Y-m-d');
+        $week = date("Y-m-d",strtotime($dateNow."+ 2 week"));
         $project = Project::where('id', $request->input('project'))->with('artists')->first();
         foreach ($data as $key => $user){
             //echo $user['email']."  ".$project->artists[0]->nickname."\n";
             $management = Management::where('user_id',$user['id'])->first();
             \Mail::to($user['email'])->send(new NewProjectArtist($project,$project->artists[0]->nickname));
             $project->management()->attach($management['id']);
+
+            $reviews = Review::create([
+               'project_id' => $project->id,
+                'user_id' => $user['id'],
+                'end_time' => $week
+            ]);
         }
+            $end_project = DB::table('end_projects')
+                ->insert(['project_id' => $project->id,'end_time' => $week]);
 
-
+            $statusProject = Project::where('id', $request->input('project'))->update(array('status' => 2));
         return back();
     }
 }

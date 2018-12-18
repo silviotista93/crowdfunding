@@ -7,6 +7,7 @@ use App\Project;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class ShowProjectController extends Controller
 {
@@ -15,8 +16,13 @@ class ShowProjectController extends Controller
 
         $users = User::where('id', \Auth::user()->id)->with(['roles'])->first();
         $rol = array_pluck($users->roles, 'rol');
+        $end_time = DB::table('end_projects')
+            ->select('end_time')
+            ->where('project_id',$project->id)
+            ->first();
+
         if (in_array('Admin', $rol) || in_array('Manage', $rol)) {
-            return view('backend.projects.show-project', compact('project'));
+            return view('backend.projects.show-project', compact('project','end_time'));
         }else {
 
             $verify = Artist::where('user_id', auth()->user()->id)->with([
@@ -31,7 +37,7 @@ class ShowProjectController extends Controller
             $project->first();
 
             if (in_array($seacharSlug, $array)) {
-                return view('backend.projects.show-project', compact('project'));
+                return view('backend.projects.show-project', compact('project','end_time'));
             } else {
                 return response('No puedes continuar', 404);
             }

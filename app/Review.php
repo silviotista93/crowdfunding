@@ -27,6 +27,9 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Review extends Model
 {
+    protected $fillable = [
+        'project_id','user_id','rating','comment','end_time'
+    ];
     public function projects(){
         return $this->belongsTo(Project::class);
     }

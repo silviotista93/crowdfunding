@@ -15,7 +15,7 @@ class ProjectsManageController extends Controller
 
     public function table_projects(Request $request){
 
-        $project = \App\Project::whereHas('management', function ($query) {
+        $project = \App\Project::where('status','!=',1)->whereHas('management', function ($query) {
             $query->where('managements.user_id', '=', auth()->user()->id);
         })->with('category','artists');
         if ($request->input("tipoProyecto")){

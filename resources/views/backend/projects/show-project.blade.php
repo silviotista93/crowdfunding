@@ -76,6 +76,23 @@
                                     <!-- ------------------------- ACCIONES SEGUN LOS ROLES----------------------------- -->
 
                                     @include('backend.partials.rating.' .\App\User::rating_proyect())
+
+                                <!-- ------------------------- CALIFICACION DEL PROYECTO CUANDO ESTA PUBLICADO Y APROBADO----------------------------- -->
+                                    @if($project->status == 3 || $project->status == 4 )
+                                        <div class="form-group">
+                                            <h5 style="font-weight: bold">{{ __('valoracion') }}:</h5>
+                                        </div>
+
+                                            <div class="form-group">
+                                                <ul id="list_rating_project" class="list-inline" style="font-size: 20px">
+                                                    <li class="list-inline-item star"><i class="fa fa-star fa-1x{{ $project->rating >= 1 ? ' yellow-rating' : '' }}"></i></li>
+                                                    <li class="list-inline-item star"><i class="fa fa-star fa-1x{{ $project->rating >= 2 ? ' yellow-rating' : '' }}"></i></li>
+                                                    <li class="list-inline-item star"><i class="fa fa-star fa-1x{{ $project->rating >= 3 ? ' yellow-rating' : '' }}"></i></li>
+                                                    <li class="list-inline-item star"><i class="fa fa-star fa-1x{{ $project->rating >= 4 ? ' yellow-rating' : '' }}"></i></li>
+                                                    <li class="list-inline-item star"><i class="fa fa-star fa-1x{{ $project->rating >= 5 ? ' yellow-rating' : '' }}"></i></li>
+                                                </ul>
+                                            </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>

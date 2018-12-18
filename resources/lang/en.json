@@ -150,7 +150,9 @@
   "total_de":"of a total of",
   "anterior":"Previous",
   "siguiente":"Next",
-  "no_permisos":"You do not have permission to access"
+  "no_permisos":"You do not have permission to access",
+  "valoracion":"Score",
+  "tiempo_calificacion":"Remember to rate this project before"
 
 
 }
