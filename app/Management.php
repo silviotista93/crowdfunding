@@ -32,7 +32,7 @@ class Management extends Model
         return $this->belongsToMany(Project::class);
     }
     public function users(){
-        return $this->belongsTo(User::class,'id')->select('id','name','last_name','picture','phone_1','phone_2','state','slug','email','created_at');
+        return $this->belongsTo(User::class,'user_id');
     }
     public function categories(){
         return $this->belongsToMany(Category::class,'categories_management','management_id','category_id');

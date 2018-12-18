@@ -118,7 +118,6 @@
                                     categoriasNombre += categoria.category;
                                 });
                                 return categoriasNombre;
-
                             }
                         },
 

@@ -37,9 +37,12 @@ class ProjectsAdminController extends Controller
         $project = Project::where('id', $request->input('project'))->with('artists')->first();
         foreach ($data as $key => $user){
             //echo $user['email']."  ".$project->artists[0]->nickname."\n";
+            $management = Management::where('user_id',$user['id'])->first();
             \Mail::to($user['email'])->send(new NewProjectArtist($project,$project->artists[0]->nickname));
+            $project->management()->attach($management['id']);
         }
 
 
+        return back();
     }
 }

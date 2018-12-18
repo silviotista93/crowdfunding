@@ -95,7 +95,7 @@ class User extends Authenticatable
     }
 
     public function managements(){
-        return $this->hasOne(Management::class,'user_id');
+        return $this->hasOne(Management::class,'id');
     }
 
     public function socialAcounts(){

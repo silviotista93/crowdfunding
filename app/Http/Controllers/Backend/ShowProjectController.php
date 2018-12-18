@@ -15,7 +15,7 @@ class ShowProjectController extends Controller
 
         $users = User::where('id', \Auth::user()->id)->with(['roles'])->first();
         $rol = array_pluck($users->roles, 'rol');
-        if (in_array('Admin', $rol)) {
+        if (in_array('Admin', $rol) || in_array('Manage', $rol)) {
             return view('backend.projects.show-project', compact('project'));
         }else {
 

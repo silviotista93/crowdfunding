@@ -23,12 +23,9 @@ Route::get('/count/{id}',function ($id){
     $hola = \App\Management::select('id')->where('user_id',$id)->first();
      dd($hola->id);
 });
-Route::get('/projects',function (){
-   return \App\Project::withCount(['artists'])
-       ->with('category','artists')
-       ->where('status',\App\Project::PUBLISHED)
-       ->latest()
-       ->get();
+Route::get('/projects-sql',function (){
+    $project = \App\Project::where('id', 42)->with('artists')->first();
+    dd($project->artists[0]->id);
 });
 Route::get('/artists/{id}',function ($id){
     return \App\Artist::where('id',$id)->with(['projects','levels','countries'])->get();
