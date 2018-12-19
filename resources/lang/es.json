@@ -150,6 +150,7 @@
   "siguiente":"Siguiente",
   "no_permisos":"No tienes permisos para acceder",
   "valoracion":"Valoración",
-  "tiempo_calificacion":"Recuerda calificar este proyecto antes de"
+  "tiempo_calificacion":"Recuerda calificar este proyecto antes de",
 
+  "txtInvalidAlertAddProject":"Hay algunos errores en sus datos. Por favor corríjalos."
 }

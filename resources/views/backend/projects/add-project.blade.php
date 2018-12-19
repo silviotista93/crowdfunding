@@ -549,6 +549,9 @@
 @stop
 
 @section('js.add-project')
+    <script>
+    const txtInvalidAlert = "{{ __('txtInvalidAlertAddProject') }}";
+    </script>
     <script src="/backend/assets/js/add-project.js" type="text/javascript"></script>
 
     <script>

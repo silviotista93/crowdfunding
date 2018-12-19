@@ -152,7 +152,7 @@
   "siguiente":"Next",
   "no_permisos":"You do not have permission to access",
   "valoracion":"Score",
-  "tiempo_calificacion":"Remember to rate this project before"
+  "tiempo_calificacion":"Remember to rate this project before",
 
-
+  "txtInvalidAlertAddProject":"There are some errors in your submission. Please correct them."
 }
