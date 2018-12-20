@@ -152,6 +152,12 @@
   "siguiente":"Next",
   "no_permisos":"You do not have permission to access",
   "valoracion":"Score",
+  "asignado_a":"Assigned to",
+  "mostrar":"Show",
+  "nombre":"Name",
+  "email":"Email",
+  "compañia":"Company",
+  "lista_managements":"Managements list",
   "tiempo_calificacion":"Remember to rate this project before",
 
   "txtInvalidAlertAddProject":"There are some errors in your submission. Please correct them."

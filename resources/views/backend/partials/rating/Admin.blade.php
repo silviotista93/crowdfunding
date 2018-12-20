@@ -1,4 +1,5 @@
 <!-- Acciones para el Admin -->
+@if($project->status == 1)
 <div class="form-group">
     <h5 style="font-weight: bold">{{ __('asignar_proyecto') }}:</h5>
 </div>
@@ -11,6 +12,21 @@
     </button>
 
 </div>
+@else
+<!-- VER A QUIEN SE ASIGNO EL PROYECTO-->
+<div class="form-group">
+    <h5 style="font-weight: bold">{{ __('asignado_a') }}:</h5>
+</div>
+<div class="form-group">
+    <button type="button" id="mostrar_managements_asignados" class="btn btn-danger m-btn m-btn--icon">
+        <span>
+            <i class="la la-users"></i>
+            <span>{{ __('mostrar') }}</span>
+        </span>
+    </button>
+
+</div>
+@endif
 
 
 <!-- MODAL, BUSCAR MANAGEMENT-->
@@ -38,7 +54,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="btnSendMessage">Send message</button>
+                <button type="button" class="btn btn-primary" id="btnSendMessage">{{ __('enviar') }}</button>
             </div>
         </div>
     </div>

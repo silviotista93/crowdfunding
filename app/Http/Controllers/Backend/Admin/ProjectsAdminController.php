@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend\Admin;
 
 use App\Artist;
+use App\EndProject;
 use App\Mail\NewProjectArtist;
 use App\Management;
 use App\Project;
@@ -51,10 +52,10 @@ class ProjectsAdminController extends Controller
                 'end_time' => $week
             ]);
         }
-            $end_project = DB::table('end_projects')
-                ->insert(['project_id' => $project->id,'end_time' => $week]);
+            $end_project = EndProject::insert(['project_id' => $project->id,'end_time' => $week]);
 
             $statusProject = Project::where('id', $request->input('project'))->update(array('status' => 2));
         return back();
     }
+
 }

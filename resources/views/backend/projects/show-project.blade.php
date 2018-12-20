@@ -41,7 +41,7 @@
                                     allowfullscreen>
                                     </iframe>
                                 </div>
-                                <div class="col-xs-4 col-lg-3">
+                                <div class="col-xs-4 col-lg-4">
                                     <div class="form-group">
                                         <h5 style="font-weight: bold">{{ __('estado') }}:</h5>
                                     </div>
@@ -96,6 +96,43 @@
                                 </div>
                             </div>
                         </div>
+                        @if(\App\User::rating_proyect())
+                            <div class="m-portlet__head">
+                                <div class="m-portlet__head-caption">
+                                    <div class="m-portlet__head-title">
+                                        <h3 class="m-portlet__head-text">
+                                            {{ __('lista_managements') }}
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
+                                <div class="m-section">
+                                    <div class="row">
+                                        <div class="col-xs-4 col-lg-8">
+                                            <div class="box-body table-responsive text-center">
+                                                <table class="table table-striped- table-bordered table-hover" id="m_table_1">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>Management</th>
+                                                        <th>{{ __('nombre') }}</th>
+                                                        <th>{{ __('compañia') }}</th>
+                                                        <th>{{ __('email') }}</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>61715-075</td>
+                                                        <td>China</td>
+                                                        <td>Tieba</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -117,5 +154,43 @@
                 })
             })
         })
+        $('.table_tramitadores').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "data": null,
+            "ajax": "",
+            "columns":[
+                {data: 'name',defaultContent:'<span class="label label-danger text-center">Ningún valor por defecto</span>'},
+                {data: 'apellidos',defaultContent:'<span class="label label-danger text-center">Ningún valor por defecto</span>'},
+                {data: 'email',defaultContent:'<span class="label label-danger text-center">Ningún valor por defecto</span>'},
+                {data: 'telefono',defaultContent:'<span class="label label-danger text-center">Ningún valor por defecto</span>'},
+                {data: 'telefono_2',defaultContent:'<span class="label label-danger text-center">Ningún valor por defecto</span>'},
+
+            ],
+            "language":{
+                "sProcessing":     "Procesando...",
+                "sLengthMenu":     "Mostrar _MENU_ registros",
+                "sZeroRecords":    "No se encontraron resultados",
+                "sEmptyTable":     "Ningún dato disponible en esta tabla",
+                "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+                "sInfoPostFix":    "",
+                "sSearch":         "Buscar:",
+                "sUrl":            "",
+                "sInfoThousands":  ",",
+                "sLoadingRecords": "Cargando...",
+                "oPaginate": {
+                    "sFirst":    "Primero",
+                    "sLast":     "Último",
+                    "sNext":     "Siguiente",
+                    "sPrevious": "Anterior"
+                },
+                "oAria": {
+                    "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                }
+            }
+        });
     </script>
 @endsection

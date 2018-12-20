@@ -13,6 +13,8 @@ class EndProject extends Model
         'end_time',
     ];
 
+    protected $guarded = [];
+
     public function getEndTimeAttribute($date){
         return new Date($date);
     }

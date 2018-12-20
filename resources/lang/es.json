@@ -150,6 +150,12 @@
   "siguiente":"Siguiente",
   "no_permisos":"No tienes permisos para acceder",
   "valoracion":"Valoración",
+  "asignado_a":"Asignado a",
+  "mostrar":"Mostrar",
+  "nombre":"Nombre",
+  "email":"Email",
+  "compañia":"Compañia",
+  "lista_managements":"Lista de Managements",
   "tiempo_calificacion":"Recuerda calificar este proyecto antes de",
 
   "txtInvalidAlertAddProject":"Hay algunos errores en sus datos. Por favor corríjalos."

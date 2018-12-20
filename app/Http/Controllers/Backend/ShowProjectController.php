@@ -14,7 +14,6 @@ class ShowProjectController extends Controller
 {
     public function index(Project $project)
     {
-
         $users = User::where('id', \Auth::user()->id)->with(['roles'])->first();
         $rol = array_pluck($users->roles, 'rol');
         $end_time = EndProject::where('project_id',$project->id)->first();
@@ -41,4 +40,5 @@ class ShowProjectController extends Controller
             }
         }
     }
+
 }

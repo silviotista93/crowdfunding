@@ -35,23 +35,7 @@ Route::get('/projects-sql',function (){
 Route::get('/artists/{id}',function ($id){
     return \App\Artist::where('id',$id)->with(['projects','levels','countries'])->get();
 });
-Route::get('/managements',function (){
-   /*$manage_project = \Illuminate\Support\Facades\DB::table('management_project')
-       ->select('project_id')->where('management_id',1)
-       ->get();
-    $array_project = array();
-   for ( $i=0; $i<count($manage_project); $i++) {
-       $projects = \App\Project::where('id', $manage_project[$i]->project_id)->with('artists')->get();
-       $json_project = json_decode($projects);
-       array_push($array_project,$json_project);
-   }*/
-
-   $project = \App\Project::whereHas('management', function ($query) {
-       $query->where('managements.id', '=', 1);
-   })->get();
-
-    return datatables()->of($project)->toJson();
-});
+Route::get('/managements','Backend\ShowProjectController@table_assing_management');
 /*=============================================
 SELECCIONAR IDIOMAS
 =============================================*/
