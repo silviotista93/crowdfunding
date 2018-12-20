@@ -31,7 +31,9 @@
     </button>
 </form>
 <div class="form-group">
+    @if(!$end_time == null)
     <span class="">{{ __('tiempo_calificacion') }}</span>
-    <span>{{ \Carbon\Carbon::parse($end_time->end_time)->toFormattedDateString()}}</span>
+    <span>{{ $end_time->end_time->toFormattedDateString()}}</span>
+    @endif
 </div>
 @endif

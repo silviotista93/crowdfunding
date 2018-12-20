@@ -15,7 +15,7 @@ class CreateEndProjectsTable extends Migration
     {
         Schema::create('end_projects', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('project_id');
+            $table->unsignedInteger('project_id')->nullable();
             $table->timestamp('end_time')->nullable();
             $table->timestamps();
         });

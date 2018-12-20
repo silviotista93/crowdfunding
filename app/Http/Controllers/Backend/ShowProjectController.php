@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Artist;
+use App\EndProject;
 use App\Project;
 use App\User;
 use Illuminate\Http\Request;
@@ -16,10 +17,7 @@ class ShowProjectController extends Controller
 
         $users = User::where('id', \Auth::user()->id)->with(['roles'])->first();
         $rol = array_pluck($users->roles, 'rol');
-        $end_time = DB::table('end_projects')
-            ->select('end_time')
-            ->where('project_id',$project->id)
-            ->first();
+        $end_time = EndProject::where('project_id',$project->id)->first();
 
         if (in_array('Admin', $rol) || in_array('Manage', $rol)) {
             return view('backend.projects.show-project', compact('project','end_time'));
