@@ -4,8 +4,11 @@ namespace App\Http\Controllers\Backend;
 
 use App\Artist;
 use App\Category;
+use App\EndProject;
+use App\Mail\AssignProjectManager;
 use App\Mail\NewProjectArtist;
 use App\Project;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
@@ -34,7 +37,7 @@ class AddProjectController extends Controller
     }
 
     public function store (Request $request){
-        $slug = str_slug($request->get('title'));
+        /*$slug = str_slug($request->get('title'));
         $ramdoNum = mt_rand(1,10000);
         $project = Project::create([
             'title' => $request->get('title'),
@@ -45,13 +48,14 @@ class AddProjectController extends Controller
             'status' => $request->get('status'),
             'price' => $request->get('price'),
             'slug' => $slug.'-'.$ramdoNum
-        ]);
-
+        ]);*/
+        $project = Project::where('id',70)->first();
        $project->artists()->attach($request->get('artist_id'));
-       $artist = Artist::select('nickname')->where('id',$request->get('artist_id'))->first();
-
-       \Mail::to('silviotista93@gmail.com')->send(new NewProjectArtist($project,auth()->user()->name));
-       alert()->success('Tu proyecto ha sido enviado','¡Muy bien!')->autoClose(3000);
-        return back();
+       $artist = Artist::where('id',6)->first();
+       $end_time = EndProject::select('end_time')->where('project_id',$project->id)->first();
+       $img_artist = User::where('id',$artist->user_id)->first();
+       /*\Mail::to('silviotista93@gmail.com')->send(new NewProjectArtist($project,auth()->user()->name));
+       alert()->success('Tu proyecto ha sido enviado','¡Muy bien!')->autoClose(3000);*/
+        return new AssignProjectManager($project,$artist,$end_time,$img_artist);
     }
 }

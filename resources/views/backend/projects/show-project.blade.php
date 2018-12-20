@@ -110,23 +110,15 @@
                                     <div class="row">
                                         <div class="col-xs-4 col-lg-8">
                                             <div class="box-body table-responsive text-center">
-                                                <table class="table table-striped- table-bordered table-hover" id="m_table_1">
+                                                <table class="table table-striped- table-bordered table-hover" id="table_assign_management">
                                                     <thead>
                                                     <tr>
                                                         <th>Management</th>
                                                         <th>{{ __('nombre') }}</th>
                                                         <th>{{ __('compañia') }}</th>
-                                                        <th>{{ __('email') }}</th>
+                                                        {{--<th>{{ __('email') }}</th>--}}
                                                     </tr>
                                                     </thead>
-                                                    <tbody>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>61715-075</td>
-                                                        <td>China</td>
-                                                        <td>Tieba</td>
-                                                    </tr>
-                                                    </tbody>
                                                 </table>
                                             </div>
                                         </div>
@@ -153,19 +145,21 @@
                     }
                 })
             })
-        })
-        $('.table_tramitadores').DataTable({
+        });
+        $('#table_assign_management').DataTable({
             "processing": true,
             "serverSide": true,
             "data": null,
-            "ajax": "",
+            "ajax":{
+                url: "{{ route('assign.managements') }}",
+                data: {
+                    id_project: {{ $project->id }}
+                }
+            },
             "columns":[
-                {data: 'name',defaultContent:'<span class="label label-danger text-center">Ningún valor por defecto</span>'},
-                {data: 'apellidos',defaultContent:'<span class="label label-danger text-center">Ningún valor por defecto</span>'},
-                {data: 'email',defaultContent:'<span class="label label-danger text-center">Ningún valor por defecto</span>'},
-                {data: 'telefono',defaultContent:'<span class="label label-danger text-center">Ningún valor por defecto</span>'},
-                {data: 'telefono_2',defaultContent:'<span class="label label-danger text-center">Ningún valor por defecto</span>'},
-
+                {data: 'id',defaultContent:'<span class="label label-danger text-center">Ningún valor por defecto</span>'},
+                {data: 'user_id',defaultContent:'<span class="label label-danger text-center">Ningún valor por defecto</span>'},
+                {data: 'company',defaultContent:'<span class="label label-danger text-center">Ningún valor por defecto</span>'},
             ],
             "language":{
                 "sProcessing":     "Procesando...",

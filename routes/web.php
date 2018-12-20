@@ -35,7 +35,8 @@ Route::get('/projects-sql',function (){
 Route::get('/artists/{id}',function ($id){
     return \App\Artist::where('id',$id)->with(['projects','levels','countries'])->get();
 });
-Route::get('/managements','Backend\ShowProjectController@table_assing_management');
+
+
 /*=============================================
 SELECCIONAR IDIOMAS
 =============================================*/
@@ -90,7 +91,7 @@ Route::group(['namespace'=>'Backend','prefix' => 'dashboard','middleware' => 'au
     //RUTAS PARA EL ADMINISTRADOR DEL SISTEMA -------------------------------------------------------------------------------------------
 
     //Todos los proyectos....
-
+    Route::get('/managements','ShowProjectController@table_assing_management')->name('assign.managements');
     Route::group(['middleware' => 'admin_permisos'],function (){
         Route::get('/projects-admin', 'Admin\ProjectsAdminController@index')->name('projects.admin');
         Route::get('datatables-projects-admin','Admin\ProjectsAdminController@table_projects')->name('datatables.projects.admin');

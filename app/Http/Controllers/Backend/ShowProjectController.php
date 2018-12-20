@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Artist;
 use App\EndProject;
+use App\Management;
 use App\Project;
 use App\User;
 use Illuminate\Http\Request;
@@ -39,6 +40,14 @@ class ShowProjectController extends Controller
                 return response('No puedes continuar', 404);
             }
         }
+    }
+
+    public function table_assing_management(Request $request){
+        $project = Management::whereHas('projects', function ($query) use ($request){
+            $query->where('projects.id', '=', $request->get('id_project'));
+        })->with('users')->get();
+        return datatables()->of($project)->toJson();
+
     }
 
 }

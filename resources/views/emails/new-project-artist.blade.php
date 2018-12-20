@@ -1,5 +1,5 @@
 @component('mail::message')
-# {{ __("!Nuevo proyecto ha sido registrado!") }}
+# {{ __("¡Nuevo proyecto ha sido registrado!") }}
 
 {{ __("El artista :artist ha enviado un nuevo proyecto: ", ['artist' => $artist]) }}
 ## {{ __(":project ", ['artist' => $artist, 'project' => $project->title]) }}
