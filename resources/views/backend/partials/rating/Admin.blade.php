@@ -55,10 +55,6 @@
                 table.DataTable({
                     responsive: true,
 
-                    //== DOM Layout settings
-                    dom: `<'row'<'col-sm-12'tr>>
-			<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 dataTables_pager'lp>>`,
-
                     lengthMenu: [5, 10, 25, 50],
 
                     pageLength: 5,
@@ -105,10 +101,9 @@
                             }
                         },
                         {
-                            data: 'categories',
+                            /*data: 'categories',*/
                             defaultContent: '<span class="label label-danger text-center">Ningún valor por defecto</span>',
                             render:function (data,type, JsonResultRow,meta) {
-
                                 let categorias = JsonResultRow.categories;
                                 let categoriasNombre = '';
                                 categorias.forEach(function (categoria){

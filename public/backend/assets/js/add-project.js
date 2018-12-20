@@ -179,7 +179,7 @@ var Wizard = function () {
 
                 swal({
                     "title": "",
-                    "text": "There are some errors in your submission. Please correct them.",
+                    "text": txtInvalidAlert,
                     "type": "error",
                     "confirmButtonClass": "btn btn-secondary m-btn m-btn--wide"
                 });
