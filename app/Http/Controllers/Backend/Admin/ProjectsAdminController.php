@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend\Admin;
 
 use App\Artist;
 use App\EndProject;
+use App\Mail\AssignProjectManager;
 use App\Mail\NewProjectArtist;
 use App\Management;
 use App\Project;
@@ -40,10 +41,13 @@ class ProjectsAdminController extends Controller
         $dateNow = date('Y-m-d');
         $week = date("Y-m-d",strtotime($dateNow."+ 2 week"));
         $project = Project::where('id', $request->input('project'))->with('artists')->first();
+        $end_time = EndProject::select('end_time')->where('project_id',$project->id)->first();
+        $img_artist = User::where('id',$project->artists[0]->user_id)->first();
+        $artist= Artist::where('user_id',$img_artist->id)->first();
         foreach ($data as $key => $user){
             //echo $user['email']."  ".$project->artists[0]->nickname."\n";
             $management = Management::where('user_id',$user['id'])->first();
-            \Mail::to($user['email'])->send(new NewProjectArtist($project,$project->artists[0]->nickname));
+            \Mail::to($user['email'])->send(new AssignProjectManager($project,$project->artists[0]->nickname,$end_time,$img_artist));
             $project->management()->attach($management['id']);
 
             $reviews = Review::create([
@@ -57,5 +61,4 @@ class ProjectsAdminController extends Controller
             $statusProject = Project::where('id', $request->input('project'))->update(array('status' => 2));
         return back();
     }
-
 }

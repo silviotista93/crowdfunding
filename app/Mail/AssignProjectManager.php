@@ -21,7 +21,7 @@ class AssignProjectManager extends Mailable
      *
      * @return void
      */
-    public function __construct(Project $project, $artist_name,$end_time,$img_artist)
+    public function __construct(Project $project, $artist_name, $end_time, $img_artist)
     {
         $this->project = $project;
         $this->artist_name = $artist_name;

@@ -7,10 +7,9 @@ $("#cancelar_abono").click(function(){
 });
 
 $("#mostrar_managements_asignados").click(function(){
-
-    $('#historial_abonos').show('fold');
+    $('#show_assign_list_management').show('fold');
     $('html,body').animate({
-            scrollTop: $('#historial_abonos').offset().top},
+            scrollTop: $('#show_assign_list_management').offset().top},
         'slow');
 
 });
@@ -18,6 +17,6 @@ $("#mostrar_managements_asignados").click(function(){
 $("#ocultar_historial").click(function(){
 
 
-    $('#historial_abonos').hide('blind');
+    $('#show_assign_list_management').hide('blind');
 
 });

@@ -34,11 +34,12 @@
                         <div class="m-section">
                             <div class="row">
                                 <div class="col-xs-4 col-lg-8">
-                                    <iframe width="560" height="315" 
-                                    id="videoYoutube"
-                                    src="https://www.youtube.com/embed/{{$project->iframe_video}}"
-                                    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-                                    allowfullscreen>
+                                    <iframe width="560" height="315"
+                                            id="videoYoutube"
+                                            src="https://www.youtube.com/embed/{{$project->iframe_video}}"
+                                            frameborder="0"
+                                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                            allowfullscreen>
                                     </iframe>
                                 </div>
                                 <div class="col-xs-4 col-lg-4">
@@ -75,7 +76,7 @@
 
                                     <!-- ------------------------- ACCIONES SEGUN LOS ROLES----------------------------- -->
 
-                                    @include('backend.partials.rating.' .\App\User::rating_proyect())
+                                @include('backend.partials.rating.' .\App\User::rating_proyect())
 
                                 <!-- ------------------------- CALIFICACION DEL PROYECTO CUANDO ESTA PUBLICADO Y APROBADO----------------------------- -->
                                     @if($project->status == 3 || $project->status == 4 )
@@ -83,47 +84,63 @@
                                             <h5 style="font-weight: bold">{{ __('valoracion') }}:</h5>
                                         </div>
 
-                                            <div class="form-group">
-                                                <ul id="list_rating_project" class="list-inline" style="font-size: 20px">
-                                                    <li class="list-inline-item star"><i class="fa fa-star fa-1x{{ $project->rating >= 1 ? ' yellow-rating' : '' }}"></i></li>
-                                                    <li class="list-inline-item star"><i class="fa fa-star fa-1x{{ $project->rating >= 2 ? ' yellow-rating' : '' }}"></i></li>
-                                                    <li class="list-inline-item star"><i class="fa fa-star fa-1x{{ $project->rating >= 3 ? ' yellow-rating' : '' }}"></i></li>
-                                                    <li class="list-inline-item star"><i class="fa fa-star fa-1x{{ $project->rating >= 4 ? ' yellow-rating' : '' }}"></i></li>
-                                                    <li class="list-inline-item star"><i class="fa fa-star fa-1x{{ $project->rating >= 5 ? ' yellow-rating' : '' }}"></i></li>
-                                                </ul>
-                                            </div>
+                                        <div class="form-group">
+                                            <ul id="list_rating_project" class="list-inline" style="font-size: 20px">
+                                                <li class="list-inline-item star"><i
+                                                            class="fa fa-star fa-1x{{ $project->rating >= 1 ? ' yellow-rating' : '' }}"></i>
+                                                </li>
+                                                <li class="list-inline-item star"><i
+                                                            class="fa fa-star fa-1x{{ $project->rating >= 2 ? ' yellow-rating' : '' }}"></i>
+                                                </li>
+                                                <li class="list-inline-item star"><i
+                                                            class="fa fa-star fa-1x{{ $project->rating >= 3 ? ' yellow-rating' : '' }}"></i>
+                                                </li>
+                                                <li class="list-inline-item star"><i
+                                                            class="fa fa-star fa-1x{{ $project->rating >= 4 ? ' yellow-rating' : '' }}"></i>
+                                                </li>
+                                                <li class="list-inline-item star"><i
+                                                            class="fa fa-star fa-1x{{ $project->rating >= 5 ? ' yellow-rating' : '' }}"></i>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     @endif
                                 </div>
                             </div>
                         </div>
                         @if(\App\User::rating_proyect())
-                            <div class="m-portlet__head">
-                                <div class="m-portlet__head-caption">
-                                    <div class="m-portlet__head-title">
-                                        <h3 class="m-portlet__head-text">
-                                            {{ __('lista_managements') }}
-                                        </h3>
+                            <div id="show_assign_list_management" style="display: none">
+                                <div class="m-portlet__head">
+                                    <div class="m-portlet__head-caption">
+                                        <div class="m-portlet__head-title">
+                                            <h3 class="m-portlet__head-text">
+                                                {{ __('lista_managements') }}
+                                            </h3>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                                 <div class="m-section">
+                                    <br>
                                     <div class="row">
-                                        <div class="col-xs-4 col-lg-8">
+                                        <div class="col-xs-4 col-lg-12">
                                             <div class="box-body table-responsive text-center">
-                                                <table class="table table-striped- table-bordered table-hover" id="table_assign_management">
+                                                <table class="table table-striped- table-bordered table-hover"
+                                                       id="table_assign_management">
                                                     <thead>
                                                     <tr>
                                                         <th>Management</th>
                                                         <th>{{ __('nombre') }}</th>
                                                         <th>{{ __('compañia') }}</th>
-                                                        {{--<th>{{ __('email') }}</th>--}}
+                                                        <th>{{ __('email') }}</th>
                                                     </tr>
                                                     </thead>
                                                 </table>
                                             </div>
                                         </div>
+                                        <div class="col-xs-4 col-lg-4">
+                                        </div>
                                     </div>
                                 </div>
+                            </div>
                         @endif
                     </div>
                 </div>
@@ -136,11 +153,11 @@
     <script>
         jQuery(document).ready(function () {
             const ratingSelector = jQuery('#list_rating');
-            ratingSelector.find('li').on('click',function () {
+            ratingSelector.find('li').on('click', function () {
                 const number = $(this).data('number');
                 $('#rating_form').find('input[name=rating_input]').val(number);
                 ratingSelector.find('li i').removeClass('yellow-rating').each(function (index) {
-                    if((index + 1) <= number){
+                    if ((index + 1) <= number) {
                         $(this).addClass('yellow-rating');
                     }
                 })
@@ -150,38 +167,52 @@
             "processing": true,
             "serverSide": true,
             "data": null,
-            "ajax":{
+            "ajax": {
                 url: "{{ route('assign.managements') }}",
                 data: {
                     id_project: {{ $project->id }}
                 }
             },
-            "columns":[
-                {data: 'id',defaultContent:'<span class="label label-danger text-center">Ningún valor por defecto</span>'},
-                {data: 'user_id',defaultContent:'<span class="label label-danger text-center">Ningún valor por defecto</span>'},
-                {data: 'company',defaultContent:'<span class="label label-danger text-center">Ningún valor por defecto</span>'},
+            "columns": [
+                {
+                    render: function (data, type, JsonResultRow, meta) {
+                        return '<img src="' + JsonResultRow.users.picture + '" width="40px" />';
+                    }
+                },
+                {
+                    data: 'users.name',
+                    defaultContent: '<span class="label label-danger text-center">Ningún valor por defecto</span>'
+                },
+                {
+                    data: 'company',
+                    defaultContent: '<span class="label label-danger text-center">Ningún valor por defecto</span>'
+                },
+                {
+                    data: 'users.email',
+                    defaultContent: '<span class="label label-danger text-center">Ningún valor por defecto</span>'
+                },
             ],
-            "language":{
-                "sProcessing":     "Procesando...",
-                "sLengthMenu":     "Mostrar _MENU_ registros",
-                "sZeroRecords":    "No se encontraron resultados",
-                "sEmptyTable":     "Ningún dato disponible en esta tabla",
-                "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
-                "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
-                "sInfoPostFix":    "",
-                "sSearch":         "Buscar:",
-                "sUrl":            "",
-                "sInfoThousands":  ",",
+            "language": {
+                "sProcessing": "Procesando...",
+                "sLengthMenu": "Mostrar _MENU_ registros",
+                "sZeroRecords": "No se encontraron resultados",
+                "sEmptyTable": "Ningún dato disponible en esta tabla",
+                "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "sInfoPostFix": "",
+                "sSearch": "Buscar:",
+                "sUrl": "",
+                "sInfoThousands": ",",
                 "sLoadingRecords": "Cargando...",
                 "oPaginate": {
-                    "sFirst":    "Primero",
-                    "sLast":     "Último",
-                    "sNext":     "Siguiente",
+                    "sFirst": "Primero",
+                    "sLast": "Último",
+                    "sNext": "Siguiente",
                     "sPrevious": "Anterior"
                 },
                 "oAria": {
-                    "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
                     "sSortDescending": ": Activar para ordenar la columna de manera descendente"
                 }
             }
