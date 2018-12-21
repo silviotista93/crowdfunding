@@ -117,7 +117,6 @@
                             }
                         },
                         {
-                            /*data: 'categories',*/
                             defaultContent: '<span class="label label-danger text-center">Ningún valor por defecto</span>',
                             render:function (data,type, JsonResultRow,meta) {
                                 let categorias = JsonResultRow.categories;
@@ -237,7 +236,23 @@
                     project: {{ $project->id }}
                 };
                 $.post(url,data,function (r){
-                    console.log(r);
+                    if (r.status === 200){
+                        swal({
+                            "title": "",
+                            "text": r.msg,
+                            "type": "success",
+                            "confirmButtonClass": "btn btn-secondary m-btn m-btn--wide"
+                        }).then((result) => {
+                            document.location.reload();
+                        });
+                    }
+                }, 'JSON').fail(function (e){
+                    swal({
+                        "title": "",
+                        "text": "No se ha enviado el mensaje.",
+                        "type": "error",
+                        "confirmButtonClass": "btn btn-secondary m-btn m-btn--wide"
+                    });
                 });
             });
         })();

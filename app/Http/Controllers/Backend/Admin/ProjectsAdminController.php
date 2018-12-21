@@ -32,8 +32,7 @@ class ProjectsAdminController extends Controller
         return datatables()->of($project)->toJson();
     }
     public function table_managements(){
-
-        return datatables()->of(Management::with('users','categories'))->toJson();
+        return datatables()->of(Management::with('users','categories')->get())->toJson();
     }
     public function send_project_management(Request $request){
         //En la consola de el navegador se visualizan los datos que se envian
@@ -56,9 +55,9 @@ class ProjectsAdminController extends Controller
                 'end_time' => $week
             ]);
         }
-            $end_project = EndProject::insert(['project_id' => $project->id,'end_time' => $week]);
+        $end_project = EndProject::insert(['project_id' => $project->id,'end_time' => $week]);
 
-            $statusProject = Project::where('id', $request->input('project'))->update(array('status' => 2));
-        return back();
+        $statusProject = Project::where('id', $request->input('project'))->update(array('status' => 2));
+        return '{"status":"200", "msg":"Mensaje enviado correctamente."}';
     }
 }
