@@ -87,6 +87,21 @@ class Project extends Model
         'category_id',
     ];
 
+    public static function card($arrayProject, $artist = null){
+        return $arrayProject->map(function ($project) use ($artist){
+            if ($artist == null){
+                $artist = $project->artists[0];
+            }
+            $project->nameLimit = str_limit($project->title, 35);
+            $project->img = $project->pathAttachment();
+            $project->url = route('projects.show',$project->slug);
+            $project->fotoUsuario = $artist->users->pathAttachment();
+            $project->rutaPro = route('projects.artist',$artist->users->id);
+            $project->totalDonations = $project->donations->sum('amount');
+            return $project;
+        });
+    }
+
     public function getRouteKeyName(){
         return 'slug';
     }

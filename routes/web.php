@@ -14,6 +14,15 @@
 /*=============================================
 CONSULTAS DE PRUEBAS
 =============================================*/
+
+Route::get('test' , function (){
+    $projects = \App\Project::where('id', 1)->with("category","artists",'artists.users', 'donations')->get();
+    $projects = \App\Project::card($projects);
+    //$project = \App\Project::where('id', 1)->with("category")->card();
+    $p = json_encode($projects);
+    dd(json_decode($p));
+});
+
 Route::get('email',function (){
     $project = \App\Project::where('id',65)->first();
 
@@ -35,8 +44,36 @@ Route::get('/projects-sql',function (){
 Route::get('/artists/{id}',function ($id){
     return \App\Artist::where('id',$id)->with(['projects','levels','countries'])->get();
 });
+Route::get('/managements/{id}',function ($id){
+  /* $manage_project = \Illuminate\Support\Facades\DB::table('management_project')
+       ->select('project_id')->where('management_id',1)
+       ->get();
+    $array_project = array();
+   for ( $i=0; $i<count($manage_project); $i++) {
+       $projects = \App\Project::where('id', $manage_project[$i]->project_id)->with('artists')->get();
+       $json_project = json_decode($projects);
+       array_push($array_project,$json_project);
+   }
 
+   $project = \App\Project::whereHas('management', function ($query) {
+       $query->where('managements.id', '=', 1);
+   })->get();
 
+    return datatables()->of($project)->toJson();*/
+
+    $projects = \App\Artist::where('user_id',$id)->with(
+            [   'users',
+                'countries',
+                'projects' => function ($q){
+                    $q->select('*')
+                        ->where('status',\App\Project::APPROVAL)
+                        ->OrWhere('status',\App\Project::PUBLISHED);
+                }
+            ])->latest()
+            ->first();
+
+        return $projects;
+});
 /*=============================================
 SELECCIONAR IDIOMAS
 =============================================*/
@@ -53,6 +90,7 @@ Route::group(['namespace'=>'Frontend'],function (){
     Route::get('/projects','ProjectsController@index')->name('projects');
 
     Route::get('/projects/{project}','ProjectsController@show')->name('projects.show');
+    Route::get('/projectsArt/{id}','ProjectsController@projectArtist')->name('projects.artist');
 
     Route::get('/projects-for-category','ProjectsController@getByCategory');
 

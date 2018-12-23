@@ -45,12 +45,15 @@ function fnAnima (element, stop, commas, duration, ease) {
 
 
 function createCard(project) {
-    
-    //console.log(project);
-    let porcetaje = 100-(((project.price-project.total)/100)*100);
+    if (typeof artist === "undefined"){
+        artist = project.artists[0];
+    }
+    /*console.log(project);*/
+    let porcetaje = 100-(((project.price-project.totalDonations)/100)*100);
     if (porcetaje < 1) {
         porcetaje = 0;
     }
+
     return `
 <div class="xs-col-3-isotope-grid-item comics crafts">
     <div class="fundpress-grid-item-content xs-mb-30">
@@ -85,7 +88,7 @@ function createCard(project) {
                     <img src="${project.fotoUsuario}" alt="">
                 </div>
                 <div class="xs-avatar-title">
-                    <a href="#"><span>By</span>${project.artists[0].nickname}</a>
+                    <a href="${rutaPro}/${artist.user_id}"><span>By</span>${artist.nickname}</a>
                 </div>
             </div>
         </div><!-- .xs-item-content .fundpress-item-content END -->
@@ -102,6 +105,6 @@ function createCard(project) {
         .replace(/${project.img}/g, project.img)
         .replace(/${project.url}/g, project.url)
         .replace(/${project.fotoUsuario}/g, project.fotoUsuario)
-        .replace(/${project.artists[0].nickname}/g, project.artists[0].nickname);
+        .replace(/${$artist.nickname}/g, $artist.nickname);
     /*Listo revisalo el problema es en el blade */
 }

@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Collection;
 
 class ProjectsController extends Controller
 {
@@ -16,14 +17,11 @@ class ProjectsController extends Controller
      */
 
     public function index(){
-        $projects = Project::select(DB::raw('projects.*, SUM(donations.amount) as total'))->withCount(['artists'])
-            ->with('category','artists')
-            ->with('artists.users')
-            ->join('donations', 'projects.id', '=', 'donations.project_id')
-            ->where('status',Project::PUBLISHED)
-            ->groupBy('projects.id')
-            ->latest()
-            ->paginate(8);
+        $projects = \App\Project::
+        where('status',Project::PUBLISHED)
+        ->with("category","artists",'artists.users', 'donations')->latest()->paginate(8);
+        $projects->setCollection( \App\Project::card($projects->getCollection()) );
+
         $user = User::first();
         $categories = Category::select('*')->get();
         return view('frontend.projects.projects', compact('categories', 'projects','user'));
@@ -54,26 +52,44 @@ class ProjectsController extends Controller
 
 
     public function getByCategory(Request $request){
-        $projects = Project::select(DB::raw('projects.*, SUM(donations.amount) as total'))->withCount(['artists'])
-        ->with('category','artists')
-        ->with('artists.users')
-        ->join('donations', 'projects.id', '=', 'donations.project_id')
-        ->where('status',Project::PUBLISHED)
+        $projects = Project::where('status',Project::PUBLISHED)
         ->where('category_id', intval($request->input('id')))
-        ->groupBy('projects.id')
+        ->with('category','artists', 'artists.users')
         ->latest()
         ->limit(6)->get();
 
-        $pro = new \stdClass();
-        $pro = [];
-        foreach ($projects as $project){
-            $project->img = $project->pathAttachment();
-            $project->nameLimit = str_limit($project->title, 35);
-            $project->url = route('projects.show',$project->slug);
-            $project->fotoUsuario = $project->artists[0]->users->pathAttachment();
-            $pro[] = $project;
-        }
+        $projects = Project::card($projects);
 
-        return json_encode($pro);
+        return json_encode($projects);
     }
+
+/*proyecto por artista*/ 
+    public function projectArtist($id){
+
+        $artist = \App\Artist::where("user_id","=",$id)
+        ->with([
+            'users',
+            'countries'
+        ])->first();
+
+        $projects = \App\Project::
+        where('status',Project::PUBLISHED)
+        ->whereHas('artists', function ($query) use ($id) {
+            $query->where('user_id', '=', $id);
+        })
+        ->with("category", 'donations')->latest()->paginate(8);
+        
+        $data = $projects->getCollection();
+        
+        $data = \App\Project::card($data, $artist);
+        
+        $projects->setCollection($data);
+            
+
+
+        return view('frontend.projects.projectsByArtist', compact('projects','artist'));
+    }
+
+
+
 }
