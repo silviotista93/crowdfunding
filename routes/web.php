@@ -93,16 +93,18 @@ Route::group(['namespace'=>'Backend','prefix' => 'dashboard','middleware' => 'au
     //Todos los proyectos....
     Route::get('/managements','ShowProjectController@table_assing_management')->name('assign.managements');
     Route::group(['middleware' => 'admin_permisos'],function (){
+        //Lista proyectos managements
         Route::get('/projects-admin', 'Admin\ProjectsAdminController@index')->name('projects.admin');
         Route::get('datatables-projects-admin','Admin\ProjectsAdminController@table_projects')->name('datatables.projects.admin');
         Route::get('datatables-managements-admin','Admin\ProjectsAdminController@table_managements')->name('datatables.management.admin');
-
+        //Lista de managaments
+        Route::get('/managements-admin','Admin\ManagementsController@index')->name('managements.admin');
 
     });
 
     //RUTAS PARA EL MANAGEMENT -------------------------------------------------------------------------------------------
     Route::group(['middleware' => 'manage_permisos'],function (){
-        Route::get('/projects-manage', 'Manage\ProjectsManageController@index')->name('projects.manage');
+        Route::get('/projects-management', 'Manage\ProjectsManageController@index')->name('projects.manage');
         Route::get('datatables-projects-manage','Manage\ProjectsManageController@table_projects')->name('datatables.projects.manage');
         //CALIFICAR PROYECTO POR EL MANAGEMENT
         Route::post('/update-review-management','Manage\ProjectsManageController@add_review')->name('update.review.management');

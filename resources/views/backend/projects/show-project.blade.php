@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-xl-4 col-lg-5">
                 @if(Storage::disk('public')->exists('projects/'.$project->project_picture))
-                    <img width="100%" height="80%" src="{{ auth()->user()->pathAttachment() }}" alt=""/>
+                    <img width="100%" height="80%" src="{{ $project->pathAttachment() }}" alt=""/>
                 @else
                     <img class="" width="100%" src="{{ $project->project_picture }}"
                          alt="">
@@ -13,7 +13,11 @@
             </div>
             <div class="col-xs-8 col-lg-7">
                 <h3 style="font-weight: bold;">{{ $project->title }}</h3>
-                <p style="text-align: justify">{{ $project->short_description }}</p>
+                <a data-toggle="modal" data-target="#m_modal_1" class="m-link m--font-success m--font-bolder"
+                   style="padding-bottom: 5px;cursor: pointer">by {{ $artist->artists[0]->nickname }} [{{__('ver_mas')}}]</a>
+                <div class="m-scrollable" data-scrollable="true" style="height: 170px">
+                    <p style="text-align: justify" >{{ $project->short_description }}</p>
+                </div>
             </div>
         </div>
         <br>
@@ -147,17 +151,118 @@
             </div>
         </div>
     </div>
+
+
+
     <style>
         .swal2-popup .swal2-file:focus,
         .swal2-popup .swal2-input:focus,
-        .swal2-popup .swal2-textarea:focus{
+        .swal2-popup .swal2-textarea:focus {
             border-color: #716aca;
         }
     </style>
+
+    <!--=====================================
+        MODAL INFORMACION DEL ARTISTA
+    ======================================-->
+    <div class="modal fade" id="m_modal_1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">{{ __('informacion_artista') }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xl-4 col-lg-4">
+                            <div class="m-portlet m-portlet--full-height  ">
+                                <div class="m-portlet__body">
+                                    <div class="m-card-profile">
+                                        <div class="m-card-profile__title m--hide">
+                                            Your Profile
+                                        </div>
+                                        <div class="m-card-profile__pic">
+                                            <div class="m-card-profile__pic-wrapper">
+                                                @if(Storage::disk('public')->exists('users/'.$artist->artists[0]->users->picture))
+                                                    <img src="{{ $artist->artists[0]->users->pathAttachment()}}"
+                                                         alt=""/>
+                                                @else
+                                                    <img src="{{ $artist->artists[0]->users->picture }}" alt="">
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="m-card-profile__details">
+                                            <span class="m-card-profile__name">{{ $artist->artists[0]->nickname }}</span>
+
+                                            <a href="" class="m-card-profile__email m-link"
+                                               style="margin-left: -15px">{{ $artist->artists[0]->users->email }}</a>
+
+                                        </div>
+                                        @if($country->flag !== null)
+                                            <div  class="text-center" style="margin-top: 5px"><img data-toggle="tooltip" title="{{ $country->country }}"
+                                                        src="{{ $country->flag }}"
+                                                        width="21" alt="" style="margin-top: 6px;margin-left: -10px">
+                                            </div>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-8 col-lg-5">
+                            <div class="m-portlet">
+                                <div class="m-portlet__head">
+                                    <div class="m-portlet__head-caption">
+                                        <div class="m-portlet__head-title">
+                                            <h3 class="m-portlet__head-text">
+                                               {{ __('biografia') }}
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="m-portlet__body">
+                                    <div class="m-scrollable" data-scrollable="true" style="height: 200px">
+                                        <p>{{ $artist->artists[0]->biography }}</p>
+                                    </div>
+                                </div>
+                                <div class="m-portlet__foot">
+                                    <div class="row align-items-center">
+                                        <div class="col-lg-12">
+                                            <a href="" data-toggle="tooltip" title="{{__('no_registrado')}}!" class="p-2 pull-right" style="color: #dd4b39">
+                                                <i class="fab fa-google-plus-g fa-2x"></i>
+                                            </a>
+                                            <a href="" class="p-2 pull-right" style="color: #bb0000">
+                                                <i class="fab fa-youtube fa-2x"></i>
+                                            </a>
+                                            <a href="" class="p-2 pull-right">
+                                                <i class="fab fa-instagram fa-2x" style="color: #c13584"></i>
+                                            </a>
+                                            <a href="" class="p-2 pull-right" style="color: #3b5998">
+                                                <i class="fab fa-facebook-square fa-2x"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 @stop
 
 @section('rating.projects')
     <script>
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+
         jQuery(document).ready(function () {
             const ratingSelector = jQuery('#list_rating');
             ratingSelector.find('li').on('click', function () {
@@ -171,30 +276,29 @@
             });
 
 
-
-            $("#btnEnviarReview").click(function (e){
+            $("#btnEnviarReview").click(function (e) {
                 e.preventDefault();
                 let textarea = null;
                 swal({
                     title: '{{ __('comment_review_manager') }}',
                     input: 'textarea',
-                    inputPlaceholder: "Tu mensaje...",
+                    inputPlaceholder: '{{ __('tu_mensaje') }}',
                     inputClass: "form-control m-input",
                     confirmButtonText: '{{ __('calificar') }}',
                     confirmButtonColor: '#3085d6',
                     confirmButtonClass: 'btn btn-warning'
 
-                }).then(function(result) {
+                }).then(function (result) {
                     console.log(result);
                     if (result.value === "" || result.value) {
                         $("#txtComentManager").val(result.value);
                         let form = $("#rating_form");
                         let url = form.attr("action");
                         let data = form.serialize();
-                        $.post(url,data,function (e){
-                            if (e){
+                        $.post(url, data, function (e) {
+                            if (e) {
                                 swal("Good job!", "You clicked the button!", "success")
-                                    .then(function (){
+                                    .then(function () {
                                         window.location.reload();
                                     });
 

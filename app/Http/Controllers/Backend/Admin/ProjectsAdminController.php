@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend\Admin;
 
 use App\Artist;
 use App\EndProject;
+use App\Mail\ArtistProjectPreAprov;
 use App\Mail\AssignProjectManager;
 use App\Mail\NewProjectArtist;
 use App\Management;
@@ -36,15 +37,14 @@ class ProjectsAdminController extends Controller
     }
     public function send_project_management(Request $request){
         //En la consola de el navegador se visualizan los datos que se envian
-        $data = $request->input("users");
+        /*$data = $request->input("users");
         $dateNow = date('Y-m-d');
         $week = date("Y-m-d",strtotime($dateNow."+ 2 week"));
         $project = Project::where('id', $request->input('project'))->with('artists')->first();
         $end_project = EndProject::insert(['project_id' => $project->id,'end_time' => $week]);
         $end_time = EndProject::select('end_time')->where('project_id',$project->id)->first();
         $img_artist = User::where('id',$project->artists[0]->user_id)->first();
-        $artist= Artist::where('user_id',$img_artist->id)->first();
-
+        $artist= Artist::where('user_id',$img_artist->id)->with('users')->first();
         foreach ($data as $key => $user){
             $nickname = $project->artists[0]->nickname;
             //echo $user['email']."  ".$project->artists[0]->nickname."\n";
@@ -58,8 +58,13 @@ class ProjectsAdminController extends Controller
                 'end_time' => $week
             ]);
         }
-
+        $artistSendEmail = \Mail::to($artist->users->email)->send(new ArtistProjectPreAprov($project,$artist->users->name));
         $statusProject = Project::where('id', $request->input('project'))->update(array('status' => 2));
-        return '{"status":200, "msg":"'.__('send_project_management').'"}';
+        return '{"status":200, "msg":"'.__('send_project_management').'"}';*/
+        $project = Project::where('id', $request->input('project'))->with('artists')->first();
+        $img_artist = User::where('id',$project->artists[0]->user_id)->first();
+        $artist= Artist::where('user_id',$img_artist->id)->with('users')->first();
+
+       return new ArtistProjectPreAprov($project,$artist->users->name);
     }
 }

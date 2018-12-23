@@ -97,7 +97,7 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
                 <div class="m-portlet__head-caption">
                     <div class="m-portlet__head-title">
                         <h3 class="m-portlet__head-text">
-                            Complex Headers
+                            {{ __('todos_proyectos') }}
                         </h3>
                     </div>
                 </div>
@@ -183,6 +183,7 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
                 "processing": true,
                 "serverSide": true,
                 "data": null,
+                "order": [[ 0, "desc" ]],
                 "ajax": {
                     url: "{{route('datatables.projects.admin')}}",
                     data: {
@@ -211,7 +212,7 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
                         defaultContent: '<span class="label label-danger text-center">Ningún valor por defecto</span>'
                     },
 
-                    {
+                    {"width": "15%",
                         data: 'status',
                         render:function (data) {
                             let info = '<span class="m-badge m-badge--danger m-badge--wide">Hola</span>';
@@ -223,13 +224,13 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
                                     info = '<span class="m-badge m-badge--brand m-badge--wide" style="background-color:#9C26EA !important;font-size:9px" >{{ __('pre_aprovado') }}</span>';
                                     break;
                                 case 3:
-                                    info = '<span class="m-badge  m-badge--success m-badge--wide">{{ __('aprovado') }}</span>';
+                                    info = '<span class="m-badge  m-badge--success m-badge--wide">{{ __('aprovado2') }}</span>';
                                     break;
                                 case 4:
-                                    info = '<span class="m-badge  m-badge--info m-badge--wide">{{ __('publicado') }}</span>';
+                                    info = '<span class="m-badge  m-badge--info m-badge--wide">{{ __('publicado2') }}</span>';
                                     break;
                                 case 5:
-                                    info = '<span class="m-badge  m-badge--danger m-badge--wide">{{ __('rechazados') }}</span>';
+                                    info = '<span class="m-badge  m-badge--danger m-badge--wide">{{ __('rechazado') }}</span>';
                                     break;
                             }
                             return '<div class="text-center">'+info+'</div>';

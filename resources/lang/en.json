@@ -97,6 +97,7 @@
   "informacion_general":"General",
   "informacion_general_2":"General information",
   "publicados":"Published",
+  "publicados2":"Published",
   "audio_visual":"AudioVisual",
   "imagen_proyecto":"Project image",
   "actualizar_foto_perfil":"Update your profile picture",
@@ -130,6 +131,7 @@
   "cancelar":"Cancel",
   "bienvenido":"Welcome",
   "aprovado":"Approved",
+  "aprovado2":"Approved",
   "pre_aprovado":"Pre Approved",
   "publicado":"Published",
   "estado":"State",
@@ -163,6 +165,12 @@
   "tiempo_calificacion":"Remember to rate this project before",
   "auth":"To continue, log in",
   "tiempo_calificar":"Time to qualify",
+  "ver_mas":"See more",
+  "no_hay_registros":"No Records",
+  "informacion_artista":"Artist's information",
+  "tu_mensaje":"Your message...",
+  "cerrar":"Close",
+  "no_registrado":"Not registered",
   "comment_review_manager":"Have a comment if you wish",
   "txtInvalidAlertAddProject":"All fields are required"
 
