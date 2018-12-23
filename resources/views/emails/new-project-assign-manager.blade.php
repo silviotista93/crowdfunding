@@ -1,7 +1,7 @@
 @component('mail::message')
 # {{ __("¡Un nuevo proyecto se te ha sido asignado!") }}
 <img class="img-responsive text-center" align="center" width="90" src="{{ $img_artist->pathAttachment() }}" alt="{{ $project->title }}" style="border-radius: 50%;margin-right: auto;margin-left: auto;display: block">
-{{ __("El artista :artist desea que conozcas su proyecto: ", ['artist' => $artist->nickname]) }}
+{{ __("El artista :artist desea que conozcas su proyecto: ", ['artist' => $artist]) }}
 ## {{ __(":project ", ['artist' => $artist, 'project' => $project->title]) }}
 <img class="img-responsive" src="{{ url($project->project_picture) }}" alt="{{ $project->title }}">
 @component('mail::button', ['url' => route('show.backend.project', $project->slug)])

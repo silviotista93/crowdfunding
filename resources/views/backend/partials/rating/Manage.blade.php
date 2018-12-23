@@ -3,7 +3,7 @@
 <div class="form-group">
     <h5 style="font-weight: bold">{{ __('calificar_proyecto') }}:</h5>
 </div>
-<form method="POST" action="" class="form-inline" id="rating_form">
+<form method="POST" action="{{ route('update.review.management') }}" class="" id="rating_form">
     @csrf
     <div class="form-group">
         <ul id="list_rating" class="list-inline" style="font-size: 20px">
@@ -19,17 +19,17 @@
                         class="fa fa-star fa-1x"></i></li>
         </ul>
     </div>
-
     <input type="hidden" name="rating_input" value="1">
-    <input type="hidden" name="course_id" value="{{ $project->id }}">
-
-    <button type="submit" class="btn btn-warning m-btn m-btn--icon">
-                                            <span>
-                                                <i class="la la-check"></i>
-                                                    <span>{{ __('calificar') }}</span>
-                                            </span>
+    <input type="hidden" name="comment" id="txtComentManager">
+    <input type="hidden" name="project_id" value="{{ $project->id }}">
+    <button type="submit" class="btn btn-warning m-btn m-btn--icon" id="btnEnviarReview">
+            <span>
+                <i class="la la-check"></i>
+                <span>{{ __('calificar') }}</span>
+            </span>
     </button>
 </form>
+<br>
 <div class="form-group">
     @if(!$end_time == null)
     <span class="">{{ __('tiempo_calificacion') }}</span>
@@ -37,3 +37,4 @@
     @endif
 </div>
 @endif
+

@@ -102,7 +102,7 @@
   "continuar":"Continuar",
   "nombre_proyecto":"Nombre del proyecto",
   "help_nombre_proyecto":"Por favor, te pedimos que el nombre no sea extensa",
-  "video_youtube_add_project":"iframe, video de youtube",
+  "video_youtube_add_project":"Link, video de youtube",
   "o_categoria":"o categoría del proyecto",
   "acerca_proyecto":"Sobre el proyecto",
   "help_valor_dolares":"Por favor, valor a ingresar en dolares",
@@ -157,6 +157,10 @@
   "compañia":"Compañia",
   "lista_managements":"Lista de Managements",
   "tiempo_calificacion":"Recuerda calificar este proyecto antes de",
-
-  "txtInvalidAlertAddProject":"Hay algunos errores en sus datos. Por favor corríjalos."
+  "send_project_management":"Proyecto enviado exitosamente",
+  "no_session":"No iniciaste sesión",
+  "auth":"Para continuar, inicia sesión",
+  "tiempo_calificar":"Tiempo para calificar",
+  "comment_review_manager":"Has un comentario si asi lo deseas",
+  "txtInvalidAlertAddProject":"Todos los campos son obligatorios"
 }

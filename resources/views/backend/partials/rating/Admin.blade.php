@@ -13,6 +13,15 @@
 
 </div>
 @else
+    <!-- TIEMPO ESTIMADO PARA CALIFICAR-->
+    <div class="form-group">
+        <h5 style="font-weight: bold">{{ __('tiempo_calificar') }}:</h5>
+    </div>
+    <div class="form-group">
+        @if(!$end_time == null)
+            <span class="m--font-bold m--font-primary" style="font-weight: bold; font-size: 16px">{{ $end_time->end_time->toFormattedDateString() }}</span>
+        @endif
+    </div>
 <!-- VER A QUIEN SE ASIGNO EL PROYECTO-->
 <div class="form-group">
     <h5 style="font-weight: bold">{{ __('asignado_a') }}:</h5>
@@ -99,9 +108,10 @@
                             className: 'dt-right',
                             orderable: false,
                             render: function(data, type, full, meta) {
+                                console.log(full);
                                 return `
                         <label class="m-checkbox m-checkbox--single m-checkbox--solid m-checkbox--brand">
-                            <input type="checkbox" data-value='${JSON.stringify({id: full.id, user_id: full.user_id,email: full.email})}' class="m-checkable ckeck-${full.id}">
+                            <input type="checkbox" data-value='${JSON.stringify({id: full.id, user_id: full.user_id,email: full.users.email})}' class="m-checkable ckeck-${full.id}">
                             <span></span>
                         </label>`;
                             },
@@ -236,6 +246,7 @@
                     project: {{ $project->id }}
                 };
                 $.post(url,data,function (r){
+                    console.log(r);
                     if (r.status === 200){
                         swal({
                             "title": "",

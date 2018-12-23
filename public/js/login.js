@@ -47,8 +47,3 @@ function startErrors() {
         });
     });
 }
-
-$("#xs_register_get_action").click(function (e) {
-    alert("registro");
-    e.preventDefault();
-});

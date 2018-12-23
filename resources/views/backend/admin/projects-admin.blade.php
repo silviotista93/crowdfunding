@@ -217,19 +217,19 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
                             let info = '<span class="m-badge m-badge--danger m-badge--wide">Hola</span>';
                             switch(parseInt(data)){
                                 case 1:
-                                    info = '<span class="btn btn-outline-metal m-btn m-btn--pill m-btn--wide btn-sm">{{ __('revision') }}</span>';
+                                    info = '<span class="m-badge m-badge--brand m-badge--wide" style="background-color:#C4C5D4 !important" >{{ __('revision') }}</span>';
                                     break;
                                 case 2:
-                                    info = '<span class="btn btn-outline-brand m-btn m-btn--pill m-btn--wide btn-sm">{{ __('pre_aprovado') }}</span>';
+                                    info = '<span class="m-badge m-badge--brand m-badge--wide" style="background-color:#9C26EA !important;font-size:9px" >{{ __('pre_aprovado') }}</span>';
                                     break;
                                 case 3:
-                                    info = '<span class="btn btn-outline-success m-btn m-btn--pill m-btn--wide btn-sm">{{ __('aprovado') }}</span>';
+                                    info = '<span class="m-badge  m-badge--success m-badge--wide">{{ __('aprovado') }}</span>';
                                     break;
                                 case 4:
-                                    info = '<span class="btn btn-outline-info m-btn m-btn--pill m-btn--wide btn-sm">{{ __('publicado') }}</span>';
+                                    info = '<span class="m-badge  m-badge--info m-badge--wide">{{ __('publicado') }}</span>';
                                     break;
                                 case 5:
-                                    info = '<span class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">{{ __('rechazados') }}</span>';
+                                    info = '<span class="m-badge  m-badge--danger m-badge--wide">{{ __('rechazados') }}</span>';
                                     break;
                             }
                             return '<div class="text-center">'+info+'</div>';

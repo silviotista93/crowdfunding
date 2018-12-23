@@ -101,7 +101,7 @@
   "imagen_proyecto":"Project image",
   "actualizar_foto_perfil":"Update your profile picture",
   "arrastra_click_subir":"Drag, or click here to upload",
-  "video_youtube_add_project":"iframe, youtube video",
+  "video_youtube_add_project":"Link, youtube video",
   "agrega_imagen_proyecto":"Add an image to the project",
   "info_add_project_image":"an image of you, your project or musical team",
   "nombre_proyecto":"Project Name",
@@ -158,7 +158,12 @@
   "email":"Email",
   "compañia":"Company",
   "lista_managements":"Managements list",
+  "no_session":"You did not sign in",
+  "send_project_management":"Project sent successfully.",
   "tiempo_calificacion":"Remember to rate this project before",
+  "auth":"To continue, log in",
+  "tiempo_calificar":"Time to qualify",
+  "comment_review_manager":"Have a comment if you wish",
+  "txtInvalidAlertAddProject":"All fields are required"
 
-  "txtInvalidAlertAddProject":"There are some errors in your submission. Please correct them."
 }

@@ -147,6 +147,13 @@
             </div>
         </div>
     </div>
+    <style>
+        .swal2-popup .swal2-file:focus,
+        .swal2-popup .swal2-input:focus,
+        .swal2-popup .swal2-textarea:focus{
+            border-color: #716aca;
+        }
+    </style>
 @stop
 
 @section('rating.projects')
@@ -161,7 +168,43 @@
                         $(this).addClass('yellow-rating');
                     }
                 })
-            })
+            });
+
+
+
+            $("#btnEnviarReview").click(function (e){
+                e.preventDefault();
+                let textarea = null;
+                swal({
+                    title: '{{ __('comment_review_manager') }}',
+                    input: 'textarea',
+                    inputPlaceholder: "Tu mensaje...",
+                    inputClass: "form-control m-input",
+                    confirmButtonText: '{{ __('calificar') }}',
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonClass: 'btn btn-warning'
+
+                }).then(function(result) {
+                    console.log(result);
+                    if (result.value === "" || result.value) {
+                        $("#txtComentManager").val(result.value);
+                        let form = $("#rating_form");
+                        let url = form.attr("action");
+                        let data = form.serialize();
+                        $.post(url,data,function (e){
+                            if (e){
+                                swal("Good job!", "You clicked the button!", "success")
+                                    .then(function (){
+                                        window.location.reload();
+                                    });
+
+                            }
+                        });
+                    }
+                });
+                textarea = $("textarea.form-control.m-input");
+                textarea.removeClass("swal2-textare").attr("rows", '5');
+            });
         });
         $('#table_assign_management').DataTable({
             "processing": true,
@@ -176,7 +219,7 @@
             "columns": [
                 {
                     render: function (data, type, JsonResultRow, meta) {
-                        return '<img src="' + JsonResultRow.users.picture + '" width="40px" />';
+                        return '<img src="' + JsonResultRow.users.picture + '" width="60px" style="border-radius: 100%;margin-right: auto;margin-left: auto;display: block"/>';
                     }
                 },
                 {

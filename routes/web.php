@@ -96,12 +96,16 @@ Route::group(['namespace'=>'Backend','prefix' => 'dashboard','middleware' => 'au
         Route::get('/projects-admin', 'Admin\ProjectsAdminController@index')->name('projects.admin');
         Route::get('datatables-projects-admin','Admin\ProjectsAdminController@table_projects')->name('datatables.projects.admin');
         Route::get('datatables-managements-admin','Admin\ProjectsAdminController@table_managements')->name('datatables.management.admin');
+
+
     });
 
     //RUTAS PARA EL MANAGEMENT -------------------------------------------------------------------------------------------
     Route::group(['middleware' => 'manage_permisos'],function (){
         Route::get('/projects-manage', 'Manage\ProjectsManageController@index')->name('projects.manage');
         Route::get('datatables-projects-manage','Manage\ProjectsManageController@table_projects')->name('datatables.projects.manage');
+        //CALIFICAR PROYECTO POR EL MANAGEMENT
+        Route::post('/update-review-management','Manage\ProjectsManageController@add_review')->name('update.review.management');
     });
 
 

@@ -37,6 +37,7 @@
 
     <!--Theme Responsive css-->
     <link rel="stylesheet" href="/frontend/css/responsive.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" />
 
     <script src="/frontend/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     @stack('css')
@@ -64,9 +65,6 @@
 
 <main class="xs-all-content-wrapper">
     <!-- welcome section -->
-    @if(session('message'))
-         {{ session('message')[1] }}
-    @endif
     @yield('content')
 </main>
 
@@ -182,6 +180,7 @@
 <script src="/frontend/js/spectragram.min.js"></script>
 <script src="/frontend/js/jquery.waypoints.min.js"></script>
 <script src="/frontend/js/scrollax.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 @stack('js')
 
@@ -214,6 +213,9 @@ const lang = '{{session("applocale")}}';
                 min: jQuery.validator.format("Por favor, escribe un valor mayor o igual a {0}.")
             });
         });
+        @if(session('message'))
+            toastr.error("{{ session('message')[1] }}", '{{__("no_session")}}');
+        @endif
 </script>
 </body>
 </html>

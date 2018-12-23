@@ -40,24 +40,26 @@ class ProjectsAdminController extends Controller
         $dateNow = date('Y-m-d');
         $week = date("Y-m-d",strtotime($dateNow."+ 2 week"));
         $project = Project::where('id', $request->input('project'))->with('artists')->first();
+        $end_project = EndProject::insert(['project_id' => $project->id,'end_time' => $week]);
         $end_time = EndProject::select('end_time')->where('project_id',$project->id)->first();
         $img_artist = User::where('id',$project->artists[0]->user_id)->first();
         $artist= Artist::where('user_id',$img_artist->id)->first();
+
         foreach ($data as $key => $user){
+            $nickname = $project->artists[0]->nickname;
             //echo $user['email']."  ".$project->artists[0]->nickname."\n";
-            $management = Management::where('user_id',$user['id'])->first();
-            \Mail::to($user['email'])->send(new AssignProjectManager($project,$project->artists[0]->nickname,$end_time,$img_artist));
-            $project->management()->attach($management['id']);
+            $management = Management::where('user_id',$user['user_id'])->first();
+            \Mail::to($user['email'])->send(new AssignProjectManager($project,$nickname,$end_time,$img_artist));
+            $project->management()->attach($management->id);
 
             $reviews = Review::create([
                'project_id' => $project->id,
-                'user_id' => $user['id'],
+                'user_id' => $user['user_id'],
                 'end_time' => $week
             ]);
         }
-        $end_project = EndProject::insert(['project_id' => $project->id,'end_time' => $week]);
 
         $statusProject = Project::where('id', $request->input('project'))->update(array('status' => 2));
-        return '{"status":"200", "msg":"Mensaje enviado correctamente."}';
+        return '{"status":200, "msg":"'.__('send_project_management').'"}';
     }
 }

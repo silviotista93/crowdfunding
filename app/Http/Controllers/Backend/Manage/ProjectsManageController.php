@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend\Manage;
 
 use App\Management;
+use App\Review;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -22,5 +23,11 @@ class ProjectsManageController extends Controller
             $project->where('status', "=", $request->input("tipoProyecto"));
         }
      return datatables()->of($project)->toJson();
+    }
+
+    public function add_review(Request $request){
+        $rating = $request->get('rating_input');
+        $comment = $request->get('comment');
+        return Review::where(['project_id' => $request->get('project_id'),'user_id' => auth()->user()->id])->update(array('rating' => $rating,'comment' => $comment));
     }
 }
