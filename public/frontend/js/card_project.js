@@ -45,7 +45,7 @@ function fnAnima (element, stop, commas, duration, ease) {
 
 
 function createCard(project) {
-    if (typeof artist === "undefined"){
+    if (project.artists){
         artist = project.artists[0];
     }
     /*console.log(project);*/
@@ -88,7 +88,7 @@ function createCard(project) {
                     <img src="${project.fotoUsuario}" alt="">
                 </div>
                 <div class="xs-avatar-title">
-                    <a href="${rutaPro}/${artist.user_id}"><span>By</span>${artist.nickname}</a>
+                    <a href="${project.rutaPro}"><span>By</span>${artist.nickname}</a>
                 </div>
             </div>
         </div><!-- .xs-item-content .fundpress-item-content END -->

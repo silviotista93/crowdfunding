@@ -34,17 +34,6 @@
                     <div class="col-md-12 col-lg-8">
                         <div class="xs-isotope-grid-wraper">
                             <div class="xs-col-3-isotope-grid" id="projectContainer">
-                                @php
-                                    $pro = new stdClass();
-                                    $pro->data = [];
-                                    foreach ($projects as $project){
-                                        $project->img = $project->pathAttachment();
-                                        $project->nameLimit = str_limit($project->title, 35);
-                                        $project->url = route('projects.show',$project->slug);
-                                        $project->fotoUsuario = $project->artists[0]->users->pathAttachment();
-                                        $pro->data[] = $project;
-                                    }
-                                @endphp
                             </div>
                         </div>
                             <!--=====================================
@@ -67,7 +56,7 @@
 @stop
 @push('js')
     <script>
-        const projects = {!! json_encode($pro)!!};
+        const projects = {!! json_encode($projects)!!};
         fnRenderView = function () {
             startCard();
         }

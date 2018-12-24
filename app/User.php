@@ -78,6 +78,10 @@ class User extends Authenticatable
     const ACTIVE = 1;
     const INACTIVE = 2;
 
+    public function getRouteKeyName(){
+        return 'slug';
+    }
+
     public static function navigation(){
         return auth()->check() ? auth()->user()->roles[0]->rol : 'Artist';
     }

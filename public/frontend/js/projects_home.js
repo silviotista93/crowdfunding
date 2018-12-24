@@ -16,7 +16,7 @@ $("#categoryProjects").on('click', 'li', function(e){
                 if (key==3){
                     content += '</div><div class="row">';
                 }
-                //console.log(project);
+                console.log(project);
                 content += '<div class="col-lg-4">'+createCard(project)+'</div>';
             });
             content += "</div>";

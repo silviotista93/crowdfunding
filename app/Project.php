@@ -96,7 +96,7 @@ class Project extends Model
             $project->img = $project->pathAttachment();
             $project->url = route('projects.show',$project->slug);
             $project->fotoUsuario = $artist->users->pathAttachment();
-            $project->rutaPro = route('projects.artist',$artist->users->id);
+            $project->rutaPro = route('projects.artist',$artist->users->slug);
             $project->totalDonations = $project->donations->sum('amount');
             return $project;
         });
@@ -148,7 +148,7 @@ class Project extends Model
     /*
      * Consultas
      */
-    public function countbycategories($id){
+    public static function countbycategories($id){
         return DB::table('projects')
             ->where([['category_id',$id],['status',\App\Project::PUBLISHED]])
             ->count('id');

@@ -21,7 +21,6 @@ class ProjectsController extends Controller
         where('status',Project::PUBLISHED)
         ->with("category","artists",'artists.users', 'donations')->latest()->paginate(8);
         $projects->setCollection( \App\Project::card($projects->getCollection()) );
-
         $user = User::first();
         $categories = Category::select('*')->get();
         return view('frontend.projects.projects', compact('categories', 'projects','user'));
@@ -29,7 +28,7 @@ class ProjectsController extends Controller
 
 
     public function show(Project $project){
-
+    
         $project->load([
             'category' => function ($q) {
                 $q->select('id', 'category','slug');
@@ -55,18 +54,18 @@ class ProjectsController extends Controller
         $projects = Project::where('status',Project::PUBLISHED)
         ->where('category_id', intval($request->input('id')))
         ->with('category','artists', 'artists.users')
-        ->latest()
-        ->limit(6)->get();
-
+        ->limit(6)
+        ->get();
+        //dd($projects[0]->category);
         $projects = Project::card($projects);
 
         return json_encode($projects);
     }
 
 /*proyecto por artista*/ 
-    public function projectArtist($id){
-
-        $artist = \App\Artist::where("user_id","=",$id)
+    public function projectArtist(User $user){
+       
+        $artist = \App\Artist::where("user_id","=",$user->id)
         ->with([
             'users',
             'countries'
@@ -74,8 +73,8 @@ class ProjectsController extends Controller
 
         $projects = \App\Project::
         where('status',Project::PUBLISHED)
-        ->whereHas('artists', function ($query) use ($id) {
-            $query->where('user_id', '=', $id);
+        ->whereHas('artists', function ($query) use ($user) {
+            $query->where('user_id', '=', $user->id);
         })
         ->with("category", 'donations')->latest()->paginate(8);
         

@@ -12,15 +12,14 @@ class CategoriesController extends Controller
 {
     public function show(Category $category){
         //hay que arreglar la consulta
-        $projects = $projects = Project::select(DB::raw('projects.*, SUM(donations.amount) as total'))->withCount(['artists'])
-            ->with('category')
-            ->with('artists.users')
-            ->join('donations', 'projects.id', '=', 'donations.project_id')
-            ->where('status',Project::PUBLISHED)
-            ->where('category_id', $category->id)
-            ->groupBy('projects.id')
-            ->latest()
-            ->paginate(8);
+
+        $projects = \App\Project::
+        where('status',Project::PUBLISHED)
+        ->where('category_id', $category->id)
+        ->with("category","artists",'artists.users', 'donations')->latest()->paginate(8);
+        $projects->setCollection( \App\Project::card($projects->getCollection()) );
+
+
         $category_name = $category;
         $categories = Category::select('*')->get();
         return view('frontend.projects.projects',compact('projects','categories','category_name'));
