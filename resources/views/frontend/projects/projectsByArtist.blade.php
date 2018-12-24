@@ -23,15 +23,17 @@ alt=""/>
 
             <h2 class="color-white">{{ $artist->nickname }}</h2>           
             <ul class="xs-breadcumb fundpress-breadcumb">
-                <li> <img src="{{ $artist->countries->flag }}" width="21"> {{ $artist->countries->country }}> </li>
+                <li> <img src="{{ $artist->countries->flag }}" width="21"> {{ $artist->countries->country }} </li>
             </ul>
         </div>
     </div>
     
     
 </section>
-<div style="position: relative; margin: auto;margin-top: -7%;border-radius: 100px;width: 200px;height: 200px;border: 4px solid; border-color:#191818; z-index: 1000; ">
-    <img src="/frontend/images/projects/background_perfil.jpg" style="height: 100%; width: 100%;border-radius: inherit;">
+
+<div style="    overflow: hidden; position: relative; margin: auto;margin-top: -7%;border-radius: 100px;width: 200px;height: 200px;border: 4px solid; border-color:#191818; z-index: 1000; ">
+<img src="{{$artist->users->pathAttachment()}}" style="height: 100%; width: 100%;border-radius: inherit;">
+
 </div>
 
 <!--breadcumb end here--><!-- End welcome section -->
@@ -115,42 +117,18 @@ alt=""/>
     </div>
 </section>     <!-- End fund details -->
 
-<!-- popular campaigns -->
-<section class="waypoint-tigger xs-gray-bg xs-section-padding">
-    <div class="container">
-   
-        <div class="row">
-             <main class="xs-all-content-wrapper">
-        <!-- blog post details -->
-        <div class="xs-blog-details xs-content-section-padding">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 col-lg-8">
-                        <div class="xs-isotope-grid-wraper">
-                            <div class="xs-col-3-isotope-grid" id="projectContainer">
-                            </div>
-                        </div>
-                            <!--=====================================
+<section class="xs-content-section-padding xs-news-feeds-inner-section fundpress-news-feeds-inner-section">
+	<div class="container">
+        {{-- contenedor de las tarjetas que vienen del js cards --}}
+		<div class="row" id="projectContainer">
+		
+		</div>
+         <!--=====================================
                              PAGINACIÓN
-                             ======================================-->
-                              {{ $projects->links() }}
-
-                         </div>
-
-
-                        <!--=====================================
-                        SIDEBAR PROJECTS LATERAL
-                        ======================================-->
-                        {{-- @include('frontend.partials.sidebar.sidebar_projects') --}}
-
-                    </div>
-                </div>
-            </div>
-        </main>    
-           
-        </div>
-    </div>
-</section>     <!-- End popular campaigns -->
+                            ======================================-->
+                            {{ $projects->links() }}
+	</div>
+</section>
 </main>
 @stop
 
