@@ -2,15 +2,6 @@
 
 @section('content')
 
-{{-- @if(Storage::disk('public')->exists('users/'.auth()->user()->picture))
-<img src="{{ auth()->user()->pathAttachment()}}"
-class="m--img-rounded m--marginless" alt=""/>
-@else
-<img src="{{ auth()->user()->picture}}" class="m--img-rounded m--marginless"
-alt=""/>
-
-@endif --}}
-
 {{-- _______________________________
      nombre del artista y generos 
      _______________________________ --}}
@@ -19,7 +10,7 @@ alt=""/>
      style=" background-image: url(/frontend/images/projects/background_perfil.jpg);background-position: center;background-attachment: fixed;background-repeat: no-repeat; background-size: cover;">
      <div class="xs-solid-overlay xs-bg-black"></div>
      <div class="container">
-        <div class="fundpress-inner-welcome-content">
+        <div class="fundpress-inner-welcome-content" style="padding:200px 0 123px;">
 
             <h2 class="color-white">{{ $artist->nickname }}</h2>           
             <ul class="xs-breadcumb fundpress-breadcumb">

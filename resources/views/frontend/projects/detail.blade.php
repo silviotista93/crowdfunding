@@ -385,7 +385,7 @@
                                         <img src="{{ $project->artist_user($project->artists[0]->id)->pathAttachment() }}" alt="">
                                     </div>
                                     <div class="xs-avatar-title fundpress-avatar-title fundpress-avatar-title-v2">
-                                        <a href="#" class="xs-mb-10">{{ $project->artist_user($project->artists[0]->id)->name }}</a>
+                                    <a href="{{route('projects.artist',$project->artists[0]->users->slug)}}" class="xs-mb-10">{{ $project->artist_user($project->artists[0]->id)->name }}</a>
                                         <p class="xs-content-description fundpress-content-description xs-mb-20">{{ $project->category->category }}</p>
                                         <ul class="xs-list-item-icon-text list-inline">
                                             <li class="xs-mb-0 align-items-start list-inline-item">
