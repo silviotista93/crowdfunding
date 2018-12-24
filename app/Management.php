@@ -28,6 +28,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Management extends Model
 {
+    protected $fillable = ['user_id','company','description','country_id','website_url'];
     public function projects(){
         return $this->belongsToMany(Project::class);
     }
