@@ -21,57 +21,13 @@
             </ul>
         </div>
         <div>
-            <div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push"
-                 m-dropdown-toggle="hover" aria-expanded="true">
-                <a href="#"
-                   class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--outline-2x m-btn--air m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle">
-                    <i class="la la-plus m--hide"></i>
-                    <i class="la la-ellipsis-h"></i>
-                </a>
-                <div class="m-dropdown__wrapper">
-                    <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
-                    <div class="m-dropdown__inner">
-                        <div class="m-dropdown__body">
-                            <div class="m-dropdown__content">
-                                <ul class="m-nav">
-                                    <li class="m-nav__section m-nav__section--first m--hide">
-                                        <span class="m-nav__section-text">Quick Actions</span>
-                                    </li>
-                                    <li class="m-nav__item">
-                                        <a href="" class="m-nav__link">
-                                            <i class="m-nav__link-icon flaticon-share"></i>
-                                            <span class="m-nav__link-text">Activity</span>
-                                        </a>
-                                    </li>
-                                    <li class="m-nav__item">
-                                        <a href="" class="m-nav__link">
-                                            <i class="m-nav__link-icon flaticon-chat-1"></i>
-                                            <span class="m-nav__link-text">Messages</span>
-                                        </a>
-                                    </li>
-                                    <li class="m-nav__item">
-                                        <a href="" class="m-nav__link">
-                                            <i class="m-nav__link-icon flaticon-info"></i>
-                                            <span class="m-nav__link-text">FAQ</span>
-                                        </a>
-                                    </li>
-                                    <li class="m-nav__item">
-                                        <a href="" class="m-nav__link">
-                                            <i class="m-nav__link-icon flaticon-lifebuoy"></i>
-                                            <span class="m-nav__link-text">Support</span>
-                                        </a>
-                                    </li>
-                                    <li class="m-nav__separator m-nav__separator--fit">
-                                    </li>
-                                    <li class="m-nav__item">
-                                        <a href="#" class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">Submit</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <a id="modalAddManager" data-toggle="modal" data-target="#modal_add_management"
+               class="btn btn-secondary m-btn m-btn--icon m-btn--pill" style="cursor: pointer">
+                <span>
+                    <i class="fa flaticon-plus"></i>
+                    <span>{{ __('nuevo_management') }}</span>
+                </span>
+            </a>
         </div>
     </div>
 @stop
@@ -109,12 +65,12 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
                                                     </div>
                                                     <div class="m-card-profile__pic">
                                                         <div class="m-card-profile__pic-wrapper">
-                                                             @if(Storage::disk('public')->exists('users/'.$management->users->picture))
-                                                                 <img src="{{ $management->users->pathAttachment()}}"
-                                                                      alt=""/>
-                                                             @else
-                                                                 <img src="{{ $management->users->picture }}" alt="">
-                                                             @endif
+                                                            @if(Storage::disk('public')->exists('users/'.$management->users->picture))
+                                                                <img src="{{ $management->users->pathAttachment()}}"
+                                                                     alt=""/>
+                                                            @else
+                                                                <img src="{{ $management->users->picture }}" alt="">
+                                                            @endif
                                                         </div>
                                                     </div>
                                                     <div class="m-card-profile__details">
@@ -128,8 +84,8 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
                                             </div>
                                         </div>
                                     </div>
-                                    @empty
-                                        <h4 class="text-center">{{ __('no_hay_registros') }}</h4>
+                                @empty
+                                    <h4 class="text-center">{{ __('no_hay_registros') }}</h4>
                                 @endforelse
                             </div>
                         </div>
@@ -138,4 +94,154 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
             </div>
         </div>
     </div>
+
+    <!--=====================================
+	MODAL AGREGAR NUEVO MANAGEMENT
+    ======================================-->
+    <div class="modal fade" id="modal_add_management" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">{{ __('agregar_management') }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form method="post" action="{{ route('add.management.admin') }}">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="form-group m-form__group {{$errors->has('country_id')? 'has-danger':''}}">
+                            <label for="m_select2_add_management">{{ __('pais') }}</label>
+                            <select name="country_id" class="form-control m-bootstrap-select m_selectpicker required">
+                                @foreach($countries as $country)
+                                    <option value="{{ $country->id }}">{{ $country->country }}</option>
+                                @endforeach
+                                {!! $errors->first('country_id','<div class="form-control-feedback">*:message</div>')!!}
+                            </select>
+                        </div>
+                        <div class="form-group m-form__group {{$errors->has('name')? 'has-danger':''}}">
+                            <label for="exampleInputEmail1">{{ __('nombre') }}</label>
+                            <input type="text" class="form-control m-input" id="" name="name"
+                                   aria-describedby="emailHelp" placeholder="Enter {{ __('nombre') }}">
+                            {!! $errors->first('name','<div class="form-control-feedback">*:message</div>')!!}
+                            <span class="m-form__help">We'll never share your email with anyone else.</span>
+                        </div>
+                        <div class="form-group m-form__group {{$errors->has('last_name')? 'has-danger':''}}">
+                            <label for="exampleInputEmail1">{{ __('apellidos') }}</label>
+                            <input type="text" name="last_name" class="form-control m-input" id=""
+                                   aria-describedby="emailHelp" placeholder="Enter {{ __('apellidos') }}">
+                            {!! $errors->first('last_name','<div class="form-control-feedback">*:message</div>')!!}
+                            <span class="m-form__help">We'll never share your email with anyone else.</span>
+                        </div>
+                        <div class="form-group m-form__group {{$errors->has('email')? 'has-danger':''}}">
+                            <label for="exampleInputEmail1">{{ __('email') }}</label>
+                            <input type="email" name="email" class="form-control m-input" id="exampleInputEmail1"
+                                   aria-describedby="emailHelp" placeholder="Enter {{ __('email') }}">
+                            {!! $errors->first('email','<div class="form-control-feedback">*:message</div>')!!}
+                            <span class="m-form__help">We'll never share your email with anyone else.</span>
+                        </div>
+                        <div class="form-group m-form__group {{$errors->has('email')? 'has-danger':''}}">
+                            <label for="exampleInputEmail1">{{ __('email') }}</label>
+                            <select class="form-control m-select2" id="m_select2_11_tipo" multiple name="param">
+                                <option></option>
+                                <optgroup label="Alaskan/Hawaiian Time Zone">
+                                    <option value="AK">Alaska</option>
+                                    <option value="HI">Hawaii</option>
+                                </optgroup>
+                                <optgroup label="Pacific Time Zone">
+                                    <option value="CA">California</option>
+                                    <option value="NV">Nevada</option>
+                                    <option value="OR">Oregon</option>
+                                    <option value="WA">Washington</option>
+                                </optgroup>
+                                <optgroup label="Mountain Time Zone">
+                                    <option value="AZ">Arizona</option>
+                                    <option value="CO">Colorado</option>
+                                    <option value="ID">Idaho</option>
+                                    <option value="MT">Montana</option>
+                                    <option value="NE">Nebraska</option>
+                                    <option value="NM">New Mexico</option>
+                                    <option value="ND">North Dakota</option>
+                                    <option value="UT">Utah</option>
+                                    <option value="WY">Wyoming</option>
+                                </optgroup>
+                                <optgroup label="Central Time Zone">
+                                    <option value="AL">Alabama</option>
+                                    <option value="AR">Arkansas</option>
+                                    <option value="IL">Illinois</option>
+                                    <option value="IA">Iowa</option>
+                                    <option value="KS">Kansas</option>
+                                    <option value="KY">Kentucky</option>
+                                    <option value="LA">Louisiana</option>
+                                    <option value="MN">Minnesota</option>
+                                    <option value="MS">Mississippi</option>
+                                    <option value="MO">Missouri</option>
+                                    <option value="OK">Oklahoma</option>
+                                    <option value="SD">South Dakota</option>
+                                    <option value="TX">Texas</option>
+                                    <option value="TN">Tennessee</option>
+                                    <option value="WI">Wisconsin</option>
+                                </optgroup>
+                                <optgroup label="Eastern Time Zone">
+                                    <option value="CT">Connecticut</option>
+                                    <option value="DE">Delaware</option>
+                                    <option value="FL">Florida</option>
+                                    <option value="GA">Georgia</option>
+                                    <option value="IN">Indiana</option>
+                                    <option value="ME">Maine</option>
+                                    <option value="MD">Maryland</option>
+                                    <option value="MA">Massachusetts</option>
+                                    <option value="MI">Michigan</option>
+                                    <option value="NH">New Hampshire</option>
+                                    <option value="NJ">New Jersey</option>
+                                    <option value="NY">New York</option>
+                                    <option value="NC">North Carolina</option>
+                                    <option value="OH">Ohio</option>
+                                    <option value="PA">Pennsylvania</option>
+                                    <option value="RI">Rhode Island</option>
+                                    <option value="SC">South Carolina</option>
+                                    <option value="VT">Vermont</option>
+                                    <option value="VA">Virginia</option>
+                                    <option value="WV">West Virginia</option>
+                                </optgroup>
+                            </select>
+                        </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
 @stop
+@push('js')
+    <script>
+        var select = false;
+        const startSelectTag = function (){
+            setTimeout(function (){
+                $('#m_select2_11_tipo').select2({
+                    placeholder: "Add a tag",
+                    tags: true
+                });
+            },500);
+        };
+        @if (count($errors) > 0)
+        $('#modal_add_management').modal('show');
+        startSelectTag();
+        @endif
+        $('#modalAddManager').click(function () {
+            if (select){
+                return;
+            }
+            select = true;
+            startSelectTag();
+
+        });
+    </script>
+@endpush

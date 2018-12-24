@@ -6,7 +6,6 @@ var Select2 = function() {
         $('#m_select2_1, #m_select2_1_validate').select2({
             placeholder: "Select a state"
         });
-gn
         $('#select_2_gnre').select2({
             placeholder: "Select a state"
         });
