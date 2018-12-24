@@ -19,6 +19,7 @@ class CreateManagementsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('company')->nullable();
             $table->text('description')->nullable();
+            $table->unsignedInteger('country_id')->nullabel();
             $table->mediumText('website_url')->nullable();
             $table->timestamps();
         });

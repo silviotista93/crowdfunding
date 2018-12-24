@@ -34,6 +34,9 @@ class Management extends Model
     public function users(){
         return $this->belongsTo(User::class,'user_id');
     }
+    public function countries(){
+        return $this->belongsTo(Category::class,'country_id');
+    }
     public function categories(){
         return $this->belongsToMany(Category::class,'categories_management','management_id','category_id');
     }

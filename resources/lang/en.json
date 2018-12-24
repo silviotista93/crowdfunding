@@ -160,6 +160,8 @@
   "email":"Email",
   "compañia":"Company",
   "lista_managements":"Managements list",
+  "agregar_management":"Add Management",
+  "nuevo_management":"New Management",
   "no_session":"You did not sign in",
   "send_project_management":"Project sent successfully.",
   "tiempo_calificacion":"Remember to rate this project before",
@@ -170,6 +172,7 @@
   "informacion_artista":"Artist's information",
   "tu_mensaje":"Your message...",
   "cerrar":"Close",
+  "apellidos":"Last Name",
   "no_registrado":"Not registered",
   "comment_review_manager":"Have a comment if you wish",
   "txtInvalidAlertAddProject":"All fields are required"

@@ -31,4 +31,7 @@ class Country extends Model
     public function artist(){
         return $this->hasOne(Artist::class);
     }
+    public function management(){
+        return $this->hasOne(Management::class);
+    }
 }

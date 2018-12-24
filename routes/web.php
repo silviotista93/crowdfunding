@@ -137,6 +137,7 @@ Route::group(['namespace'=>'Backend','prefix' => 'dashboard','middleware' => 'au
         Route::get('datatables-managements-admin','Admin\ProjectsAdminController@table_managements')->name('datatables.management.admin');
         //Lista de managaments
         Route::get('/managements-admin','Admin\ManagementsController@index')->name('managements.admin');
+        Route::post('/add-management-admin','Admin\ManagementsController@store')->name('add.management.admin');
 
     });
 
