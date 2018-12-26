@@ -53,7 +53,7 @@ class LoginController extends Controller
 
     public function authenticated(Request $request)
     {
-        
+
         $users = User::where('id',\Auth::user()->id)->with(['roles'])->first();
         $rol = array_pluck($users->roles,'rol');
         if (in_array('Admin',$rol) || in_array('Manage',$rol)){
@@ -68,7 +68,7 @@ class LoginController extends Controller
             if ($request->input("json") === "true"){
                 return "/";
             }
-            
+
             return redirect('/');
         }
     }
@@ -149,4 +149,6 @@ class LoginController extends Controller
         session()->flash('message', ['danger', $success]);
         return redirect(route('home'));
     }
+
+
 }

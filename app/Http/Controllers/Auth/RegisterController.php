@@ -65,6 +65,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $data = $this->validator($data)->validate();
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -79,6 +80,11 @@ class RegisterController extends Controller
            'user_id' => $user->id
         ]);
         $user->roles()->attach(['2','3']);
-        return redirect('/dashboard/profile');
+        $data = new \stdClass();
+        $data->status = 200;
+        $data->url = url('/dashboard/profile');
+        return json_encode($data);
+        //return redirect('/dashboard/profile');
+        //return redirect('/dashboard/profile');
     }
 }

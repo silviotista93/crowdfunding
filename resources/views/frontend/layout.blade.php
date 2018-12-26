@@ -40,6 +40,7 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" />
 
     <script src="/frontend/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <link rel="stylesheet" href="/css/ajax.css" />
     @stack('css')
 </head>
 <body class="woocommerce">
@@ -181,6 +182,8 @@
 <script src="/frontend/js/jquery.waypoints.min.js"></script>
 <script src="/frontend/js/scrollax.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script src="/backend/vendors/block-ui/jquery.blockUI.js" type="text/javascript"></script>
+
 
 @stack('js')
 

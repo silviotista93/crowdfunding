@@ -57,35 +57,29 @@
 		      REGISTRAR
                 ======================================-->
                 <div role="tabpanel" class="tab-pane fadeInRights fade" id="signup">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register') }}" id="frmRegister">
                         @csrf
                         <div class="xs-input-group-v2">
                             <i class="icon icon-profile-male"></i>
-                            <input type="text" name="name" id="xs_register_name" class="xs-input-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('PlaceHolder_name') }}" required>
-                            @if ($errors->has('name'))
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                            @endif
+                            <input type="text" name="name" id="xs_register_name" class="xs-input-control" placeholder="{{ __('PlaceHolder_name') }}" required>
                         </div>
+                        <span class="invalid-feedback mesajesError d-block" role="alert">
+                            <strong id="error-name"></strong>
+                        </span>
                         <div class="xs-input-group-v2">
                             <i class="icon icon-envelope2"></i>
-                            <input type="email" name="email" id="xs_register_email" class="xs-input-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('PlaceHolder_email') }}" required>
-                            @if ($errors->has('email'))
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                            @endif
+                            <input type="email" name="email" id="xs_register_email" class="xs-input-control" placeholder="{{ __('PlaceHolder_email') }}" required>
                         </div>
+                        <span class="invalid-feedback mesajesError d-block" role="alert">
+                            <strong id="error-email"></strong>
+                        </span>
                         <div class="xs-input-group-v2">
                             <i class="icon icon-key2"></i>
-                            <input type="password" name="password" id="xs_register_password" class="xs-input-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="{{ __('PlaceHolder_password') }}" required>
-                            @if ($errors->has('password'))
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                            @endif
+                            <input type="password" name="password" id="xs_register_password" class="xs-input-control" placeholder="{{ __('PlaceHolder_password') }}" required>
                         </div>
+                        <span class="invalid-feedback mesajesError d-block" role="alert">
+                            <strong id="error-password"></strong>
+                        </span>
                         <div class="xs-input-group-v2">
                             <i class="icon icon-key2"></i>
                             <input type="password" name="password_confirmation" id="xs_register_repeat_pass" class="xs-input-control" placeholder="{{ __('PlaceHolder_password_confirmation') }}">
@@ -109,5 +103,6 @@
 @endauth
 
 @push('js')
+    <script src="/js/ajax.js"></script>
     <script src="/js/login.js"></script>
 @endpush

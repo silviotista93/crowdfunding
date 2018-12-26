@@ -5,7 +5,11 @@ $("#categoryProjects").on('click', 'li', function(e){
     let container = $("#projectsView"+id);
     let cantidad = container.attr("data-cantidad");
     let content = '<div class="row">';
-    $.get('/projects-for-category', {id: id}, function (r){
+
+    let url = "/projects-for-category";
+    let data = {id: id};
+
+    let success = function (r){
         //console.log(r);
         if (r.length < 1){
             content += "<div class='text-center' style='width:100%;'><p>No hay proyectos</p></div>";
@@ -16,15 +20,19 @@ $("#categoryProjects").on('click', 'li', function(e){
                 if (key==3){
                     content += '</div><div class="row">';
                 }
-                console.log(project);
                 content += '<div class="col-lg-4">'+createCard(project)+'</div>';
             });
             content += "</div>";
             container.html(content);
-            
+
             startCard();
         }
-    }, 'JSON');
+    };
+    setTimeout(function (){
+        ajax(url,data,success,"get",null,true,"#containerProject", "Cargando...");
+    },100);
+
+
 });
 /*
 function createCard(project, category){
