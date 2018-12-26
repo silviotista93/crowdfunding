@@ -1,6 +1,6 @@
 <!-- get_header('Page Name','Title')-->
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="{{ session("applocale") }}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -165,7 +165,9 @@
     </div><!-- .xs-footer-bottom-layer .fundpress-footer-bottom END -->
 </footer>
 
-
+<script>
+const lang = "{{ session("applocale") }}";
+</script>
 <script src="/frontend/js/jquery-3.2.1.min.js"></script>
 <script src="/frontend/js/plugins.js"></script>
 <script src="/frontend/js/Popper.js"></script>
@@ -191,34 +193,33 @@
 @show
 <script src="/frontend/js/main.js"></script>
 <script>
-const lang = '{{session("applocale")}}';
-        $(document).ready(function() {
-            if (lang!=="es"){
-                return;
-            }
-            jQuery.extend(jQuery.validator.messages, {
-                required: "Este campo es obligatorio.",
-                remote: "Por favor, rellena este campo.",
-                email: "Por favor, escribe una dirección de correo válida",
-                url: "Por favor, escribe una URL válida.",
-                date: "Por favor, escribe una fecha válida.",
-                dateISO: "Por favor, escribe una fecha (ISO) válida.",
-                number: "Por favor, escribe un número entero válido.",
-                digits: "Por favor, escribe sólo dígitos.",
-                creditcard: "Por favor, escribe un número de tarjeta válido.",
-                equalTo: "Por favor, escribe el mismo valor de nuevo.",
-                accept: "Por favor, escribe un valor con una extensión aceptada.",
-                maxlength: jQuery.validator.format("Por favor, no escribas más de {0} caracteres."),
-                minlength: jQuery.validator.format("Por favor, no escribas menos de {0} caracteres."),
-                rangelength: jQuery.validator.format("Por favor, escribe un valor entre {0} y {1} caracteres."),
-                range: jQuery.validator.format("Por favor, escribe un valor entre {0} y {1}."),
-                max: jQuery.validator.format("Por favor, escribe un valor menor o igual a {0}."),
-                min: jQuery.validator.format("Por favor, escribe un valor mayor o igual a {0}.")
-            });
+    $(document).ready(function() {
+        if (lang!=="es"){
+            return;
+        }
+        jQuery.extend(jQuery.validator.messages, {
+            required: "Este campo es obligatorio.",
+            remote: "Por favor, rellena este campo.",
+            email: "Por favor, escribe una dirección de correo válida",
+            url: "Por favor, escribe una URL válida.",
+            date: "Por favor, escribe una fecha válida.",
+            dateISO: "Por favor, escribe una fecha (ISO) válida.",
+            number: "Por favor, escribe un número entero válido.",
+            digits: "Por favor, escribe sólo dígitos.",
+            creditcard: "Por favor, escribe un número de tarjeta válido.",
+            equalTo: "Por favor, escribe el mismo valor de nuevo.",
+            accept: "Por favor, escribe un valor con una extensión aceptada.",
+            maxlength: jQuery.validator.format("Por favor, no escribas más de {0} caracteres."),
+            minlength: jQuery.validator.format("Por favor, no escribas menos de {0} caracteres."),
+            rangelength: jQuery.validator.format("Por favor, escribe un valor entre {0} y {1} caracteres."),
+            range: jQuery.validator.format("Por favor, escribe un valor entre {0} y {1}."),
+            max: jQuery.validator.format("Por favor, escribe un valor menor o igual a {0}."),
+            min: jQuery.validator.format("Por favor, escribe un valor mayor o igual a {0}.")
         });
-        @if(session('message'))
-            toastr.error("{{ session('message')[1] }}", '{{__("no_session")}}');
-        @endif
+    });
+    @if(session('message'))
+        toastr.error("{{ session('message')[1] }}", '{{__("no_session")}}');
+    @endif
 </script>
 </body>
 </html>
