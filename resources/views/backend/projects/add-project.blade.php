@@ -174,7 +174,7 @@
                                                     <label class="col-xl-2 col-lg-2 col-form-label" form="txtFrame">* Link:</label>
                                                     <div class="col-xl-9 col-lg-9">
                                                         <input type="text" name="url_video" class="form-control m-input iframe_add_proyecto required"
-                                                            placeholder="link video" value="" id="txtFrame">
+                                                            placeholder="link video" value="" id="txtFrame" pattern=".+(youtube.com\/watch).+v=.+">
                                                         <input type="hidden" name="iframe_video" id="txtIdVideo">
                                                         <span class="m-form__help">{{ __('video_youtube_add_project') }}</span>
                                                     </div>
