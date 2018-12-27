@@ -44,7 +44,7 @@ class ManagementsController extends Controller
         ]);
         $add_user->roles()->attach(['4']);
         $add_management->categories()->attach($request->get('insteres'));
-
-        return $request;
+        alert()->success(__("managementCreated"),__("managementCreatedTitle"))->autoClose(10000);
+        return back();
     }
 }
