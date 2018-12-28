@@ -14,7 +14,7 @@ class ManagementsController extends Controller
 {
     public function index(){
 
-        $managements = Management::with('users')->get();
+        $managements = Management::with('users')->paginate(6);
         $countries = Country::all();
         $categories = Category::all();
         return view('backend.admin.management-admin',compact('managements','countries','categories'));

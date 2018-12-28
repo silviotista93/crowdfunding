@@ -1,4 +1,8 @@
 @extends('backend.layout')
+
+@push('css')
+<link rel="stylesheet" href="/frontend/css/style.css">
+@endpush
 <!--=====================================
    HEADER
 ======================================-->
@@ -88,6 +92,8 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
                                     <h4 class="text-center">{{ __('no_hay_registros') }}</h4>
                                 @endforelse
                             </div>
+
+                            {{ $managements->links() }}
                         </div>
                     </div>
                 </div>
@@ -115,7 +121,7 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
                             <label for="m_select2_add_management">{{ __('pais') }}</label>
                             <select name="country_id" class="form-control m-bootstrap-select m_selectpicker required">
                                 @foreach($countries as $country)
-                                    <option value="{{ $country->id }}">{{ $country->country }}</option>
+                                    <option value="{{ $country->id }}" {{($country->id == old('country_id'))?"selected":""}} >{{ $country->country }}</option>
                                 @endforeach
                                 {!! $errors->first('country_id','<div class="form-control-feedback">*:message</div>')!!}
                             </select>
@@ -123,30 +129,30 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
                         <div class="form-group m-form__group {{$errors->has('name')? 'has-danger':''}}">
                             <label for="exampleInputEmail1">{{ __('nombre') }}</label>
                             <input type="text" class="form-control m-input" id="" name="name"
-                                   aria-describedby="emailHelp" placeholder="Enter {{ __('nombre') }}">
+                                   aria-describedby="emailHelp" placeholder="Enter {{ __('nombre') }}" value="{{ old('name') }}">
                             {!! $errors->first('name','<div class="form-control-feedback">*:message</div>')!!}
                             <span class="m-form__help">We'll never share your email with anyone else.</span>
                         </div>
                         <div class="form-group m-form__group {{$errors->has('last_name')? 'has-danger':''}}">
                             <label for="exampleInputEmail1">{{ __('apellidos') }}</label>
                             <input type="text" name="last_name" class="form-control m-input" id=""
-                                   aria-describedby="emailHelp" placeholder="Enter {{ __('apellidos') }}">
+                                   aria-describedby="emailHelp" placeholder="Enter {{ __('apellidos') }}" value="{{ old('last_name') }}">
                             {!! $errors->first('last_name','<div class="form-control-feedback">*:message</div>')!!}
                             <span class="m-form__help">We'll never share your email with anyone else.</span>
                         </div>
                         <div class="form-group m-form__group {{$errors->has('email')? 'has-danger':''}}">
                             <label for="exampleInputEmail1">{{ __('email') }}</label>
                             <input type="email" name="email" class="form-control m-input" id="exampleInputEmail1"
-                                   aria-describedby="emailHelp" placeholder="Enter {{ __('email') }}">
+                                   aria-describedby="emailHelp" placeholder="Enter {{ __('email') }}" value="{{ old('email') }}">
                             {!! $errors->first('email','<div class="form-control-feedback">*:message</div>')!!}
                             <span class="m-form__help">We'll never share your email with anyone else.</span>
                         </div>
                         <div class="form-group m-form__group {{$errors->has('insteres')? 'has-danger':''}}">
-                            <label for="exampleInputEmail1">{{ __('email') }}</label>
+                            <label for="exampleInputEmail1">{{ __('intereses') }}</label>
                             <select class="form-control m-select2" id="m_select2_11_tipo" multiple name="insteres[]">
                                 <option></option>
                                 @foreach($categories as $categorie)
-                                    <option value="{{ $categorie->id }}">{{ $categorie->category }}</option>
+                                    <option value="{{ $categorie->id }}" {{in_array($categorie->id."", old('insteres'))?"selected":""}}>{{ $categorie->category }}</option>
                                 @endforeach
                                 {!! $errors->first('insteres','<div class="form-control-feedback">*:message</div>')!!}
                             </select>
