@@ -13,13 +13,16 @@ class CreateAnswerArtistTable extends Migration
      */
     public function up()
     {
-        Schema::table('answer_artist', function (Blueprint $table) {
+        Schema::create('answer_artist', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('answer_id');
+            $table->unsignedInteger('answer_id');
             $table->foreign('answer_id')->references('id')->on('answers');
-            $table->integer('artist_id');
+            $table->unsignedInteger('artist_id');
             $table->foreign('artist_id')->references('id')->on('artists');
             $table->timestamps();
+            
+            
+            
         });
     }
 
@@ -30,8 +33,6 @@ class CreateAnswerArtistTable extends Migration
      */
     public function down()
     {
-        Schema::table('answer_artist', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('answer_artist');
     }
 }

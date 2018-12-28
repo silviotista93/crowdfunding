@@ -270,18 +270,7 @@
                                                 <div class="m-form__heading">
                                                     <h3 class="m-form__heading-title">{{ __('encuesta') }}</h3>
                                                 </div>
-                                                <div class="form-group m-form__group row">
-                                                    <div class="col-lg-12">
-                                                        <label class="form-control-label" for="txtCardName">* Cardholder Name:</label>
-                                                        <input type="text" name="billing_card_name" id="txtCardName" class="form-control m-input required" placeholder="" value="Nick Stone">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group m-form__group row">
-                                                    <div class="col-lg-12">
-                                                        <label class="form-control-label" for="txtCardNumber">* Card Number:</label>
-                                                        <input type="text" name="billing_card_number" id="txtCardNumber" class="form-control m-input required" placeholder="" value="372955886840581">
-                                                    </div>
-                                                </div>
+                                               {{-- donde debe empezar la encuesta  --}}
 
                                             </div>
                                             <div class="m-separator m-separator--dashed m-separator--lg"></div>
