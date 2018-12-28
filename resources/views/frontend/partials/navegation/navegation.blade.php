@@ -45,7 +45,7 @@
                     <ul class="xs-icon-with-text fundpress-icon-menu">
                         @auth
                             @else
-                        <li><a href="" data-toggle="modal" data-target=".bd-example-modal-lg"><i
+                        <li><a href="" id="btnAbriModalInicioSession" data-toggle="modal" data-target=".bd-example-modal-lg"><i
                                         class="fa fa-unlock-alt color-green"></i>{{ __('login') }}</a></li>
                         @endauth
                         <li class="nav-item dropdown">

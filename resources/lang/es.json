@@ -183,5 +183,6 @@
   "projectCreated": "Tú proyecto ha sido enviado",
 
   "managementCreated": "El manager a sido creado",
-  "managementCreatedTitle": "Transacción exitosa"
+
+  "tituloToastError": "Error"
 }
