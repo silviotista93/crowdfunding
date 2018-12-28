@@ -152,7 +152,7 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
                             <select class="form-control m-select2" id="m_select2_11_tipo" multiple name="insteres[]">
                                 <option></option>
                                 @foreach($categories as $categorie)
-                                    <option value="{{ $categorie->id }}" {{in_array($categorie->id."", old('insteres'))?"selected":""}}>{{ $categorie->category }}</option>
+                                    <option value="{{ $categorie->id }}" {{(old('insteres') && in_array($categorie->id."", old('insteres')))?"selected":""}}>{{ $categorie->category }}</option>
                                 @endforeach
                                 {!! $errors->first('insteres','<div class="form-control-feedback">*:message</div>')!!}
                             </select>
