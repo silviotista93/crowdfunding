@@ -88,6 +88,9 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
                                     <h4 class="text-center">{{ __('no_hay_registros') }}</h4>
                                 @endforelse
                             </div>
+                            <div class="row justify-content-center">
+                                {{ $managements->links() }}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -125,24 +128,21 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
                             <input type="text" class="form-control m-input" id="" name="name"
                                    aria-describedby="emailHelp" placeholder="Enter {{ __('nombre') }}">
                             {!! $errors->first('name','<div class="form-control-feedback">*:message</div>')!!}
-                            <span class="m-form__help">We'll never share your email with anyone else.</span>
                         </div>
                         <div class="form-group m-form__group {{$errors->has('last_name')? 'has-danger':''}}">
                             <label for="exampleInputEmail1">{{ __('apellidos') }}</label>
                             <input type="text" name="last_name" class="form-control m-input" id=""
                                    aria-describedby="emailHelp" placeholder="Enter {{ __('apellidos') }}">
                             {!! $errors->first('last_name','<div class="form-control-feedback">*:message</div>')!!}
-                            <span class="m-form__help">We'll never share your email with anyone else.</span>
                         </div>
                         <div class="form-group m-form__group {{$errors->has('email')? 'has-danger':''}}">
                             <label for="exampleInputEmail1">{{ __('email') }}</label>
                             <input type="email" name="email" class="form-control m-input" id="exampleInputEmail1"
                                    aria-describedby="emailHelp" placeholder="Enter {{ __('email') }}">
                             {!! $errors->first('email','<div class="form-control-feedback">*:message</div>')!!}
-                            <span class="m-form__help">We'll never share your email with anyone else.</span>
                         </div>
                         <div class="form-group m-form__group {{$errors->has('insteres')? 'has-danger':''}}">
-                            <label for="exampleInputEmail1">{{ __('email') }}</label>
+                            <label for="exampleInputEmail1">{{ __('selecciona_insteres') }}</label>
                             <select class="form-control m-select2" id="m_select2_11_tipo" multiple name="insteres[]">
                                 <option></option>
                                 @foreach($categories as $categorie)
@@ -155,8 +155,8 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('cerrar') }}</button>
+                        <button type="submit" class="btn btn-primary">{{ __('guardar') }}</button>
                     </div>
                 </form>
             </div>
@@ -170,7 +170,7 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
         const startSelectTag = function (){
             setTimeout(function (){
                 $('#m_select2_11_tipo').select2({
-                    placeholder: "Add a tag",
+                    placeholder: "{{ __('selecciona_insteres') }}",
                     tags: true
                 });
             },500);

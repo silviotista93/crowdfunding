@@ -14,7 +14,7 @@ class ManagementsController extends Controller
 {
     public function index(){
 
-        $managements = Management::with('users')->get();
+        $managements = Management::with('users')->paginate(6);
         $countries = Country::all();
         $categories = Category::all();
         return view('backend.admin.management-admin',compact('managements','countries','categories'));
@@ -45,6 +45,6 @@ class ManagementsController extends Controller
         $add_user->roles()->attach(['4']);
         $add_management->categories()->attach($request->get('insteres'));
 
-        return $request;
+        return alert()->success('Management creado exitosamente','¡Muy bien!')->autoClose(3000);
     }
 }

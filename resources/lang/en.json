@@ -173,7 +173,11 @@
   "tu_mensaje":"Your message...",
   "cerrar":"Close",
   "apellidos":"Last Name",
+  "selecciona_insteres":"Interests",
+  "nombre_apellidos":"Full name and surnames",
+  "manage_creado":"Management created successfully",
   "no_registrado":"Not registered",
+  "muy_bien":"Ok",
   "comment_review_manager":"Have a comment if you wish",
   "txtInvalidAlertAddProject":"All fields are required"
 
