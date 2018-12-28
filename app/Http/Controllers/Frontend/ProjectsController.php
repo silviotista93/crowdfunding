@@ -45,7 +45,6 @@ class ProjectsController extends Controller
                         ->where("projects.id", "=", $project->id)
                         ->join('donations', 'projects.id', '=', 'donations.project_id')
                         ->first();
-
         return view('frontend.projects.detail', compact('project'));
     }
 

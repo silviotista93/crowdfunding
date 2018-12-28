@@ -179,6 +179,11 @@
   "no_registrado":"Not registered",
   "muy_bien":"Ok",
   "comment_review_manager":"Have a comment if you wish",
-  "txtInvalidAlertAddProject":"All fields are required"
+  "txtInvalidAlertAddProject":"All fields are required",
 
+  "projectCreatedTitle": "Very well!",
+  "projectCreated": "Your project has been sent",
+
+  "managementCreated": "The manager has been created",
+  "managementCreatedTitle": "Successful transaction"
 }

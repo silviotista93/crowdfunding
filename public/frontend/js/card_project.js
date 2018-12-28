@@ -1,3 +1,8 @@
+moment.locale(lang);
+if (lang === "es"){
+    moment.updateLocale(lang, { invalidDate: "Fecha no válida" })
+}
+
 function startCard(){
     let number_percentage = $(".number-percentage:not(.setLoad)");
     number_percentage.each(function() {
@@ -80,7 +85,7 @@ function createCard(project) {
                 <li><span class="number-percentage-count number-percentage"
                         data-value="${porcetaje}" data-animation-duration="3500">0</span>%
                     <span>Funded</span></li>
-                <li>${moment(project.end_time).fromNow(true)}<span>Days To Go</span></li>
+                <li>${moment(project.end_time).lang(lang).fromNow(true)}<span>Days To Go</span></li>
             </ul>
             <span class="xs-separetor border-separetor xs-separetor-v2 fundpress-separetor"></span>
             <div class="row xs-margin-0">

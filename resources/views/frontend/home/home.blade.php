@@ -35,10 +35,10 @@
                         <div class="col-lg-6">
                             <div class="xs-welcome-content">
                                 <div class="xs-welcome-wraper">
-                                    <iframe width="560" height="315" 
+                                    <iframe width="560" height="315"
                                     id="videoYoutube"
                                     src="https://www.youtube.com/embed/{{$project->iframe_video}}"
-                                    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                                    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                     allowfullscreen>
                                     </iframe>
                                 </div><!-- .xs-welcome-wraper END -->
@@ -115,7 +115,7 @@
                     <a href="{{ route('projects') }}" class="xs-btn round-btn navy-blue-btn">{{ __('todos_proyectos') }}</a>
                 </div><!-- .xs-btn-wraper .xs-col-3 .d-flex-center-end END -->
             </div><!-- .xs-section-heading .fundpress-section-heading .xs-spilit-container END -->
-            <div class="xs-tab-wraper fundpress-tab-wraper">
+            <div class="xs-tab-wraper fundpress-tab-wraper" id="containerProject">
                 <div class="fundpress-tab-nav xs-tab-nav">
                     <ul class="nav nav-tabs" role="tablist" id="categoryProjects">
                         @foreach($categories as $categorie)
@@ -126,7 +126,7 @@
                         @endforeach
                     </ul>
                 </div>
-                <div class="tab-content" id="dataCategory">
+                <div class="tab-content" id="dataCategory" style="min-height: 5rem">
                     @foreach($categories as $categorie)
                         <div role="tabpanel" class="tab-pane fade in" id="projectsView{{$categorie->id}}"></div>
                     @endforeach

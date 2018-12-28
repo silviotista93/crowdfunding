@@ -51,7 +51,7 @@ class AddProjectController extends Controller
         $project->artists()->attach($request->get('artist_id'));
         $artist = Artist::select('nickname')->where('id',$request->get('artist_id'))->first();
         \Mail::to('silviotista93@gmail.com')->send(new NewProjectArtist($project,auth()->user()->name));
-        alert()->success('Tu proyecto ha sido enviado','¡Muy bien!')->autoClose(3000);
+        alert()->success(__("projectCreated"),__('projectCreatedTitle'))->autoClose(3000);
         return back();
     }
 }

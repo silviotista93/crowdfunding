@@ -45,6 +45,7 @@ class ManagementsController extends Controller
         $add_user->roles()->attach(['4']);
         $add_management->categories()->attach($request->get('insteres'));
 
-        return alert()->success('Management creado exitosamente','¡Muy bien!')->autoClose(3000);
+        alert()->success(__("managementCreated"),__("managementCreatedTitle"))->autoClose(10000);
+        return back();
     }
 }

@@ -150,7 +150,7 @@ Route::group(['namespace'=>'Backend','prefix' => 'dashboard','middleware' => 'au
     });
 
 
-    
+
     //Enviar Mensajes a managers
     Route::post("send-project-management", "Admin\ProjectsAdminController@send_project_management")->name("send.project.admin");
 
@@ -172,3 +172,5 @@ Route::get('/images/{path}/{attachment}', function ($path, $attachment){
         return \Intervention\Image\Facades\Image::make($file)->response();
     }
 });
+
+Route::post("registrar","Auth\RegisterController@registrar")->name("registrar");
