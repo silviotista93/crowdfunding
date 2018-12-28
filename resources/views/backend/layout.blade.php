@@ -728,7 +728,9 @@ License: You must have a valid license purchased only from themeforest(the above
 </ul>
 
 <!-- begin::Quick Nav -->
-
+<script>
+const lang = "{{ session("applocale") }}";
+</script>
 <!--begin:: Global Mandatory Vendors -->
 <meta name="_token" content="{!! csrf_token() !!}"/>
 <script src="/backend/vendors/jquery/dist/jquery.js" type="text/javascript"></script>
@@ -835,7 +837,6 @@ License: You must have a valid license purchased only from themeforest(the above
 <!--begin::Page Scripts -->
 <script src="/backend/assets/app/js/dashboard.js" type="text/javascript"></script>
 <script>
-    const lang = '{{session("applocale")}}';
     $(document).ready(function() {
         if (lang!=="es"){
             return;

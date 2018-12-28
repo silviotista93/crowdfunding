@@ -229,6 +229,7 @@
 @endsection
 
 @push('js')
+    <script src="/js/ajax.js"></script>
     <script>
         (function (){
             $.ajaxSetup({
@@ -237,7 +238,7 @@
                 }
             });
             $("#btnSendMessage").click(function (){
-                const 
+                const
                     token = '{{ csrf_token() }}',
                     url = '{{route("send.project.admin")}}';
                 let data = {
@@ -245,7 +246,7 @@
                     users: usuarios,
                     project: {{ $project->id }}
                 };
-                $.post(url,data,function (r){
+                const success = function (r){
                     console.log(r);
                     if (r.status === 200){
                         swal({
@@ -257,14 +258,18 @@
                             document.location.reload();
                         });
                     }
-                }, 'JSON').fail(function (e){
+                };
+                const error = function (e){
                     swal({
                         "title": "",
                         "text": "No se ha enviado el mensaje.",
                         "type": "error",
                         "confirmButtonClass": "btn btn-secondary m-btn m-btn--wide"
                     });
-                });
+                };
+
+
+                ajax(url, data, success, "post", error, true,"#list_modal_manage");
             });
         })();
     </script>

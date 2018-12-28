@@ -1241,7 +1241,7 @@ const cBlockUI = function (target, options) {
     var el = $(target);
 
     options = $.extend(true, {
-        opacity: 0.03,
+        opacity: 0.2,
         overlayColor: '#000000',
         state: 'brand',
         type: 'loader',
@@ -1338,9 +1338,11 @@ const ajax = function (
     fnError = null,
     blockUI = true,
     selectorElement = "body",
-    messageLoad = "Please wait..."
+    messageLoad = null
 ) {
-
+    if (messageLoad === null){
+        messageLoad=(lang==="es")?"Por favor espera...":"Please wait...";
+    }
     options = {
         overlayColor: "#000000", type: "loader", state: "primary", message: messageLoad
     };
