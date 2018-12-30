@@ -97,6 +97,13 @@ class User extends Authenticatable
         return $this->picture;
     }
 
+    public function getPictureAttribute($value){
+        if(\Storage::disk('public')->exists('users/'.$value)){
+            return '/images/users/'. $value;
+        }
+        return $value;
+    }
+
     public function artist(){
         return $this->hasOne(Artist::class,'id')->select('user_id','nickname');
     }
