@@ -169,11 +169,13 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
 @stop
 
 @push('js')
+    <script src="/js/storage.js"></script>
     <script src="/backend/assets/vendors/custom/datatables/datatables.bundle.js" type="text/javascript"></script>
     <script src="/backend/assets/demo/custom/crud/datatables/basic/headers.js" type="text/javascript"></script>
 
     <script>
-        var tipoProyecto = null;
+        var storeTipoProyecto = "storeTipoProyecto";
+        var tipoProyecto = getStorage(storeTipoProyecto);
         var table = null;
         const loadTable = function (){
             if (table !== null){
@@ -201,7 +203,11 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
                         defaultContent: '<span class="label label-danger text-center" style="color:red !important">{{ __('nigun_valor_defecto') }}</span>',
                         render : function (data, type, JsonResultRow, meta){
                             let artista = JsonResultRow.artists[0];
-                            return `<a href="${artista.users.url_artist}" target="_blank">${artista.nickname}</a>`;
+                            //console.log(JsonResultRow);
+                            if (JsonResultRow.status+"" === 4+""){
+                                return `<a href="${artista.users.url_artist}" target="_blank">${artista.nickname}</a>`;
+                            }
+                            return artista.nickname;
                         }
                     },
                     {
@@ -275,6 +281,7 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
                 tipo = null;
             }
             tipoProyecto = tipo;
+            setStorage(storeTipoProyecto, tipoProyecto)
             loadTable();
         });
         loadTable();
