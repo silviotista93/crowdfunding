@@ -62,4 +62,8 @@ class ProjectsAdminController extends Controller
         $statusProject = Project::where('id', $request->input('project'))->update(array('status' => 2));
         return '{"status":200, "msg":"'.__('send_project_management').'"}';
     }
+
+    public function rejected_project(Request $request){
+        return $request->get('rejected');
+    }
 }

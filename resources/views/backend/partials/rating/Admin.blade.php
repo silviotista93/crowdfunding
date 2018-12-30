@@ -10,7 +10,16 @@
             <span>{{ __('buscar') }}</span>
         </span>
     </button>
-
+    <form action="{{ route('project.admin.rejected') }}" class="" style="display: inline">
+        @csrf {{ method_field('PUT') }}
+        <button type="submit" data-toggle="modal" data-target="#list_modal_manage" class="btn btn-danger m-btn m-btn--icon">
+        <span>
+            <i class="la la-close"></i>
+            <span>{{ __('rechazar') }}</span>
+        </span>
+        </button>
+        <input type="hidden" name="rejected" value="{{ $project->id }}">
+    </form>
 </div>
 @else
     <!-- TIEMPO ESTIMADO PARA CALIFICAR-->
