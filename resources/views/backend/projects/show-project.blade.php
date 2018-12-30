@@ -198,7 +198,7 @@
                                             <span class="m-card-profile__name">{{ $artist->artists[0]->nickname }}</span>
 
                                             <a href="" class="m-card-profile__email m-link"
-                                               style="margin-left: -15px">{{ $artist->artists[0]->users->email }}</a>
+                                               style="margin-left: -15px; width: 80%; word-wrap: break-word;">{{ $artist->artists[0]->users->email }}</a>
 
                                         </div>
                                         @if($country->flag !== null)
