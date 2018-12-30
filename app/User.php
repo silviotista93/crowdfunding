@@ -53,7 +53,7 @@ class User extends Authenticatable
         parent::boot();
         static::creating(function(User $user){
            if ( ! \App::runningInConsole()){
-               $user->slug = str_slug($user->name . " " . $user->last_name, '-');
+               $user->slug = str_slug($user->name . " " . $user->last_name, '-')."-".rand(5000,90000);
            }
         });
     }

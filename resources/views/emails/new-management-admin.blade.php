@@ -11,7 +11,7 @@ Utiliza estas credenciales para acceder al sistema.
 
 
 @endcomponent
-@component('mail::button', ['url' => route('/dashboard')])
+@component('mail::button', ['url' => url('/dashboard')])
         Login
 @endcomponent
 

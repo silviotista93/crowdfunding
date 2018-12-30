@@ -297,7 +297,7 @@
                         let data = form.serialize();
                         $.post(url, data, function (e) {
                             if (e) {
-                                swal("Good job!", "You clicked the button!", "success")
+                                swal("{{ __('managerTitleRate') }}", "{{ __('managerMsgRate') }}", "success")
                                     .then(function () {
                                         window.location.reload();
                                     });
