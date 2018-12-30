@@ -10,9 +10,9 @@
             <span>{{ __('buscar') }}</span>
         </span>
     </button>
-    <form action="{{ route('project.admin.rejected') }}" class="" style="display: inline">
+    <form method="post" action="{{ route('project.admin.rejected') }}" class="" style="display: inline" id="frm_rejected_admin">
         @csrf {{ method_field('PUT') }}
-        <button type="submit" data-toggle="modal" data-target="#list_modal_manage" class="btn btn-danger m-btn m-btn--icon">
+        <button id="btn_rejected_admin" class="btn btn-danger m-btn m-btn--icon">
         <span>
             <i class="la la-close"></i>
             <span>{{ __('rechazar') }}</span>
@@ -282,5 +282,26 @@
                 ajax(url, data, success, "post", error, true,"#list_modal_manage");
             });
         })();
+    </script>
+    <script>
+        $('#btn_rejected_admin').click(function(e) {
+            e.preventDefault();
+            swal({
+                title: "{{__('porfavor')}}",
+                text: "{{ __('esta_seguro_rechazar') }}",
+                icon: "success",
+
+                confirmButtonText: "<span><i class='la la-thumbs-down'></i><span>{{ __('si') }}</span></span>",
+                confirmButtonClass: "btn btn-danger m-btn m-btn--pill m-btn--air m-btn--icon",
+
+                showCancelButton: true,
+                cancelButtonText: "<span><i class='la la-thumbs-down'></i><span>{{ __('cancelar') }}</span></span>",
+                cancelButtonClass: "btn btn-secondary m-btn m-btn--pill m-btn--icon"
+            }).then(function(result) {
+                if (result.value) {
+                   $('#frm_rejected_admin').submit();
+                }
+            })
+        });
     </script>
 @endpush

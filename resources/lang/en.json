@@ -193,7 +193,10 @@
   "proyectos_asignados": "Assigned Projects",
   "managementCreated": "The manager has been created",
   "managementCreatedTitle": "Ok",
-
+  "proyecto_rechazado": "Project rejected",
+  "porfavor":"¡Please!",
+  "esta_seguro_rechazar": "¿Be sure to reject this project?",
+  "si":"Yes...",
   "tituloToastError": "Error",
   "managerTitleRate":"Good job!",
   "managerMsgRate":"Make the project qualified!"

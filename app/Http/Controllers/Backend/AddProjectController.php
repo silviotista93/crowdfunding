@@ -62,7 +62,6 @@ class AddProjectController extends Controller
         \Mail::to('silviotista93@gmail.com')->send(new NewProjectArtist($project,auth()->user()->name));
         alert()->success(__("projectCreated"),__('projectCreatedTitle'))->autoClose(3000);
 
-        
 
         return back();
     }

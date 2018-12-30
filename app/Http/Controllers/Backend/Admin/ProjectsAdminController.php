@@ -64,6 +64,11 @@ class ProjectsAdminController extends Controller
     }
 
     public function rejected_project(Request $request){
-        return $request->get('rejected');
+        $id = $request->get('rejected');
+        $rejected_project = Project::where('id',$id)->update([
+            'status' => 5
+        ]);
+        alert()->success(__("proyecto_rechazado"),__('Ok'))->autoClose(3000);
+        return  back();
     }
 }

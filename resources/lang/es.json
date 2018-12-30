@@ -192,9 +192,11 @@
   "aun_no_registrado":"Aún no ha sido registrado",
   "proyectos_asignados": "Proyectos Asignados",
   "managementCreated": "El manager a sido creado",
-
+  "proyecto_rechazado": "Proyecto rechazado",
+  "esta_seguro_rechazar": "¿Esta seguro en rechazar este proyecto?",
+  "si":"Si...",
   "tituloToastError": "Error",
-
+  "porfavor":"¡Por favor!",
   "managerTitleRate":"Buen trabajo!",
   "managerMsgRate":"Haz calificado el proyecto!"
 }
