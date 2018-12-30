@@ -182,12 +182,14 @@
   "comment_review_manager":"Has un comentario si asi lo deseas",
   "txtInvalidAlertAddProject":"Todos los campos son obligatorios",
   "perfil_actualizado":"Tu perfil ha sido actualizado",
-
+  "informacion":"Información",
   "projectCreatedTitle": "¡Muy Bien!",
   "password_actualizado": "Contraseña Actualizada",
   "projectCreated": "Tú proyecto ha sido enviado",
   "managementCreatedTitle": "Ok",
-
+  "nigun_valor_defecto":"Nigún valor por defecto",
+  "aun_no_registrado":"Aún no ha sido registrado",
+  "proyectos_asignados": "Proyectos Asignados",
   "managementCreated": "El manager a sido creado",
 
   "tituloToastError": "Error"

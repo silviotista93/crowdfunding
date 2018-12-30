@@ -153,6 +153,7 @@ Route::group(['namespace'=>'Backend','prefix' => 'dashboard','middleware' => 'au
     Route::put('/update-info-profile-manage/{id}','Manage\ProfileController@update_profile_management')->name('update.profile.management');
     Route::post('/profile-photo-management','Manage\ProfileController@photo_management')->name('profile.photo.management');
     Route::get('datatables-projects-profile-manage','Manage\ProfileController@table_proyects')->name('datatables.projects.profile.manage');
+    Route::post('/update-password-management','Manage\ProfileController@update_password_management')->name('update.password.management');
 
 
 

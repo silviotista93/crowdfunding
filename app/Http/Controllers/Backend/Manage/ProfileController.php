@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend\Manage;
 
+use App\Artist;
 use App\Management;
 use App\User;
 use Illuminate\Http\Request;
@@ -12,7 +13,8 @@ class ProfileController extends Controller
 {
     public function index(User $user)
     {
-        return view('backend.management.profile.profile-management', compact('user'));
+        $managements = Management::where('user_id',$user->id)->first();
+        return view('backend.management.profile.profile-management', compact('user','managements'));
     }
 
     public function my_proyects(User $user)
@@ -43,6 +45,31 @@ class ProfileController extends Controller
 
         alert()->success(__('perfil_actualizado'), __('muy_bien'))->autoClose(3000);
         return back();
+    }
+
+    public function update_password_management(Request $request){
+
+        if ($request->filled('password')) {
+
+            $this->validate($request, [
+
+                'password' => 'confirmed|min:6',
+
+            ]);
+            $password = $request->get('password');
+            $newpassword = bcrypt($password);
+
+            $user = User::where('id',auth()->user()->id)->update([
+                'password' => $newpassword
+            ]);
+
+            alert()->success(__('password_actualizado'),__('muy_bien'))->autoClose(3000);
+            return back();
+        } else {
+
+
+            return back()->with('eliminar','Ningún Cambio');
+        }
     }
 
     public function photo_management(Request $request)

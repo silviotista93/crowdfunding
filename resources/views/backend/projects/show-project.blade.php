@@ -135,6 +135,7 @@
                                                         <th>{{ __('nombre') }}</th>
                                                         <th>{{ __('compañia') }}</th>
                                                         <th>{{ __('email') }}</th>
+                                                        <th>{{ __('acciones') }}</th>
                                                     </tr>
                                                     </thead>
                                                 </table>
@@ -331,15 +332,20 @@
                     render: function (data, type, JsonResultRow, meta) {
                         return JsonResultRow.users.name +' '+ JsonResultRow.users.last_name;
                     },
-                    defaultContent: '<span class="label label-danger text-center">Ningún valor por defecto</span>'
+                    defaultContent: '<span class="label label-danger text-center" style="color:red !important">{{ __('nigun_valor_defecto') }}</span>'
                 },
                 {
                     data: 'company',
-                    defaultContent: '<span class="label label-danger text-center">Ningún valor por defecto</span>'
+                    defaultContent: '<span class="label label-danger text-center" style="color:red !important">{{ __('nigun_valor_defecto') }}</span>'
                 },
                 {
                     data: 'users.email',
-                    defaultContent: '<span class="label label-danger text-center">Ningún valor por defecto</span>'
+                    defaultContent: '<span class="label label-danger text-center" style="color:red !important">{{ __('nigun_valor_defecto') }}</span>'
+                },
+                {
+                    render:function (data,type, JsonResultRow,meta) {
+                        return '<div class="text-center"><a href="/dashboard/profile-managament/'+JsonResultRow.users.slug+'" class="btn m-btn--pill btn-secondary"><i class="fa fa-eye"></i></a></div>'
+                    }
                 },
             ],
             "language": {

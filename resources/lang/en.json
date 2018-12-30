@@ -186,8 +186,10 @@
   "txtInvalidAlertAddProject":"All fields are required",
   "password_actualizado": "Updated Password",
   "projectCreatedTitle": "Very well!",
+  "aun_no_registrado":"Not yet registered",
+  "nigun_valor_defecto":"No default value",
   "projectCreated": "Your project has been sent",
-
+  "proyectos_asignados": "Assigned Projects",
   "managementCreated": "The manager has been created",
   "managementCreatedTitle": "Ok",
 

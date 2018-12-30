@@ -194,22 +194,22 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
                     {
                         "width": "1%",
                         data: 'id',
-                        defaultContent: '<span class="label label-danger text-center">Ningún valor por defecto</span>'
+                        defaultContent: '<span class="label label-danger text-center" style="color:red !important">{{ __('nigun_valor_defecto') }}</span>'
                     },
                     {
                         data: 'artists.nickname',
-                        defaultContent: '<span class="label label-danger text-center">Ningún valor por defecto</span>',
+                        defaultContent: '<span class="label label-danger text-center" style="color:red !important">{{ __('nigun_valor_defecto') }}</span>',
                         render : function (data, type, JsonResultRow, meta){
                             return JsonResultRow.artists[0].nickname;
                         }
                     },
                     {
                         data: 'title',
-                        defaultContent: '<span class="label label-danger text-center">Ningún valor por defecto</span>'
+                        defaultContent: '<span class="label label-danger text-center" style="color:red !important">{{ __('nigun_valor_defecto') }}</span>'
                     },
                     {
                         data: 'category.category',
-                        defaultContent: '<span class="label label-danger text-center">Ningún valor por defecto</span>'
+                        defaultContent: '<span class="label label-danger text-center" style="color:red !important">{{ __('nigun_valor_defecto') }}</span>'
                     },
 
                     {"width": "15%",

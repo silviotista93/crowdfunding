@@ -16,7 +16,7 @@
             <div class="m-card-profile__details">
                 <span class="m-card-profile__name">{{ $user->name }}</span>
 
-                <a href="" class="m-card-profile__email m-link" style="margin-left: -15px">{{ $user->email }}</a>
+                <a href="" class="m-card-profile__email m-link" style="margin-left: -15px;width: 80%; word-wrap: break-word;">{{ $user->email }}</a>
 
             </div>
             {{--@if($artist->countries !== null)
@@ -30,21 +30,21 @@
             <li class="m-nav__section m--hide">
                 <span class="m-nav__section-text">Section</span>
             </li>
-            <li class="m-nav__item" {{request()->is('dashboard/profile') ? 'style=background-color:#f2f4f9' : '' }}>
+            <li class="m-nav__item" {{request()->is('dashboard/profile-managament*') ? 'style=background-color:#f2f4f9' : '' }}>
                 <a href="{{ route('profile.managament',$user->slug) }}" class="m-nav__link active">
-                    <i class="m-nav__link-icon flaticon-profile-1" {{request()->is('dashboard/profile') ? 'style=color:#716aca !important' : '' }}></i>
+                    <i class="m-nav__link-icon flaticon-profile-1" {{request()->is('dashboard/profile-managament*') ? 'style=color:#716aca !important' : '' }}></i>
                     <span class="m-nav__link-title">
                         <span class="m-nav__link-wrap">
-                            <span class="m-nav__link-text" {{request()->is('dashboard/profile') ? 'style=color:#716aca !important' : '' }}>{{ ( __('perfil')) }}</span>
+                            <span class="m-nav__link-text" {{request()->is('dashboard/profile-managament*') ? 'style=color:#716aca !important' : '' }}>{{ ( __('perfil')) }}</span>
 
                         </span>
                     </span>
                 </a>
             </li>
-            <li class="m-nav__item" {{request()->is('dashboard/my-projects') ? 'style=background-color:#f2f4f9' : '' }}>
+            <li class="m-nav__item" {{request()->is('dashboard/profile-my_proyects*') ? 'style=background-color:#f2f4f9' : '' }}>
                 <a href="{{ route('profile.managament.myProyects',$user->slug) }}" class="m-nav__link">
-                    <i class="m-nav__link-icon flaticon-share" {{request()->is('dashboard/my-projects') ? 'style=color:#716aca !important' : '' }}></i>
-                    <span class="m-nav__link-text" {{request()->is('dashboard/my-projects') ? 'style=color:#716aca !important' : '' }}>{{ __('mis_proyectos') }}</span>
+                    <i class="m-nav__link-icon flaticon-share" {{request()->is('dashboard/profile-my_proyects*') ? 'style=color:#716aca !important' : '' }}></i>
+                    <span class="m-nav__link-text" {{request()->is('dashboard/profile-my_proyects*') ? 'style=color:#716aca !important' : '' }}>{{ __('proyectos_asignados') }}</span>
                 </a>
             </li>
             <li class="m-nav__item" {{request()->is('dashboard/backings-made') ? 'style=background-color:#f2f4f9' : '' }}>
