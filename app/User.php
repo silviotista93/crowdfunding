@@ -75,11 +75,18 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    protected $appends = array('url_artist');
+
     const ACTIVE = 1;
     const INACTIVE = 2;
 
     public function getRouteKeyName(){
         return 'slug';
+    }
+
+    public function getUrlArtistAttribute(){
+        return route('projects.artist',$this->slug);
     }
 
     public static function navigation(){
