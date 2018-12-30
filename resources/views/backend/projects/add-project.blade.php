@@ -21,6 +21,7 @@
         </ul>
 
     @endif
+
     <div class="d-flex align-items-center">
         <div class="mr-auto">
             <h3 class="m-subheader__title m-subheader__title--separator">{{ __('nuevo_proyecto') }}</h3>
@@ -275,9 +276,9 @@
                                                 
                                             </div>
                                             <div class="m-separator m-separator--dashed m-separator--lg"></div>
-                                            @php($datos=json_decode($question[0]->question))
-                                            
-                                            @forelse ($datos as $quest)
+                                            {{--@php($datos=json_decode($question[0]->question))--}}
+
+                                            @forelse ($question as $quest)
                                             <div class="m-form__section">
                                                 <div class="m-form__heading">
                                                 <h3 class="m-form__heading-title">{{$quest->quest}}</h3>
@@ -306,7 +307,7 @@
 
                                                      @empty
                                                          {{'no hay opciones'}}
-                                                     @endforelse   
+                                                     @endforelse
 
 
                                                     </div>
@@ -320,8 +321,6 @@
                                                 {{'No hay preguntas' }}
                                             @endforelse
                                         </div>
-                                        
-                                        
 
                                         <!--=====================================
                                             CONFIRMACIÓN
