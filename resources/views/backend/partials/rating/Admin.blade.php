@@ -130,6 +130,7 @@
                             defaultContent: '<span class="label label-danger text-center">Ningún valor por defecto</span>'
                         },
                         {
+                            data: 'users.email',
                             render:function (data,type, JsonResultRow,meta) {
                                 return '<a class="m-link--primary" href="mailto:' + JsonResultRow.users.email + '">' + JsonResultRow.users.email + '</a>'
 

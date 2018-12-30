@@ -176,6 +176,14 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
 @stop
 @push('js')
     <script>
+        @if(\Session::has('msg'))
+        swal({
+            "title": "{{\Session::get('msg')[0]}}",
+            "text": "{{\Session::get('msg')[1]}}",
+            "type": "{{\Session::get('msg')[2]}}",
+            "confirmButtonClass": "btn btn-secondary m-btn m-btn--wide"
+        });
+        @endif
         var select = false;
         const startSelectTag = function (){
             setTimeout(function (){
