@@ -328,6 +328,9 @@
                 },
                 {
                     data: 'users.name',
+                    render: function (data, type, JsonResultRow, meta) {
+                        return JsonResultRow.users.name +' '+ JsonResultRow.users.last_name;
+                    },
                     defaultContent: '<span class="label label-danger text-center">Ningún valor por defecto</span>'
                 },
                 {
