@@ -192,5 +192,8 @@
   "proyectos_asignados": "Proyectos Asignados",
   "managementCreated": "El manager a sido creado",
 
-  "tituloToastError": "Error"
+  "tituloToastError": "Error",
+
+  "managerTitleRate":"Buen trabajo!",
+  "managerMsgRate":"Haz calificado el proyecto!"
 }

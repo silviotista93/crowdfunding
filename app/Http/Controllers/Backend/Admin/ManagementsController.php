@@ -37,7 +37,7 @@ class ManagementsController extends Controller
             'password' => $pass
         ]);
 
-        \Mail::to($add_user->email)->send(new NewManagerAdmin($add_user->name,$password));
+        \Mail::to($add_user->email)->send(new NewManagerAdmin($add_user->email,$password));
         $add_management = Management::create([
             'user_id' => $add_user->id,
             'country_id' => $request->get('country_id')

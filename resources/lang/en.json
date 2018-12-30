@@ -193,5 +193,7 @@
   "managementCreated": "The manager has been created",
   "managementCreatedTitle": "Ok",
 
-  "tituloToastError": "Error"
+  "tituloToastError": "Error",
+  "managerTitleRate":"Good job!",
+  "managerMsgRate":"Make the project qualified!"
 }
