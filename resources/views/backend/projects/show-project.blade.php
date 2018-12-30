@@ -230,16 +230,16 @@
                                 <div class="m-portlet__foot">
                                     <div class="row align-items-center">
                                         <div class="col-lg-12">
-                                            <a href="" data-toggle="tooltip" title="{{__('no_registrado')}}!" class="p-2 pull-right" style="color: #dd4b39">
+                                            <a {{ $artist->artists[0]->facebook ? "href=".$artist->artists[0]->facebook :'data-toggle="tooltip" title="'.__('no_registrado').'!"'}} class="p-2 pull-right" style="color: #dd4b39">
                                                 <i class="fab fa-google-plus-g fa-2x"></i>
                                             </a>
-                                            <a href="" class="p-2 pull-right" style="color: #bb0000">
+                                            <a {{ $artist->artists[0]->youtube ? "href=".$artist->artists[0]->youtube :'data-toggle="tooltip" title="'.__('no_registrado').'!"'}} class="p-2 pull-right" style="color: #bb0000">
                                                 <i class="fab fa-youtube fa-2x"></i>
                                             </a>
-                                            <a href="" class="p-2 pull-right">
+                                            <a {{ $artist->artists[0]->instagram ? "href=".$artist->artists[0]->instagram :'data-toggle="tooltip" title="'.__('no_registrado').'!"'}} class="p-2 pull-right">
                                                 <i class="fab fa-instagram fa-2x" style="color: #c13584"></i>
                                             </a>
-                                            <a href="" class="p-2 pull-right" style="color: #3b5998">
+                                            <a {{ $artist->artists[0]->instagram ? "href=".$artist->artists[0]->instagram :'data-toggle="tooltip" title="'.__('no_registrado').'!"'}} class="p-2 pull-right" style="color: #3b5998">
                                                 <i class="fab fa-facebook-square fa-2x"></i>
                                             </a>
                                         </div>
