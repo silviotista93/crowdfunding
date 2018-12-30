@@ -178,9 +178,13 @@
   "manage_creado":"Management created successfully",
   "no_registrado":"Not registered",
   "muy_bien":"Ok",
+  "perfil_actualizado":"Your profile has been updated",
+  "empresa":"Company",
+  "sugerencia_compañia":"If you wish, enter the name of the company that you represent",
+  "sugerencia_descripcion":"Describe who you are, if you wish",
   "comment_review_manager":"Have a comment if you wish",
   "txtInvalidAlertAddProject":"All fields are required",
-
+  "password_actualizado": "Updated Password",
   "projectCreatedTitle": "Very well!",
   "projectCreated": "Your project has been sent",
 

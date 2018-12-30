@@ -111,7 +111,7 @@ Route::group(['namespace'=>'Backend','prefix' => 'dashboard','middleware' => 'au
     Route::get('/profile','ProfileController@index_artist')->name('profile.artist');
     Route::post('/profile-photo-artist','ProfileController@photo')->name('profile.photo.artist');
     Route::put('/update-profile-artist/{id_artis}','ProfileController@profile_update_artist')->name('update.profile.artist');
-    Route::put('update-password-artist/{user}','ProfileController@update_password')->name('update.password.artist');
+    Route::post('/update-password-artist','ProfileController@update_password')->name('update.password.artist');
     //Proyectos del Artista
     Route::get('/my-projects','MyProjectsController@index_artist')->name('myprojects.artist');
     //Apoyos hechos
@@ -148,6 +148,11 @@ Route::group(['namespace'=>'Backend','prefix' => 'dashboard','middleware' => 'au
         //CALIFICAR PROYECTO POR EL MANAGEMENT
         Route::post('/update-review-management','Manage\ProjectsManageController@add_review')->name('update.review.management');
     });
+    Route::get('/profile-managament/{user}','Manage\ProfileController@index')->name('profile.managament');
+    Route::get('/profile-my_proyects/{user}','Manage\ProfileController@my_proyects')->name('profile.managament.myProyects');
+    Route::put('/update-info-profile-manage/{id}','Manage\ProfileController@update_profile_management')->name('update.profile.management');
+    Route::post('/profile-photo-management','Manage\ProfileController@photo_management')->name('profile.photo.management');
+    Route::get('datatables-projects-profile-manage','Manage\ProfileController@table_proyects')->name('datatables.projects.profile.manage');
 
 
 

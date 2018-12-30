@@ -14,39 +14,39 @@
         </ul>
 
     @endif--}}
-        <div class="d-flex align-items-center">
-            <div class="mr-auto">
-                <h3 class="m-subheader__title m-subheader__title--separator">{{ __('perfil') }}</h3>
-                <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
-                    <li class="m-nav__item m-nav__item--home">
-                        <a href="#" class="m-nav__link m-nav__link--icon">
-                            <i class="m-nav__link-icon la la-user"></i>
-                        </a>
-                    </li>
-                    <li class="m-nav__separator">-</li>
-                    <li class="m-nav__item">
-                        <a href="" class="m-nav__link">
-                            <span class="m-nav__link-text">{{__('perfil')}} {{ __('artista') }}</span>
-                        </a>
-                    </li>
-                    <li class="m-nav__separator">-</li>
-                    <li class="m-nav__item">
-                        <a href="" class="m-nav__link">
-                            <span class="m-nav__link-text"></span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div>
-            </div>
+    <div class="d-flex align-items-center">
+        <div class="mr-auto">
+            <h3 class="m-subheader__title m-subheader__title--separator">{{ __('perfil') }}</h3>
+            <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+                <li class="m-nav__item m-nav__item--home">
+                    <a href="#" class="m-nav__link m-nav__link--icon">
+                        <i class="m-nav__link-icon la la-user"></i>
+                    </a>
+                </li>
+                <li class="m-nav__separator">-</li>
+                <li class="m-nav__item">
+                    <a href="" class="m-nav__link">
+                        <span class="m-nav__link-text">{{__('perfil')}} {{ __('management') }}</span>
+                    </a>
+                </li>
+                <li class="m-nav__separator">-</li>
+                <li class="m-nav__item">
+                    <a href="" class="m-nav__link">
+                        <span class="m-nav__link-text"></span>
+                    </a>
+                </li>
+            </ul>
         </div>
+        <div>
+        </div>
+    </div>
 
 @stop
 @section('content')
     <div class="m-content">
         <div class="row">
             <div class="col-xl-3 col-lg-4">
-                @include('backend.profile.partials.sidebar-profile')
+                @include('backend.management.partials.siderbar-profile')
             </div>
             <div class="col-xl-9 col-lg-8">
                 <div class="m-portlet m-portlet--full-height m-portlet--tabs  ">
@@ -75,142 +75,50 @@
                                 </li>
                             </ul>
                         </div>
-                        @include('backend.profile.partials.actions-perfil')
                     </div>
                     <div class="tab-content">
                         <!--=====================================
 		               ACTUALIZAR PERFIL DEL USUARIO
                         ======================================-->
                         <div class="tab-pane active" id="m_user_profile_tab_1">
-                            <form method="post" action="{{ route('update.profile.artist',auth()->user()->id) }}"
+                            <form method="post" action="{{ route('update.profile.management',$user->id) }}"
                                   class="m-form m-form--fit m-form--label-align-right">
                                 @csrf {{method_field('PUT')}}
                                 <div class="m-portlet__body">
                                     <div class="form-group m-form__group row">
                                         <div class="col-10 ml-auto">
-                                            <h3 class="m-form__section">1. Info {{ __('artista') }}</h3>
+                                            <h3 class="m-form__section">1. Info {{ __('management') }}</h3>
                                         </div>
                                     </div>
-                                    <div class="form-group m-form__group row {{$errors->has('nickname')? 'has-danger':''}}">
+                                    <div class="form-group m-form__group row {{$errors->has('company')? 'has-danger':''}}">
                                         <label for="example-text-input"
-                                               class="col-2 col-form-label">{{ __('nombre_artistico') }}</label>
+                                               class="col-2 col-form-label">{{ __('empresa') }}</label>
                                         <div class="col-7">
-                                            <input class="form-control m-input" type="text" name="nickname"
-                                                   value="{{ old('nickname', $artist->nickname) }}">
-                                            {!! $errors->first('nickname','<div class="form-control-feedback">*:message</div>')!!}
+                                            <input class="form-control m-input" type="text" name="company"
+                                                   value="">
+                                            {!! $errors->first('company','<div class="form-control-feedback">*:message</div>')!!}
+                                            <span class="m-form__help">{{ __('sugerencia_compañia') }}</span>
                                         </div>
                                     </div>
 
-                                    <div class="form-group m-form__group row {{$errors->has('biography')? 'has-danger':''}}">
+                                    <div class="form-group m-form__group row {{$errors->has('descripcion')? 'has-danger':''}}">
                                         <label for="example-text-input"
-                                               class="col-2 col-form-label">{{ __('biografia') }}</label>
+                                               class="col-2 col-form-label">{{ __('descripcion') }}</label>
                                         <div class="col-7">
                                             <textarea class="form-control m-input m-input--solid" id="exampleTextarea"
-                                                      name="biography"
-                                                      rows="9">{{ old('biography',$artist->biography) }}</textarea>
-                                            {!! $errors->first('biography','<div class="form-control-feedback">*:message</div>')!!}
-                                            <span class="m-form__help">{{ __('sugerencia_biografia') }}</span>
+                                                      name="descripcion"
+                                                      rows="9"></textarea>
+                                            {!! $errors->first('descripcion','<div class="form-control-feedback">*:message</div>')!!}
+                                            <span class="m-form__help">{{ __('sugerencia_descripcion') }}</span>
                                         </div>
                                     </div>
-
-                                    <div class="form-group m-form__group row {{$errors->has('level_id')? 'has-danger':''}}">
+                                    <div class="form-group m-form__group row {{$errors->has('web_site')? 'has-danger':''}}">
                                         <label for="example-text-input"
-                                               class="col-2 col-form-label">{{ __('level') }}</label>
+                                               class="col-2 col-form-label">Web Site</label>
                                         <div class="col-7">
-                                            <select name="level_id"
-                                                    class="form-control m-bootstrap-select m_selectpicker">
-                                                @foreach($levels as $level)
-                                                    <option value="{{$level->id}}" {{ old('level_id',$artist->level_id) == $level->id ? 'selected':''}}>{{ $level->level }}</option>
-                                                @endforeach
-                                                {!! $errors->first('level_id','<div class="form-control-feedback">*:message</div>')!!}
-                                            </select>
-
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group m-form__group row {{$errors->has('country_id')? 'has-danger':''}}">
-                                        <label for="example-text-input"
-                                               class="col-2 col-form-label">{{ __('pais') }}</label>
-                                        <div class="col-7">
-                                            <select class="form-control m-select2" id="m_select2_1" name="country_id">
-                                                @foreach($countries as $country)
-                                                    <option value="{{ $country->id }}" {{ old('country_id',$artist->country_id) == $country->id ? 'selected':''}}>{{ $country->country }}</option>
-                                                @endforeach
-                                                {!! $errors->first('country_id','<div class="form-control-feedback">*:message</div>')!!}
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="m-form__seperator m-form__seperator--dashed m-form__seperator--space-2x"></div>
-                                    <div class="form-group m-form__group row ">
-                                        <div class="col-10 ml-auto">
-                                            <h3 class="m-form__section">2. {{ __('personal') }}</h3>
-                                        </div>
-                                    </div>
-                                    <div class="form-group m-form__group row {{$errors->has('phone_1')? 'has-danger':''}}">
-                                        <label for="example-text-input"
-                                               class="col-2 col-form-label">{{ __('numero_celular') }}</label>
-                                        <div class="col-7">
-                                            <input type='text' class="form-control" id="m_inputmask_3" name="phone_1"
-                                                   value="{{ old('phone_1',$artist->users->phone_1 )}}"
-                                                   data-inputmask='"mask": "(999) 999-9999999"'/>
-                                            {!! $errors->first('phone_1','<div class="form-control-feedback">*:message</div>')!!}
-                                            <span class="m-form__help">{{ __('indicativo_pais')  }}</span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group m-form__group row">
-                                        <label for="example-text-input"
-                                               class="col-2 col-form-label">{{ __('numero_celular') }} 2</label>
-                                        <div class="col-7">
-                                            <input type='text' class="form-control" id="m_inputmask_opcional"
-                                                   name="phone_2" value="{{ old('phone_2',$artist->users->phone_2 ) }}"
-                                                   data-inputmask='"mask": "(999) 999-9999999"'/>
-                                            <span class="m-form__help">{{ __('telefono_opcional')  }}</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="m-form__seperator m-form__seperator--dashed m-form__seperator--space-2x"></div>
-                                    <div class="form-group m-form__group row">
-                                        <div class="col-10 ml-auto">
-                                            <h3 class="m-form__section">3. {{ __('redes_sociales') }}</h3>
-                                        </div>
-                                    </div>
-                                    <div class="form-group m-form__group row">
-                                        <label for="example-text-input" class="col-2 col-form-label">
-                                            <i class="fab fa-facebook-square fa-2x" style="color: #3b5999"></i>
-                                        </label>
-                                        <div class="col-7">
-                                            <input class="form-control m-input" name="facebook" type="text"
-                                                   value="{{ old('facebook',$artist->facebook) }}">
-                                        </div>
-                                    </div>
-                                    <div class="form-group m-form__group row">
-                                        <label for="example-text-input" class="col-2 col-form-label">
-                                            <i class="fab fa-google-plus-g fa-2x"
-                                               style="color: #dd4b39;margin-right: -8px;"></i>
-                                        </label>
-                                        <div class="col-7">
-                                            <input class="form-control m-input" name="google" type="text"
-                                                   value="{{ old('google',$artist->google) }}">
-                                        </div>
-                                    </div>
-                                    <div class="form-group m-form__group row">
-                                        <label for="example-text-input" class="col-2 col-form-label">
-                                            <i class="fab fa-instagram fa-2x" style="color: #e4405f"></i>
-                                        </label>
-                                        <div class="col-7">
-                                            <input class="form-control m-input" name="instagram" type="text"
-                                                   value="{{ old('instagram',$artist->instagram) }}">
-                                        </div>
-                                    </div>
-                                    <div class="form-group m-form__group row">
-                                        <label for="example-text-input" class="col-2 col-form-label">
-                                            <i class="fab fa-youtube fa-2x"
-                                               style="color: #cd201f; margin-right: -3px;"></i>
-                                        </label>
-                                        <div class="col-7">
-                                            <input class="form-control m-input" name="youtube" type="text"
-                                                   value="{{ old('youtube',$artist->youtube) }}">
+                                            <input class="form-control m-input" type="text" name="web_site"
+                                                   value="">
+                                            {!! $errors->first('web_site','<div class="form-control-feedback">*:message</div>')!!}
                                         </div>
                                     </div>
                                 </div>
@@ -227,6 +135,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <input type="hidden" name="id_management" value="">
                             </form>
                         </div>
                         <!--=====================================
@@ -372,9 +281,8 @@
                                                      data-code-js="false">
                                                     <div class="m-demo__preview">
                                                         <!-- CAMBIAR LA CONTRASEÑA DEL USUARIO, PERO PRIMERO SE VALIDA SI EL USUARIO ES NO ES DE ALGUNA RED SOCIAL -->
-                                                        @if(!$artist->users->socialAcounts)
-                                                            <form method="post" action="{{ route('update.password.artist') }}">
-                                                                @csrf
+                                                            <form method="post" action="">
+                                                                @csrf {{ method_field('PUT') }}
                                                                 <div class="row">
                                                                     <div class="col-lg-6">
                                                                         <div class="form-group m-form__group {{$errors->has('password')? 'has-danger':''}}">
@@ -400,12 +308,11 @@
                                                                     </div>
                                                                 </div>
                                                             </form>
-                                                        @endif
                                                         <div class="row">
                                                             <div class="col-lg-6">
                                                                 <div class="form-group m-form__group">
                                                                     <label for="">Imagén de Perfil</label>
-                                                                    <div class="m-dropzone dropzone m-dropzone--success" action="inc/api/dropzone/upload.php" id="m-dropzone-three">
+                                                                    <div class="m-dropzone dropzone-management m-dropzone--success" action="inc/api/dropzone/upload.php" id="m-dropzone-three">
                                                                         <div class="m-dropzone__msg dz-message needsclick">
                                                                             <h3 class="m-dropzone__msg-title">{{ __('actualizar_foto_perfil') }}</h3>
                                                                             <span class="m-dropzone__msg-desc">{{ __('arrastra_click_subir') }}</span>
@@ -429,19 +336,20 @@
         </div>
     </div>
 @stop
-@section('dropzonePhotoArtist')
+
+@push('js')
     <script>
-        new Dropzone('.dropzone', {
-            url: '{{ route('profile.photo.artist') }}',
+        new Dropzone('.dropzone-management', {
+            url: '{{ route('profile.photo.management') }}',
             acceptedFiles: 'image/*',
             maxFiles: 1,
             paramName: 'photo',
+            params: {'id_user': '{{ $user->id }}'},
             headers: {
                 'X-CSRF-TOKEN': '{{ csrf_token() }}'
             },
             success: function (file, response) {
 
-                $('#inputImagenesPostPlan').val(response);
                 location.reload();
             }
 
@@ -449,4 +357,4 @@
 
         Dropzone.autoDiscover = false;
     </script>
-@endsection
+@endpush

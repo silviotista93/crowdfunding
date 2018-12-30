@@ -6,23 +6,23 @@
             </div>
             <div class="m-card-profile__pic">
                 <div class="m-card-profile__pic-wrapper">
-                    @if(Storage::disk('public')->exists('users/'.auth()->user()->picture))
-                        <img src="{{ auth()->user()->pathAttachment() }}" alt=""/>
+                    @if(Storage::disk('public')->exists('users/'.$user->picture))
+                        <img src="{{ $user->pathAttachment() }}" alt=""/>
                     @else
-                        <img src="{{ auth()->user()->picture }}" alt="">
+                        <img src="{{ $user->picture }}" alt="">
                     @endif
                 </div>
             </div>
             <div class="m-card-profile__details">
-                <span class="m-card-profile__name">{{ auth()->user()->name }}</span>
+                <span class="m-card-profile__name">{{ $user->name }}</span>
 
-                    <a href="" class="m-card-profile__email m-link" style="margin-left: -15px;width: 80%; word-wrap: break-word;">{{ auth()->user()->email }}</a>
+                <a href="" class="m-card-profile__email m-link" style="margin-left: -15px">{{ $user->email }}</a>
 
             </div>
-            @if($artist->countries !== null)
+            {{--@if($artist->countries !== null)
                 <div class="text-center" style="margin-top: 5px"><img src="{{ $artist->countries->flag }}"
                                                                       width="21" alt="" style="margin-top: 6px;margin-left: -10px"></div>
-            @endif
+            @endif--}}
 
         </div>
         <ul class="m-nav m-nav--hover-bg m-portlet-fit--sides">
@@ -31,7 +31,7 @@
                 <span class="m-nav__section-text">Section</span>
             </li>
             <li class="m-nav__item" {{request()->is('dashboard/profile') ? 'style=background-color:#f2f4f9' : '' }}>
-                <a href="{{ route('profile.artist') }}" class="m-nav__link active">
+                <a href="{{ route('profile.managament',$user->slug) }}" class="m-nav__link active">
                     <i class="m-nav__link-icon flaticon-profile-1" {{request()->is('dashboard/profile') ? 'style=color:#716aca !important' : '' }}></i>
                     <span class="m-nav__link-title">
                         <span class="m-nav__link-wrap">
@@ -42,7 +42,7 @@
                 </a>
             </li>
             <li class="m-nav__item" {{request()->is('dashboard/my-projects') ? 'style=background-color:#f2f4f9' : '' }}>
-                <a href="{{ route('myprojects.artist') }}" class="m-nav__link">
+                <a href="{{ route('profile.managament.myProyects',$user->slug) }}" class="m-nav__link">
                     <i class="m-nav__link-icon flaticon-share" {{request()->is('dashboard/my-projects') ? 'style=color:#716aca !important' : '' }}></i>
                     <span class="m-nav__link-text" {{request()->is('dashboard/my-projects') ? 'style=color:#716aca !important' : '' }}>{{ __('mis_proyectos') }}</span>
                 </a>
@@ -90,7 +90,7 @@
                         <h3 class="m-widget1__title">{{ __('proyectos_subidos') }}</h3>
                     </div>
                     <div class="col m--align-right">
-                        <span class="m-widget1__number m--font-danger">{{ $artist->projects->count() }}</span>
+                        <span class="m-widget1__number m--font-danger"></span>
                     </div>
                 </div>
             </div>

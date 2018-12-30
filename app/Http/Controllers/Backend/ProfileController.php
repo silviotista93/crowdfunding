@@ -50,7 +50,7 @@ class ProfileController extends Controller
         return back();
     }
 
-    public function update_password(Request $request, User $user){
+    public function update_password(Request $request){
 
         if ($request->filled('password')) {
 
@@ -60,11 +60,13 @@ class ProfileController extends Controller
 
             ]);
             $password = $request->get('password');
-            $user->password = bcrypt($password);
+            $newpassword = bcrypt($password);
 
-            $user->update();
+            $user = User::where('id',auth()->user()->id)->update([
+               'password' => $newpassword
+            ]);
 
-            alert()->success('Contraseña Actualizada','¡Muy bien!')->autoClose(3000);
+            alert()->success(__('password_actualizado'),__('muy_bien'))->autoClose(3000);
             return back();
         } else {
 

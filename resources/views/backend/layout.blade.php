@@ -180,6 +180,22 @@ License: You must have a valid license purchased only from themeforest(the above
         <div class="m-grid__item m-grid__item--fluid m-wrapper">
 
             <div class="m-subheader ">
+                @if($errors->any())
+
+                    <ul class="list-group">
+
+                        @foreach($errors->all() as $error)
+                            <div class="container">
+                                <div class="alert alert-danger" role="alert">
+                                    <strong>Oh!</strong> {{$error}}
+                                </div>
+                            </div>
+
+                        @endforeach
+
+                    </ul>
+
+                @endif
                 @if(session()->has('eliminar'))
                     <div class="container">
                         <div class="alert alert-danger" role="alert">

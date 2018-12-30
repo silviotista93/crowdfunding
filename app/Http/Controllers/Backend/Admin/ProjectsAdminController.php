@@ -37,7 +37,7 @@ class ProjectsAdminController extends Controller
     }
     public function send_project_management(Request $request){
         //En la consola de el navegador se visualizan los datos que se envian
-        /*$data = $request->input("users");
+        $data = $request->input("users");
         $dateNow = date('Y-m-d');
         $week = date("Y-m-d",strtotime($dateNow."+ 2 week"));
         $project = Project::where('id', $request->input('project'))->with('artists')->first();
@@ -60,11 +60,6 @@ class ProjectsAdminController extends Controller
         }
         $artistSendEmail = \Mail::to($artist->users->email)->send(new ArtistProjectPreAprov($project,$artist->users->name));
         $statusProject = Project::where('id', $request->input('project'))->update(array('status' => 2));
-        return '{"status":200, "msg":"'.__('send_project_management').'"}';*/
-        $project = Project::where('id', $request->input('project'))->with('artists')->first();
-        $img_artist = User::where('id',$project->artists[0]->user_id)->first();
-        $artist= Artist::where('user_id',$img_artist->id)->with('users')->first();
-
-       return new ArtistProjectPreAprov($project,$artist->users->name);
+        return '{"status":200, "msg":"'.__('send_project_management').'"}';
     }
 }

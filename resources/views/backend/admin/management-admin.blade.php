@@ -6,6 +6,7 @@
 <!--=====================================
    HEADER
 ======================================-->
+
 @section('header')
     <div class="d-flex align-items-center">
         <div class="mr-auto">
@@ -84,6 +85,10 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
                                                            style="margin-left: -15px">{{ $management->users->email  }}</a>
 
                                                     </div>
+                                                    <div class="m-card-profile__details" style=padding-top:20px;>
+                                                        <a href="{{ route('profile.managament',$management->users->slug)}}" class="btn btn-secondary m-btn m-btn--icon m-btn--pill">{{ __('mas_informacion') }}</a>
+                                                    </div>
+
                                                 </div>
                                             </div>
                                         </div>

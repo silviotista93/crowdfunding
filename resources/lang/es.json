@@ -176,10 +176,15 @@
   "muy_bien":"¡Muy Bien!",
   "no_hay_registros":"No hay Registros",
   "no_registrado":"No registrado",
+  "empresa":"Compañia",
+  "sugerencia_compañia":"Si lo decea, ingrese el nombre de la empresa que usted representa",
+  "sugerencia_descripcion":"Describe quien eres, si lo deseas",
   "comment_review_manager":"Has un comentario si asi lo deseas",
   "txtInvalidAlertAddProject":"Todos los campos son obligatorios",
+  "perfil_actualizado":"Tu perfil ha sido actualizado",
 
   "projectCreatedTitle": "¡Muy Bien!",
+  "password_actualizado": "Contraseña Actualizada",
   "projectCreated": "Tú proyecto ha sido enviado",
 
   "managementCreated": "El manager a sido creado",
