@@ -4,7 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class survey extends Model
+class Survey extends Model
 {
-    //
+    public function question (){
+
+        return $this->hasMany(question::class);
+    }
+
+
 }

@@ -7,6 +7,7 @@
     </style>
 @endpush
 @section('header')
+
     @if($errors->any())
 
         <ul class="list-group">
@@ -271,73 +272,56 @@
                                                     <h3 class="m-form__heading-title">{{ __('encuesta') }}</h3>
                                                 </div>
                                                {{-- donde debe empezar la encuesta  --}}
-
+                                                
                                             </div>
                                             <div class="m-separator m-separator--dashed m-separator--lg"></div>
+                                            @php($datos=json_decode($question[0]->question))
+                                            
+                                            @forelse ($datos as $quest)
                                             <div class="m-form__section">
                                                 <div class="m-form__heading">
-                                                    <h3 class="m-form__heading-title">Delivery Type</h3>
+                                                <h3 class="m-form__heading-title">{{$quest->quest}}</h3>
                                                 </div>
                                                 <div class="form-group m-form__group">
                                                     <div class="row">
-                                                        <div class="col-lg-6">
-                                                            <label class="m-option">
-                                                                <span class="m-option__control">
-                                                                    <span class="m-radio m-radio--state-brand">
-                                                                        <input type="radio" name="billing_delivery" value="">
-                                                                        <span></span>
-                                                                    </span>
-                                                                </span>
-                                                                <span class="m-option__label">
-                                                                    <span class="m-option__head">
-                                                                        <span class="m-option__title">
-                                                                            Standart Delevery
-                                                                        </span>
-                                                                        <span class="m-option__focus">
-                                                                            Free
-                                                                        </span>
-                                                                    </span>
-                                                                    <span class="m-option__body">
-                                                                        Estimated 14-20 Day Shipping
-                                                                        (&nbsp;Duties end taxes may be due
-                                                                        upon delivery&nbsp;)
-                                                                    </span>
-                                                                </span>
-                                                            </label>
-                                                        </div>
-                                                        <div class="col-lg-6">
-                                                            <label class="m-option">
-                                                                <span class="m-option__control">
-                                                                    <span class="m-radio m-radio--state-brand">
-                                                                        <input type="radio" name="billing_delivery" value="">
-                                                                        <span></span>
-                                                                    </span>
-                                                                </span>
-                                                                <span class="m-option__label">
-                                                                    <span class="m-option__head">
-                                                                        <span class="m-option__title">
-                                                                            Fast Delevery
-                                                                        </span>
-                                                                        <span class="m-option__focus">
-                                                                            $&nbsp;8.00
-                                                                        </span>
-                                                                    </span>
-                                                                    <span class="m-option__body">
-                                                                        Estimated 2-5 Day Shipping
-                                                                        (&nbsp;Duties end taxes may be due
-                                                                        upon delivery&nbsp;)
-                                                                    </span>
-                                                                </span>
-                                                            </label>
-                                                        </div>
+                                                     @forelse ($quest->answer as $ans)                                                    
+                                                         
+                                                     <div class="col-lg-6">
+                                                         <label class="m-option">
+                                                             <span class="m-option__control">
+                                                                 <span class="m-radio m-radio--state-brand">
+                                                                     <input type="radio" name="questionGroup[{{$ans->id}}]" value="{{$ans->id}}">
+                                                                     <span></span>
+                                                                 </span>
+                                                             </span>
+                                                             <span class="m-option__label">
+                                                                 <span class="m-option__head">
+                                                                     <span class="m-option__title">
+                                                                            {{$ans->option}}
+                                                                     </span>                                                                       
+                                                                 </span>                                                                   
+                                                             </span>
+                                                         </label>
+                                                     </div>
+
+                                                     @empty
+                                                         {{'no hay opciones'}}
+                                                     @endforelse   
+
+
                                                     </div>
                                                     <div class="m-form__help">
-
+                                                        
                                                         <!--must use this helper element to display error message for the options-->
                                                     </div>
                                                 </div>
                                             </div>
+                                            @empty
+                                                {{'No hay preguntas' }}
+                                            @endforelse
                                         </div>
+                                        
+                                        
 
                                         <!--=====================================
                                             CONFIRMACIÓN

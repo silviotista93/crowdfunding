@@ -8,6 +8,7 @@ use App\EndProject;
 use App\Mail\AssignProjectManager;
 use App\Mail\NewProjectArtist;
 use App\Project;
+use App\Survey;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
@@ -19,10 +20,14 @@ class AddProjectController extends Controller
         $artist_id = Artist::select('id')->where('user_id',auth()->user()->id)->first();
         $artist = Artist::select('nickname','biography','level_id','country_id')
             ->where('user_id', auth()->user()->id)->first();
+            $question=Survey::with('question','question.answer')->get();
+          
+           
+
         if ($artist->nickname == null){
             return redirect(route('profile.artist'))->with('eliminar','Para agregar un proyecto, completa tu perfil de artista');
         }else{
-            return view('backend.projects.add-project',compact('categories','artist_id'));
+            return view('backend.projects.add-project',compact('categories','artist_id','question'));
         }
     }
 
@@ -48,10 +53,27 @@ class AddProjectController extends Controller
             'price' => $request->get('price'),
             'slug' => $slug.'-'.$ramdoNum
         ]);
-        $project->artists()->attach($request->get('artist_id'));
+
+        $ans=Artist::findOrFail($request->get('artist_id'));
+        $ans->answers()->attach($request->get('questionGroup'));
+
+        $project->artists()->attach($request->get('artist_id'));        
         $artist = Artist::select('nickname')->where('id',$request->get('artist_id'))->first();
         \Mail::to('silviotista93@gmail.com')->send(new NewProjectArtist($project,auth()->user()->name));
         alert()->success(__("projectCreated"),__('projectCreatedTitle'))->autoClose(3000);
+
+        
+
         return back();
     }
+
+
+    
+
+
+
+
+
+
+
 }
