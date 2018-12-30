@@ -18,14 +18,14 @@ use Illuminate\Support\Facades\DB;
 class ProjectsAdminController extends Controller
 {
     public function index(){
-
         return view('backend.admin.projects-admin');
     }
 
     public function table_projects(Request $request){
         $project = Project::with([
             'artists',
-            'category'
+            'category',
+            'artists.users'
         ]);
         if ($request->input("tipoProyecto")){
             $project->where('status', "=", $request->input("tipoProyecto"));
