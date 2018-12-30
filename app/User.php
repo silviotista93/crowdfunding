@@ -91,7 +91,10 @@ class User extends Authenticatable
     }
 
     public function pathAttachment(){
-        return '/images/users/'. $this->picture;
+        if(\Storage::disk('public')->exists('users/'.$this->picture)){
+            return '/images/users/'. $this->picture;
+        }
+        return $this->picture;
     }
 
     public function artist(){
