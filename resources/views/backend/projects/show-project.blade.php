@@ -264,53 +264,6 @@
             $('[data-toggle="tooltip"]').tooltip();
         });
 
-        jQuery(document).ready(function () {
-            const ratingSelector = jQuery('#list_rating');
-            ratingSelector.find('li').on('click', function () {
-                const number = $(this).data('number');
-                $('#rating_form').find('input[name=rating_input]').val(number);
-                ratingSelector.find('li i').removeClass('yellow-rating').each(function (index) {
-                    if ((index + 1) <= number) {
-                        $(this).addClass('yellow-rating');
-                    }
-                })
-            });
-
-
-            $("#btnEnviarReview").click(function (e) {
-                e.preventDefault();
-                let textarea = null;
-                swal({
-                    title: '{{ __('comment_review_manager') }}',
-                    input: 'textarea',
-                    inputPlaceholder: '{{ __('tu_mensaje') }}',
-                    inputClass: "form-control m-input",
-                    confirmButtonText: '{{ __('calificar') }}',
-                    confirmButtonColor: '#3085d6',
-                    confirmButtonClass: 'btn btn-warning'
-
-                }).then(function (result) {
-                    console.log(result);
-                    if (result.value === "" || result.value) {
-                        $("#txtComentManager").val(result.value);
-                        let form = $("#rating_form");
-                        let url = form.attr("action");
-                        let data = form.serialize();
-                        $.post(url, data, function (e) {
-                            if (e) {
-                                swal("{{ __('managerTitleRate') }}", "{{ __('managerMsgRate') }}", "success")
-                                    .then(function () {
-                                        window.location.reload();
-                                    });
-
-                            }
-                        });
-                    }
-                });
-                textarea = $("textarea.form-control.m-input");
-                textarea.removeClass("swal2-textare").attr("rows", '5');
-            });
-        });
         $('#table_assign_management').DataTable({
             "processing": true,
             "serverSide": true,

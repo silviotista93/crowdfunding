@@ -8,6 +8,7 @@ use App\EndProject;
 use App\Management;
 use App\Project;
 use App\User;
+use App\Review;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -22,8 +23,12 @@ class ShowProjectController extends Controller
         $artist= Project::where('id',$project->id)->with('artists.users')->first();
         $country = Country::where('id',$artist->artists[0]->country_id)->first();
 
-        if (in_array('Admin', $rol) || in_array('Manage', $rol)) {
+        if (in_array('Admin', $rol)) {
             return view('backend.projects.show-project', compact('project','end_time','artist','country'));
+        } else if (in_array('Manage', $rol)){
+            $review = Review::where("project_id","=", $project->id)
+                ->where("user_id","=", auth()->user()->id)->first();
+            return view('backend.projects.show-project', compact('project','end_time','artist','country', 'review'));
         }else {
 
             $verify = Artist::where('user_id', auth()->user()->id)->with([
