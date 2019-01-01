@@ -24,7 +24,9 @@ class ShowProjectController extends Controller
         $country = Country::where('id',$artist->artists[0]->country_id)->first();
 
         if (in_array('Admin', $rol)) {
-            return view('backend.projects.show-project', compact('project','end_time','artist','country'));
+            $review = Review::where("project_id","=", $project->id)->get();
+            $currentRaing = $review->avg("rating");
+            return view('backend.projects.show-project', compact('project','end_time','artist','country', "currentRaing"));
         } else if (in_array('Manage', $rol)){
             $review = Review::where("project_id","=", $project->id)
                 ->where("user_id","=", auth()->user()->id)->first();

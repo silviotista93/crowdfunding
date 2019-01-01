@@ -202,5 +202,6 @@
   "managerMsgRate":"Make the project qualified!",
   "seleccionarClasificacionTitle": "Error",
   "seleccionarClasificacionText": "First, the project must be qualified",
-  "recalificar_proyecto": "Requalify Project"
+  "recalificar_proyecto": "Requalify Project",
+  "calificacion":"Qualification"
 }
