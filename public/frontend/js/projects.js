@@ -18,7 +18,7 @@ function start() {
         //content += "</div>";
         container.html(content);
     } else {
-        container.html("<div class='text-center'><p>No hay proyectos</p></div>");
+        container.html("<div class='text-center' style='width:100%;'><p>No hay proyectos</p></div>");
     }
 
     //checkProjects();

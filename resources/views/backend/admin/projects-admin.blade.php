@@ -204,10 +204,10 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
                         render : function (data, type, JsonResultRow, meta){
                             let artista = JsonResultRow.artists[0];
                             //console.log(JsonResultRow);
-                            if (JsonResultRow.status+"" === 4+""){
+                            //if (JsonResultRow.status+"" === 4+""){
                                 return `<a href="${artista.users.url_artist}" target="_blank">${artista.nickname}</a>`;
-                            }
-                            return artista.nickname;
+                            //}
+                            //return artista.nickname;
                         }
                     },
                     {

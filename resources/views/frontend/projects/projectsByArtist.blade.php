@@ -1,9 +1,22 @@
 @extends('frontend.layout')
 
+
+@push('css')
+    <style>
+        .sin_proyectos .informacion__container,
+        .sin_proyectos .columna--derecha{
+            margin: auto;
+
+        }
+        .sin_proyectos .informacion__title{
+            text-align: center;
+        }
+    </style>
+@endpush
 @section('content')
 
 {{-- _______________________________
-     nombre del artista y generos 
+     nombre del artista y generos
      _______________________________ --}}
      <section class="xs-inner-welcome-section fundpress-inner-welcome-section fundpress-inner-bg-1 parallax-window"
      data-parallax="scroll"
@@ -12,14 +25,14 @@
      <div class="container">
         <div class="fundpress-inner-welcome-content" style="padding:200px 0 123px;">
 
-            <h2 class="color-white">{{ $artist->nickname }}</h2>           
+            <h2 class="color-white">{{ $artist->nickname }}</h2>
             <ul class="xs-breadcumb fundpress-breadcumb">
                 <li> <img src="{{ $artist->countries->flag }}" width="21"> {{ $artist->countries->country }} </li>
             </ul>
         </div>
     </div>
-    
-    
+
+
 </section>
 
 <div style="    overflow: hidden; position: relative; margin: auto;margin-top: -7%;border-radius: 100px;width: 200px;height: 200px;border: 4px solid; border-color:#191818; z-index: 1000; ">
@@ -31,7 +44,7 @@
 
 <div style="margin-top: 16px; margin-left: 41%;">
   <div class="xs-single-sidebar xs-mb-50">
-    <div class="xs-spilit-container">            
+    <div class="xs-spilit-container">
         <div class="xs-social-list-wraper">
             <ul class="xs-social-list xs-social-list-v3 fundpress-social-list">
                 <li><a {{ $artist->facebook ? "href=".$artist->facebook:''  }}  target="_blank" class="color-facebook xs-box-shadow full-round"><i class="fa fa-facebook" style="color: white"></i></a></li>
@@ -44,24 +57,26 @@
 </div>
 </div>
 
-<div class="container">
+<div class="container {{ $projects[0]?"":"sin_proyectos" }}">
+    @if($projects[0])
     <div class="row">
         <div class="col-lg-6">
             <div class="xs-welcome-content">
                 <div class="xs-welcome-wraper">
-                    <iframe width="560" height="315" 
-                    id="videoYoutube"
-                    src="https://www.youtube.com/embed/{{$projects[0]->iframe_video}}"
-                    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-                </iframe>
+                    <iframe width="560" height="315"
+                        id="videoYoutube"
+                        src="https://www.youtube.com/embed/{{ $projects[0]->iframe_video }}"
+                        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
             </div><!-- .xs-welcome-wraper END -->
         </div><!-- .xs-welcome-content END -->
     </div>
-    <div class="col-lg-5 offset-1">
+    @endif
+    <div class="col-lg-5 offset-1 columna--derecha">
         <div class="xs-welcome-content version-3">
-            <div class="xs-welcome-wraper">
-                <h3>Sobre mi</h3>
+            <div class="xs-welcome-wraper informacion__container">
+                <h3 class="informacion__title">Sobre mi</h3>
                 <p align="justify" style="width: 410px; margin: auto;">
                     {{ $artist->biography }}
                 </p>
@@ -112,7 +127,7 @@
 	<div class="container">
         {{-- contenedor de las tarjetas que vienen del js cards --}}
 		<div class="row" id="projectContainer">
-		
+
 		</div>
          <!--=====================================
                              PAGINACIÓN
@@ -131,14 +146,14 @@
         startCard();
     }
 </script>
- <script>         
-         const rutaPro = "{{route('projects.artist',"")}}"; 
+ <script>
+         const rutaPro = "{{route('projects.artist',"")}}";
 
-     </script> 
-<script src="/frontend/js/detail.js"></script>   
+     </script>
+<script src="/frontend/js/detail.js"></script>
  <script src="/js/libs/moment-with-locales.min.js"></script>
  <script src="/frontend/js/card_project.js"></script>
- <script src="/frontend/js/projects.js"></script>  
+ <script src="/frontend/js/projects.js"></script>
 
 {{-- <script src="/frontend/js/detail.js"></script>    --}}
 @endpush
