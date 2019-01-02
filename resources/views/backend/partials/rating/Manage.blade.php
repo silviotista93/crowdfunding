@@ -15,15 +15,15 @@
     <div class="form-group">
         <ul id="list_rating" class="list-inline" style="font-size: 20px">
             <li class="list-inline-item star" data-number="1"><i
-                        class="fa fa-star fa-1x {{$review->rating>=1?"yellow-rating":""}}"></i></li>
+                        class="fa fa-star fa-1x {{ $review->rating >=1?"yellow-rating":""}}"></i></li>
             <li class="list-inline-item star" data-number="2"><i
-                        class="fa fa-star fa-1x {{$review->rating>=2?"yellow-rating":""}}"></i></li>
+                        class="fa fa-star fa-1x {{ $review->rating >=2?"yellow-rating":""}}"></i></li>
             <li class="list-inline-item star" data-number="3"><i
-                        class="fa fa-star fa-1x {{$review->rating>=3?"yellow-rating":""}}"></i></li>
+                        class="fa fa-star fa-1x {{ $review->rating >=3?"yellow-rating":""}}"></i></li>
             <li class="list-inline-item star" data-number="4"><i
-                        class="fa fa-star fa-1x {{$review->rating>=4?"yellow-rating":""}}"></i></li>
+                        class="fa fa-star fa-1x {{ $review->rating >=4?"yellow-rating":""}}"></i></li>
             <li class="list-inline-item star" data-number="5"><i
-                        class="fa fa-star fa-1x {{$review->rating==5?"yellow-rating":""}}"></i></li>
+                        class="fa fa-star fa-1x {{ $review->rating ==5?"yellow-rating":""}}"></i></li>
         </ul>
     </div>
     <input type="hidden" name="rating_input" value="1">
@@ -49,8 +49,8 @@
     <script>
     jQuery(document).ready(function () {
         const ratingSelector = jQuery('#list_rating');
-        let currentRating = {{$review->rating}};
-        let rating = {{$review->rating}};
+        let currentRating = {{ $review->rating?$review->rating:"null" }};
+        let rating = {{ $review->rating?$review->rating:"null" }};
 
         ratingSelector.find('li').on('click', function () {
             const number = $(this).data('number');

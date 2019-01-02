@@ -23,7 +23,6 @@ class AddProjectController extends Controller
             $question=Survey::with('question','question.answer')->get();
 
         if ($artist->nickname == null){
-
             return redirect(route('profile.artist'))->with('eliminar','Para agregar un proyecto, completa tu perfil de artista');
         }else{
             return view('backend.projects.add-project',compact('categories','artist_id','question'));
