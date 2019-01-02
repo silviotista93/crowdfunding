@@ -203,5 +203,9 @@
   "si":"Yes...",
   "tituloToastError": "Error",
   "managerTitleRate":"Good job!",
-  "managerMsgRate":"Make the project qualified!"
+  "managerMsgRate":"Make the project qualified!",
+  "seleccionarClasificacionTitle": "Error",
+  "seleccionarClasificacionText": "First, the project must be qualified",
+  "recalificar_proyecto": "Requalify Project",
+  "calificacion":"Qualification"
 }

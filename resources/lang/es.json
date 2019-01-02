@@ -202,5 +202,9 @@
   "tituloToastError": "Error",
   "porfavor":"¡Por favor!",
   "managerTitleRate":"Buen trabajo!",
-  "managerMsgRate":"Haz calificado el proyecto!"
+  "managerMsgRate":"Haz calificado el proyecto!",
+  "seleccionarClasificacionTitle": "Error",
+  "seleccionarClasificacionText": "Primero hay que calificar el proyecto",
+  "recalificar_proyecto": "Recalificar Proyecto",
+  "calificacion":"Calificación"
 }

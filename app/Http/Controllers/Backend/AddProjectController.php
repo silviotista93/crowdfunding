@@ -56,17 +56,16 @@ class AddProjectController extends Controller
         $ans=Artist::findOrFail($request->get('artist_id'));
         $ans->answers()->attach($request->get('questionGroup'));
 
-        $project->artists()->attach($request->get('artist_id'));        
+        $project->artists()->attach($request->get('artist_id'));
         $artist = Artist::select('nickname')->where('id',$request->get('artist_id'))->first();
         \Mail::to('silviotista93@gmail.com')->send(new NewProjectArtist($project,auth()->user()->name));
         alert()->success(__("projectCreated"),__('projectCreatedTitle'))->autoClose(3000);
 
-
-        return redirect('/dashboard/my-projects');
+        return redirect()->route("myprojects.artist");
     }
 
 
-    
+
 
 
 

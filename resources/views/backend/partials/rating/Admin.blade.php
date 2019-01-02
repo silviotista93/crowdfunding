@@ -31,6 +31,24 @@
             <span class="m--font-bold m--font-primary" style="font-weight: bold; font-size: 16px">{{ $end_time->end_time->toFormattedDateString() }}</span>
         @endif
     </div>
+    <!-- Rating Project -->
+    <div class="form-group">
+        <h5 style="font-weight: bold">{{ __('calificacion') }}:</h5>
+    </div>
+    <div class="form-group">
+        <ul id="list_rating" class="list-inline" style="font-size: 20px">
+            <li class="list-inline-item star" data-number="1"><i
+                        class="fa fa-star fa-1x {{$currentRaing>=1?"yellow-rating":""}}"></i></li>
+            <li class="list-inline-item star" data-number="2"><i
+                        class="fa fa-star fa-1x {{$currentRaing>=2?"yellow-rating":""}}"></i></li>
+            <li class="list-inline-item star" data-number="3"><i
+                        class="fa fa-star fa-1x {{$currentRaing>=3?"yellow-rating":""}}"></i></li>
+            <li class="list-inline-item star" data-number="4"><i
+                        class="fa fa-star fa-1x {{$currentRaing>=4?"yellow-rating":""}}"></i></li>
+            <li class="list-inline-item star" data-number="5"><i
+                        class="fa fa-star fa-1x {{$currentRaing==5?"yellow-rating":""}}"></i></li>
+        </ul>
+    </div>
 <!-- VER A QUIEN SE ASIGNO EL PROYECTO-->
 <div class="form-group">
     <h5 style="font-weight: bold">{{ __('asignado_a') }}:</h5>
