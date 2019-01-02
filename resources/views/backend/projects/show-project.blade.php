@@ -14,9 +14,10 @@
             <div class="col-xs-8 col-lg-7">
                 <h3 style="font-weight: bold;">{{ $project->title }}</h3>
                 <a data-toggle="modal" data-target="#m_modal_1" class="m-link m--font-success m--font-bolder"
-                   style="padding-bottom: 5px;cursor: pointer">by {{ $artist->artists[0]->nickname }} [{{__('ver_mas')}}]</a>
+                   style="padding-bottom: 5px;cursor: pointer">by {{ $artist->artists[0]->nickname }} [{{__('ver_mas')}}
+                    ]</a>
                 <div class="m-scrollable" data-scrollable="true" style="height: 170px">
-                    <p style="text-align: justify" >{{ $project->short_description }}</p>
+                    <p style="text-align: justify">{{ $project->short_description }}</p>
                 </div>
             </div>
         </div>
@@ -203,11 +204,26 @@
 
                                         </div>
                                         @if($country->flag !== null)
-                                            <div  class="text-center" style="margin-top: 5px"><img data-toggle="tooltip" title="{{ $country->country }}"
-                                                        src="{{ $country->flag }}"
-                                                        width="21" alt="" style="margin-top: 6px;margin-left: -10px">
+                                            <div class="form-group m-form__group row">
+                                                <label for="example-text-input"
+                                                       class="col-2 col-form-label">{{ __('Origen') }}:</label>
+                                                <div class="col-10 pull-right">
+                                                    <img data-toggle="tooltip" title="{{ $country->country }}"
+                                                         src="{{ $country->flag }}" width="21" alt="" style="margin-left: 80px;margin-top: 7px">
+                                                </div>
                                             </div>
                                         @endif
+                                        @if($location->flag !== null)
+                                            <div class="form-group m-form__group row">
+                                                <label for="example-text-input"
+                                                       class="col-2 col-form-label">{{ __('localizacion') }}:</label>
+                                                <div class="col-10 pull-right">
+                                                    <img data-toggle="tooltip" title="{{ $location->country }}"
+                                                         src="{{ $location->flag }}" width="21" alt="" style="margin-left: 80px;margin-top: 7px">
+                                                </div>
+                                            </div>
+                                        @endif
+
                                     </div>
                                 </div>
                             </div>
@@ -218,7 +234,7 @@
                                     <div class="m-portlet__head-caption">
                                         <div class="m-portlet__head-title">
                                             <h3 class="m-portlet__head-text">
-                                               {{ __('biografia') }}
+                                                {{ __('biografia') }}
                                             </h3>
                                         </div>
                                     </div>
@@ -231,16 +247,23 @@
                                 <div class="m-portlet__foot">
                                     <div class="row align-items-center">
                                         <div class="col-lg-12">
-                                            <a target="_blank"  {!! $artist->artists[0]->google ? "href=".$artist->artists[0]->google :'data-toggle="tooltip" title="'.__('no_registrado').'!"'!!}class="p-2 pull-right" style="color: #dd4b39">
+                                            <a target="_blank"
+                                               {!! $artist->artists[0]->google ? "href=".$artist->artists[0]->google :'data-toggle="tooltip" title="'.__('no_registrado').'!"'!!}class="p-2 pull-right"
+                                               style="color: #dd4b39">
                                                 <i class="fab fa-google-plus-g fa-2x"></i>
                                             </a>
-                                            <a target="_blank"  {!! $artist->artists[0]->youtube ? "href=".$artist->artists[0]->youtube :'data-toggle="tooltip" title="'.__('no_registrado').'!"'!!} class="p-2 pull-right" style="color: #bb0000">
+                                            <a target="_blank"
+                                               {!! $artist->artists[0]->youtube ? "href=".$artist->artists[0]->youtube :'data-toggle="tooltip" title="'.__('no_registrado').'!"'!!} class="p-2 pull-right"
+                                               style="color: #bb0000">
                                                 <i class="fab fa-youtube fa-2x"></i>
                                             </a>
-                                            <a target="_blank"  {!! $artist->artists[0]->instagram ? "href=".$artist->artists[0]->instagram :'data-toggle="tooltip" title="'.__('no_registrado').'!"'!!} class="p-2 pull-right">
+                                            <a target="_blank"
+                                               {!! $artist->artists[0]->instagram ? "href=".$artist->artists[0]->instagram :'data-toggle="tooltip" title="'.__('no_registrado').'!"'!!} class="p-2 pull-right">
                                                 <i class="fab fa-instagram fa-2x" style="color: #c13584"></i>
                                             </a>
-                                            <a target="_blank"  {!! $artist->artists[0]->facebook ? "href=".$artist->artists[0]->facebook :'data-toggle="tooltip" title="'.__('no_registrado').'!"'!!} class="p-2 pull-right" style="color: #3b5998">
+                                            <a target="_blank"
+                                               {!! $artist->artists[0]->facebook ? "href=".$artist->artists[0]->facebook :'data-toggle="tooltip" title="'.__('no_registrado').'!"'!!} class="p-2 pull-right"
+                                               style="color: #3b5998">
                                                 <i class="fab fa-facebook-square fa-2x"></i>
                                             </a>
                                         </div>
@@ -260,7 +283,7 @@
 
 @section('rating.projects')
     <script>
-        $(document).ready(function(){
+        $(document).ready(function () {
             $('[data-toggle="tooltip"]').tooltip();
         });
 
@@ -330,7 +353,7 @@
                 {
                     data: 'users.name',
                     render: function (data, type, JsonResultRow, meta) {
-                        return JsonResultRow.users.name +' '+ JsonResultRow.users.last_name;
+                        return JsonResultRow.users.name + ' ' + JsonResultRow.users.last_name;
                     },
                     defaultContent: '<span class="label label-danger text-center" style="color:red !important">{{ __('nigun_valor_defecto') }}</span>'
                 },
@@ -343,8 +366,8 @@
                     defaultContent: '<span class="label label-danger text-center" style="color:red !important">{{ __('nigun_valor_defecto') }}</span>'
                 },
                 {
-                    render:function (data,type, JsonResultRow,meta) {
-                        return '<div class="text-center"><a href="/dashboard/profile-managament/'+JsonResultRow.users.slug+'" class="btn m-btn--pill btn-secondary"><i class="fa fa-eye"></i></a></div>'
+                    render: function (data, type, JsonResultRow, meta) {
+                        return '<div class="text-center"><a href="/dashboard/profile-managament/' + JsonResultRow.users.slug + '" class="btn m-btn--pill btn-secondary"><i class="fa fa-eye"></i></a></div>'
                     }
                 },
             ],

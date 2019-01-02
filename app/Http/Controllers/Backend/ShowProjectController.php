@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Artist;
 use App\Country;
 use App\EndProject;
+use App\Location;
 use App\Management;
 use App\Project;
 use App\User;
@@ -21,9 +22,9 @@ class ShowProjectController extends Controller
         $end_time = EndProject::where('project_id',$project->id)->first();
         $artist= Project::where('id',$project->id)->with('artists.users')->first();
         $country = Country::where('id',$artist->artists[0]->country_id)->first();
-
+        $location = Location::where('id',$artist->artists[0]->location_id)->first();
         if (in_array('Admin', $rol) || in_array('Manage', $rol)) {
-            return view('backend.projects.show-project', compact('project','end_time','artist','country'));
+            return view('backend.projects.show-project', compact('project','end_time','artist','country','location'));
         }else {
 
             $verify = Artist::where('user_id', auth()->user()->id)->with([
@@ -38,7 +39,7 @@ class ShowProjectController extends Controller
             $project->first();
 
             if (in_array($seacharSlug, $array)) {
-                return view('backend.projects.show-project', compact('project','end_time','artist','country'));
+                return view('backend.projects.show-project', compact('project','end_time','artist','country','location'));
             } else {
                 return response('No puedes continuar', 404);
             }

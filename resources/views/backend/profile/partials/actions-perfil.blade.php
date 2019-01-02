@@ -14,27 +14,27 @@
                             <div class="m-dropdown__content">
                                 <ul class="m-nav">
                                     <li class="m-nav__section m-nav__section--first">
-                                        <span class="m-nav__section-text">Quick Actions</span>
+                                        <span class="m-nav__section-text">{{ __('acciones_rapidas') }}</span>
                                     </li>
                                     <li class="m-nav__item">
                                         <a href="{{ route('add.project') }}" class="m-nav__link">
                                             <i class="m-nav__link-icon flaticon-share"></i>
-                                            <span class="m-nav__link-text">Create Post</span>
+                                            <span class="m-nav__link-text">{{ __('nuevo_proyecto') }}</span>
                                         </a>
                                     </li>
                                     <li class="m-nav__item">
                                         <a href="" class="m-nav__link">
                                             <i class="m-nav__link-icon flaticon-chat-1"></i>
-                                            <span class="m-nav__link-text">Send Messages</span>
+                                            <span class="m-nav__link-text">{{ __('enviar_mensaje') }}</span>
                                         </a>
                                     </li>
-                                    <li class="m-nav__item">
+                                    {{--<li class="m-nav__item">
                                         <a href="" class="m-nav__link">
                                             <i class="m-nav__link-icon flaticon-multimedia-2"></i>
                                             <span class="m-nav__link-text">Upload File</span>
                                         </a>
-                                    </li>
-                                    <li class="m-nav__section">
+                                    </li>--}}
+                                   {{-- <li class="m-nav__section">
                                         <span class="m-nav__section-text">Useful Links</span>
                                     </li>
                                     <li class="m-nav__item">
@@ -50,7 +50,7 @@
                                         </a>
                                     </li>
                                     <li class="m-nav__separator m-nav__separator--fit m--hide">
-                                    </li>
+                                    </li>--}}
                                     <li class="m-nav__item m--hide">
                                         <a href="#"
                                            class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">Submit</a>

@@ -62,7 +62,7 @@ class AddProjectController extends Controller
         alert()->success(__("projectCreated"),__('projectCreatedTitle'))->autoClose(3000);
 
 
-        return back();
+        return redirect('/dashboard/my-projects');
     }
 
 

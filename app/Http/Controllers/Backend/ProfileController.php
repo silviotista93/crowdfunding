@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Artist;
 use App\Country;
 use App\Level;
+use App\Location;
 use App\Update;
 use App\User;
 use Illuminate\Http\Request;
@@ -15,9 +16,10 @@ class ProfileController extends Controller
 {
     public function index_artist(){
         $countries = Country::all();
+        $locactions = Location::all();
         $levels = Level::all();
-        $artist = Artist::where('user_id',auth()->user()->id)->with('users.socialAcounts','countries')->first();
-        return view('backend.profile.profile-artist',compact('countries','levels','artist'));
+        $artist = Artist::where('user_id',auth()->user()->id)->with('users.socialAcounts','countries','location')->first();
+        return view('backend.profile.profile-artist',compact('countries','levels','artist','locactions'));
     }
 
     public function profile_update_artist(Request $request, $id_artis){
@@ -29,6 +31,7 @@ class ProfileController extends Controller
             'biography' => 'required',
             'level_id' => 'required',
             'country_id' => 'required',
+            'location_id' => 'required',
             'phone_1' => 'required',
         ]);
 
@@ -37,6 +40,7 @@ class ProfileController extends Controller
             'biography' => $request->get('biography'),
             'level_id' => $request->get('level_id'),
             'country_id' => $request->get('country_id'),
+            'location_id' => $request->get('location_id'),
             'facebook' => $request->get('facebook'),
             'instagram' => $request->get('instagram'),
             'youtube' => $request->get('youtube'),

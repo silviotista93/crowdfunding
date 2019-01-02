@@ -9,6 +9,9 @@ var Select2 = function() {
         $('#select_2_gnre').select2({
             placeholder: "Select a state"
         });
+        $('#select_2_location').select2({
+            placeholder: "Select a state"
+        });
 
         $('#select_2_country').select2({
             placeholder: "Select a state"

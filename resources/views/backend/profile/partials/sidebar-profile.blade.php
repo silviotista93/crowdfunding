@@ -20,8 +20,24 @@
 
             </div>
             @if($artist->countries !== null)
-                <div class="text-center" style="margin-top: 5px"><img src="{{ $artist->countries->flag }}"
-                                                                      width="21" alt="" style="margin-top: 6px;margin-left: -10px"></div>
+                <div class="form-group m-form__group row">
+                    <label for="example-text-input"
+                           class="col-2 col-form-label">{{ __('Origen') }}:</label>
+                    <div class="col-10 pull-right">
+                        <img data-toggle="tooltip" title="{{ $artist->countries->country }}"
+                             src="{{ $artist->countries->flag }}" width="21" alt="" style="margin-left: 80px;margin-top: 7px">
+                    </div>
+                </div>
+            @endif
+            @if($artist->location !== null)
+                <div class="form-group m-form__group row">
+                    <label for="example-text-input"
+                           class="col-2 col-form-label">{{ __('localizacion') }}:</label>
+                    <div class="col-10 pull-right">
+                        <img data-toggle="tooltip" title="{{ $artist->location->country }}"
+                             src="{{ $artist->location->flag }}" width="21" alt="" style="margin-left: 80px;margin-top: 7px">
+                    </div>
+                </div>
             @endif
 
         </div>

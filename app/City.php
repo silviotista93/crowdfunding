@@ -23,4 +23,7 @@ class City extends Model
     public function countries(){
         return $this->hasOne(Country::class);
     }
+    public function location(){
+        return $this->hasOne(Location::class);
+    }
 }

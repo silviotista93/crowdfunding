@@ -56,7 +56,9 @@ class Artist extends Model
     public function users(){
         return $this->belongsTo(User::class,'user_id')->select('id','name','last_name','picture','phone_1','phone_2','state','slug','email','created_at');
     }
-
+    public function location(){
+        return $this->belongsTo(Location::class,'location_id');
+    }
 
     public function answers(){
         return $this->belongsToMany(Answer::class,'answer_artist','answer_id','artist_id');

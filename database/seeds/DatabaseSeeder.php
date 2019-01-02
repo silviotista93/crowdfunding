@@ -91,6 +91,32 @@ class DatabaseSeeder extends Seeder
         factory(\App\Country::class, 1)->create(['country' => 'Estados Unidos','flag' => '/backend/assets/app/media/img/countries/united-states.png']);
         factory(\App\Country::class, 1)->create(['country' => 'Costa Rica','flag' => '/backend/assets/app/media/img/countries/costa-rica.png']);
 
+        /*=============================================
+        CREANDO LAS LOCALIZACIONES
+        =============================================*/
+
+        factory(\App\Location::class, 1)->create(['country' => 'Colombia','flag' => '/backend/assets/app/media/img/countries/colombia.png']);
+        factory(\App\Location::class, 1)->create(['country' => 'Venezuela','flag' => '/backend/assets/app/media/img/countries/venezuela.png']);
+        factory(\App\Location::class, 1)->create(['country' => 'Ecuador','flag' => '/backend/assets/app/media/img/countries/ecuador.png']);
+        factory(\App\Location::class, 1)->create(['country' => 'Perú','flag' => '/backend/assets/app/media/img/countries/peru.png']);
+        factory(\App\Location::class, 1)->create(['country' => 'Brasil','flag' => '/backend/assets/app/media/img/countries/brazil.png']);
+        factory(\App\Location::class, 1)->create(['country' => 'Panamá','flag' => '/backend/assets/app/media/img/countries/panama.png']);
+        factory(\App\Location::class, 1)->create(['country' => 'Paraguay','flag' => '/backend/assets/app/media/img/countries/paraguay.png']);
+        factory(\App\Location::class, 1)->create(['country' => 'Uruguay','flag' => '/backend/assets/app/media/img/countries/uruguay.png']);
+        factory(\App\Location::class, 1)->create(['country' => 'Argentina','flag' => '/backend/assets/app/media/img/countries/argentina.png']);
+        factory(\App\Location::class, 1)->create(['country' => 'Chile','flag' => '/backend/assets/app/media/img/countries/chile.png']);
+        factory(\App\Location::class, 1)->create(['country' => 'Mexico','flag' => '/backend/assets/app/media/img/countries/mexico.png']);
+        factory(\App\Location::class, 1)->create(['country' => 'Puerto Rico','flag' => '/backend/assets/app/media/img/countries/puerto-rico.png']);
+        factory(\App\Location::class, 1)->create(['country' => 'Guatemala','flag' => '/backend/assets/app/media/img/countries/guatemala.png']);
+        factory(\App\Location::class, 1)->create(['country' => 'Cuba','flag' => '/backend/assets/app/media/img/countries/cuba.png']);
+        factory(\App\Location::class, 1)->create(['country' => 'El Salvador','flag' => '/backend/assets/app/media/img/countries/el-salvador.png']);
+        factory(\App\Location::class, 1)->create(['country' => 'República Dominicana','flag' => '/backend/assets/app/media/img/countries/dominican-republic.png']);
+        factory(\App\Location::class, 1)->create(['country' => 'Honduras','flag' => '/backend/assets/app/media/img/countries/honduras.png']);
+        factory(\App\Location::class, 1)->create(['country' => 'Nicaragua','flag' => '/backend/assets/app/media/img/countries/nicaragua.png']);
+        factory(\App\Location::class, 1)->create(['country' => 'Bolivia','flag' => '/backend/assets/app/media/img/countries/bolivia.png']);
+        factory(\App\Location::class, 1)->create(['country' => 'Estados Unidos','flag' => '/backend/assets/app/media/img/countries/united-states.png']);
+        factory(\App\Location::class, 1)->create(['country' => 'Costa Rica','flag' => '/backend/assets/app/media/img/countries/costa-rica.png']);
+
 
         /*=============================================
         CREANDO UN USUARIO ADMINISTRADOR DEL SISTEMA

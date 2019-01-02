@@ -141,6 +141,20 @@
                                         </div>
                                     </div>
 
+                                    <div class="form-group m-form__group row {{$errors->has('country_id')? 'has-danger':''}}">
+                                        <label for="example-text-input"
+                                               class="col-2 col-form-label">{{ __('localizacion') }}</label>
+                                        <div class="col-7">
+                                            <select class="form-control m-select2" id="select_2_location" name="location_id">
+
+                                                @foreach($locactions as $location)
+                                                    <option value="{{ $location->id }}" {{ old('country_id',$location->country_id) == $location->id ? 'selected':''}}>{{ $location->country }}</option>
+                                                @endforeach
+                                                {!! $errors->first('country_id','<div class="form-control-feedback">*:message</div>')!!}
+                                            </select>
+                                        </div>
+                                    </div>
+
                                     <div class="m-form__seperator m-form__seperator--dashed m-form__seperator--space-2x"></div>
                                     <div class="form-group m-form__group row ">
                                         <div class="col-10 ml-auto">
