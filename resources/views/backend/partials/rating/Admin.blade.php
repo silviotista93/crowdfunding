@@ -31,6 +31,7 @@
             <span class="m--font-bold m--font-primary" style="font-weight: bold; font-size: 16px">{{ $end_time->end_time->toFormattedDateString() }}</span>
         @endif
     </div>
+    @if($project->status == 2)
     <!-- Rating Project -->
     <div class="form-group">
         <h5 style="font-weight: bold">{{ __('calificacion') }}:</h5>
@@ -49,6 +50,7 @@
                         class="fa fa-star fa-1x {{$currentRaing==5?"yellow-rating":""}}"></i></li>
         </ul>
     </div>
+    @endif
 <!-- VER A QUIEN SE ASIGNO EL PROYECTO-->
 <div class="form-group">
     <h5 style="font-weight: bold">{{ __('asignado_a') }}:</h5>

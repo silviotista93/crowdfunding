@@ -11,6 +11,17 @@
         .sin_proyectos .informacion__title{
             text-align: center;
         }
+        .container__projects{
+            padding-top: 2rem;
+            padding-bottom: 3rem;
+        }
+        .projects__title{
+            padding-top: 1rem;
+            padding-bottom: 2rem;
+        }
+        .container__projects .xs-content-section-padding{
+            padding-top: 0;
+        }
     </style>
 @endpush
 @section('content')
@@ -91,7 +102,10 @@
 <!-- fin biografia-->
 
 <main class="xs-all-content-wrapper">
-    <!-- fund details -->
+	<div class="container container__projects">
+        <hr>
+        <h2 class="text-center projects__title">Proyectos</h2>
+     {{--       <!-- fund details -->
     <section class="xs-content-section-padding xs-fund-details fundpress-fund-details">
         <div class="container">
             <div class="row">
@@ -100,11 +114,11 @@
 
 
                         <div class="owl-carousel xs-sync-slider-thumb">
-                          {{--   @foreach($project->images as $image) --}}
+                          {{ --   @foreach($project->images as $image) -- }}
                           <div class="xs-sync-slider-thumb-content">
-                            <img src="{{-- {{ $image->pathAttachment() }} --}}" width="10" alt="" style="height: 74px">
+                            <img src="{{ -- {{ $image->pathAttachment() }} -- }}" width="10" alt="" style="height: 74px">
                         </div>
-                        {{--   @endforeach --}}
+                        {{ --   @endforeach -- }}
                         <div class="xs-sync-slider-thumb-content">
                             <img src="/frontend//images/fondo_youtube.png" alt="">
                             <div class="xs-sync-slider icon-position-center">
@@ -122,9 +136,9 @@
         </div>
     </div>
 </section>     <!-- End fund details -->
-
-<section class="xs-content-section-padding xs-news-feeds-inner-section fundpress-news-feeds-inner-section">
-	<div class="container">
+ --}}
+        <section class="xs-content-section-padding xs-news-feeds-inner-section fundpress-news-feeds-inner-section">
+            <div class="container">
         {{-- contenedor de las tarjetas que vienen del js cards --}}
 		<div class="row" id="projectContainer">
 
