@@ -5,6 +5,12 @@
     }
     </style>
 @endpush
+@php
+if ($review == null){
+    $review = new \stdClass();
+    $review->rating = null;
+}
+@endphp
 <!-- Acciones para el Managment -->
 @if($project->status == 2)
 <div class="form-group">
