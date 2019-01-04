@@ -61,7 +61,7 @@ class Artist extends Model
     }
 
     public function answers(){
-        return $this->belongsToMany(Answer::class,'answer_artist','answer_id','artist_id');
+        return $this->belongsToMany(Answer::class,'answer_artist','artist_id','answer_id');
     }
 
     /**

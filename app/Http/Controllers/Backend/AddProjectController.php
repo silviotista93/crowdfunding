@@ -12,6 +12,7 @@ use App\Survey;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 class AddProjectController extends Controller
 {
@@ -21,11 +22,15 @@ class AddProjectController extends Controller
         $artist = Artist::select('nickname','biography','level_id','country_id')
             ->where('user_id', auth()->user()->id)->first();
             $question=Survey::with('question','question.answer')->get();
-
+            $numProject=DB::table('artist_projects')->select('id')->where('artist_id', '=', $artist_id->id)->get();
+            $contProject=count($numProject);
+            // dd($artist_id->id);
+            
+              
         if ($artist->nickname == null){
             return redirect(route('profile.artist'))->with('eliminar','Para agregar un proyecto, completa tu perfil de artista');
         }else{
-            return view('backend.projects.add-project',compact('categories','artist_id','question'));
+            return view('backend.projects.add-project',compact('categories','artist_id','question','contProject'));
         }
     }
 

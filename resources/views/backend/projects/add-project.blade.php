@@ -276,9 +276,11 @@
                                                 
                                             </div>
                                             <div class="m-separator m-separator--dashed m-separator--lg"></div>
-                                            {{--@php($datos=json_decode($question[0]->question))--}}
-
-                                            @forelse ($question as $quest)
+                                            
+                                              {{-- {{dd($contProject)}}       --}}
+                                            @if($contProject == 0)
+                                            @php($datos=json_decode($question[0]->question))
+                                            @forelse ($datos as $quest)
                                             <div class="m-form__section">
                                                 <div class="m-form__heading">
                                                 <h3 class="m-form__heading-title">{{$quest->quest}}</h3>
@@ -320,6 +322,11 @@
                                             @empty
                                                 {{'No hay preguntas' }}
                                             @endforelse
+
+                                            @else
+                                                {{'No hay preguntas'}}
+                                            @endIf    
+                                            
                                         </div>
 
                                         <!--=====================================
