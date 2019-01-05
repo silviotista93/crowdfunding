@@ -278,9 +278,22 @@
                                             <div class="m-separator m-separator--dashed m-separator--lg"></div>
                                             
                                               {{-- {{dd($contProject)}}       --}}
-                                            @if($contProject == 0)
-                                            @php($datos=json_decode($question[0]->question))
+                                              {{-- {{dd($question)}} --}}
+                                              
+                                               @php
+                                                   $datos=null;
+                                                   if(isset($question[0])){
+                                                       $datos=json_decode($question[0]->question);
+                                                   }
+                                               
+                                            @endphp
+                                             
+
+                                              
+                                            @if($contProject == 0 & $datos != null)
+                                            
                                             @forelse ($datos as $quest)
+                                            
                                             <div class="m-form__section">
                                                 <div class="m-form__heading">
                                                 <h3 class="m-form__heading-title">{{$quest->quest}}</h3>
@@ -293,7 +306,7 @@
                                                          <label class="m-option">
                                                              <span class="m-option__control">
                                                                  <span class="m-radio m-radio--state-brand">
-                                                                     <input type="radio" name="questionGroup[{{$ans->id}}]" value="{{$ans->id}}">
+                                                                 <input type="radio" name="questionGroup[{{$ans->id}}]" value="{{$ans->id}}">
                                                                      <span></span>
                                                                  </span>
                                                              </span>

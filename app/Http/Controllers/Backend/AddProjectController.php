@@ -24,7 +24,9 @@ class AddProjectController extends Controller
             $question=Survey::with('question','question.answer')->get();
             $numProject=DB::table('artist_projects')->select('id')->where('artist_id', '=', $artist_id->id)->get();
             $contProject=count($numProject);
-            // dd($artist_id->id);
+
+            
+           
             
               
         if ($artist->nickname == null){
