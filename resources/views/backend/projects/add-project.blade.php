@@ -306,7 +306,7 @@
                                                          <label class="m-option">
                                                              <span class="m-option__control">
                                                                  <span class="m-radio m-radio--state-brand">
-                                                                 <input type="radio" name="questionGroup[{{$ans->id}}]" value="{{$ans->id}}">
+                                                                 <input type="radio" name="questionGroup[{{$ans->question_id}}]" value="{{$ans->id}}">
                                                                      <span></span>
                                                                  </span>
                                                              </span>
