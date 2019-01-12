@@ -25,6 +25,15 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Category[] $categories
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Project[] $projects
  * @property-read \App\User $users
+ * @property int|null $country_id
+ * @property int|null $location_id
+ * @property-read \App\Category|null $countries
+ * @property-read \App\Location|null $locations
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Management newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Management newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Management query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Management whereCountryId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Management whereLocationId($value)
  */
 class Management extends Model
 {

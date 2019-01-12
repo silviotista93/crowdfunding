@@ -97,7 +97,6 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
                                     <h4 class="text-center">{{ __('no_hay_registros') }}</h4>
                                 @endforelse
                             </div>
-
                             {{ $managements->links() }}
                         </div>
                     </div>

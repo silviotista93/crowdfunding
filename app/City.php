@@ -17,6 +17,10 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\City whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\City whereUpdatedAt($value)
  * @property-read \App\Country $countries
+ * @property-read \App\Location $location
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\City newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\City newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\City query()
  */
 class City extends Model
 {

@@ -12,21 +12,27 @@ class RoleTableSeeder extends Seeder
      */
     public function run()
     {
+        Role::truncate();
+
         Role::create([
             'rol'=>'Admin',
             'description'=>'rol del administrador tiene todos los permisos'
         ]);
 
         Role::create([
-            'rol'=>'management',
-            'description'=>'rol de patrocinador '
+            'rol'=>'Artist',
+            'description'=>'rol del artista'
         ]);
 
         Role::create([
-            'rol'=>'artist',
-            'description'=>'rol del artista '
+            'rol'=>'Backer',
+            'description'=>'rol de patrocinador'
         ]);
 
+        Role::create([
+            'rol'=>'Manage',
+            'description'=>'rol de patrocinador'
+        ]);
 
     }
 }

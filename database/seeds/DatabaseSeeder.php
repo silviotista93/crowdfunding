@@ -11,8 +11,23 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        Storage::deleteDirectory('projects');
+        Storage::deleteDirectory('users');
+        Storage::deleteDirectory('projects_images');
+
+        Storage::makeDirectory('projects');
+        Storage::makeDirectory('users');
+        Storage::makeDirectory('projects_images');
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         $this->call(RoleTableSeeder::class);
         $this->call(UserTableSeeder::class);
+        $this->call(TypeCategoriesTableSeeder::class);
+        $this->call(CategoriesTableSeeder::class);
+        $this->call(LevelTableSeeder::class);
+        $this->call(CountryTableSeeder::class);
+        $this->call(LocationTableSeeder::class);
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 
 

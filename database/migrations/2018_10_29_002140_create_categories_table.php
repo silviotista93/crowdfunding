@@ -13,13 +13,19 @@ class CreateCategoriesTable extends Migration
      */
     public function up()
     {
+        Schema::create('type_categories', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->timestamps();
+        });
+
         Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('category');
             $table->string('slug');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->unsignedInteger('typeCategory_id');
-            // $table->foreign('typeCategory_id')->references('id')->on('type_categories');
+            $table->foreign('typeCategory_id')->references('id')->on('type_categories');
             $table->timestamps();
         });
     }
@@ -32,5 +38,6 @@ class CreateCategoriesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('categories');
+        Schema::dropIfExists('type_categories');
     }
 }

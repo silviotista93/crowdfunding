@@ -3,7 +3,11 @@
 @section('header')
     <div class="d-flex align-items-center">
         <div class="mr-auto">
-            <h3 class="m-subheader__title m-subheader__title--separator">{{ __('bienvenido') }}</h3>
+            @if(auth()->user()->roles[0]->rol == "Manage")
+            <h3 class="m-subheader__title m-subheader__title--separator">{{ __('perfil') }}</h3>
+            @else
+                <h3 class="m-subheader__title m-subheader__title--separator">{{ $user->name }}</h3>
+            @endif
             <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
                 <li class="m-nav__item m-nav__item--home">
                     <a href="#" class="m-nav__link m-nav__link--icon">
@@ -38,11 +42,19 @@
                 <div class="m-portlet m-portlet--full-height ">
                     <div class="m-portlet__head">
                         <div class="m-portlet__head-caption">
+                            @if(auth()->user()->roles[0]->rol == "Manage")
                             <div class="m-portlet__head-title">
                                 <h3 class="m-portlet__head-text">
                                     {{ __('mis_proyectos') }}
                                 </h3>
                             </div>
+                                @else
+                                <div class="m-portlet__head-title">
+                                    <h3 class="m-portlet__head-text">
+                                        {{ __('proyectos') }}
+                                    </h3>
+                                </div>
+                                @endif
                         </div>
                     </div>
                     <div class="m-portlet__body">
@@ -139,23 +151,23 @@
                     },
                 ],
                 "language": {
-                    "sProcessing": "Procesando...",
-                    "sLengthMenu": "Mostrar _MENU_ registros",
+                    "sProcessing": "{{__('procesando')}}",
+                    "sLengthMenu": "{{__('mostrar')}} _MENU_ {{__('registros')}}",
                     "sZeroRecords": "No se encontraron resultados",
-                    "sEmptyTable": "Ningún dato disponible en esta tabla",
-                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sEmptyTable": "{{__('nigun_dato_tabla')}}",
+                    "sInfo": "{{__('mostrando_registros') }} _START_ {{__('from')}} _END_ {{__('total_de')}} _TOTAL_ {{__('registros')}}",
+                    "sInfoEmpty": "{{ __('mostrando_registros_del_cero') }}",
                     "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
                     "sInfoPostFix": "",
-                    "sSearch": "Buscar:",
+                    "sSearch": "{{__('buscar')}}:",
                     "sUrl": "",
                     "sInfoThousands": ",",
-                    "sLoadingRecords": "Cargando...",
+                    "sLoadingRecords": "{{__('cargando')}}",
                     "oPaginate": {
                         "sFirst": "Primero",
                         "sLast": "Último",
-                        "sNext": "Siguiente",
-                        "sPrevious": "Anterior"
+                        "sNext": "{{__('siguiente')}}",
+                        "sPrevious": "{{__('anterior')}}"
                     },
                     "oAria": {
                         "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
@@ -163,7 +175,7 @@
                     }
                 }
             });
-        }
+        };
         $(".selectType").on('click', '.changeType', function(){
             let tipo = parseInt($(this).attr("data-type"));
             if (!(tipo >  0)){

@@ -22,6 +22,10 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read \App\Artist $artist
  * @property-read \App\City $cities
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Country whereFlag($value)
+ * @property-read \App\Management $management
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Country newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Country newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Country query()
  */
 class Country extends Model
 {

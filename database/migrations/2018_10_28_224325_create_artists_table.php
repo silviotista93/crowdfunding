@@ -22,7 +22,7 @@ class CreateArtistsTable extends Migration
             $table->increments('id');
             $table->string('country');
             $table->string('flag')->nullable();
-            $table->unsignedInteger('city_id');
+            $table->unsignedInteger('city_id')->nullable();
             $table->foreign('city_id')->references('id')->on('cities');
             $table->timestamps();
         });
@@ -30,14 +30,14 @@ class CreateArtistsTable extends Migration
             $table->increments('id');
             $table->string('country');
             $table->string('flag')->nullable();
-            $table->unsignedInteger('city_id');
+            $table->unsignedInteger('city_id')->nullable();
             $table->foreign('city_id')->references('id')->on('cities');
             $table->timestamps();
         });
         Schema::create('levels', function (Blueprint $table) {
             $table->increments('id');
             $table->string('level');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
         Schema::create('artists', function (Blueprint $table) {

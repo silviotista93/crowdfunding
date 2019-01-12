@@ -19,6 +19,9 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Level whereLevel($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Level whereUpdatedAt($value)
  * @property-read \App\Artist $artist
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Level newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Level newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Level query()
  */
 class Level extends Model
 {

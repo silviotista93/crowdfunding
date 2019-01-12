@@ -21,6 +21,9 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Donation whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Donation whereUserId($value)
  * @property-read \App\Project $projects
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Donation newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Donation newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Donation query()
  */
 class Donation extends Model
 {

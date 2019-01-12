@@ -155,6 +155,7 @@ Route::group(['namespace'=>'Backend','prefix' => 'dashboard','middleware' => 'au
     Route::post('/profile-photo-management','Manage\ProfileController@photo_management')->name('profile.photo.management');
     Route::get('datatables-projects-profile-manage','Manage\ProfileController@table_proyects')->name('datatables.projects.profile.manage');
     Route::post('/update-password-management','Manage\ProfileController@update_password_management')->name('update.password.management');
+    Route::get('/backings-made-magement/{user}','Manage\BackingsMadeController@index')->name('backings.made.manage');
 
 
 

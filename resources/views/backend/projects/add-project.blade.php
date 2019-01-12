@@ -321,7 +321,7 @@
                                                      </div>
 
                                                      @empty
-                                                         {{'no hay opciones'}}
+                                                         {{__('no_hay_opciones')}}
                                                      @endforelse
 
 
@@ -333,11 +333,11 @@
                                                 </div>
                                             </div>
                                             @empty
-                                                {{'No hay preguntas' }}
+                                                {{__('no_hay_preguntas') }}
                                             @endforelse
 
                                             @else
-                                                {{'No hay preguntas'}}
+                                                {{__('no_hay_preguntas') }}
                                             @endIf    
                                             
                                         </div>

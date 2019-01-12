@@ -37,6 +37,13 @@ use Illuminate\Support\Facades\DB;
  * @property-read \App\Level|null $levels
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Project[] $projects
  * @property-read \App\User $users
+ * @property int|null $location_id
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Answer[] $answers
+ * @property-read \App\Location|null $location
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Artist newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Artist newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Artist query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Artist whereLocationId($value)
  */
 class Artist extends Model
 {

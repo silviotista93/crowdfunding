@@ -23,6 +23,9 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Update whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Update whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Update newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Update newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Update query()
  */
 class Update extends Model
 {

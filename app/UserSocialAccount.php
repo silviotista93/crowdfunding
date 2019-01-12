@@ -17,6 +17,9 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\UserSocialAccount whereProviderUid($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\UserSocialAccount whereUserId($value)
  * @mixin \Eloquent
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\UserSocialAccount newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\UserSocialAccount newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\UserSocialAccount query()
  */
 class UserSocialAccount extends Model
 {

@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 use App\User;
+use \App\Management;
+use  \App\Artist;
 
 class UserTableSeeder extends Seeder
 {
@@ -12,28 +14,29 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        // User::truncate();
+         User::truncate();
+         Management::truncate();
+         Artist::truncate();
         $admin = User::create([
 
-            'name'=>'Mauricio',
-            'last_name'=>'Gutierrez',
-            'picture'=>'/public/backend/assets/app/media/img/users/perfil.jpg',
+            'name'=>'John Jairo',
+            'last_name'=>'Llorente',
+            'picture'=>'/backend/assets/app/media/img/users/perfil.jpg',
             'phone_1'=>'333333333',
             'phone_2'=>'333333333',
             'state'=>'1',
-            'slug'=>'mauricio-gutierrez',
-            'email'=>'silviotista@gmail.com',
+            'slug'=>'john-llorente',
+            'email'=>'admin@gmail.com',
             'password'=>bcrypt('secret')
 
         ]);
 
-        $admin->roles()->attach(1);
-
+        $admin->roles()->attach(['1']);
         $manage = User::create([
 
             'name'=>'Omar',
             'last_name'=>'Sanchez',
-            'picture'=>'/public/backend/assets/app/media/img/users/perfil.jpg',
+            'picture'=>'/backend/assets/app/media/img/users/perfil.jpg',
             'phone_1'=>'333333333',
             'phone_2'=>'333333333',
             'state'=>'1',
@@ -43,23 +46,28 @@ class UserTableSeeder extends Seeder
 
         ]);
 
-        $manage->roles()->attach(2);
-        
+        $manage->roles()->attach(['4']);
+        $management = new Management;
+        $management->user_id = $manage->id;
+        $management->save();
+
 
         $artist = User::create([
 
             'name'=>'Cristian',
             'last_name'=>'Salazar',
-            'picture'=>'/public/backend/assets/app/media/img/users/perfil.jpg',
+            'picture'=>'/backend/assets/app/media/img/users/perfil.jpg',
             'phone_1'=>'333333333',
             'phone_2'=>'333333333',
             'state'=>'1',
             'slug'=>'cristian-salazar',
             'email'=>'casalazar@gmail.com',
             'password'=>bcrypt('secret')
-
         ]);
 
-        $artist->roles()->attach(3);
+        $artist->roles()->attach(['2','3']);
+        $artista = new Artist;
+        $artista->user_id = $artist->id;
+        $artista->save();
     }
 }

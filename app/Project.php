@@ -51,6 +51,10 @@ use Illuminate\Support\Facades\DB;
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Review[] $reviews
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Reward[] $rewards
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Update[] $updates
+ * @property-read mixed $rating
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Project newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Project newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Project query()
  */
 class Project extends Model
 {

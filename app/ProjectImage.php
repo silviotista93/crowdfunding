@@ -18,6 +18,9 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\ProjectImage whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\ProjectImage whereUrl($value)
  * @mixin \Eloquent
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\ProjectImage newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\ProjectImage newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\ProjectImage query()
  */
 class ProjectImage extends Model
 {

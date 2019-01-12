@@ -24,6 +24,11 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Review whereUserId($value)
  * @property-read \App\Project $projects
  * @property-read \App\User $users
+ * @property string|null $end_time
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Review newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Review newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Review query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Review whereEndTime($value)
  */
 class Review extends Model
 {

@@ -250,23 +250,23 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
                     },
                 ],
                 "language": {
-                    "sProcessing": "Procesando...",
-                    "sLengthMenu": "Mostrar _MENU_ registros",
+                    "sProcessing": "{{__('procesando')}}",
+                    "sLengthMenu": "{{__('mostrar')}} _MENU_ {{__('registros')}}",
                     "sZeroRecords": "No se encontraron resultados",
-                    "sEmptyTable": "Ningún dato disponible en esta tabla",
-                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sEmptyTable": "{{__('nigun_dato_tabla')}}",
+                    "sInfo": "{{__('mostrando_registros') }} _START_ {{__('from')}} _END_ {{__('total_de')}} _TOTAL_ {{__('registros')}}",
+                    "sInfoEmpty": "{{ __('mostrando_registros_del_cero') }}",
                     "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
                     "sInfoPostFix": "",
-                    "sSearch": "Buscar:",
+                    "sSearch": "{{__('buscar')}}:",
                     "sUrl": "",
                     "sInfoThousands": ",",
-                    "sLoadingRecords": "Cargando...",
+                    "sLoadingRecords": "{{__('cargando')}}",
                     "oPaginate": {
                         "sFirst": "Primero",
                         "sLast": "Último",
-                        "sNext": "Siguiente",
-                        "sPrevious": "Anterior"
+                        "sNext": "{{__('siguiente')}}",
+                        "sPrevious": "{{__('anterior')}}"
                     },
                     "oAria": {
                         "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
@@ -274,7 +274,7 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
                     }
                 }
             });
-        }
+        };
         $(".selectType").on('click', '.changeType', function(){
             let tipo = parseInt($(this).attr("data-type"));
             if (!(tipo >  0)){

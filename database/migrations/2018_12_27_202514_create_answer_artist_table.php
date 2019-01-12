@@ -20,9 +20,6 @@ class CreateAnswerArtistTable extends Migration
             $table->unsignedInteger('artist_id');
             $table->foreign('artist_id')->references('id')->on('artists');
             $table->timestamps();
-            
-            
-            
         });
     }
 

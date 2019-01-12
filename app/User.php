@@ -43,6 +43,10 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property-read \App\Management $managements
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\User[] $roles
  * @property-read \App\UserSocialAccount $socialAcounts
+ * @property-read mixed $url_artist
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User query()
  */
 class User extends Authenticatable
 {

@@ -22,9 +22,15 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Management[] $managements
  * @property-read \App\Project $projects
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Category whereSlug($value)
+ * @property int $typeCategory_id
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Category newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Category newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Category query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Category whereTypeCategoryId($value)
  */
 class Category extends Model
 {
+    protected $fillable = ['category','slug','description','typeCategory_id'];
     public function getRouteKeyName()
     {
         return 'slug';

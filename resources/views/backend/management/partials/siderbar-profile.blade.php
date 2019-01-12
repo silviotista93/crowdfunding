@@ -47,10 +47,10 @@
                     <span class="m-nav__link-text" {{request()->is('dashboard/profile-my_proyects*') ? 'style=color:#716aca !important' : '' }}>{{ __('proyectos_asignados') }}</span>
                 </a>
             </li>
-            <li class="m-nav__item" {{request()->is('dashboard/backings-made') ? 'style=background-color:#f2f4f9' : '' }}>
-                <a href="{{ route('backings.made.artist') }}" class="m-nav__link">
+            <li class="m-nav__item" {{request()->is('dashboard/backings-made-magement*') ? 'style=background-color:#f2f4f9' : '' }}>
+                <a href="{{ route('backings.made.manage',$user->slug) }}" class="m-nav__link">
                     <i class="m-nav__link-icon la la-hand-o-right"></i>
-                    <span class="m-nav__link-text" {{request()->is('dashboard/backings-made') ? 'style=color:#716aca !important' : '' }}>{{ __('apoyos_hechos') }}</span>
+                    <span class="m-nav__link-text" {{request()->is('dashboard/backings-made-magement*') ? 'style=color:#716aca !important' : '' }}>{{ __('apoyos_hechos') }}</span>
                 </a>
             </li>
             {{--<li class="m-nav__item">
@@ -73,7 +73,7 @@
             </li>--}}
         </ul>
         <div class="m-portlet__body-separator"></div>
-        <div class="m-widget1 m-widget1--paddingless">
+        {{--<div class="m-widget1 m-widget1--paddingless">
             <div class="m-widget1__item">
                 <div class="row m-row--no-padding align-items-center">
                     <div class="col">
@@ -93,8 +93,8 @@
                         <span class="m-widget1__number m--font-danger"></span>
                     </div>
                 </div>
-            </div>
-            <div class="m-widget1__item">
+            </div>--}}
+            {{--<div class="m-widget1__item">
                 <div class="row m-row--no-padding align-items-center">
                     <div class="col">
                         <h3 class="m-widget1__title">{{ __('total_patrocinadores') }}</h3>
@@ -103,7 +103,6 @@
                         <span class="m-widget1__number m--font-success">22</span>
                     </div>
                 </div>
-            </div>
-        </div>
+            </div>--}}
     </div>
 </div>

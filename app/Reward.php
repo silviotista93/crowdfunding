@@ -27,6 +27,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read \App\Project $projects
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Reward whereEstimated($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Reward whereShipments($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Reward newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Reward newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Reward query()
  */
 class Reward extends Model
 {

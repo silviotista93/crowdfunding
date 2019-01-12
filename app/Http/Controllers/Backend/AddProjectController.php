@@ -24,10 +24,6 @@ class AddProjectController extends Controller
             $question=Survey::with('question','question.answer')->get();
             $numProject=DB::table('artist_projects')->select('id')->where('artist_id', '=', $artist_id->id)->get();
             $contProject=count($numProject);
-
-            
-           
-            
               
         if ($artist->nickname == null){
             return redirect(route('profile.artist'))->with('eliminar','Para agregar un proyecto, completa tu perfil de artista');
@@ -59,6 +55,7 @@ class AddProjectController extends Controller
             'slug' => $slug.'-'.$ramdoNum
         ]);
 
+
         $ans=Artist::findOrFail($request->get('artist_id'));
         $ans->answers()->attach($request->get('questionGroup'));
 
@@ -69,14 +66,4 @@ class AddProjectController extends Controller
 
         return redirect()->route("myprojects.artist");
     }
-
-
-
-
-
-
-
-
-
-
 }
