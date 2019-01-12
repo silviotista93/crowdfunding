@@ -77,6 +77,8 @@ class Project extends Model
     const PUBLISHED = 4;
     const REJECTED = 5;
 
+    const PERCENTAGE_APPROVAL = 3;
+
     protected $withCount = ['reviews','updates'];
     protected $fillable = [
         'title',
@@ -147,6 +149,10 @@ class Project extends Model
 
     public function images(){
         return $this->hasMany(ProjectImage::class);
+    }
+
+    public function endProject(){
+        return $this->hasOne(EndProject::class);
     }
 
     /*
