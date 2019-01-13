@@ -398,6 +398,19 @@
                                         @endif
                                     </div>
                                 </div>
+
+                                <div class="form-group m-form__group row {{$errors->has('web_site')? 'has-danger':''}}">
+                                    <h5 class="m-section__heading" style="padding-left: 28px">{{__('selecciona_insteres')}}:</h5>
+                                    <div class="col-7">
+                                        <div class="m-demo__preview m-demo__preview--badge">
+                                        @forelse($managements->categories as $insteres)
+                                                <span class="m-badge m-badge--danger m-badge--wide" style="font-size: 13px;">{{ $insteres->category }}</span>
+                                        @empty
+                                            <p>{{ __('aun_no_registrado') }}</p>
+                                        @endforelse
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     @endif

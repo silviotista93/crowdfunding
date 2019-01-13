@@ -44,6 +44,7 @@ class AddProjectController extends Controller
     public function store (Request $request){
         $slug = str_slug($request->get('title'));
         $ramdoNum = mt_rand(1,10000);
+        $project_exist = Artist::where('user_id',auth()->user()->id)->with('projects')->first();
         $project = Project::create([
             'title' => $request->get('title'),
             'short_description' => $request->get('short_description'),
@@ -55,7 +56,6 @@ class AddProjectController extends Controller
             'slug' => $slug.'-'.$ramdoNum
         ]);
 
-
         $ans=Artist::findOrFail($request->get('artist_id'));
         $ans->answers()->attach($request->get('questionGroup'));
 
@@ -63,7 +63,13 @@ class AddProjectController extends Controller
         $artist = Artist::select('nickname')->where('id',$request->get('artist_id'))->first();
         \Mail::to('silviotista93@gmail.com')->send(new NewProjectArtist($project,auth()->user()->name));
         alert()->success(__("projectCreated"),__('projectCreatedTitle'))->autoClose(3000);
+        $count_project = count($project_exist->projects);
+        $name_artist = $project_exist->nickname;
+        if ($count_project >= 1){
+            return redirect(route("myprojects.artist"))->with('proyect_add','' . $name_artist . ' ' . __('proyecto_add_notificar'));
+        }else{
+            return redirect(route("myprojects.artist"))->with('proyect_add',' '. $name_artist . ' ' . __('primer_proyecto_add_notificar'));
 
-        return redirect()->route("myprojects.artist");
+        }
     }
 }

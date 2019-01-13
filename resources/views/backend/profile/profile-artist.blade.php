@@ -44,6 +44,21 @@
 @stop
 @section('content')
     <div class="m-content">
+        @if(session()->has('profile_update'))
+        <div class="m-alert m-alert--icon m-alert--outline alert alert-success" role="alert">
+            <div class="m-alert__icon">
+                <i class="la la-check"></i>
+            </div>
+            <div class="m-alert__text">
+                <strong>{{ __('bien_hecho') }}!</strong> {{session('profile_update')}}
+                <i class="la la-hand-o-right pull-right" style="font-size: 25px"></i>
+            </div>
+            <div class="m-alert__actions" style="width: 30px;">
+                <a href="{{ route('add.project') }}" class="btn m-btn--pill btn-success">{{ __('nuevo_proyecto') }}
+                </a>
+            </div>
+        </div>
+        @endif
         <div class="row">
             <div class="col-xl-3 col-lg-4">
                 @include('backend.profile.partials.sidebar-profile')
@@ -124,7 +139,6 @@
                                                 @endforeach
                                                 {!! $errors->first('level_id','<div class="form-control-feedback">*:message</div>')!!}
                                             </select>
-
                                         </div>
                                     </div>
 
@@ -138,6 +152,7 @@
                                                 @endforeach
                                                 {!! $errors->first('country_id','<div class="form-control-feedback">*:message</div>')!!}
                                             </select>
+                                            <span class="m-form__help">{{ __('sugerencia_country') }}</span>
                                         </div>
                                     </div>
 
@@ -152,6 +167,7 @@
                                                 @endforeach
                                                 {!! $errors->first('country_id','<div class="form-control-feedback">*:message</div>')!!}
                                             </select>
+                                            <span class="m-form__help">{{ __('sugerencia_location') }}</span>
                                         </div>
                                     </div>
 
@@ -165,21 +181,9 @@
                                         <label for="example-text-input"
                                                class="col-2 col-form-label">{{ __('numero_celular') }}</label>
                                         <div class="col-7">
-                                            <input type='text' class="form-control" id="m_inputmask_3" name="phone_1"
-                                                   value="{{ old('phone_1',$artist->users->phone_1 )}}"
-                                                   data-inputmask='"mask": "(999) 999-9999999"'/>
+                                            <input id="phone" name="phone_1" type="tel" value="{{ old('phone_1',$artist->users->phone_1 )}}">
                                             {!! $errors->first('phone_1','<div class="form-control-feedback">*:message</div>')!!}
                                             <span class="m-form__help">{{ __('indicativo_pais')  }}</span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group m-form__group row">
-                                        <label for="example-text-input"
-                                               class="col-2 col-form-label">{{ __('numero_celular') }} 2</label>
-                                        <div class="col-7">
-                                            <input type='text' class="form-control" id="m_inputmask_opcional"
-                                                   name="phone_2" value="{{ old('phone_2',$artist->users->phone_2 ) }}"
-                                                   data-inputmask='"mask": "(999) 999-9999999"'/>
-                                            <span class="m-form__help">{{ __('telefono_opcional')  }}</span>
                                         </div>
                                     </div>
 
@@ -462,5 +466,30 @@
         });
 
         Dropzone.autoDiscover = false;
+
+        var input = document.querySelector("#phone");
+        window.intlTelInput(input, {
+            // allowDropdown: false,
+            // autoHideDialCode: false,
+            // autoPlaceholder: "off",
+            // dropdownContainer: document.body,
+            // excludeCountries: ["us"],
+            // formatOnDisplay: false,
+            // geoIpLookup: function(callback) {
+            //   $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+            //     var countryCode = (resp && resp.country) ? resp.country : "";
+            //     callback(countryCode);
+            //   });
+            // },
+            // hiddenInput: "full_number",
+            // initialCountry: "auto",
+            // localizedCountries: { 'de': 'Deutschland' },
+            // nationalMode: false,
+            // onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
+            // placeholderNumberType: "MOBILE",
+            // preferredCountries: ['cn', 'jp'],
+            // separateDialCode: true,
+            utilsScript: "/backend/build/js/utils.js",
+        });
     </script>
 @endsection

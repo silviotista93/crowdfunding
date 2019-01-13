@@ -9,25 +9,27 @@
             <li class="m-menu__item  m-menu__item--submenu m-menu__item--rel" m-menu-submenu-toggle="click"
                 m-menu-link-redirect="1" aria-haspopup="true"><a href="javascript:;" class="m-menu__link m-menu__toggle"
                                                                  title="Non functional dummy link"><i
-                            class="m-menu__link-icon la la-desktop"></i><span
-                            class="m-menu__link-text">{{ __('ir_web') }}</span><i
-                            class="m-menu__hor-arrow la la-angle-down"></i><i
-                            class="m-menu__ver-arrow la la-angle-right"></i></a>
+                        class="m-menu__link-icon la la-desktop"></i><span
+                        class="m-menu__link-text">{{ __('ir_web') }}</span><i
+                        class="m-menu__hor-arrow la la-angle-down"></i><i
+                        class="m-menu__ver-arrow la la-angle-right"></i></a>
                 <div class="m-menu__submenu m-menu__submenu--classic m-menu__submenu--left"><span
-                            class="m-menu__arrow m-menu__arrow--adjust"></span>
+                        class="m-menu__arrow m-menu__arrow--adjust"></span>
                     <ul class="m-menu__subnav">
                         <li class="m-menu__item " aria-haspopup="true"><a href="{{ route('home') }}"
                                                                           class="m-menu__link "><i
-                                        class="m-menu__link-icon la la-home"></i><span
-                                        class="m-menu__link-text">{{ __('inicio') }}</span></a>
+                                    class="m-menu__link-icon la la-home"></i><span
+                                    class="m-menu__link-text">{{ __('inicio') }}</span></a>
                         </li>
                         <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a
-                                    href="{{ route('projects') }}" class="m-menu__link "><i
-                                        class="m-menu__link-icon la la-share-alt"></i><span class="m-menu__link-title"> <span
-                                            class="m-menu__link-wrap">
-																<span class="m-menu__link-text">{{ __('proyectos') }}</span> <span
-                                                class="m-menu__link-badge"><span
-                                                    class="m-badge m-badge--success">2</span></span> </span></span></a>
+                                href="{{ route('projects') }}" class="m-menu__link "><i
+                                    class="m-menu__link-icon la la-share-alt"></i><span
+                                    class="m-menu__link-title"> <span
+                                        class="m-menu__link-wrap">
+																<span
+                                                                    class="m-menu__link-text">{{ __('proyectos') }}</span> <span
+                                            class="m-menu__link-badge"><span
+                                                class="m-badge m-badge--success">2</span></span> </span></span></a>
                         </li>
                         {{--<li class="m-menu__item  m-menu__item--submenu" m-menu-submenu-toggle="hover"
                             m-menu-link-redirect="1" aria-haspopup="true"><a href="javascript:;"
@@ -96,6 +98,12 @@
                     </ul>
                 </div>
             </li>
+            <li class="m-menu__item ">
+                <a href="{{ route('add.project') }}" class="m-menu__link"><i
+                        class="m-menu__link-icon la la-plus-circle"></i><span
+                        class="m-menu__link-text">{{ __('nuevo_proyecto') }}</span>
+                </a>
+            </li>
         </ul>
     </div>
 
@@ -119,11 +127,11 @@
                                     <div class="m-list-search__form-wrapper">
 																<span class="m-list-search__form-input-wrapper">
 																	<input id="m_quicksearch_input"
-                                                                                            autocomplete="off"
-                                                                                            type="text" name="q"
-                                                                                            class="m-list-search__form-input"
-                                                                                            value=""
-                                                                                            placeholder="Search...">
+                                                                           autocomplete="off"
+                                                                           type="text" name="q"
+                                                                           class="m-list-search__form-input"
+                                                                           value=""
+                                                                           placeholder="Search...">
 																</span>
                                         <span class="m-list-search__form-icon-close" id="m_quicksearch_close">
 																	<i class="la la-remove"></i>
@@ -182,47 +190,52 @@
                                                 <div class="m-list-timeline m-list-timeline--skin-light">
                                                     <div class="m-list-timeline__items">
                                                         <div class="m-list-timeline__item">
-                                                            <span class="m-list-timeline__badge -m-list-timeline__badge--state-success"></span>
-                                                            <span class="m-list-timeline__text">12 new users registered</span>
+                                                            <span
+                                                                class="m-list-timeline__badge -m-list-timeline__badge--state-success"></span>
+                                                            <span
+                                                                class="m-list-timeline__text">12 new users registered</span>
                                                             <span class="m-list-timeline__time">Just now</span>
                                                         </div>
                                                         <div class="m-list-timeline__item">
                                                             <span class="m-list-timeline__badge"></span>
                                                             <span class="m-list-timeline__text">System shutdown <span
-                                                                        class="m-badge m-badge--success m-badge--wide">pending</span></span>
+                                                                    class="m-badge m-badge--success m-badge--wide">pending</span></span>
                                                             <span class="m-list-timeline__time">14 mins</span>
                                                         </div>
                                                         <div class="m-list-timeline__item">
                                                             <span class="m-list-timeline__badge"></span>
-                                                            <span class="m-list-timeline__text">New invoice received</span>
+                                                            <span
+                                                                class="m-list-timeline__text">New invoice received</span>
                                                             <span class="m-list-timeline__time">20 mins</span>
                                                         </div>
                                                         <div class="m-list-timeline__item">
                                                             <span class="m-list-timeline__badge"></span>
                                                             <span class="m-list-timeline__text">DB overloaded 80% <span
-                                                                        class="m-badge m-badge--info m-badge--wide">settled</span></span>
+                                                                    class="m-badge m-badge--info m-badge--wide">settled</span></span>
                                                             <span class="m-list-timeline__time">1 hr</span>
                                                         </div>
                                                         <div class="m-list-timeline__item">
                                                             <span class="m-list-timeline__badge"></span>
                                                             <span class="m-list-timeline__text">System error - <a
-                                                                        href="#" class="m-link">Check</a></span>
+                                                                    href="#" class="m-link">Check</a></span>
                                                             <span class="m-list-timeline__time">2 hrs</span>
                                                         </div>
                                                         <div class="m-list-timeline__item m-list-timeline__item--read">
                                                             <span class="m-list-timeline__badge"></span>
                                                             <span href="" class="m-list-timeline__text">New order received <span
-                                                                        class="m-badge m-badge--danger m-badge--wide">urgent</span></span>
+                                                                    class="m-badge m-badge--danger m-badge--wide">urgent</span></span>
                                                             <span class="m-list-timeline__time">7 hrs</span>
                                                         </div>
                                                         <div class="m-list-timeline__item m-list-timeline__item--read">
                                                             <span class="m-list-timeline__badge"></span>
-                                                            <span class="m-list-timeline__text">Production server down</span>
+                                                            <span
+                                                                class="m-list-timeline__text">Production server down</span>
                                                             <span class="m-list-timeline__time">3 hrs</span>
                                                         </div>
                                                         <div class="m-list-timeline__item">
                                                             <span class="m-list-timeline__badge"></span>
-                                                            <span class="m-list-timeline__text">Production server up</span>
+                                                            <span
+                                                                class="m-list-timeline__text">Production server up</span>
                                                             <span class="m-list-timeline__time">5 hrs</span>
                                                         </div>
                                                     </div>
@@ -235,36 +248,42 @@
                                                 <div class="m-list-timeline m-list-timeline--skin-light">
                                                     <div class="m-list-timeline__items">
                                                         <div class="m-list-timeline__item">
-                                                            <span class="m-list-timeline__badge m-list-timeline__badge--state1-success"></span>
+                                                            <span
+                                                                class="m-list-timeline__badge m-list-timeline__badge--state1-success"></span>
                                                             <a href="" class="m-list-timeline__text">New order
                                                                 received</a>
                                                             <span class="m-list-timeline__time">Just now</span>
                                                         </div>
                                                         <div class="m-list-timeline__item">
-                                                            <span class="m-list-timeline__badge m-list-timeline__badge--state1-danger"></span>
+                                                            <span
+                                                                class="m-list-timeline__badge m-list-timeline__badge--state1-danger"></span>
                                                             <a href="" class="m-list-timeline__text">New invoice
                                                                 received</a>
                                                             <span class="m-list-timeline__time">20 mins</span>
                                                         </div>
                                                         <div class="m-list-timeline__item">
-                                                            <span class="m-list-timeline__badge m-list-timeline__badge--state1-success"></span>
+                                                            <span
+                                                                class="m-list-timeline__badge m-list-timeline__badge--state1-success"></span>
                                                             <a href="" class="m-list-timeline__text">Production server
                                                                 up</a>
                                                             <span class="m-list-timeline__time">5 hrs</span>
                                                         </div>
                                                         <div class="m-list-timeline__item">
-                                                            <span class="m-list-timeline__badge m-list-timeline__badge--state1-info"></span>
+                                                            <span
+                                                                class="m-list-timeline__badge m-list-timeline__badge--state1-info"></span>
                                                             <a href="" class="m-list-timeline__text">New order
                                                                 received</a>
                                                             <span class="m-list-timeline__time">7 hrs</span>
                                                         </div>
                                                         <div class="m-list-timeline__item">
-                                                            <span class="m-list-timeline__badge m-list-timeline__badge--state1-info"></span>
+                                                            <span
+                                                                class="m-list-timeline__badge m-list-timeline__badge--state1-info"></span>
                                                             <a href="" class="m-list-timeline__text">System shutdown</a>
                                                             <span class="m-list-timeline__time">11 mins</span>
                                                         </div>
                                                         <div class="m-list-timeline__item">
-                                                            <span class="m-list-timeline__badge m-list-timeline__badge--state1-info"></span>
+                                                            <span
+                                                                class="m-list-timeline__badge m-list-timeline__badge--state1-info"></span>
                                                             <a href="" class="m-list-timeline__text">Production server
                                                                 down</a>
                                                             <span class="m-list-timeline__time">3 hrs</span>
@@ -337,7 +356,7 @@
                     <a href="#" class="m-nav__link m-dropdown__toggle">
 												<span class="m-nav__link-text">
 													<img class="m-topbar__language-selected-img"
-                                                                      src="{{Config::get('app.locale') == 'en' ? '/backend/assets/app/media/img/flags/020-flag.svg' : '/backend/assets/app/media/img/flags/016-spain.svg'}}">
+                                                         src="{{Config::get('app.locale') == 'en' ? '/backend/assets/app/media/img/flags/020-flag.svg' : '/backend/assets/app/media/img/flags/016-spain.svg'}}">
 												</span>
                     </a>
                     <div class="m-dropdown__wrapper">
@@ -355,14 +374,16 @@
                                                class="m-nav__link m-nav__link--active">
                                                 <span class="m-nav__link-icon"><img class="m-topbar__language-img"
                                                                                     src="/backend/assets/app/media/img/flags/020-flag.svg"></span>
-                                                <span class="m-nav__link-title m-topbar__language-text m-nav__link-text">USA</span>
+                                                <span
+                                                    class="m-nav__link-title m-topbar__language-text m-nav__link-text">USA</span>
                                             </a>
                                         </li>
                                         <li class="m-nav__item">
                                             <a href="{{ route('set_language', ['es']) }}" class="m-nav__link">
                                                 <span class="m-nav__link-icon"><img class="m-topbar__language-img"
                                                                                     src="/backend/assets/app/media/img/flags/016-spain.svg"></span>
-                                                <span class="m-nav__link-title m-topbar__language-text m-nav__link-text">Spain</span>
+                                                <span
+                                                    class="m-nav__link-title m-topbar__language-text m-nav__link-text">Spain</span>
                                             </a>
                                         </li>
                                     </ul>
@@ -377,14 +398,14 @@
 												<span class="m-topbar__userpic">
 
                                                                 @if(Storage::disk('public')->exists('users/'.auth()->user()->picture))
-                                                                    <img src="{{ auth()->user()->pathAttachment() }}"
-                                                                         class="m--img-rounded m--marginless" alt=""/>
-                                                                @else
-                                                                    <img src="{{ auth()->user()->picture}}"
-                                                                         class="m--img-rounded m--marginless"
-                                                                         alt=""/>
+                                                        <img src="{{ auth()->user()->pathAttachment() }}"
+                                                             class="m--img-rounded m--marginless" alt=""/>
+                                                    @else
+                                                        <img src="{{ auth()->user()->picture}}"
+                                                             class="m--img-rounded m--marginless"
+                                                             alt=""/>
 
-                                                                @endif
+                                                    @endif
 
 
 												</span>
@@ -408,7 +429,8 @@
                                         @endif
                                     </div>
                                     <div class="m-card-user__details">
-                                        <span class="m-card-user__name m--font-weight-500">{{ auth()->user()->name }}</span>
+                                        <span
+                                            class="m-card-user__name m--font-weight-500">{{ auth()->user()->name }}</span>
                                         <a href=""
                                            class="m-card-user__email m--font-weight-300 m-link">{{ auth()->user()->email }}</a>
                                     </div>
@@ -424,19 +446,21 @@
                                             @if(auth()->user()->roles[0]->rol == "Admin")
                                                 <a href="{{ route('profile.artist') }}" class="m-nav__link">
                                                     @elseif(auth()->user()->roles[0]->rol == "Manage")
-                                                        <a href="{{ route('profile.managament',auth()->user()->slug) }}" class="m-nav__link">
-                                                    @elseif(auth()->user()->roles[0]->rol == "Artist")
-                                                                <a href="{{ route('profile.artist') }}" class="m-nav__link">
-                                            @endif
-                                                    <i class="m-nav__link-icon flaticon-profile-1"></i>
-                                                    <span class="m-nav__link-title">
+                                                        <a href="{{ route('profile.managament',auth()->user()->slug) }}"
+                                                           class="m-nav__link">
+                                                            @elseif(auth()->user()->roles[0]->rol == "Artist")
+                                                                <a href="{{ route('profile.artist') }}"
+                                                                   class="m-nav__link">
+                                                                    @endif
+                                                                    <i class="m-nav__link-icon flaticon-profile-1"></i>
+                                                                    <span class="m-nav__link-title">
 																			<span class="m-nav__link-wrap">
 																				<span class="m-nav__link-text">My Profile</span>
 																				<span class="m-nav__link-badge"><span
-                                                                                                                class="m-badge m-badge--success">2</span></span>
+                                                                                        class="m-badge m-badge--success">2</span></span>
 																			</span>
 																		</span>
-                                                </a>
+                                                                </a>
                                         </li>
                                         <li class="m-nav__item">
                                             <a href="header/profile.html" class="m-nav__link">

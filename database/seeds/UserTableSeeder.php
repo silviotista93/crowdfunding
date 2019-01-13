@@ -45,11 +45,14 @@ class UserTableSeeder extends Seeder
             'password'=>bcrypt('secret')
 
         ]);
-
         $manage->roles()->attach(['4']);
-        $management = new Management;
-        $management->user_id = $manage->id;
-        $management->save();
+        $add_management = Management::create([
+            'user_id' => $manage->id,
+            'country_id' => '1'
+        ]);
+
+        $add_management->categories()->attach(['2','3']);
+
 
 
         $artist = User::create([

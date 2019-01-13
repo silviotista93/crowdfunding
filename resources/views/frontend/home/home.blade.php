@@ -4,10 +4,74 @@
 @endpush
 @section('content')
     <!--=====================================
-	SLIDER DE INICIIO
+	SLIDER DE INICIO
     ======================================-->
     <section class="xs-screen-height xs-welcome-section xs-bg fundpress-welcome-section">
         <div class="xs-banner-slider owl-carousel">
+            <!--=====================================
+	         SLIDER 1
+             ======================================-->
+            <div class="xs-banner-slider-item" style="background-image: url(/frontend/images/slider_home/slider_home_1_edit.jpg);background-position: center; background-size: cover;margin-top: 108px;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-9">
+                            <div class="xs-welcome-content version-3">
+                                <div class="xs-welcome-wraper">
+                                    <h2 class="color-white" style="color: white !important;">{{ __('deja_huella_musica') }}</h2>
+                                    <p style="color: white;font-size: 20px;margin-top: -40px;">Solo registrate y graba tu video, es tan sencillo mostrar tu talento en crowdfunding!</p>
+                                    {{--<div class="xs-skill-bar-v2" data-percent="65%">
+                                        <div class="xs-skill-track">
+                                            <p><span class="number-percentage-count">65</span>%</p>
+                                        </div>
+                                    </div>--}}
+                                    {{--<ul class="fundpress-welcome-list-content list-inline">
+                                        <li>$45,280<span class="d-block">Pledged</span></li>
+                                        <li>$87,000<span class="d-block">Goal</span></li>
+                                        <li>119<span class="d-block">Backers</span></li>
+                                    </ul>--}}
+                                    <div class="xs-btn-wraper">
+                                        <a href="#" class="xs-btn btn-primary round-btn">{{ __('mas_informacion') }}</a>
+                                        <a href="#" class="xs-btn btn navy-blue-btn round-btn">{{ __('iniciar_proyecto') }}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6" >
+                            {{--<div class="xs-welcome-content">
+                                <div class="xs-welcome-wraper">
+                                    <img src="assets/images/slider_3_1.png" alt="">
+                                </div><!-- .xs-welcome-wraper END -->
+                            </div><--}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--=====================================
+	         SLIDER 2
+             ======================================-->
+            {{--<div class="xs-banner-slider-item" style="background-image: url(/frontend/images/slider_home/slider_home_1_edit.jpg);background-position: center; background-size: cover;margin-top: 108px;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="xs-welcome-content fundpress-welcome-content">
+                                <div class="xs-welcome-wraper fundpress-welcome-wraper">
+                                    <div class="xs-welcome-title fundpress-welcome-title">
+                                        <h2 class="color-navy-blue">Exclusive Bunny Cam</h2>
+                                    </div>
+                                    <ul class="xs-list-with-content fundpress-welcome-list-content">
+                                        <li>US $45,280.00<span>Pledged</span></li>
+                                        <li>US $87,000.00<span>Goal</span></li>
+                                    </ul>
+                                    <div class="xs-btn-wraper">
+                                        <a href="#" class="xs-btn round-btn navy-blue-btn icon-btn"><i class="fa fa-heart"></i>invest Now</a>
+                                        <a href="#" class="xs-btn round-btn blue-btn icon-btn"><i class="fa fa-facebook"></i>Share Now</a>
+                                    </div>
+                                </div><!-- .xs-welcome-wraper .fundpress-welcome-wraper END -->
+                            </div><!-- .xs-welcome-content .fundpress-welcome-content END -->
+                        </div>
+                    </div>
+                </div>
+            </div>--}}
             @forelse($projects_slider as $project)
             <div class="xs-banner-slider-item" style="">
                 <div class="container">

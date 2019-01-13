@@ -30,6 +30,13 @@
 @stop
 @section('content')
     <div class="m-content">
+        @if(session()->has('proyect_add'))
+            <div class="m-alert m-alert--outline alert alert-success alert-dismissible fade show" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                </button>
+                <strong>{{ __('felicidades') }}!</strong> {{session('proyect_add')}}
+            </div>
+        @endif
         <div class="row">
             <div class="col-xl-3 col-lg-4">
                 @include('backend.profile.partials.sidebar-profile')

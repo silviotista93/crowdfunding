@@ -23,8 +23,9 @@ class ProfileController extends Controller
     }
 
     public function profile_update_artist(Request $request, $id_artis){
-        //Actualizar en la tabla Artist
 
+        $project_exist = Artist::where('user_id',auth()->user()->id)->with('projects')->first();
+        //Actualizar en la tabla Artist
         //Validaciones
         $this->validate($request,[
             'nickname' => 'required',
@@ -51,7 +52,13 @@ class ProfileController extends Controller
             'phone_2' => $request->get('phone_2'),
         ]);
         alert()->success('Tu perfil ha sido actualizado','¡Muy bien!')->autoClose(3000);
-        return back();
+        $count_project = count($project_exist->projects);
+        if ($count_project >= 1){
+            return back();
+        }else{
+            return back()->with('profile_update', __('hora_crear_primer_project'));
+        }
+
     }
 
     public function update_password(Request $request){

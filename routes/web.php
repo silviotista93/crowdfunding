@@ -38,8 +38,8 @@ Route::get('/count/{id}',function ($id){
      dd($hola->id);
 });
 Route::get('/projects-sql',function (){
-    $project = \App\Project::where('id', 42)->with('artists')->first();
-    dd($project->artists[0]->id);
+   $projects = \App\Artist::where('user_id',auth()->user()->id)->exists();
+   dd($projects);
 });
 Route::get('/artists/{id}',function ($id){
     return \App\Artist::where('id',$id)->with(['projects','levels','countries'])->get();

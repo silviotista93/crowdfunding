@@ -94,8 +94,8 @@
 
                 </div>
 
-            </div><!-- .nav-menus-wrapper END -->
-        </nav><!-- .xs-menus .fundpress-menu END -->
+            </div>
+        </nav>
     </div>
 </header>
 @section('select_lang')

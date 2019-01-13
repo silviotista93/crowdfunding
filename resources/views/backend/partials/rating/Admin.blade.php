@@ -1,26 +1,28 @@
 <!-- Acciones para el Admin -->
 @if($project->status == 1)
-<div class="form-group">
-    <h5 style="font-weight: bold">{{ __('asignar_proyecto') }}:</h5>
-</div>
-<div class="form-group">
-    <button type="button" data-toggle="modal" data-target="#list_modal_manage" class="btn btn-info m-btn m-btn--icon">
+    <div class="form-group">
+        <h5 style="font-weight: bold">{{ __('asignar_proyecto') }}:</h5>
+    </div>
+    <div class="form-group">
+        <button type="button" data-toggle="modal" data-target="#list_modal_manage"
+                class="btn btn-info m-btn m-btn--icon">
         <span>
             <i class="la la-user"></i>
             <span>{{ __('buscar') }}</span>
         </span>
-    </button>
-    <form method="post" action="{{ route('project.admin.rejected') }}" class="" style="display: inline" id="frm_rejected_admin">
-        @csrf {{ method_field('PUT') }}
-        <button id="btn_rejected_admin" class="btn btn-danger m-btn m-btn--icon">
+        </button>
+        <form method="post" action="{{ route('project.admin.rejected') }}" class="" style="display: inline"
+              id="frm_rejected_admin">
+            @csrf {{ method_field('PUT') }}
+            <button id="btn_rejected_admin" class="btn btn-danger m-btn m-btn--icon">
         <span>
             <i class="la la-close"></i>
             <span>{{ __('rechazar') }}</span>
         </span>
-        </button>
-        <input type="hidden" name="rejected" value="{{ $project->id }}">
-    </form>
-</div>
+            </button>
+            <input type="hidden" name="rejected" value="{{ $project->id }}">
+        </form>
+    </div>
 @else
     <!-- TIEMPO ESTIMADO PARA CALIFICAR-->
     <div class="form-group">
@@ -28,47 +30,51 @@
     </div>
     <div class="form-group">
         @if(!$end_time == null)
-            <span class="m--font-bold m--font-primary" style="font-weight: bold; font-size: 16px">{{ $end_time->end_time->toFormattedDateString() }}</span>
+            <span class="m--font-bold m--font-primary"
+                  style="font-weight: bold; font-size: 16px">{{ $end_time->end_time->toFormattedDateString() }}</span>
         @endif
     </div>
     @if($project->status == 2)
-    <!-- Rating Project -->
-    <div class="form-group">
-        <h5 style="font-weight: bold">{{ __('calificacion') }}:</h5>
-    </div>
-    <div class="form-group">
-        <ul id="list_rating" class="list-inline" style="font-size: 20px">
-            <li class="list-inline-item star" data-number="1"><i
+        <!-- Rating Project -->
+        <div class="form-group">
+            <h5 style="font-weight: bold">{{ __('calificacion') }}:</h5>
+        </div>
+        <div class="form-group">
+            <ul id="list_rating" class="list-inline" style="font-size: 20px">
+                <li class="list-inline-item star" data-number="1"><i
                         class="fa fa-star fa-1x {{$currentRaing>=1?"yellow-rating":""}}"></i></li>
-            <li class="list-inline-item star" data-number="2"><i
+                <li class="list-inline-item star" data-number="2"><i
                         class="fa fa-star fa-1x {{$currentRaing>=2?"yellow-rating":""}}"></i></li>
-            <li class="list-inline-item star" data-number="3"><i
+                <li class="list-inline-item star" data-number="3"><i
                         class="fa fa-star fa-1x {{$currentRaing>=3?"yellow-rating":""}}"></i></li>
-            <li class="list-inline-item star" data-number="4"><i
+                <li class="list-inline-item star" data-number="4"><i
                         class="fa fa-star fa-1x {{$currentRaing>=4?"yellow-rating":""}}"></i></li>
-            <li class="list-inline-item star" data-number="5"><i
+                <li class="list-inline-item star" data-number="5"><i
                         class="fa fa-star fa-1x {{$currentRaing==5?"yellow-rating":""}}"></i></li>
-        </ul>
-    </div>
+            </ul>
+        </div>
     @endif
-<!-- VER A QUIEN SE ASIGNO EL PROYECTO-->
-<div class="form-group">
-    <h5 style="font-weight: bold">{{ __('asignado_a') }}:</h5>
-</div>
-<div class="form-group">
-    <button type="button" id="mostrar_managements_asignados" class="btn btn-danger m-btn m-btn--icon">
+    <!-- VER A QUIEN SE ASIGNO EL PROYECTO-->
+    @if($project->status == 2 || $project->status == 3 ||$project->status == 4)
+        <div class="form-group">
+            <h5 style="font-weight: bold">{{ __('asignado_a') }}:</h5>
+        </div>
+        <div class="form-group">
+            <button type="button" id="mostrar_managements_asignados" class="btn btn-danger m-btn m-btn--icon">
         <span>
             <i class="la la-users"></i>
             <span>{{ __('mostrar') }}</span>
         </span>
-    </button>
+            </button>
 
-</div>
+        </div>
+    @endif
 @endif
 
 
 <!-- MODAL, BUSCAR MANAGEMENT-->
-<div class="modal fade" id="list_modal_manage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="list_modal_manage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -101,8 +107,8 @@
 @section('table.admin.management')
     <script>
         let usuarios = [];
-        var DatatablesBasicBasic = function() {
-            var initTable1 = function() {
+        var DatatablesBasicBasic = function () {
+            var initTable1 = function () {
                 var table = $('#m_table_managements');
 
                 // begin first table
@@ -114,11 +120,10 @@
                     pageLength: 5,
 
 
-
                     //== Order settings
                     order: [[1, 'asc']],
 
-                    headerCallback: function(thead, data, start, end, display) {
+                    headerCallback: function (thead, data, start, end, display) {
                         thead.getElementsByTagName('th')[0].innerHTML = `
                     <label class="m-checkbox m-checkbox--single m-checkbox--solid m-checkbox--brand">
                         <input type="checkbox" value="" class="m-group-checkable">
@@ -136,11 +141,15 @@
                             width: '30px',
                             className: 'dt-right',
                             orderable: false,
-                            render: function(data, type, full, meta) {
+                            render: function (data, type, full, meta) {
                                 console.log(full);
                                 return `
                         <label class="m-checkbox m-checkbox--single m-checkbox--solid m-checkbox--brand">
-                            <input type="checkbox" data-value='${JSON.stringify({id: full.id, user_id: full.user_id,email: full.users.email})}' class="m-checkable ckeck-${full.id}">
+                            <input type="checkbox" data-value='${JSON.stringify({
+                                    id: full.id,
+                                    user_id: full.user_id,
+                                    email: full.users.email
+                                })}' class="m-checkable ckeck-${full.id}">
                             <span></span>
                         </label>`;
                             },
@@ -151,18 +160,18 @@
                         },
                         {
                             data: 'users.email',
-                            render:function (data,type, JsonResultRow,meta) {
+                            render: function (data, type, JsonResultRow, meta) {
                                 return '<a class="m-link--primary" href="mailto:' + JsonResultRow.users.email + '">' + JsonResultRow.users.email + '</a>'
 
                             }
                         },
                         {
                             defaultContent: '<span class="label label-danger text-center">Ningún valor por defecto</span>',
-                            render:function (data,type, JsonResultRow,meta) {
+                            render: function (data, type, JsonResultRow, meta) {
                                 let categorias = JsonResultRow.categories;
                                 let categoriasNombre = '';
-                                categorias.forEach(function (categoria){
-                                    if(categoriasNombre!==''){
+                                categorias.forEach(function (categoria) {
+                                    if (categoriasNombre !== '') {
                                         categoriasNombre += ', ';
                                     }
                                     categoriasNombre += categoria.category;
@@ -196,26 +205,25 @@
                             "sSortDescending": ": Activar para ordenar la columna de manera descendente"
                         }
                     },
-                    "drawCallback": function (){
-                        for (let i = 0; i<usuarios.length; i++){
-                            let check = $(".ckeck-"+usuarios[i].id);
-                            if (check && !check.is(":checked")){
+                    "drawCallback": function () {
+                        for (let i = 0; i < usuarios.length; i++) {
+                            let check = $(".ckeck-" + usuarios[i].id);
+                            if (check && !check.is(":checked")) {
                                 check.click();
                             }
                         }
                     }
                 });
 
-                table.on('change', '.m-group-checkable', function() {
+                table.on('change', '.m-group-checkable', function () {
                     var set = $(this).closest('table').find('td:first-child .m-checkable');
                     var checked = $(this).is(':checked');
-                    $(set).each(function() {
+                    $(set).each(function () {
                         if (checked) {
                             $(this).prop('checked', true);
                             $(this).closest('tr').removeClass('active')
                                 .find(".m-checkbox").change();
-                        }
-                        else {
+                        } else {
                             $(this).prop('checked', false);
                             $(this).closest('tr').addClass('active')
                                 .find(".m-checkbox").change();
@@ -223,18 +231,18 @@
                     });
                 });
 
-                table.on('change', 'tbody tr .m-checkbox', function() {
+                table.on('change', 'tbody tr .m-checkbox', function () {
                     $(this).parents('tr').toggleClass('active');
                     let user = JSON.parse($(this).find(".m-checkable").attr("data-value"));
-                    if ($(this).parents('tr').hasClass("active")){
-                        let index = usuarios.findIndex(function (u){
+                    if ($(this).parents('tr').hasClass("active")) {
+                        let index = usuarios.findIndex(function (u) {
                             return u.id === user.id;
                         });
-                        if (index === -1){
+                        if (index === -1) {
                             usuarios.push(user);
                         }
-                    }else{
-                        let index = usuarios.findIndex(function (u){
+                    } else {
+                        let index = usuarios.findIndex(function (u) {
                             return u.id === user.id;
                         });
                         usuarios.splice(index, 1);
@@ -244,7 +252,7 @@
 
             return {
                 //main function to initiate the module
-                init: function() {
+                init: function () {
                     initTable1();
                 },
 
@@ -252,7 +260,7 @@
 
         }();
 
-        jQuery(document).ready(function() {
+        jQuery(document).ready(function () {
             DatatablesBasicBasic.init();
         });
     </script>
@@ -261,13 +269,13 @@
 @push('js')
     <script src="/js/ajax.js"></script>
     <script>
-        (function (){
+        (function () {
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
-            $("#btnSendMessage").click(function (){
+            $("#btnSendMessage").click(function () {
                 const
                     token = '{{ csrf_token() }}',
                     url = '{{route("send.project.admin")}}';
@@ -276,9 +284,9 @@
                     users: usuarios,
                     project: {{ $project->id }}
                 };
-                const success = function (r){
+                const success = function (r) {
                     console.log(r);
-                    if (r.status === 200){
+                    if (r.status === 200) {
                         swal({
                             "title": "",
                             "text": r.msg,
@@ -289,7 +297,7 @@
                         });
                     }
                 };
-                const error = function (e){
+                const error = function (e) {
                     swal({
                         "title": "",
                         "text": "No se ha enviado el mensaje.",
@@ -299,12 +307,12 @@
                 };
 
 
-                ajax(url, data, success, "post", error, true,"#list_modal_manage");
+                ajax(url, data, success, "post", error, true, "#list_modal_manage");
             });
         })();
     </script>
     <script>
-        $('#btn_rejected_admin').click(function(e) {
+        $('#btn_rejected_admin').click(function (e) {
             e.preventDefault();
             swal({
                 title: "{{__('porfavor')}}",
@@ -317,9 +325,9 @@
                 showCancelButton: true,
                 cancelButtonText: "<span><i class='la la-thumbs-down'></i><span>{{ __('cancelar') }}</span></span>",
                 cancelButtonClass: "btn btn-secondary m-btn m-btn--pill m-btn--icon"
-            }).then(function(result) {
+            }).then(function (result) {
                 if (result.value) {
-                   $('#frm_rejected_admin').submit();
+                    $('#frm_rejected_admin').submit();
                 }
             })
         });

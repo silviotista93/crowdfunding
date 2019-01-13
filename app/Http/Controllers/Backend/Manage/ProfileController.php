@@ -13,7 +13,7 @@ class ProfileController extends Controller
 {
     public function index(User $user)
     {
-        $managements = Management::where('user_id',$user->id)->first();
+        $managements = Management::where('user_id',$user->id)->with('categories')->first();
         return view('backend.management.profile.profile-management', compact('user','managements'));
     }
 

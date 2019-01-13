@@ -53,6 +53,8 @@ License: You must have a valid license purchased only from themeforest(the above
           type="text/css"/>
     <link href="/backend/vendors/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css" rel="stylesheet"
           type="text/css"/>
+    <link rel="stylesheet" href="/backend/build/css/intlTelInput.css">
+    <link rel="stylesheet" href="/backend/build/css/demo.css">
     <link href="/backend/vendors/bootstrap-select/dist/css/bootstrap-select.css" rel="stylesheet" type="text/css"/>
     <link href="/backend/vendors/select2/dist/css/select2.css" rel="stylesheet" type="text/css"/>
     <link href="/backend/vendors/nouislider/distribute/nouislider.css" rel="stylesheet" type="text/css"/>
@@ -838,6 +840,7 @@ const lang = "{{ session("applocale") }}";
 <script src="/backend/assets/demo/custom/crud/wizard/wizard.js" type="text/javascript"></script>
 <script src="/backend/assets/js/jqueryNumber.js" type="text/javascript"></script>
 <script src="/backend/assets/js/admin/admin.js" type="text/javascript"></script>
+<script src="/backend/build/js/intlTelInput.js"></script>
 
 
 
