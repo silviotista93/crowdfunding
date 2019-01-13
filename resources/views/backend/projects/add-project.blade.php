@@ -291,7 +291,7 @@
 
                                               
                                             @if($contProject == 0 & $datos != null)
-                                            
+
                                             @forelse ($datos as $quest)
                                             
                                             <div class="m-form__section">
@@ -300,8 +300,8 @@
                                                 </div>
                                                 <div class="form-group m-form__group">
                                                     <div class="row">
-                                                     @forelse ($quest->answer as $ans)                                                    
-                                                         
+                                                     @forelse ($quest->answer as $ans)
+
                                                      <div class="col-lg-6">
                                                          <label class="m-option">
                                                              <span class="m-option__control">

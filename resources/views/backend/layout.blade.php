@@ -102,7 +102,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- end::Head -->
 
 <!-- begin::Body -->
-<body class="m-page--fluid m--skin- m-content--skin-light2 m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--fixed m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default">
+<body class="m-page--fluid m--skin- m-content--skin-light2 m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--fixed m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default m-brand--minimize m-aside-left--minimize">
 
 <!-- begin:: Page -->
 <div class="m-grid m-grid--hor m-grid--root m-page">
@@ -124,7 +124,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
                             <!-- BEGIN: Left Aside Minimize Toggle -->
                             <a href="javascript:;" id="m_aside_left_minimize_toggle"
-                               class="m-brand__icon m-brand__toggler m-brand__toggler--left m--visible-desktop-inline-block  ">
+                               class="m-brand__icon m-brand__toggler m-brand__toggler--left m--visible-desktop-inline-block m-brand__toggler--active">
                                 <span></span>
                             </a>
 
@@ -132,7 +132,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
                             <!-- BEGIN: Responsive Aside Left Menu Toggler -->
                             <a href="javascript:;" id="m_aside_left_offcanvas_toggle"
-                               class="m-brand__icon m-brand__toggler m-brand__toggler--left m--visible-tablet-and-mobile-inline-block">
+                               class="m-brand__icon m-brand__toggler m-brand__toggler--left m--visible-tablet-and-mobile-inline-block m-brand__toggler--active">
                                 <span></span>
                             </a>
 
@@ -220,7 +220,7 @@ License: You must have a valid license purchased only from themeforest(the above
             <div class="m-stack m-stack--flex-tablet-and-mobile m-stack--ver m-stack--desktop">
                 <div class="m-stack__item m-stack__item--left m-stack__item--middle m-stack__item--last">
 							<span class="m-footer__copyright">
-								2018 &copy; Crowdfunding  by <a href="https://crowfunding.com" class="m-link">Crowdfunding</a>
+								2019 &copy; Crowdfunding  by <a href="https://crowfunding.com" class="m-link">Crowdfunding</a>
 							</span>
                 </div>
                 <div class="m-stack__item m-stack__item--right m-stack__item--middle m-stack__item--first">

@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
         $this->call(LevelTableSeeder::class);
         $this->call(CountryTableSeeder::class);
         $this->call(LocationTableSeeder::class);
+        $this->call(SurveyTableSeeder::class);
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 

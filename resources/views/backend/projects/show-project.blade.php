@@ -3,7 +3,7 @@
 @section('content')
     <div class="m-content">
         <div class="row">
-            <div class="col-xl-4 col-lg-5">
+            <div class="col-xl-5 col-lg-6">
                 @if(Storage::disk('public')->exists('projects/'.$project->project_picture))
                     <img width="100%" height="80%" src="{{ $project->pathAttachment() }}" alt=""/>
                 @else
@@ -11,7 +11,7 @@
                          alt="">
                 @endif
             </div>
-            <div class="col-xs-8 col-lg-7">
+            <div class="col-xs-7 col-lg-6">
                 <h3 style="font-weight: bold;">{{ $project->title }}</h3>
                 <a data-toggle="modal" data-target="#m_modal_1" class="m-link m--font-success m--font-bolder"
                    style="padding-bottom: 5px;cursor: pointer">by {{ $artist->artists[0]->nickname }} [{{__('ver_mas')}}
@@ -38,7 +38,7 @@
                     <div class="m-portlet__body">
                         <div class="m-section">
                             <div class="row">
-                                <div class="col-xs-4 col-lg-8">
+                                <div class="col-xs-5 col-lg-7">
                                     <iframe width="560" height="315"
                                             id="videoYoutube"
                                             src="https://www.youtube.com/embed/{{$project->iframe_video}}"
@@ -47,7 +47,7 @@
                                             allowfullscreen>
                                     </iframe>
                                 </div>
-                                <div class="col-xs-4 col-lg-4">
+                                <div class="col-xs-4 col-lg-5">
                                     <div class="form-group">
                                         <h5 style="font-weight: bold">{{ __('estado') }}:</h5>
                                     </div>
