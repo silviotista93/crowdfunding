@@ -53,23 +53,28 @@
                                     </div>
                                     <div class="form-group">
                                         @if($project->status == 1)
-                                            <span class="m-badge m-badge--metal m-badge--wide m-badge--rounded">{{ __('revision') }}</span>
+                                            <span
+                                                class="m-badge m-badge--metal m-badge--wide m-badge--rounded">{{ __('revision') }}</span>
                                         @elseif($project->status == 2)
                                             <span class="m-badge m-badge--brand m-badge--wide m-badge--rounded"
                                                   style="background-color: #9816f4 !important;">{{ __('pre_aprobado') }}</span>
                                         @elseif($project->status == 3)
-                                            <span class="m-badge m-badge--success m-badge--wide m-badge--rounded">{{ __('aprobado') }}</span>
+                                            <span
+                                                class="m-badge m-badge--success m-badge--wide m-badge--rounded">{{ __('aprobado') }}</span>
                                         @elseif($project->status == 4)
-                                            <span class="m-badge m-badge--info m-badge--wide m-badge--rounded">{{ __('publicado') }}</span>
+                                            <span
+                                                class="m-badge m-badge--info m-badge--wide m-badge--rounded">{{ __('publicado') }}</span>
                                         @else
-                                            <span class="m-badge m-badge--danger m-badge--wide m-badge--rounded">{{ __('rechazado') }}</span>
+                                            <span
+                                                class="m-badge m-badge--danger m-badge--wide m-badge--rounded">{{ __('rechazado') }}</span>
                                         @endif
                                     </div>
                                     <div class="form-group">
                                         <h5 style="font-weight: bold">{{ __('genero') }}:</h5>
                                     </div>
                                     <div class="form-group">
-                                        <button class="btn btn-secondary btn-md">{{ $project->category->category }}</button>
+                                        <button
+                                            class="btn btn-secondary btn-md">{{ $project->category->category }}</button>
                                     </div>
                                     <div class="form-group">
                                         <h5 style="font-weight: bold">{{ __('costo_proyecto') }}:</h5>
@@ -84,7 +89,7 @@
                                 @include('backend.partials.rating.' .\App\User::rating_proyect())
 
                                 <!-- ------------------------- CALIFICACION DEL PROYECTO CUANDO ESTA PUBLICADO Y APROBADO----------------------------- -->
-                                    @if($project->status == 3 || $project->status == 4 )
+                                    @if($project->status == 3 || $project->status == 4 || $project->status == 5)
                                         <div class="form-group">
                                             <h5 style="font-weight: bold">{{ __('valoracion') }}:</h5>
                                         </div>
@@ -92,19 +97,19 @@
                                         <div class="form-group">
                                             <ul id="list_rating_project" class="list-inline" style="font-size: 20px">
                                                 <li class="list-inline-item star"><i
-                                                            class="fa fa-star fa-1x{{ $project->rating >= 1 ? ' yellow-rating' : '' }}"></i>
+                                                        class="fa fa-star fa-1x{{ $project->rating >= 1 ? ' yellow-rating' : '' }}"></i>
                                                 </li>
                                                 <li class="list-inline-item star"><i
-                                                            class="fa fa-star fa-1x{{ $project->rating >= 2 ? ' yellow-rating' : '' }}"></i>
+                                                        class="fa fa-star fa-1x{{ $project->rating >= 2 ? ' yellow-rating' : '' }}"></i>
                                                 </li>
                                                 <li class="list-inline-item star"><i
-                                                            class="fa fa-star fa-1x{{ $project->rating >= 3 ? ' yellow-rating' : '' }}"></i>
+                                                        class="fa fa-star fa-1x{{ $project->rating >= 3 ? ' yellow-rating' : '' }}"></i>
                                                 </li>
                                                 <li class="list-inline-item star"><i
-                                                            class="fa fa-star fa-1x{{ $project->rating >= 4 ? ' yellow-rating' : '' }}"></i>
+                                                        class="fa fa-star fa-1x{{ $project->rating >= 4 ? ' yellow-rating' : '' }}"></i>
                                                 </li>
                                                 <li class="list-inline-item star"><i
-                                                            class="fa fa-star fa-1x{{ $project->rating >= 5 ? ' yellow-rating' : '' }}"></i>
+                                                        class="fa fa-star fa-1x{{ $project->rating >= 5 ? ' yellow-rating' : '' }}"></i>
                                                 </li>
                                             </ul>
                                         </div>
@@ -136,6 +141,8 @@
                                                         <th>{{ __('nombre') }}</th>
                                                         <th>{{ __('compañia') }}</th>
                                                         <th>{{ __('email') }}</th>
+                                                        <th>{{ __('calificacion') }}</th>
+                                                        <th>{{ __('comentario') }}</th>
                                                         <th>{{ __('acciones') }}</th>
                                                     </tr>
                                                     </thead>
@@ -197,7 +204,8 @@
                                             </div>
                                         </div>
                                         <div class="m-card-profile__details">
-                                            <span class="m-card-profile__name">{{ $artist->artists[0]->nickname }}</span>
+                                            <span
+                                                class="m-card-profile__name">{{ $artist->artists[0]->nickname }}</span>
 
                                             <a href="" class="m-card-profile__email m-link"
                                                style="margin-left: -15px; width: 80%; word-wrap: break-word;">{{ $artist->artists[0]->users->email }}</a>
@@ -209,7 +217,8 @@
                                                        class="col-2 col-form-label">{{ __('Origen') }}:</label>
                                                 <div class="col-10 pull-right">
                                                     <img data-toggle="tooltip" title="{{ $country->country }}"
-                                                         src="{{ $country->flag }}" width="21" alt="" style="margin-left: 80px;margin-top: 7px">
+                                                         src="{{ $country->flag }}" width="21" alt=""
+                                                         style="margin-left: 80px;margin-top: 7px">
                                                 </div>
                                             </div>
                                         @endif
@@ -219,7 +228,8 @@
                                                        class="col-2 col-form-label">{{ __('localizacion') }}:</label>
                                                 <div class="col-10 pull-right">
                                                     <img data-toggle="tooltip" title="{{ $location->country }}"
-                                                         src="{{ $location->flag }}" width="21" alt="" style="margin-left: 80px;margin-top: 7px">
+                                                         src="{{ $location->flag }}" width="21" alt=""
+                                                         style="margin-left: 80px;margin-top: 7px">
                                                 </div>
                                             </div>
                                         @endif
@@ -287,6 +297,23 @@
             $('[data-toggle="tooltip"]').tooltip();
         });
 
+        function mostrarComentario(texto){
+            swal({
+                title: "{{__('porfavor')}}",
+                text: texto,
+                icon: "success",
+            })
+        }
+
+        function getRating(rating, star){
+            if (rating == null){
+                return "";
+            }else if (star<=rating){
+                return "yellow-rating"
+            }
+            return "";
+        }
+
         $('#table_assign_management').DataTable({
             "processing": true,
             "serverSide": true,
@@ -317,6 +344,34 @@
                 {
                     data: 'users.email',
                     defaultContent: '<span class="label label-danger text-center" style="color:red !important">{{ __('nigun_valor_defecto') }}</span>'
+                },
+                {
+                    render: function (data, type, JsonResultRow, meta) {
+                        return `
+                            <div class="form-group">
+                                   <ul id="list_rating" class="list-inline" style="font-size: 20px">
+                                        <li class="list-inline-item star"><i
+                                                    class="fa fa-star fa-1x ${getRating(JsonResultRow.rating, 1)}"></i></li>
+                                        <li class="list-inline-item star"><i
+                                                   class="fa fa-star fa-1x ${getRating(JsonResultRow.rating, 2)}"></i></li>
+                                        <li class="list-inline-item star"><i
+                                                   class="fa fa-star fa-1x ${getRating(JsonResultRow.rating, 3)}"></i></li>
+                                        <li class="list-inline-item star"><i
+                                                    class="fa fa-star fa-1x ${getRating(JsonResultRow.rating, 4)}"></i></li>
+                                        <li class="list-inline-item star"><i
+                                                    class="fa fa-star fa-1x ${getRating(JsonResultRow.rating, 5)}"></i></li>
+                                     </ul>
+                            </div>
+                        `;
+                    }
+                },
+                {
+                    render: function (data, type, JsonResultRow, meta) {
+                        if (JsonResultRow.comment === null){
+                            return "{{ __('nigun_valor_defecto') }}";
+                        }
+                        return `<div class="text-center"><a onclick='mostrarComentario("${JsonResultRow.comment}")' class="btn m-btn--pill btn-secondary"><i class="fa fa-eye"></i></a></div>`;
+                    }
                 },
                 {
                     render: function (data, type, JsonResultRow, meta) {

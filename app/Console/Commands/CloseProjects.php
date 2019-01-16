@@ -49,6 +49,17 @@ class CloseProjects extends Command
         foreach($endProjects as $project){
             $this->changeStatusProjects($project);
         }
+        //select project_id from reviews group by project_id HAVING count(project_id) = count(rating);
+        $endProjects = Project::whereHas("reviews", function ($query){
+            $query->groupBy("project_id")->havingRaw("count(project_id) = count(rating)");
+        })
+        ->whereIn("status", [Project::PREAPPROVAL, Project::REVISION])
+        ->get();
+
+        foreach($endProjects as $project){
+            $this->changeStatusProjects($project);
+        }
+
     }
 
     private function changeStatusProjects($project){

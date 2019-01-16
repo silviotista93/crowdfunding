@@ -25,6 +25,7 @@
     </div>
 @else
     <!-- TIEMPO ESTIMADO PARA CALIFICAR-->
+    @if(! $project->status == 5)
     <div class="form-group">
         <h5 style="font-weight: bold">{{ __('tiempo_calificar') }}:</h5>
     </div>
@@ -34,6 +35,7 @@
                   style="font-weight: bold; font-size: 16px">{{ $end_time->end_time->toFormattedDateString() }}</span>
         @endif
     </div>
+    @endif
     @if($project->status == 2)
         <!-- Rating Project -->
         <div class="form-group">
@@ -55,7 +57,7 @@
         </div>
     @endif
     <!-- VER A QUIEN SE ASIGNO EL PROYECTO-->
-    @if($project->status == 2 || $project->status == 3 ||$project->status == 4)
+    @if($project->status !== 1 && $asignado !== 0)
         <div class="form-group">
             <h5 style="font-weight: bold">{{ __('asignado_a') }}:</h5>
         </div>

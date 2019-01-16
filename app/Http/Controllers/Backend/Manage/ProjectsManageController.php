@@ -28,6 +28,8 @@ class ProjectsManageController extends Controller
     public function add_review(Request $request){
         $rating = $request->get('rating_input');
         $comment = $request->get('comment');
-        return Review::where(['project_id' => $request->get('project_id'),'user_id' => auth()->user()->id])->update(array('rating' => $rating,'comment' => $comment));
+        $review = Review::where(['project_id' => $request->get('project_id'),'user_id' => auth()->user()->id])->update(array('rating' => $rating,'comment' => $comment));
+        \Artisan::call('projects:close');
+        return $review;
     }
 }

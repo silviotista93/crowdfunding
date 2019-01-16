@@ -27,8 +27,9 @@ class ShowProjectController extends Controller
 
         if (in_array('Admin', $rol)) {
             $review = Review::where("project_id","=", $project->id)->get();
+            $asignado = count($review);
             $currentRaing = $review->avg("rating");
-            return view('backend.projects.show-project', compact('project','end_time','artist','country', "currentRaing",'location'));
+            return view('backend.projects.show-project', compact("asignado",'project','end_time','artist','country', "currentRaing",'location'));
         } else if (in_array('Manage', $rol)){
             $review = Review::where("project_id","=", $project->id)
                 ->where("user_id","=", auth()->user()->id)->first();
@@ -55,10 +56,17 @@ class ShowProjectController extends Controller
     }
 
     public function table_assing_management(Request $request){
-        $project = Management::whereHas('projects', function ($query) use ($request){
+        $managers = Management::whereHas('projects', function ($query) use ($request){
             $query->where('projects.id', '=', $request->get('id_project'));
         })->with('users')->get();
-        return datatables()->of($project)->toJson();
+        $managers->map(function ($manager) use ($request){
+            $review = Review::where("project_id","=", $request->get('id_project'))
+                ->where("user_id","=", $manager->user_id)->first();
+            $manager->rating = $review->rating;
+            $manager->comment = $review->comment;
+           return  $manager;
+        });
+        return datatables()->of($managers)->toJson();
 
     }
 

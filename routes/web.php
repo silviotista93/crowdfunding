@@ -15,11 +15,7 @@ CONSULTAS DE PRUEBAS
 =============================================*/
 
 Route::get('test' , function (){
-    $projects = \App\Project::where('id', 1)->with("category","artists",'artists.users', 'donations')->get();
-    $projects = \App\Project::card($projects);
-    //$project = \App\Project::where('id', 1)->with("category")->card();
-    $p = json_encode($projects);
-    dd(json_decode($p));
+    Artisan::call('projects:close');
 });
 
 Route::get('email',function (){
