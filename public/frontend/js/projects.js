@@ -1,3 +1,9 @@
+let texto = "There are no projects"
+
+if (lang === "es"){
+    texto = "No hay proyectos";
+}
+
 function start() {
     let container = $("#projectContainer");
     if (projects.data.length > 0) {
@@ -18,7 +24,7 @@ function start() {
         //content += "</div>";
         container.html(content);
     } else {
-        container.html("<div class='text-center' style='width:100%;'><p>No hay proyectos</p></div>");
+        container.html("<div class='text-center' style='width:100%;'><p>"+texto+"</p></div>");
     }
 
     //checkProjects();

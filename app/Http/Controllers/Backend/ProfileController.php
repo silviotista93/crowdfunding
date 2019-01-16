@@ -51,7 +51,7 @@ class ProfileController extends Controller
             'phone_1' => $request->get('phone_1'),
             'phone_2' => $request->get('phone_2'),
         ]);
-        alert()->success('Tu perfil ha sido actualizado','¡Muy bien!')->autoClose(3000);
+        alert()->success(__('perfil_actualizado'),__('muy_bien'))->autoClose(3000);
         $count_project = count($project_exist->projects);
         if ($count_project >= 1){
             return back();

@@ -31,7 +31,7 @@
                                     </ul>--}}
                                     <div class="xs-btn-wraper">
                                         <a href="#" class="xs-btn btn-primary round-btn">{{ __('mas_informacion') }}</a>
-                                        <a href="#" class="xs-btn btn navy-blue-btn round-btn">{{ __('iniciar_proyecto') }}</a>
+                                        <a href="{{ route("add.project") }}" class="xs-btn btn navy-blue-btn round-btn">{{ __('iniciar_proyecto') }}</a>
                                     </div>
                                 </div>
                             </div>

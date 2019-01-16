@@ -1,3 +1,8 @@
+let texto = "There are no projects"
+
+if (lang === "es"){
+    texto = "No hay proyectos";
+}
 
 $("#categoryProjects").on('click', 'li', function(e){
     let id = $(this).attr("data-id");
@@ -12,7 +17,7 @@ $("#categoryProjects").on('click', 'li', function(e){
     let success = function (r){
         //console.log(r);
         if (r.length < 1){
-            content += "<div class='text-center' style='width:100%;'><p>No hay proyectos</p></div>";
+            content += "<div class='text-center' style='width:100%;'><p>"+texto+"</p></div>";
         }
         if (cantidad !== r.length+""){
             container.attr('data-cantidad', r.length);
