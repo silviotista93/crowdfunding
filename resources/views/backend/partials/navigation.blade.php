@@ -98,12 +98,14 @@
                     </ul>
                 </div>
             </li>
+            @if(auth()->user()->roles[0]->rol == "Artist")
             <li class="m-menu__item ">
                 <a href="{{ route('add.project') }}" class="m-menu__link"><i
                         class="m-menu__link-icon la la-plus-circle"></i><span
                         class="m-menu__link-text">{{ __('nuevo_proyecto') }}</span>
                 </a>
             </li>
+            @endif
         </ul>
     </div>
 

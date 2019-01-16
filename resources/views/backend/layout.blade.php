@@ -211,7 +211,6 @@ License: You must have a valid license purchased only from themeforest(the above
             @yield('content')
         </div>
     </div>
-
     <!-- end:: Body -->
 
     <!-- begin::Footer -->

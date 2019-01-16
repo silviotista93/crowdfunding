@@ -14,7 +14,7 @@
                 </div>
             </div>
             <div class="m-card-profile__details">
-                <span class="m-card-profile__name">{{ $user->name }}</span>
+                <span class="m-card-profile__name">{{ $user->name }} {{ $user->last_name }}</span>
 
                 <a href="" class="m-card-profile__email m-link" style="margin-left: -15px;width: 80%; word-wrap: break-word;">{{ $user->email }}</a>
 

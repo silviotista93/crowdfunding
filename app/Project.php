@@ -119,6 +119,11 @@ class Project extends Model
     public function category(){
         return $this->belongsTo(Category::class)->select('id','category');
     }
+
+    public function type_category(){
+        return $this->belongsTo(typeCategories::class);
+    }
+
     public function updates(){
         return $this->hasMany(Update::class)->select('id','project_id','title','description','media','created_at');
     }

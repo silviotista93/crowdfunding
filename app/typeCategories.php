@@ -22,5 +22,10 @@ use Illuminate\Database\Eloquent\Model;
  */
 class typeCategories extends Model
 {
+    protected $table = "type_categories";
     protected $fillable = ['name'];
+
+    public function projects(){
+        return $this->hasOne(Project::class);
+    }
 }
