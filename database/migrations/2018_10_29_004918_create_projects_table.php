@@ -34,6 +34,8 @@ class CreateProjectsTable extends Migration
             $table->foreign('category_id')->references('id')->on('categories');
             $table->unsignedInteger('type_categories_id');
             $table->foreign('type_categories_id')->references('id')->on('type_categories');
+            $table->integer('quantity')->default(1);
+            $table->string('group_name')->default(null);
             $table->boolean('previous_approved')->default(false);
             $table->boolean('previous_rejected')->default(false);
             $table->timestamps();

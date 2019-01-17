@@ -9,6 +9,7 @@ use App\Mail\AssignProjectManager;
 use App\Mail\NewProjectArtist;
 use App\Project;
 use App\Survey;
+use App\typeCategories;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
@@ -24,11 +25,12 @@ class AddProjectController extends Controller
             $question=Survey::with('question','question.answer')->get();
             $numProject=DB::table('artist_projects')->select('id')->where('artist_id', '=', $artist_id->id)->get();
             $contProject=count($numProject);
+            $tipoCategorias=typeCategories::all();
               
         if ($artist->nickname == null){
             return redirect(route('profile.artist'))->with('eliminar','Para agregar un proyecto, completa tu perfil de artista');
         }else{
-            return view('backend.projects.add-project',compact('categories','artist_id','question','contProject'));
+            return view('backend.projects.add-project',compact('categories','artist_id','question','contProject','tipoCategorias'));
         }
     }
 
@@ -51,6 +53,7 @@ class AddProjectController extends Controller
             'project_picture' => $request->get('project_picture'),
             'iframe_video' => $request->get('iframe_video'),
             'category_id' => $request->get('category_id'),
+            'type_categories_id' => $request->get('tCategory_id'),
             'status' => $request->get('status'),
             'price' => $request->get('price'),
             'slug' => $slug.'-'.$ramdoNum

@@ -209,5 +209,14 @@
     "seleccionarClasificacionTitle": "Error",
     "seleccionarClasificacionText": "First, the project must be qualified",
     "recalificar_proyecto": "Requalify Project",
-    "calificacion": "Qualification"
+    "calificacion": "Qualification",
+    "select_categoria":"select category",
+    "categoria_de_proyecto":"select the category of your project",
+    "Musica":"Music",
+    "Comedia":"Comedy",
+    "select_solista":"Choose, you are a soloist or group",
+    "solista":"Soloist",
+    "grupo":"Group"
+    
+
 }

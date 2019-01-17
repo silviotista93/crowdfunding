@@ -209,5 +209,12 @@
     "seleccionarClasificacionTitle": "Error",
     "seleccionarClasificacionText": "Primero hay que calificar el proyecto",
     "recalificar_proyecto": "Recalificar Proyecto",
-    "calificacion": "Calificación"
+    "calificacion": "Calificación",
+    "select_categoria":"seleccione categoría",
+    "categoria_de_proyecto":"Seleccione la categoría de su proyecto",
+    "select_solista":"Elige, eres solista o grupo",
+    "solista":"Solista",
+    "grupo":"Grupo"
+    
+
 }
