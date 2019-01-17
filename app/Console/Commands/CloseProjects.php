@@ -86,6 +86,7 @@ class CloseProjects extends Command
             $artist->nickname
         )
         */
+
         //enviar correo admin
 
         foreach($project->management as $management){
