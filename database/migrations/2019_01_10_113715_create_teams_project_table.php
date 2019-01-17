@@ -18,8 +18,7 @@ class CreateTeamsProjectTable extends Migration
             $table->unsignedInteger('team_id');
             $table->foreign('team_id')->references('id')->on('teams');
             $table->unsignedInteger('project_id');
-            $table->foreign('project_id')->references('id')->on('projects');
-            $table->integer('quantity');
+            $table->foreign('project_id')->references('id')->on('projects');           
             $table->timestamps();
         });
     }

@@ -221,6 +221,32 @@
                                                         <span class="m-form__help">{{ __('help_nombre_proyecto') }}</span>
                                                     </div>
                                                 </div>
+
+                                                <div class="col-lg-6 m-form__group-sub">
+                                                    <label class="form-control-label" form="category_add_proyecto">* {{ __('select_categoria') }}:</label>
+                                                    <select name="tCategory_id" class="form-control m-bootstrap-select m_selectpicker required" id="category_add_proyecto">
+                                                        <option value="">{{ __('seleccione_genero') }}</option>
+                                                        @foreach($tipoCategorias as $tCategorie)
+                                                        <option value="{{ $tCategorie->id }}">{{__($tCategorie->name) }}</option>
+                                                        @endforeach
+                                                        {!! $errors->first('category_id','<div class="form-control-feedback">*:message</div>')!!}
+                                                    </select>
+                                                    <span class="m-form__help">{{ __('categoria_de_proyecto') }}</span>
+                                                </div>
+                                                
+                                                {{-- select solista o grupo  --}}
+                                                <div class="col-lg-6 m-form__group-sub" style="display:none">
+                                                    <label class="form-control-label" form="select_solista">* {{ __('select_solista') }}:</label>
+                                                    <select name="select_solista" class="form-control m-bootstrap-select m_selectpicker required" id="select_solista">
+                                                        <option value="">{{ __('seleccione_genero') }}</option>                                                        
+                                                        <option value="1">{{__('solista') }}</option>
+                                                        <option value="2">{{__('grupo') }}</option>                                                       
+                                                        {!! $errors->first('category_id','<div class="form-control-feedback">*:message</div>')!!}
+                                                    </select>
+                                                    <span class="m-form__help">{{ __('categoria_de_proyecto') }}</span>
+                                                </div>
+                                                {{-- ----------------------- --}}
+
                                                 <div class="form-group m-form__group row">
                                                     <div class="col-lg-12 m-form__group-sub">
                                                         <label class="form-control-label" form="descripcionProyecto">* {{ __('corta_descripcion') }}:</label>

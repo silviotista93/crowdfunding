@@ -214,4 +214,10 @@
     "proyec_pre_aprobados": "Pre Aprobados",
     "ultimos_proyectos": "Últimos Proyectos",
     "numero_proyectos_registrados": "Cantidad de Proyectos Registrados"
+    "select_categoria":"seleccione categoría",
+    "categoria_de_proyecto":"Seleccione la categoría de su proyecto",
+    "select_solista":"Elige, eres solista o grupo",
+    "solista":"Solista",
+    "grupo":"Grupo"
+
 }

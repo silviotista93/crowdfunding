@@ -91,6 +91,7 @@ class Project extends Model
         'price',
         'slug',
         'category_id',
+        'type_categories_id'
     ];
 
     public static function card($arrayProject, $artist = null){
