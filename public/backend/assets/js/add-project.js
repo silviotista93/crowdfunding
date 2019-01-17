@@ -301,3 +301,25 @@ $("#txtFrame").change(function (){
     let url = video.attr("data-url");
     video.attr("src", url+id);
 });
+
+$("#category_add_proyecto").change(function(){
+
+    if($(this).val()==="1"){
+        $(".cont_solista").show();    
+    }else{
+        console.log("NO");
+         $(".cont_solista").hide();
+    }
+    
+});
+
+$("#select_solista").change(function(){
+
+    console.log($(this).val());
+    if($(this).val()==="2"){
+        $(".registro").show();
+    }else{
+         $(".registro").hide();
+    }
+    
+});
