@@ -209,5 +209,8 @@
     "seleccionarClasificacionTitle": "Error",
     "seleccionarClasificacionText": "First, the project must be qualified",
     "recalificar_proyecto": "Requalify Project",
-    "calificacion": "Qualification"
+    "calificacion": "Qualification",
+    "proyec_pre_aprobados": "Pre Approved",
+    "ultimos_proyectos": "Last Projects",
+    "numero_proyectos_registrados": "Number of Registered Projects"
 }

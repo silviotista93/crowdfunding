@@ -101,6 +101,9 @@ class User extends Authenticatable
         return auth()->check() ? auth()->user()->roles[0]->rol : 'Artist';
     }
 
+    public static function dashboard(){
+        return auth()->check() ? auth()->user()->roles[0]->rol : 'Artist';
+    }
     public function pathAttachment(){
         if(\Storage::disk('public')->exists('users/'.$this->picture)){
             return '/images/users/'. $this->picture;

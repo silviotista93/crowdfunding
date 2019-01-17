@@ -83,11 +83,7 @@
 CONTENIDO DEL MODULO DASHBOARD
 ======================================-->
 @section('content')
-        <div class="m-content">
-            <!--Begin::Section-->
-            <div class="row">
 
-            </div>
+    @include('backend.dashboard.roles.' .\App\User::dashboard())
 
-        </div>
 @stop
