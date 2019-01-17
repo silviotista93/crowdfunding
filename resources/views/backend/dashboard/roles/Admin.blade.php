@@ -1,3 +1,4 @@
+@dd($last_revision)
 <div class="m-content">
     <!--Begin::Section-->
     <div class="m-portlet ">
