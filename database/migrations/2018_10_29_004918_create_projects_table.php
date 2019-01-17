@@ -32,7 +32,7 @@ class CreateProjectsTable extends Migration
             $table->string('slug'); //ES LA URL AMIGABLE
             $table->unsignedInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories');
-            $table->unsignedInteger('type_categories_id');
+            $table->unsignedInteger('type_categories_id')->nullable();
             $table->foreign('type_categories_id')->references('id')->on('type_categories');
             $table->integer('quantity')->default(1);
             $table->string('group_name')->default(null);
