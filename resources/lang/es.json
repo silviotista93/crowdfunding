@@ -221,7 +221,11 @@
     "grupo":"Grupo",
     "registrar":"Registrar integrantes",
     "solista_o":"Selecciona si eres solista o tienes un grupo",
-        "grupo":"Grupo"
+    "ningun_proyect_estado": "Ningún proyecto registrado en este estado",
+    "nuevos_artistas": "Nuevos Artistas",
+    "artistas": "Artistas",
+    "filtrar": "Filtrar",
+    "todos_artistas": "Todos los Artistas"
 
 
 }
