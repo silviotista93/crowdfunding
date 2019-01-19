@@ -225,7 +225,9 @@
     "nuevos_artistas": "Nuevos Artistas",
     "artistas": "Artistas",
     "filtrar": "Filtrar",
-    "todos_artistas": "Todos los Artistas"
+    "todos_artistas": "Todos los Artistas",
+    "fecha_nacimiento": "Fecha de Nacimiento",
+    "edad": "Edad"
 
 
 }

@@ -270,7 +270,32 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
                                 return '<span class="m-badge ' + status[data].class + ' m-badge--wide">' + status[data].title + '</span>';
                             },
                         },
+
                     ],
+                    "language": {
+                        "sProcessing": "{{__('procesando')}}",
+                        "sLengthMenu": "{{__('mostrar')}} _MENU_ {{__('registros')}}",
+                        "sZeroRecords": "No se encontraron resultados",
+                        "sEmptyTable": "{{__('nigun_dato_tabla')}}",
+                        "sInfo": "{{__('mostrando_registros') }} _START_ {{__('from')}} _END_ {{__('total_de')}} _TOTAL_ {{__('registros')}}",
+                        "sInfoEmpty": "{{ __('mostrando_registros_del_cero') }}",
+                        "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                        "sInfoPostFix": "",
+                        "sSearch": "{{__('buscar')}}:",
+                        "sUrl": "",
+                        "sInfoThousands": ",",
+                        "sLoadingRecords": "{{__('cargando')}}",
+                        "oPaginate": {
+                            "sFirst": "Primero",
+                            "sLast": "Último",
+                            "sNext": "{{__('siguiente')}}",
+                            "sPrevious": "{{__('anterior')}}"
+                        },
+                        "oAria": {
+                            "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                            "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                        }
+                    }
                 });
             };
 

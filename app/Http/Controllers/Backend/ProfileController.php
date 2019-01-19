@@ -8,6 +8,7 @@ use App\Level;
 use App\Location;
 use App\Update;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
@@ -34,6 +35,8 @@ class ProfileController extends Controller
             'country_id' => 'required',
             'location_id' => 'required',
             'phone_1' => 'required',
+            'age' => 'required',
+            'birthdate' => 'required',
         ]);
 
         Artist::where('user_id','=',$id_artis)->update([
@@ -45,6 +48,8 @@ class ProfileController extends Controller
             'facebook' => $request->get('facebook'),
             'instagram' => $request->get('instagram'),
             'youtube' => $request->get('youtube'),
+            'birthdate' => Carbon::parse($request->get('birthdate')),
+            'age' => $request->get('age'),
         ]);
 
         User::where('id','=',$id_artis)->update([

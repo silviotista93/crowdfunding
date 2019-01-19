@@ -848,6 +848,7 @@ const lang = "{{ session("applocale") }}";
 <!--begin::Page Vendors -->
 <script src="/backend/assets/vendors/custom/fullcalendar/fullcalendar.bundle.js" type="text/javascript"></script>
 <script src="/backend/assets/vendors/custom/datatables/datatables.bundle.js" type="text/javascript"></script>
+<script src="/backend/assets/demo/custom/crud/forms/widgets/bootstrap-datetimepicker.js" type="text/javascript"></script>
 
 
 <!--end::Page Vendors -->
