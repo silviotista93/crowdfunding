@@ -244,14 +244,59 @@
                                             </div>
 
                                             <div class="col-lg-6 m-form__group-sub registro" style="display:none">
-                                           <button href="" class="btn btn-success m-btn m-btn--custom m-btn--icon  ">
-                                                    <span>
+                                           
+                                            <button type="button" class="btn btn-brand" data-toggle="modal" data-target="#m_modal_2">
+                                                <span>
                                                        <span>{{ __('registrar') }}</span>
-                                                       <i class="la la-arrow-right"></i>
+                                                       <i class="la la-plus"></i>
                                                     </span>
-                                            </button> 
+                                            </button>
                                             </div>
                                                     {{-- ----------------------- --}}
+
+                                                    {{-- modal agreagar participantes --}}
+                                                    <div class="modal fade" id="m_modal_2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" style="display: none;" aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                          <div class="modal-content">
+                                                            <div class="modal-header">
+                                                              <h5 class="modal-title" id="exampleModalLongTitle">{{ __('integrantes_grupo') }}</h5>
+                                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">×</span>
+                                                              </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="m-form__section m-form__section--first">
+                                                                
+                                                                   @for($i=0; $i<=4; $i++)                                                                                                                               
+                                                                    <div class="form-group m-form__group row">
+                                                                        <div class="col-lg-12">
+                                                                            <label class="form-control-label" form="nombreIntegrante">* {{ __('nombre') }}:</label>
+                                                                            <input type="text" name="nombres[]" class="form-control m-input title_add_proyecto required" id="nombreIntegrante" placeholder=""
+                                                                                value="">
+                                                                            <span class="m-form__help">{{ __('help_nombre_integrante') }}</span>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="form-group m-form__group row">
+                                                                        <div class="col-lg-12">
+                                                                            <label class="form-control-label" form="rolIntegrante">* {{ __('rol') }}:</label>
+                                                                            <input type="text" name="rol[]" class="form-control m-input title_add_proyecto required" id="rolIntegrante" placeholder=""
+                                                                                value="">
+                                                                            <span class="m-form__help">{{ __('help_rol_integrante') }}</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    @endfor
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                              <button type="button" class="btn btn-primary">Save changes</button>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    {{-- fin de la modal agreagr participantes --}}
 
                                             <div class="form-group m-form__group row">
                                                 <div class="col-lg-12 m-form__group-sub">

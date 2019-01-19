@@ -222,7 +222,11 @@
     "grupo":"Group",
     "registrar":"Register members",
     "solista_o":"Select if you are a soloist or have a group",
-    "grupo":"Groupp"
+    "grupo":"Group",
+    "integrantes_grupo":"Add members",
+    "rol":"Role",
+    "help_nombre_integrante":"Write the name of the members",
+    "help_rol_integrante":"Write what you do in the group (voice, guitar, piano, bass, etc)."
 
 
 }

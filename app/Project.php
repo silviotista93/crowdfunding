@@ -109,6 +109,10 @@ class Project extends Model
         });
     }
 
+    public function teams(){
+        return $this->belongsToMany(Team::class,'teams_project','project_id','team_id');
+    }
+
     public function getRouteKeyName(){
         return 'slug';
     }

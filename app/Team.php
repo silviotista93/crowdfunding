@@ -24,5 +24,13 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Team extends Model
 {
-    //
+    protected $fillable = [
+        'name', 'role'
+    ];
+
+
+    public function project(){
+
+        return $this->hasOne(Project::class);
+    }
 }

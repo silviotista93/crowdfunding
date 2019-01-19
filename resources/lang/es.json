@@ -137,7 +137,7 @@
     "nigun_dato_tabla": "Ningún dato disponible en esta tabla",
     "registros": "Registros",
     "mostrando_registros": "Mostrando registros del",
-    "mostrando_registros_del_cero":"Mostrando registros del 0 al 0 de un total de 0 registros",
+    "mostrando_registros_del_cero": "Mostrando registros del 0 al 0 de un total de 0 registros",
     "cargando": "Cargando...",
     "from": "de",
     "total_de": "de un total de",
@@ -214,14 +214,17 @@
     "proyec_pre_aprobados": "Pre Aprobados",
     "ultimos_proyectos": "Últimos Proyectos",
     "numero_proyectos_registrados": "Cantidad de Proyectos Registrados",
-    "select_categoria":"seleccione categoría",
-    "categoria_de_proyecto":"Seleccione la categoría de su proyecto",
-    "select_solista":"Elige, eres solista o grupo",
-    "solista":"Solista",
-    "grupo":"Grupo",
-    "registrar":"Registrar integrantes",
-    "solista_o":"Selecciona si eres solista o tienes un grupo",
-        "grupo":"Grupo"
-
+    "select_categoria": "seleccione categoría",
+    "categoria_de_proyecto": "Seleccione la categoría de su proyecto",
+    "select_solista": "Elige, eres solista o grupo",
+    "solista": "Solista",
+    "grupo": "Grupo",
+    "registrar": "Registrar integrantes",
+    "solista_o": "Selecciona si eres solista o tienes un grupo",
+    "grupo": "Grupo",
+    "integrantes_grupo": "Agregar integrantes",
+    "rol":"Rol",
+    "help_nombre_integrante":"Escriba el nombre de los integrantes ",
+    "help_rol_integrante":"Escriba que hace en el grupo(voz, guitarra, piano, bajo, etc)."
 
 }

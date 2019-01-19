@@ -10,6 +10,7 @@ use App\Mail\NewProjectArtist;
 use App\Project;
 use App\Survey;
 use App\typeCategories;
+use App\Team;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
@@ -59,6 +60,17 @@ class AddProjectController extends Controller
             'slug' => $slug.'-'.$ramdoNum
         ]);
 
+        for($i=0; $i<count($request->get('nombres'));$i++){
+
+            $team= new Team();
+            $team->name=$request->get('nombres')[$i];
+            $team->role=$request->get('rol')[$i];
+            $team->save();
+            $project->teams()->attach($team);
+        }
+
+        
+
         $ans=Artist::findOrFail($request->get('artist_id'));
         $ans->answers()->attach($request->get('questionGroup'));
 
@@ -74,5 +86,5 @@ class AddProjectController extends Controller
             return redirect(route("myprojects.artist"))->with('proyect_add',' '. $name_artist . ' ' . __('primer_proyecto_add_notificar'));
 
         }
-    }
+      }
 }
