@@ -226,7 +226,14 @@
     "integrantes_grupo":"Add members",
     "rol":"Role",
     "help_nombre_integrante":"Write the name of the members",
-    "help_rol_integrante":"Write what you do in the group (voice, guitar, piano, bass, etc)."
+    "help_rol_integrante":"Write what you do in the group (voice, guitar, piano, bass, etc).",
+    "ningun_proyect_estado": "No project registered in this state",
+    "nuevos_artistas": "New Artists",
+    "artistas": "Artists",
+    "filtrar": "Filter",
+    "todos_artistas": "All Artists",
+    "fecha_nacimiento": "Date of Birth",
+    "edad": "Age"
 
 
 }

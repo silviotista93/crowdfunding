@@ -36,8 +36,9 @@ Route::get('/projects-sql',function (){
    $projects = \App\Artist::where('user_id',auth()->user()->id)->exists();
    dd($projects);
 });
-Route::get('/artists/{id}',function ($id){
-    return \App\Artist::where('id',$id)->with(['projects','levels','countries'])->get();
+Route::get('/artists-all',function (){
+    $artists = \App\Artist::with('users','countries','levels')->get();
+   return datatables()->of($artists)->toJson();
 });
 Route::get('/managements/{id}',function ($id){
   /* $manage_project = \Illuminate\Support\Facades\DB::table('management_project')
@@ -100,6 +101,11 @@ BACKEND
 Route::group(['namespace'=>'Backend','prefix' => 'dashboard','middleware' => 'auth'],function (){
     //Rutas para el modulo Dashboard
     Route::get('/','DashboardController@index')->name('dashboard');
+
+    //Rutas para el modulo Artistas
+    Route::get('/artists','ArtistsController@index')->name('index.artists');
+    Route::get('/artists-all-table','ArtistsController@table_all_artists')->name('all.artists.table');
+
 
     //RUTAS PARA EL PERFIL
     //Perfil Artista

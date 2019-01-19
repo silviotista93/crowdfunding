@@ -47,7 +47,13 @@ use Illuminate\Support\Facades\DB;
  */
 class Artist extends Model
 {
-    protected $fillable = ['user_id','nickname','biography','website_url','facebook','instagram','youtube','level_id','country_id'];
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'published_at',
+        'birthdate',
+    ];
+    protected $fillable = ['user_id','nickname','biography','website_url','facebook','instagram','youtube','level_id','country_id','age','birthdate'];
 
     public function projects(){
         return $this->belongsToMany(Project::class,'artist_projects','artist_id','project_id');

@@ -57,7 +57,7 @@ class UserTableSeeder extends Seeder
 
         $artist = User::create([
 
-            'name'=>'Cristian',
+            'name'=>'Cristian Salazar',
             'last_name'=>'Salazar',
             'picture'=>'/backend/assets/app/media/img/users/perfil.jpg',
             'phone_1'=>'333333333',

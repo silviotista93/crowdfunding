@@ -14,50 +14,50 @@
         </ul>
 
     @endif--}}
-        <div class="d-flex align-items-center">
-            <div class="mr-auto">
-                <h3 class="m-subheader__title m-subheader__title--separator">{{ __('perfil') }}</h3>
-                <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
-                    <li class="m-nav__item m-nav__item--home">
-                        <a href="#" class="m-nav__link m-nav__link--icon">
-                            <i class="m-nav__link-icon la la-user"></i>
-                        </a>
-                    </li>
-                    <li class="m-nav__separator">-</li>
-                    <li class="m-nav__item">
-                        <a href="" class="m-nav__link">
-                            <span class="m-nav__link-text">{{__('perfil')}} {{ __('artista') }}</span>
-                        </a>
-                    </li>
-                    <li class="m-nav__separator">-</li>
-                    <li class="m-nav__item">
-                        <a href="" class="m-nav__link">
-                            <span class="m-nav__link-text"></span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div>
-            </div>
+    <div class="d-flex align-items-center">
+        <div class="mr-auto">
+            <h3 class="m-subheader__title m-subheader__title--separator">{{ __('perfil') }}</h3>
+            <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+                <li class="m-nav__item m-nav__item--home">
+                    <a href="#" class="m-nav__link m-nav__link--icon">
+                        <i class="m-nav__link-icon la la-user"></i>
+                    </a>
+                </li>
+                <li class="m-nav__separator">-</li>
+                <li class="m-nav__item">
+                    <a href="" class="m-nav__link">
+                        <span class="m-nav__link-text">{{__('perfil')}} {{ __('artista') }}</span>
+                    </a>
+                </li>
+                <li class="m-nav__separator">-</li>
+                <li class="m-nav__item">
+                    <a href="" class="m-nav__link">
+                        <span class="m-nav__link-text"></span>
+                    </a>
+                </li>
+            </ul>
         </div>
+        <div>
+        </div>
+    </div>
 
 @stop
 @section('content')
     <div class="m-content">
         @if(session()->has('profile_update'))
-        <div class="m-alert m-alert--icon m-alert--outline alert alert-success" role="alert">
-            <div class="m-alert__icon">
-                <i class="la la-check"></i>
+            <div class="m-alert m-alert--icon m-alert--outline alert alert-success" role="alert">
+                <div class="m-alert__icon">
+                    <i class="la la-check"></i>
+                </div>
+                <div class="m-alert__text">
+                    <strong>{{ __('bien_hecho') }}!</strong> {{session('profile_update')}}
+                    <i class="la la-hand-o-right pull-right" style="font-size: 25px"></i>
+                </div>
+                <div class="m-alert__actions" style="width: 30px;">
+                    <a href="{{ route('add.project') }}" class="btn m-btn--pill btn-success">{{ __('nuevo_proyecto') }}
+                    </a>
+                </div>
             </div>
-            <div class="m-alert__text">
-                <strong>{{ __('bien_hecho') }}!</strong> {{session('profile_update')}}
-                <i class="la la-hand-o-right pull-right" style="font-size: 25px"></i>
-            </div>
-            <div class="m-alert__actions" style="width: 30px;">
-                <a href="{{ route('add.project') }}" class="btn m-btn--pill btn-success">{{ __('nuevo_proyecto') }}
-                </a>
-            </div>
-        </div>
         @endif
         <div class="row">
             <div class="col-xl-3 col-lg-4">
@@ -106,7 +106,8 @@
                                             <h3 class="m-form__section">1. Info {{ __('artista') }}</h3>
                                         </div>
                                     </div>
-                                    <div class="form-group m-form__group row {{$errors->has('nickname')? 'has-danger':''}}">
+                                    <div
+                                        class="form-group m-form__group row {{$errors->has('nickname')? 'has-danger':''}}">
                                         <label for="example-text-input"
                                                class="col-2 col-form-label">{{ __('nombre_artistico') }}</label>
                                         <div class="col-7">
@@ -116,7 +117,8 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group m-form__group row {{$errors->has('biography')? 'has-danger':''}}">
+                                    <div
+                                        class="form-group m-form__group row {{$errors->has('biography')? 'has-danger':''}}">
                                         <label for="example-text-input"
                                                class="col-2 col-form-label">{{ __('biografia') }}</label>
                                         <div class="col-7">
@@ -128,27 +130,64 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group m-form__group row {{$errors->has('level_id')? 'has-danger':''}}">
+                                    <div
+                                        class="form-group m-form__group row {{$errors->has('birthdate')? 'has-danger':''}}">
+                                        <label for="example-text-input"
+                                               class="col-2 col-form-label">{{ __('fecha_nacimiento') }}</label>
+                                        @if($artist->birthdate == null)
+                                            <div class="col-7">
+                                                <input type="text" name="birthdate" class="form-control"
+                                                       value="{{ old('birthdate') }}" id="datepicker_fecha_nacimiento"
+                                                       readonly placeholder="{{ __('fecha_nacimiento') }}"/>
+                                                {!! $errors->first('birthdate','<div class="form-control-feedback">*:message</div>')!!}
+                                            </div>
+                                        @else
+                                            <div class="col-7">
+                                                <input type="text" name="birthdate" class="form-control"
+                                                       value="{{ old('birthdate', $artist->birthdate->format('m/d/Y')) }}"
+                                                       id="datepicker_fecha_nacimiento" readonly
+                                                       placeholder="{{ __('fecha_nacimiento') }}"/>
+                                                {!! $errors->first('birthdate','<div class="form-control-feedback">*:message</div>')!!}
+                                            </div>
+                                        @endif
+                                    </div>
+
+                                    <div class="form-group m-form__group row {{$errors->has('age')? 'has-danger':''}}">
+                                        <label for="example-text-input"
+                                               class="col-2 col-form-label">{{ __('edad') }}</label>
+                                        <div class="col-2">
+                                            <input type="number" min="1" max="100" name="age"
+                                                   value="{{ old('age', $artist->age) }}" class="form-control m-input"
+                                                   onKeyPress="if(this.value.length==2) return false;"/>
+                                            {!! $errors->first('age','<div class="form-control-feedback">*:message</div>')!!}
+                                        </div>
+                                    </div>
+
+                                    <div
+                                        class="form-group m-form__group row {{$errors->has('level_id')? 'has-danger':''}}">
                                         <label for="example-text-input"
                                                class="col-2 col-form-label">{{ __('level') }}</label>
                                         <div class="col-7">
                                             <select name="level_id"
                                                     class="form-control m-bootstrap-select m_selectpicker">
                                                 @foreach($levels as $level)
-                                                    <option value="{{$level->id}}" {{ old('level_id',$artist->level_id) == $level->id ? 'selected':''}}>{{ $level->level }}</option>
+                                                    <option
+                                                        value="{{$level->id}}" {{ old('level_id',$artist->level_id) == $level->id ? 'selected':''}}>{{ $level->level }}</option>
                                                 @endforeach
                                                 {!! $errors->first('level_id','<div class="form-control-feedback">*:message</div>')!!}
                                             </select>
                                         </div>
                                     </div>
 
-                                    <div class="form-group m-form__group row {{$errors->has('country_id')? 'has-danger':''}}">
+                                    <div
+                                        class="form-group m-form__group row {{$errors->has('country_id')? 'has-danger':''}}">
                                         <label for="example-text-input"
                                                class="col-2 col-form-label">{{ __('pais') }}</label>
                                         <div class="col-7">
                                             <select class="form-control m-select2" id="m_select2_1" name="country_id">
                                                 @foreach($countries as $country)
-                                                    <option value="{{ $country->id }}" {{ old('country_id',$artist->country_id) == $country->id ? 'selected':''}}>{{ $country->country }}</option>
+                                                    <option
+                                                        value="{{ $country->id }}" {{ old('country_id',$artist->country_id) == $country->id ? 'selected':''}}>{{ $country->country }}</option>
                                                 @endforeach
                                                 {!! $errors->first('country_id','<div class="form-control-feedback">*:message</div>')!!}
                                             </select>
@@ -156,14 +195,17 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group m-form__group row {{$errors->has('country_id')? 'has-danger':''}}">
+                                    <div
+                                        class="form-group m-form__group row {{$errors->has('country_id')? 'has-danger':''}}">
                                         <label for="example-text-input"
                                                class="col-2 col-form-label">{{ __('localizacion') }}</label>
                                         <div class="col-7">
-                                            <select class="form-control m-select2" id="select_2_location" name="location_id">
+                                            <select class="form-control m-select2" id="select_2_location"
+                                                    name="location_id">
 
                                                 @foreach($locactions as $location)
-                                                    <option value="{{ $location->id }}" {{ old('country_id',$location->country_id) == $location->id ? 'selected':''}}>{{ $location->country }}</option>
+                                                    <option
+                                                        value="{{ $location->id }}" {{ old('country_id',$location->country_id) == $location->id ? 'selected':''}}>{{ $location->country }}</option>
                                                 @endforeach
                                                 {!! $errors->first('country_id','<div class="form-control-feedback">*:message</div>')!!}
                                             </select>
@@ -171,23 +213,27 @@
                                         </div>
                                     </div>
 
-                                    <div class="m-form__seperator m-form__seperator--dashed m-form__seperator--space-2x"></div>
+                                    <div
+                                        class="m-form__seperator m-form__seperator--dashed m-form__seperator--space-2x"></div>
                                     <div class="form-group m-form__group row ">
                                         <div class="col-10 ml-auto">
                                             <h3 class="m-form__section">2. {{ __('personal') }}</h3>
                                         </div>
                                     </div>
-                                    <div class="form-group m-form__group row {{$errors->has('phone_1')? 'has-danger':''}}">
+                                    <div
+                                        class="form-group m-form__group row {{$errors->has('phone_1')? 'has-danger':''}}">
                                         <label for="example-text-input"
                                                class="col-2 col-form-label">{{ __('numero_celular') }}</label>
                                         <div class="col-7">
-                                            <input id="phone" name="phone_1" type="tel" value="{{ old('phone_1',$artist->users->phone_1 )}}">
+                                            <input id="phone" name="phone_1" type="tel"
+                                                   value="{{ old('phone_1',$artist->users->phone_1 )}}">
                                             {!! $errors->first('phone_1','<div class="form-control-feedback">*:message</div>')!!}
                                             <span class="m-form__help">{{ __('indicativo_pais')  }}</span>
                                         </div>
                                     </div>
 
-                                    <div class="m-form__seperator m-form__seperator--dashed m-form__seperator--space-2x"></div>
+                                    <div
+                                        class="m-form__seperator m-form__seperator--dashed m-form__seperator--space-2x"></div>
                                     <div class="form-group m-form__group row">
                                         <div class="col-10 ml-auto">
                                             <h3 class="m-form__section">3. {{ __('redes_sociales') }}</h3>
@@ -358,7 +404,8 @@
                                                         <!--begin::Form-->
                                                         <form class="m-form">
                                                             <div class="m-form__group form-group row">
-                                                                <label class="col-12 col-form-label">{{ __('mostrar_patrocinador') }}</label>
+                                                                <label
+                                                                    class="col-12 col-form-label">{{ __('mostrar_patrocinador') }}</label>
                                                                 <div class="col-12">
                                                                     <span class="m-switch m-switch--icon">
                                                                         <label>
@@ -391,12 +438,15 @@
                                                     <div class="m-demo__preview">
                                                         <!-- CAMBIAR LA CONTRASEÑA DEL USUARIO, PERO PRIMERO SE VALIDA SI EL USUARIO ES NO ES DE ALGUNA RED SOCIAL -->
                                                         @if(!$artist->users->socialAcounts)
-                                                            <form method="post" action="{{ route('update.password.artist') }}">
+                                                            <form method="post"
+                                                                  action="{{ route('update.password.artist') }}">
                                                                 @csrf
                                                                 <div class="row">
                                                                     <div class="col-lg-6">
-                                                                        <div class="form-group m-form__group {{$errors->has('password')? 'has-danger':''}}">
-                                                                            <label for="exampleInputPassword1">{{ __('actualizar_contraseña') }}</label>
+                                                                        <div
+                                                                            class="form-group m-form__group {{$errors->has('password')? 'has-danger':''}}">
+                                                                            <label
+                                                                                for="exampleInputPassword1">{{ __('actualizar_contraseña') }}</label>
                                                                             <input type="password" name="password"
                                                                                    class="form-control m-input"
                                                                                    id="exampleInputPassword1"
@@ -405,8 +455,10 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-lg-6">
-                                                                        <div class="form-group m-form__group {{$errors->has('password_confirmation')? 'has-danger':''}}">
-                                                                            <label for="exampleInputPassword1">{{ __('confirmar_contraseña') }}</label>
+                                                                        <div
+                                                                            class="form-group m-form__group {{$errors->has('password_confirmation')? 'has-danger':''}}">
+                                                                            <label
+                                                                                for="exampleInputPassword1">{{ __('confirmar_contraseña') }}</label>
                                                                             <input type="password"
                                                                                    name="password_confirmation"
                                                                                    class="form-control m-input"
@@ -414,7 +466,8 @@
                                                                                    placeholder="{{ __('confirmar_contraseña') }}">
                                                                             {!! $errors->first('password_confirmation','<div class="form-control-feedback">*:message</div>')!!}
                                                                         </div>
-                                                                        <button type="submit" class="btn btn-outline-success btn-sm m-btn m-btn--custom pull-right">{{ __('actualizar') }}</button>
+                                                                        <button type="submit"
+                                                                                class="btn btn-outline-success btn-sm m-btn m-btn--custom pull-right">{{ __('actualizar') }}</button>
                                                                     </div>
                                                                 </div>
                                                             </form>
@@ -423,10 +476,14 @@
                                                             <div class="col-lg-6">
                                                                 <div class="form-group m-form__group">
                                                                     <label for="">Imagén de Perfil</label>
-                                                                    <div class="m-dropzone dropzone m-dropzone--success" action="inc/api/dropzone/upload.php" id="m-dropzone-three">
-                                                                        <div class="m-dropzone__msg dz-message needsclick">
+                                                                    <div class="m-dropzone dropzone m-dropzone--success"
+                                                                         action="inc/api/dropzone/upload.php"
+                                                                         id="m-dropzone-three">
+                                                                        <div
+                                                                            class="m-dropzone__msg dz-message needsclick">
                                                                             <h3 class="m-dropzone__msg-title">{{ __('actualizar_foto_perfil') }}</h3>
-                                                                            <span class="m-dropzone__msg-desc">{{ __('arrastra_click_subir') }}</span>
+                                                                            <span
+                                                                                class="m-dropzone__msg-desc">{{ __('arrastra_click_subir') }}</span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -449,6 +506,51 @@
 @stop
 @section('dropzonePhotoArtist')
     <script>
+
+        var BootstrapDatepicker = function () {
+
+            var arrows;
+            if (mUtil.isRTL()) {
+                arrows = {
+                    leftArrow: '<i class="la la-angle-right"></i>',
+                    rightArrow: '<i class="la la-angle-left"></i>'
+                }
+            } else {
+                arrows = {
+                    leftArrow: '<i class="la la-angle-left"></i>',
+                    rightArrow: '<i class="la la-angle-right"></i>'
+                }
+            }
+
+            //== Private functions
+            var demos = function () {
+                // minimum setup
+                $('#datepicker_fecha_nacimiento #m_datepicker_1_validate').datepicker({
+                    rtl: mUtil.isRTL(),
+                    todayHighlight: true,
+                    orientation: "bottom left",
+                    templates: arrows
+                });
+                $('#datepicker_fecha_nacimiento').datepicker({
+                    rtl: mUtil.isRTL(),
+                    todayHighlight: true,
+                    orientation: "bottom left",
+                    templates: arrows
+                });
+            }
+
+            return {
+                // public functions
+                init: function () {
+                    demos();
+                }
+            };
+        }();
+
+        jQuery(document).ready(function () {
+            BootstrapDatepicker.init();
+        });
+
         new Dropzone('.dropzone', {
             url: '{{ route('profile.photo.artist') }}',
             acceptedFiles: 'image/*',
