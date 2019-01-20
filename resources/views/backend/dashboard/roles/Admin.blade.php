@@ -561,7 +561,7 @@
                                     </div>
                                     <div class="m-widget4__ext">
                                         <a href="#"
-                                           class="m-btn m-btn--pill m-btn--hover-brand btn btn-sm btn-secondary">Follow</a>
+                                           class="m-btn m-btn--pill m-btn--hover-brand btn btn-sm btn-secondary">Info</a>
                                     </div>
                                 </div>
                                     @empty

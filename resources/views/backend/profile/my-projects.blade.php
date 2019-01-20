@@ -118,7 +118,7 @@
                                                 </div>
                                                 <div class="m-widget5__section">
                                                     <h4 class="m-widget5__title">
-                                                        {{ str_limit($projects->title,40) }}
+                                                        {{ str_limit($projects->title,55) }}
                                                     </h4>
                                                     <span class="m-widget5__desc m--font-success"
                                                           style="font-size: 14px">
@@ -127,6 +127,14 @@
                                                     <div class="m-widget5__info">
                                                         <span class="m-widget5__author">{{ str_limit($projects->short_description,200)}}</span>
                                                     </div>
+                                                </div>
+                                                <div class="m-widget5__stats2 pull-right" >
+                                                    <span class="m-widget5__number">$10000</span><br>
+                                                    <span class="m-widget5__votes">{{ __('fondos_recaudados') }}</span>
+                                                </div>
+                                                <div class="m-widget5__stats1 pull-right" style="margin-right: 40px;">
+                                                    <span class="m-widget5__number" style="margin-right: 0px">${{ $projects->price }}</span><br>
+                                                    <span class="m-widget5__sales">{{ __('meta') }}</span>
                                                 </div>
                                                 <div class="m-widget5__stats1">
                                                     <a href="{{ route('show.backend.project',$projects->slug) }}" class="btn btn-secondary m-btn m-btn--icon m-btn--pill">
@@ -143,19 +151,6 @@
                                                 </div>
 
                                             </div>
-
-                                            <div class="m-widget5__content">
-
-                                                <div class="m-widget5__stats1">
-                                                    <span class="m-widget5__number">${{ $projects->price }}</span><br>
-                                                    <span class="m-widget5__sales">{{ __('meta') }}</span>
-                                                </div>
-                                                <div class="m-widget5__stats2">
-                                                    <span class="m-widget5__number">$0</span><br>
-                                                    <span class="m-widget5__votes">{{ __('fondos_recaudados') }}</span>
-                                                </div>
-                                            </div>
-
                                         </div>
 
                                     @empty
@@ -198,7 +193,7 @@
                                                 </div>
                                                 <div class="m-widget5__section">
                                                     <h4 class="m-widget5__title">
-                                                        {{ str_limit($projects->title,40) }}
+                                                        {{ str_limit($projects->title,55) }}
                                                     </h4>
                                                     <span class="m-widget5__desc m--font-success"
                                                           style="font-size: 14px">
@@ -207,6 +202,14 @@
                                                     <div class="m-widget5__info">
                                                         <span class="m-widget5__author">{{ str_limit($projects->short_description,200)}}</span>
                                                     </div>
+                                                </div>
+                                                <div class="m-widget5__stats2 pull-right" >
+                                                    <span class="m-widget5__number">$10000</span><br>
+                                                    <span class="m-widget5__votes">{{ __('fondos_recaudados') }}</span>
+                                                </div>
+                                                <div class="m-widget5__stats1 pull-right" style="margin-right: 40px;">
+                                                    <span class="m-widget5__number" style="margin-right: 0px">${{ $projects->price }}</span><br>
+                                                    <span class="m-widget5__sales">{{ __('meta') }}</span>
                                                 </div>
                                                 <div class="m-widget5__stats1">
                                                     <a href="#" class="btn btn-secondary m-btn m-btn--icon m-btn--pill">
@@ -223,19 +226,6 @@
                                                 </div>
 
                                             </div>
-
-                                            <div class="m-widget5__content">
-
-                                                <div class="m-widget5__stats1">
-                                                    <span class="m-widget5__number">${{ $projects->price }}</span><br>
-                                                    <span class="m-widget5__sales">{{ __('meta') }}</span>
-                                                </div>
-                                                <div class="m-widget5__stats2">
-                                                    <span class="m-widget5__number">$0</span><br>
-                                                    <span class="m-widget5__votes">{{ __('fondos_recaudados') }}</span>
-                                                </div>
-                                            </div>
-
                                         </div>
                                     @empty
                                         <div class="alert m-alert--default text-center">
@@ -277,7 +267,7 @@
                                                 </div>
                                                 <div class="m-widget5__section">
                                                     <h4 class="m-widget5__title">
-                                                        {{ str_limit($projects->title,40) }}
+                                                        {{ str_limit($projects->title,55) }}
                                                     </h4>
                                                     <span class="m-widget5__desc m--font-success"
                                                           style="font-size: 14px">
@@ -286,6 +276,14 @@
                                                     <div class="m-widget5__info">
                                                         <span class="m-widget5__author">{{ str_limit($projects->short_description,200)}}</span>
                                                     </div>
+                                                </div>
+                                                <div class="m-widget5__stats2 pull-right" >
+                                                    <span class="m-widget5__number">$10000</span><br>
+                                                    <span class="m-widget5__votes">{{ __('fondos_recaudados') }}</span>
+                                                </div>
+                                                <div class="m-widget5__stats1 pull-right" style="margin-right: 40px;">
+                                                    <span class="m-widget5__number" style="margin-right: 0px">${{ $projects->price }}</span><br>
+                                                    <span class="m-widget5__sales">{{ __('meta') }}</span>
                                                 </div>
                                                 <div class="m-widget5__stats1">
                                                     <a href="#" class="btn btn-secondary m-btn m-btn--icon m-btn--pill">
@@ -301,18 +299,6 @@
                                                     @endif
                                                 </div>
 
-                                            </div>
-
-                                            <div class="m-widget5__content">
-
-                                                <div class="m-widget5__stats1">
-                                                    <span class="m-widget5__number">${{ $projects->price }}</span><br>
-                                                    <span class="m-widget5__sales">{{ __('meta') }}</span>
-                                                </div>
-                                                <div class="m-widget5__stats2">
-                                                    <span class="m-widget5__number">$0</span><br>
-                                                    <span class="m-widget5__votes">{{ __('fondos_recaudados') }}</span>
-                                                </div>
                                             </div>
                                         </div>
                                     @empty
@@ -355,7 +341,7 @@
                                                 </div>
                                                 <div class="m-widget5__section">
                                                     <h4 class="m-widget5__title">
-                                                        {{ str_limit($projects->title,40) }}
+                                                        {{ str_limit($projects->title,55) }}
                                                     </h4>
                                                     <span class="m-widget5__desc m--font-success"
                                                           style="font-size: 14px">
@@ -364,6 +350,14 @@
                                                     <div class="m-widget5__info">
                                                         <span class="m-widget5__author">{{ str_limit($projects->short_description,200)}}</span>
                                                     </div>
+                                                </div>
+                                                <div class="m-widget5__stats2 pull-right" >
+                                                    <span class="m-widget5__number">$10000</span><br>
+                                                    <span class="m-widget5__votes">{{ __('fondos_recaudados') }}</span>
+                                                </div>
+                                                <div class="m-widget5__stats1 pull-right" style="margin-right: 40px;">
+                                                    <span class="m-widget5__number" style="margin-right: 0px">${{ $projects->price }}</span><br>
+                                                    <span class="m-widget5__sales">{{ __('meta') }}</span>
                                                 </div>
                                                 <div class="m-widget5__stats1">
                                                     <a href="#" class="btn btn-secondary m-btn m-btn--icon m-btn--pill">
@@ -379,18 +373,6 @@
                                                     @endif
                                                 </div>
 
-                                            </div>
-
-                                            <div class="m-widget5__content">
-
-                                                <div class="m-widget5__stats1">
-                                                    <span class="m-widget5__number">${{ $projects->price }}</span><br>
-                                                    <span class="m-widget5__sales">{{ __('meta') }}</span>
-                                                </div>
-                                                <div class="m-widget5__stats2">
-                                                    <span class="m-widget5__number">$0</span><br>
-                                                    <span class="m-widget5__votes">{{ __('fondos_recaudados') }}</span>
-                                                </div>
                                             </div>
                                         </div>
                                     @empty

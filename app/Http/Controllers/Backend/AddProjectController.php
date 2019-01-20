@@ -59,14 +59,17 @@ class AddProjectController extends Controller
             'price' => $request->get('price'),
             'slug' => $slug.'-'.$ramdoNum
         ]);
+        if ($request->get('select_solista') != 1){
+            if ($request->get('nombres') != null ){
+                for ($i = 0; $i < count($request->get('nombres')); $i++) {
 
-        for($i=0; $i<count($request->get('nombres'));$i++){
-
-            $team= new Team();
-            $team->name=$request->get('nombres')[$i];
-            $team->role=$request->get('rol')[$i];
-            $team->save();
-            $project->teams()->attach($team);
+                    $team = new Team();
+                    $team->name = $request->get('nombres')[$i];
+                    $team->role = $request->get('rol')[$i];
+                    $team->save();
+                    $project->teams()->attach($team);
+                }
+            }
         }
 
         

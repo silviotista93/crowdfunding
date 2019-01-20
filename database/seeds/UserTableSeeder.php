@@ -53,8 +53,6 @@ class UserTableSeeder extends Seeder
 
         $add_management->categories()->attach(['2','3']);
 
-
-
         $artist = User::create([
 
             'name'=>'Cristian Salazar',

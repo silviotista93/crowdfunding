@@ -19,7 +19,7 @@ class DashboardController extends Controller
         $last_pre_approved = Project::where('status',Project::PREAPPROVAL)->with('artists')->take(2)->get();
 
         //ULTIMOS ARTISTAS REGISTRADOS
-        $last_artists = Artist::with('users','location','countries')->get();
+        $last_artists = Artist::with('users','location','countries')->latest()->take(5)->get();
 
         return view('backend.dashboard.dashboard',compact(
             'last_published','last_rejected','last_approved',
