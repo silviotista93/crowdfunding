@@ -46,50 +46,50 @@ var Wizard = function () {
                 },
                 //===(step 2)
                 nombreProyecto: {
-                    required: true 
+                    required: true
                 },
-                descripcionProyecto:{
-                    required:true
+                descripcionProyecto: {
+                    required: true
                 },
-                category_id:{
+                category_id: {
                     required: true,
                 },
-                costo_proyecto:{
+                costo_proyecto: {
                     required: true
                 },
                 //===(step 3)
-                txtCardName:{
-                    required:true
-                },
-                txtCardNumber:{
+                txtCardName: {
                     required: true
                 },
-                
+                txtCardNumber: {
+                    required: true
+                },
+
                 //===(step 4)
                 email: {
                     required: true,
-                    email: true 
-                },       
+                    email: true
+                },
                 phone: {
                     required: true,
-                    phoneUS: true 
-                },     
+                    phoneUS: true
+                },
 
                 //== Mailing address
                 address1: {
-                    required: true 
+                    required: true
                 },
                 city: {
-                    required: true 
+                    required: true
                 },
                 state: {
-                    required: true 
+                    required: true
                 },
                 city: {
-                    required: true 
+                    required: true
                 },
                 country: {
-                    required: true 
+                    required: true
                 },
 
                 //=== Client Information(step 2)
@@ -105,12 +105,12 @@ var Wizard = function () {
                 account_password: {
                     required: true,
                     minlength: 6
-                },                
+                },
 
                 //== Client Settings
                 account_group: {
-                     required: true
-                },                
+                    required: true
+                },
                 'account_communication[]': {
                     required: true
                 },
@@ -141,7 +141,7 @@ var Wizard = function () {
                     required: true
                 },
                 billing_address_2: {
-                    
+
                 },
                 billing_city: {
                     required: true
@@ -282,44 +282,83 @@ $(".valor_add_proyecto").keyup(function () {
 
 });
 
-function getIdYoutube(url){
+function getIdYoutube(url) {
     let paramsString = url.replace(/.+\?{1}/g, '');
     let params = paramsString.split("&");
     let idYoutube = "";
-    params.forEach(function (param){
-        if (param[0]==="v" && param[1]==="="){
+    params.forEach(function (param) {
+        if (param[0] === "v" && param[1] === "=") {
             idYoutube = param.substr(2);
         }
     });
     return idYoutube;
 }
 
-$("#txtFrame").change(function (){
+$("#txtFrame").change(function () {
     let id = getIdYoutube($(this).val());
     $("#txtIdVideo").val(id);
     let video = $("#videoYoutube");
     let url = video.attr("data-url");
-    video.attr("src", url+id);
+    video.attr("src", url + id);
 });
 
-$("#category_add_proyecto").change(function(){
+$("#category_add_proyecto").change(function () {
 
-    if($(this).val()==="1"){
-        $(".cont_solista").show();    
-    }else{
-        console.log("NO");
-         $(".cont_solista").hide();
+    if ($(this).val() === "1") {
+        $(".cont_solista").show();
+    } else {
+        $(".cont_solista").hide();
     }
-    
+
 });
 
-$("#select_solista").change(function(){
+$("#select_solista").change(function () {
 
-    console.log($(this).val());
-    if($(this).val()==="2"){
+    if ($(this).val() === "2") {
         $(".registro").show();
-    }else{
-         $(".registro").hide();
+    } else {
+        $(".registro").hide();
     }
+
+});
+
+
+
+// agregar otro input 
+var cont =0;
+
+$("#masInte").click(function (e) {
+    e.preventDefault();
+    cont+=1;
+
+    var agregar = `<div class="form-group m-form__group row">
+    <div class="col-lg-12">
+        <label class="form-control-label" form="nombreIntegrante">* ${nombre}:</label>
+        <input type="text" name="nombres[]" class="form-control m-input title_add_proyecto required" id="nombreIntegrante" placeholder=""
+            value="">
+        <span class="m-form__help">${help}</span>
+    </div>
+</div>
+
+<div class="form-group m-form__group row">
+    <div class="col-lg-12">
+        <label class="form-control-label" form="rolIntegrante">* ${rol}:</label>
+        <input type="text" name="rol[]" class="form-control m-input title_add_proyecto required" id="rolIntegrante" placeholder=""
+            value="">
+        <span class="m-form__help">${helpRol}</span>
+    </div>
+</div>                                                                  
+</div>`;
     
+  
+    if(cont<=4){
+
+     $("#integrantes").append(agregar);
+
+    }else{
+     alert("maximo 5 registros");
+    }
+
+
+    console.log(cont);
 });

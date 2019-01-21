@@ -265,9 +265,8 @@
                                                               </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <div class="m-form__section m-form__section--first">
-                                                                
-                                                                   @for($i=0; $i<=4; $i++)                                                                                                                               
+                                                                <div class="m-form__section m-form__section--first" id="integrantes">                                                                
+                                                                                                                                                                                                
                                                                     <div class="form-group m-form__group row">
                                                                         <div class="col-lg-12">
                                                                             <label class="form-control-label" form="nombreIntegrante">* {{ __('nombre') }}:</label>
@@ -284,14 +283,19 @@
                                                                                 value="">
                                                                             <span class="m-form__help">{{ __('help_rol_integrante') }}</span>
                                                                         </div>
-                                                                    </div>
-                                                                    @endfor
+                                                                    </div>                                                                  
                                                                 </div>
+                                                                <span class="btn btn-brand m-btn m-btn--icon m-btn--icon-only" id="masInte">
+                                                                        <i class="fa flaticon-plus"></i>
+                                                                </span>
 
                                                             </div>
                                                             <div class="modal-footer">
-                                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                              <button type="button" class="btn btn-primary">Save changes</button>
+                                                              <button type="button" class="btn btn-success" data-dismiss="modal">
+                                                                    <span>
+                                                                            <span>{{ __('guardar') }} &amp; {{ __('continuar') }}</span>                                                                            
+                                                                        </span>
+                                                            </button>                                                             
                                                             </div>
                                                           </div>
                                                         </div>
@@ -597,8 +601,15 @@
     const txtInvalidAlert = "{{ __('txtInvalidAlertAddProject') }}";
 </script>
 <script src="/backend/assets/js/add-project.js" type="text/javascript"></script>
-
 <script>
+    const nombre= "{{ __('nombre') }}";
+        const help="{{ __('help_nombre_integrante') }}";
+        const rol="{{ __('rol') }}";
+        const helpRol="{{ __('help_rol_integrante') }}";
+    </script>
+<script>
+      
+
     new Dropzone('.dropzone', {
             url: '{{route('add.project.image')}}',
             acceptedFiles: 'image/*',
@@ -615,5 +626,8 @@
         });
 
         Dropzone.autoDiscover = false;
+      
+
+        
 </script>
 @endsection
