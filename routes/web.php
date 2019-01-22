@@ -36,8 +36,8 @@ Route::get('/projects-sql',function (){
    $projects = \App\Artist::where('user_id',auth()->user()->id)->exists();
    dd($projects);
 });
-Route::get('/artists-all',function (){
-    $artists = \App\Artist::with('users','countries','levels')->get();
+Route::get('/team-all/{id}',function ($id){
+    $artists = \App\Project::where('id',$id)->with('teams')->get();
    return datatables()->of($artists)->toJson();
 });
 Route::get('/managements/{id}',function ($id){
@@ -125,6 +125,10 @@ Route::group(['namespace'=>'Backend','prefix' => 'dashboard','middleware' => 'au
 
     //RUTAS PARA VER EL PROJECT
     Route::get('/project/{project}','ShowProjectController@index')->name('show.backend.project');
+    Route::get('/team-all/{id}',function ($id){
+        $teams = \App\Project::where('id',$id)->with('teams')->get();
+        return datatables()->of($teams)->toJson();
+    })->name('team-artist');
 
 
     //RUTAS PARA EL ADMINISTRADOR DEL SISTEMA -------------------------------------------------------------------------------------------
@@ -135,8 +139,8 @@ Route::group(['namespace'=>'Backend','prefix' => 'dashboard','middleware' => 'au
         //Lista proyectos managements
         Route::get('/projects-admin', 'Admin\ProjectsAdminController@index')->name('projects.admin');
         Route::put('/project-rejected-admin','Admin\ProjectsAdminController@rejected_project')->name('project.admin.rejected');
-        Route::get('datatables-projects-admin','Admin\ProjectsAdminController@table_projects')->name('datatables.projects.admin');
-        Route::get('datatables-managements-admin','Admin\ProjectsAdminController@table_managements')->name('datatables.management.admin');
+        Route::get('/datatables-projects-admin','Admin\ProjectsAdminController@table_projects')->name('datatables.projects.admin');
+        Route::get('/datatables-managements-admin','Admin\ProjectsAdminController@table_managements')->name('datatables.management.admin');
         //Lista de managaments
         Route::get('/managements-admin','Admin\ManagementsController@index')->name('managements.admin');
         Route::post('/add-management-admin','Admin\ManagementsController@store')->name('add.management.admin');

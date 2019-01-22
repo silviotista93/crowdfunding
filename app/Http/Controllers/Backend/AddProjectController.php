@@ -29,7 +29,7 @@ class AddProjectController extends Controller
             $tipoCategorias=typeCategories::all();
               
         if ($artist->nickname == null){
-            return redirect(route('profile.artist'))->with('eliminar','Para agregar un proyecto, completa tu perfil de artista');
+            return redirect(route('profile.artist'))->with('eliminar',__('completa_perfil_artista'));
         }else{
             return view('backend.projects.add-project',compact('categories','artist_id','question','contProject','tipoCategorias'));
         }

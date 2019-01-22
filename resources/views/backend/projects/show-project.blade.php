@@ -84,9 +84,25 @@
                                             ${{ $project->price }}</h4>
                                     </div>
 
-                                    <!-- ------------------------- ACCIONES SEGUN LOS ROLES----------------------------- -->
+                                    @if($team->teams != null )
+                                        <div class="form-group">
+                                            <h5 style="font-weight: bold">{{ __('integrantes_del_grupo_o_orquesta') }}
+                                                :</h5>
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="button" data-toggle="modal" data-target="#list_modal_team"
+                                                    class="btn btn-brand m-btn m-btn--icon">
+                                                <span>
+                                                    <i class="la la-users"></i>
+                                                    <span>{{ __('mostrar') }}</span>
+                                                </span>
+                                            </button>
+                                        </div>
+                                    @endif
 
-                                @include('backend.partials.rating.' .\App\User::rating_proyect())
+                                <!-- ------------------------- ACCIONES SEGUN LOS ROLES----------------------------- -->
+
+                                    @include('backend.partials.rating.' .\App\User::rating_proyect())
 
                                 <!-- ------------------------- CALIFICACION DEL PROYECTO CUANDO ESTA PUBLICADO Y APROBADO----------------------------- -->
                                     @if($project->status == 3 || $project->status == 4 || $project->status == 5)
@@ -289,6 +305,36 @@
             </div>
         </div>
     </div>
+
+    <!-- MODAL, MOSTRAR EL EQUIPO DE ARTISTAS-->
+    <div class="modal fade" id="list_modal_team" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">{{ __('management') }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-striped- table-bordered table-hover table-checkable" id="table_teams">
+                        <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Rol</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="btnSendMessage">{{ __('enviar') }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 @stop
 
 @section('rating.projects')
@@ -297,18 +343,18 @@
             $('[data-toggle="tooltip"]').tooltip();
         });
 
-        function mostrarComentario(texto){
+        function mostrarComentario(texto) {
             swal({
-                title: "{{__('porfavor')}}",
+                title: "{{__('mensaje')}}",
                 text: texto,
                 icon: "success",
             })
         }
 
-        function getRating(rating, star){
-            if (rating == null){
+        function getRating(rating, star) {
+            if (rating == null) {
                 return "";
-            }else if (star<=rating){
+            } else if (star <= rating) {
                 return "yellow-rating"
             }
             return "";
@@ -367,10 +413,10 @@
                 },
                 {
                     render: function (data, type, JsonResultRow, meta) {
-                        if (JsonResultRow.comment === null){
+                        if (JsonResultRow.comment === null) {
                             return "{{ __('nigun_valor_defecto') }}";
                         }
-                        return `<div class="text-center"><a onclick='mostrarComentario("${JsonResultRow.comment}")' class="btn m-btn--pill btn-secondary"><i class="fa fa-eye"></i></a></div>`;
+                        return `<div class="text-center"><a onclick='mostrarComentario("${JsonResultRow.comment}")' class="btn m-btn--pill btn-secondary"><i class="fa fa-envelope"></i></a></div>`;
                     }
                 },
                 {
@@ -378,6 +424,49 @@
                         return '<div class="text-center"><a href="/dashboard/profile-managament/' + JsonResultRow.users.slug + '" class="btn m-btn--pill btn-secondary"><i class="fa fa-eye"></i></a></div>'
                     }
                 },
+            ],
+            "language": {
+                "sProcessing": "{{__('procesando')}}",
+                "sLengthMenu": "{{__('mostrar')}} _MENU_ {{__('registros')}}",
+                "sZeroRecords": "No se encontraron resultados",
+                "sEmptyTable": "{{__('nigun_dato_tabla')}}",
+                "sInfo": "{{__('mostrando_registros') }} _START_ {{__('from')}} _END_ {{__('total_de')}} _TOTAL_ {{__('registros')}}",
+                "sInfoEmpty": "{{ __('mostrando_registros_del_cero') }}",
+                "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "sInfoPostFix": "",
+                "sSearch": "{{__('buscar')}}:",
+                "sUrl": "",
+                "sInfoThousands": ",",
+                "sLoadingRecords": "{{__('cargando')}}",
+                "oPaginate": {
+                    "sFirst": "Primero",
+                    "sLast": "Último",
+                    "sNext": "{{__('siguiente')}}",
+                    "sPrevious": "{{__('anterior')}}"
+                },
+                "oAria": {
+                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                }
+            }
+        });
+
+
+        $('#table_teams').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "data": null,
+            "ajax": "{{ route('team-artist',$project->id) }}",
+            "columns": [
+                {
+                    data: 'teams.name',
+                    defaultContent: '<span class="label label-danger text-center">{{ __('nigun_valor_defecto') }}</span>'
+                },
+                {
+                    data: 'teams.role',
+                    defaultContent: '<span class="label label-danger text-center">{{ __('nigun_valor_defecto') }}</span>'
+                },
+
             ],
             "language": {
                 "sProcessing": "{{__('procesando')}}",

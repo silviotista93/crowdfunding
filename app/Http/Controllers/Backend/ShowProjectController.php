@@ -24,16 +24,16 @@ class ShowProjectController extends Controller
         $artist= Project::where('id',$project->id)->with('artists.users')->first();
         $country = Country::where('id',$artist->artists[0]->country_id)->first();
         $location = Location::where('id',$artist->artists[0]->location_id)->first();
-
+        $team = Project::where('id',$project->id)->with('teams')->first();
         if (in_array('Admin', $rol)) {
             $review = Review::where("project_id","=", $project->id)->get();
             $asignado = count($review);
             $currentRaing = $review->avg("rating");
-            return view('backend.projects.show-project', compact("asignado",'project','end_time','artist','country', "currentRaing",'location'));
+            return view('backend.projects.show-project', compact("asignado",'project','end_time','artist','country', "currentRaing",'location','team'));
         } else if (in_array('Manage', $rol)){
             $review = Review::where("project_id","=", $project->id)
                 ->where("user_id","=", auth()->user()->id)->first();
-            return view('backend.projects.show-project', compact('project','end_time','artist','country', 'review','location'));
+            return view('backend.projects.show-project', compact('project','end_time','artist','country', 'review','location','team'));
         }else {
 
             $verify = Artist::where('user_id', auth()->user()->id)->with([
@@ -48,7 +48,7 @@ class ShowProjectController extends Controller
             $project->first();
 
             if (in_array($seacharSlug, $array)) {
-                return view('backend.projects.show-project', compact('project','end_time','artist','country','location'));
+                return view('backend.projects.show-project', compact('project','end_time','artist','country','location','team'));
             } else {
                 return response('No puedes continuar', 404);
             }

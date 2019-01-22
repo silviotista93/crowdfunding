@@ -222,7 +222,6 @@
     "grupo":"Group",
     "registrar":"Register members",
     "solista_o":"Select if you are a soloist or have a group",
-    "grupo":"Group",
     "integrantes_grupo":"Add members",
     "rol":"Role",
     "help_nombre_integrante":"Write the name of the members",
@@ -233,7 +232,10 @@
     "filtrar": "Filter",
     "todos_artistas": "All Artists",
     "fecha_nacimiento": "Date of Birth",
-    "edad": "Age"
+    "edad": "Age",
+    "mensaje": "Message",
+    "completa_perfil_artista": "To add a project, complete your artist profile",
+    "integrantes_del_grupo_o_orquesta": "Members of the group or orchestra"
 
 
 }
