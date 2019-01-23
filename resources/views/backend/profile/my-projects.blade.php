@@ -360,7 +360,7 @@
                                                     <span class="m-widget5__sales">{{ __('meta') }}</span>
                                                 </div>
                                                 <div class="m-widget5__stats1">
-                                                    <a href="#" class="btn btn-secondary m-btn m-btn--icon m-btn--pill">
+                                                    <a href="{{ route('show.backend.project',$projects->slug) }}" class="btn btn-secondary m-btn m-btn--icon m-btn--pill">
                                                     <span><i class="la la-info-circle"></i>
                                                     <span>{{ __('mas_informacion') }}</span></span>
                                                     </a>
