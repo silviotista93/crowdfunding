@@ -321,7 +321,7 @@
                 text: "{{ __('esta_seguro_rechazar') }}",
                 icon: "success",
 
-                confirmButtonText: "<span><i class='la la-thumbs-down'></i><span>{{ __('si') }}</span></span>",
+                confirmButtonText: "<span><i class='la la-thumbs-o-up'></i><span>{{ __('si') }}</span></span>",
                 confirmButtonClass: "btn btn-danger m-btn m-btn--pill m-btn--air m-btn--icon",
 
                 showCancelButton: true,
