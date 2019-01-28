@@ -842,7 +842,6 @@ const lang = "{{ session("applocale") }}";
 <script src="/backend/build/js/intlTelInput.js"></script>
 
 
-
 <!--end::Global Theme Bundle -->
 
 <!--begin::Page Vendors -->
@@ -894,6 +893,8 @@ const lang = "{{ session("applocale") }}";
 @section('table.admin.management')
 @show
 @stack('js')
+
+<script src="/backend/build/js/changeInputPhone.js"></script>
 </body>
 
 <!-- end::Body -->

@@ -226,7 +226,7 @@
                                                class="col-2 col-form-label">{{ __('numero_celular') }}</label>
                                         <div class="col-7">
                                             <input id="phone" name="phone_1" type="tel"
-                                                   value="{{ old('phone_1',$artist->users->phone_1 )}}">
+                                                   value="{{ old('phone_1',$artist->users->phone_1 )}}" class="activarTelefono">
                                             {!! $errors->first('phone_1','<div class="form-control-feedback">*:message</div>')!!}
                                             <span class="m-form__help">{{ __('indicativo_pais')  }}</span>
                                         </div>
