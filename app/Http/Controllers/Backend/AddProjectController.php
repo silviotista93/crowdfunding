@@ -28,7 +28,7 @@ class AddProjectController extends Controller
             $numProject=DB::table('artist_projects')->select('id')->where('artist_id', '=', $artist_id->id)->get();
             $contProject=count($numProject);
             $tipoCategorias=typeCategories::all();
-              
+
         if ($artist->nickname == null){
             return redirect(route('profile.artist'))->with('eliminar',__('completa_perfil_artista'));
         }else{
@@ -73,7 +73,7 @@ class AddProjectController extends Controller
             }
         }
 
-        
+
 
         $ans=Artist::findOrFail($request->get('artist_id'));
         $ans->answers()->attach($request->get('questionGroup'));
