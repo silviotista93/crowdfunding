@@ -459,14 +459,13 @@
             "ajax": "{{ route('team-artist',$project->id) }}",
             "columns": [
                 {
-                    data: 'teams.name',
+                    data: 'name',
                     defaultContent: '<span class="label label-danger text-center">{{ __('nigun_valor_defecto') }}</span>'
                 },
                 {
-                    data: 'teams.role',
+                    data: 'role',
                     defaultContent: '<span class="label label-danger text-center">{{ __('nigun_valor_defecto') }}</span>'
                 },
-
             ],
             "language": {
                 "sProcessing": "{{__('procesando')}}",
