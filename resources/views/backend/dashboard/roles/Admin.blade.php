@@ -507,6 +507,28 @@
                     </div>
                 </div>
             </div>
+            <!-- Grafica de pie char -->
+            <div class="m-portlet ">
+                <div class="m-portlet m-portlet--full-height ">
+                    <div class="m-portlet__head">
+                        <div class="m-portlet__head-caption">
+                            <div class="m-portlet__head-title">
+                                <h3 class="m-portlet__head-text m-link m--font-success m--font-bolder">
+                                    Proyectos Registrados
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="m-portlet__head-tools">
+                            <input type="date" name="date" id="dateChar">
+                        </div>
+                    </div>
+                    <div class="m-portlet__body">
+                        <div id="char_ultimos_proyectos" style="height:500px;"></div>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
         <div class="col-xl-4">
 
@@ -575,5 +597,10 @@
                 </div>
             </div>
         </div>
+
     </div>
 </div>
+
+@push('js')
+    <script src="/backend/admin/dashboard.js"></script>
+@endpush
