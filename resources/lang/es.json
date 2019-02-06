@@ -234,6 +234,10 @@
     "edad": "Edad",
     "mensaje": "Mensaje",
     "completa_perfil_artista": "Para agregar un proyecto, completa tu perfil de artista",
-    "integrantes_del_grupo_o_orquesta": "Integrantes del grupo o orquesta"
+    "integrantes_del_grupo_o_orquesta": "Integrantes del grupo o orquesta",
 
+
+    "title_ultimos_proyectos_registrados": "Últimos proyectos registrados",
+    "no_data_chart": "No hay datos registrados",
+    "proyectos_en_revicion_chart": "Proyectos en revisión"
 }

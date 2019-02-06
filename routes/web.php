@@ -126,7 +126,7 @@ Route::group(['namespace'=>'Backend','prefix' => 'dashboard','middleware' => 'au
     //RUTAS PARA VER EL PROJECT
     Route::get('/project/{project}','ShowProjectController@index')->name('show.backend.project');
     Route::get('/team-all/{id}',function ($id){
-        $teams = \App\Project::where('id',$id)->with('teams')->get();
+        $teams = \App\Project::where('id',$id)->with('teams')->get()[0]->teams;
         return datatables()->of($teams)->toJson();
     })->name('team-artist');
 
@@ -148,6 +148,8 @@ Route::group(['namespace'=>'Backend','prefix' => 'dashboard','middleware' => 'au
         Route::get('/profile-admin/{user}','Admin\ProfileAdminController@indexAdmin')->name('profile.admin');
         Route::post('/update-password-admin','Admin\ProfileAdminController@update_password_admin')->name('update.password.admin');
         Route::post('/profile-photo-admin','Admin\ProfileAdminController@photo_admin')->name('profile.photo.admin');
+
+        Route::post("/projects-news", "Admin\DashboardAdminController@showProyect")->name("admin.projects_news");
 
     });
 

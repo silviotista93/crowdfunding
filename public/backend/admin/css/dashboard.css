@@ -1,0 +1,9 @@
+.ultimos__proyectos--text,
+#contenedorProyectos.empty #char_ultimos_proyectos{
+    display: none;
+}
+
+#contenedorProyectos.empty .ultimos__proyectos--text{
+    display: block;
+    font-weight: bold;
+}

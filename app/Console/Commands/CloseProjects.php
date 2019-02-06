@@ -2,6 +2,10 @@
 
 namespace App\Console\Commands;
 
+use App\Mail\ArtistProjecApproved;
+use App\Mail\ArtistProjectRejected;
+use App\Mail\ManagerProjecApproved;
+use App\Mail\ManagerProjecRejected;
 use Illuminate\Console\Command;
 use App\Project;
 use App\EndProject;
@@ -64,10 +68,12 @@ class CloseProjects extends Command
 
     private function changeStatusProjects($project){
         $rating = $project->reviews->avg("rating");
+
         if ($rating < Project::PERCENTAGE_APPROVAL){
             $project->status = Project::REJECTED;
             $this->enviarMensajesRechazado($project, $rating);
             $project->save();
+
         }else{
             $project->status = Project::APPROVAL;
             $this->enviarMensajesAprobado($project, $rating);
@@ -79,6 +85,8 @@ class CloseProjects extends Command
         /* codigo para enviar los mensajes que sean necesarios */
         $artist = $project->artists[0];
         $artistUser = $artist->users;
+        $artistSendEmail = \Mail::to($project->artists[0]->users->email)->send(new ArtistProjecApproved($project,$project->artists[0]->users->name));
+
         /*enviar correo artista (
             $artistUser->email,
             $artistUser->name,
@@ -91,6 +99,7 @@ class CloseProjects extends Command
 
         foreach($project->management as $management){
             $managementUser = $management->users;
+            $managemetnSendEmail = \Mail::to($managementUser->email)->send(new ManagerProjecApproved($project,$project->artists[0]->users->name,$managementUser->name.' '.$managementUser->last_name));
 
             /*enviar correo managers (
                 $managementUser->email,
@@ -107,10 +116,13 @@ class CloseProjects extends Command
         $artist = $project->artists[0];
         $artistUser = $artist->users;
 
+        $artistSendEmail = \Mail::to($project->artists[0]->users->email)->send(new ArtistProjectRejected($project,$project->artists[0]->users->name));
+
         //enviar correo artista
         foreach($project->management as $management){
             $managementUser = $management->users;
-            //enviar correo managers
+            $managemetnSendEmail = \Mail::to($managementUser->email)->send(new ManagerProjecRejected($project,$project->artists[0]->users->name,$managementUser->name.' '.$managementUser->last_name));
+
         }
     }
 }

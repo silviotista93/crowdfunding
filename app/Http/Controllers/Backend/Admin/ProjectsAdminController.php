@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend\Admin;
 use App\Artist;
 use App\EndProject;
 use App\Mail\ArtistProjectPreAprov;
+use App\Mail\ArtistProjectRejected;
 use App\Mail\AssignProjectManager;
 use App\Mail\NewProjectArtist;
 use App\Management;
@@ -68,7 +69,12 @@ class ProjectsAdminController extends Controller
         $rejected_project = Project::where('id',$id)->update([
             'status' => 5
         ]);
+        $project = Project::where('id',$id)->with('artists.users')->first();
+
+       $artistSendEmail = \Mail::to($project->artists[0]->users->email)->send(new ArtistProjectRejected($project,$project->artists[0]->users->name));
+
         alert()->success(__("proyecto_rechazado"),__('Ok'))->autoClose(3000);
+
         return  back();
     }
 }
