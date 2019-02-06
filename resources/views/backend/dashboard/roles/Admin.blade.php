@@ -522,7 +522,12 @@
                             </div>
                         </div>
                         <div class="m-portlet__head-tools">
-                            <input type="date" name="date" id="dateChar">
+                            <div class='input-group pull-right' id='date_chart_new_projects'>
+                                <input type='text' class="form-control m-input" readonly placeholder="Select date range" />
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><i class="la la-calendar-check-o"></i></span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="m-portlet__body" id="contenedorProyectos">
@@ -610,6 +615,7 @@
     setUrl("proyectosNuevos", "{{ route("admin.projects_news") }}");
     setText("proyectosRevision", "{{ __("proyectos_en_revicion_chart")}}");
     </script>
+    <script src="/js/storage.js"></script>
     <script src="/js/ajax.js"></script>
     <script src="/backend/admin/js/dashboard.js"></script>
 @endpush
