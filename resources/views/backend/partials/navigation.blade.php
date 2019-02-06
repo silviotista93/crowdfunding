@@ -446,7 +446,7 @@
                                         </li>
                                         <li class="m-nav__item">
                                             @if(auth()->user()->roles[0]->rol == "Admin")
-                                                <a href="{{ route('profile.artist') }}" class="m-nav__link">
+                                                <a href="{{ route('profile.admin',auth()->user()->slug) }}" class="m-nav__link">
                                                     @elseif(auth()->user()->roles[0]->rol == "Manage")
                                                         <a href="{{ route('profile.managament',auth()->user()->slug) }}"
                                                            class="m-nav__link">
