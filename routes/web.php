@@ -145,6 +145,8 @@ Route::group(['namespace'=>'Backend','prefix' => 'dashboard','middleware' => 'au
         Route::get('/managements-admin','Admin\ManagementsController@index')->name('managements.admin');
         Route::post('/add-management-admin','Admin\ManagementsController@store')->name('add.management.admin');
 
+        Route::post("/projects-news", "Admin\DashboardAdminController@showProyect")->name("admin.projects_news");
+
     });
 
     //RUTAS PARA EL MANAGEMENT -------------------------------------------------------------------------------------------

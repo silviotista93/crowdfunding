@@ -745,6 +745,7 @@ License: You must have a valid license purchased only from themeforest(the above
 </ul>
 
 <!-- begin::Quick Nav -->
+<script src="/js/common.js"></script>
 <script>
 const lang = "{{ session("applocale") }}";
 </script>
@@ -855,6 +856,12 @@ const lang = "{{ session("applocale") }}";
 <!--begin::Page Scripts -->
 <script src="/backend/assets/app/js/dashboard.js" type="text/javascript"></script>
 <script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN':  "{{ csrf_token() }}"
+        }
+    });
+
     $(document).ready(function() {
         if (lang!=="es"){
             return;

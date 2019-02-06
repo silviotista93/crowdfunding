@@ -602,5 +602,9 @@
 </div>
 
 @push('js')
+    <script>
+    setUrl("proyectosNuevos", "{{ route("admin.projects_news") }}");
+    </script>
+    <script src="/js/ajax.js"></script>
     <script src="/backend/admin/dashboard.js"></script>
 @endpush
