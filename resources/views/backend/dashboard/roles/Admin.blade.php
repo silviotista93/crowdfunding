@@ -1,3 +1,6 @@
+@push('css')
+    <link rel="stylesheet" href="/backend/admin/css/dashboard.css">
+@endpush
 <div class="m-content">
     <!--Begin::Section-->
     <div class="m-portlet ">
@@ -514,7 +517,7 @@
                         <div class="m-portlet__head-caption">
                             <div class="m-portlet__head-title">
                                 <h3 class="m-portlet__head-text m-link m--font-success m--font-bolder">
-                                    Proyectos Registrados
+                                    {{__("title_ultimos_proyectos_registrados")}}
                                 </h3>
                             </div>
                         </div>
@@ -522,8 +525,9 @@
                             <input type="date" name="date" id="dateChar">
                         </div>
                     </div>
-                    <div class="m-portlet__body">
-                        <div id="char_ultimos_proyectos" style="height:500px;"></div>
+                    <div class="m-portlet__body" id="contenedorProyectos">
+                        <div id="char_ultimos_proyectos" style="height:250px;"></div>
+                        <p class="alert m-alert--default text-center ultimos__proyectos--text">{{__("no_data_chart")}}</p>
                     </div>
                 </div>
             </div>
@@ -604,7 +608,8 @@
 @push('js')
     <script>
     setUrl("proyectosNuevos", "{{ route("admin.projects_news") }}");
+    setText("proyectosRevision", "{{ __("proyectos_en_revicion_chart")}}");
     </script>
     <script src="/js/ajax.js"></script>
-    <script src="/backend/admin/dashboard.js"></script>
+    <script src="/backend/admin/js/dashboard.js"></script>
 @endpush

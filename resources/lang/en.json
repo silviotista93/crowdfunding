@@ -235,7 +235,10 @@
     "edad": "Age",
     "mensaje": "Message",
     "completa_perfil_artista": "To add a project, complete your artist profile",
-    "integrantes_del_grupo_o_orquesta": "Members of the group or orchestra"
+    "integrantes_del_grupo_o_orquesta": "Members of the group or orchestra",
 
 
+    "title_ultimos_proyectos_registrados": "Last registered projects",
+    "no_data_chart": "No data recorded",
+    "proyectos_en_revicion_chart": "Projects under review"
 }

@@ -5,13 +5,18 @@ var proyectosNuevos = new Morris.Line({
     data: [],
     xkey: 'y',
     ykeys: ['a'],
-    labels: ['Proyectos en revision']
+    labels: [getText("proyectosRevision")]
 });
 
 function getDatos(){
     const url = getUrl("proyectosNuevos");
     const success = function (data){
-        proyectosNuevos.setData(data);
+        if (data && data[0].y){
+            proyectosNuevos.setData(data);
+            contenedorProyectos.classList.remove("empty");
+        }else{
+            contenedorProyectos.classList.add("empty");
+        }
     }
     ajax(
         url,
