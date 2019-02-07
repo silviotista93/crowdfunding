@@ -617,5 +617,6 @@
     </script>
     <script src="/js/storage.js"></script>
     <script src="/js/ajax.js"></script>
+    <script src="/js/daterangepicker.js"></script>
     <script src="/backend/admin/js/dashboard.js"></script>
 @endpush
