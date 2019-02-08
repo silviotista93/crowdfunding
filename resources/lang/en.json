@@ -236,9 +236,16 @@
     "mensaje": "Message",
     "completa_perfil_artista": "To add a project, complete your artist profile",
     "integrantes_del_grupo_o_orquesta": "Members of the group or orchestra",
-
-
     "title_ultimos_proyectos_registrados": "Last registered projects",
     "no_data_chart": "No data recorded",
-    "proyectos_en_revicion_chart": "Projects under review"
+    "proyectos_en_revicion_chart": "Projects under review",
+    "talento":"Talent",
+    "apoyo":"Support",
+    "comunidad":"Community",
+    "rentabilidad":"Profitability",
+    "par_talento":"Our platform is a showcase to show hidden talent.",
+    "par_apoyo":"We provide a guide for the project to be successful.",
+    "par_comunidad":"Management, professionals, sponsors and community in general willing to know and support talent.",
+    "par_rentabilidad":"Opportunity for funding to further boost talent.",
+    "title_home":"Apuesto por ti makes it easier."
 }

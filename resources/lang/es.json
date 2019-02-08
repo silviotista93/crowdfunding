@@ -235,9 +235,16 @@
     "mensaje": "Mensaje",
     "completa_perfil_artista": "Para agregar un proyecto, completa tu perfil de artista",
     "integrantes_del_grupo_o_orquesta": "Integrantes del grupo o orquesta",
-
-
     "title_ultimos_proyectos_registrados": "Últimos proyectos registrados",
     "no_data_chart": "No hay datos registrados",
-    "proyectos_en_revicion_chart": "Proyectos en revisión"
+    "proyectos_en_revicion_chart": "Proyectos en revisión",
+    "talento":"Talento",
+    "apoyo":"Apoyo",
+    "comunidad":"Comunidad",
+    "rentabilidad":"Rentabilidad",
+    "par_talento":"Nuestra plataforma es una vitrina para mostrar el talento oculto.",
+    "par_apoyo":"Brindamos una guía para que el proyecto sea exitoso.",
+    "par_comunidad":"Management, profesionales, patrocinadores y comunidad en general dispuesta a conocer y apoyar el talento.",
+    "par_rentabilidad":"Oportunidad de financiación para impulsar mas allá el talento.",
+    "title_home":"Apuesto por ti lo hace más fácil."
 }

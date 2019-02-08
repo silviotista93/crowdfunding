@@ -115,7 +115,94 @@
                 @endforelse
         </div>
     </section>
+    <!-- descripcion de  service -->
+    <section class="xs-navy-blue-bg fundpress-square-service-section">
+        <div class="container">
+            <div class="fundpress-section-heading fundpress-heading-title fundpress-heading-title-v2 content-left">
+            <h2 class="color-white">{{__('title_home')}}</h2>
+            </div><!-- .xs-heading-title .fundpress-heading-title-v2 .fundpress-heading-title END -->
+            <div class="row">
+                <div class="col-md-6 col-sm-12 col-lg-3">
+                    <div class="fundpress-icon-with-square-service">
+                        <img src="/frontend/images/home/talento.PNG" width="60" height="50" style="margin-right: auto;margin-bottom: auto;">
+                        <a href="#" class="color-white">{{__('talento')}}</a>
+                        <p>{{__('par_talento')}} </p>
+                    </div><!-- .fundpress-icon-with-square-service END -->
+                </div>
+                <div class="col-md-6 col-sm-12 col-lg-3">
+                    <div class="fundpress-icon-with-square-service">
+                        <img src="/frontend/images/home/Apoyo.PNG" width="60" height="50" style="margin-right: auto;margin-bottom: auto;">
+                        <a href="#" class="color-white">{{__('apoyo')}}</a>
+                        <p>{{__('par_apoyo')}}.</p>
+                    </div><!-- .fundpress-icon-with-square-service END -->
+                </div>
+                <div class="col-md-6 col-sm-12 col-lg-3">
+                    <div class="fundpress-icon-with-square-service">
+                        <img src="/frontend/images/home/comunidad.PNG" width="60" height="50" style="margin-right: auto;margin-bottom: auto;">
+                        <a href="#" class="color-white">{{__('comunidad')}}</a>
+                        <p>{{__('par_comunidad')}}</p>
+                    </div><!-- .fundpress-icon-with-square-service END -->
+                </div>
+                <div class="col-md-6 col-sm-12 col-lg-3">
+                    <div class="fundpress-icon-with-square-service">
+                        <img src="/frontend/images/home/rentabilidad.PNG" width="60" height="50" style="margin-right: auto;margin-bottom: auto;">
+                        <a href="#" class="color-white">{{__('rentabilidad')}}</a>
+                        <p>{{__('par_rentabilidad')}} </p>
+                    </div><!-- .fundpress-icon-with-square-service END -->
+                </div>
+            </div>
+        </div>
+        <div class="xs-shape-background">
+            <div class="xs-waves">
+                <div class="xs-wave xs-wave_1"></div>
+                <div class="xs-wave xs-wave_2"></div>
+                <div class="xs-wave xs-wave_3"></div>
+                <div class="xs-wave xs-wave_4"></div>
+                <div class="xs-wave xs-wave_5"></div>
+            </div>
+        </div>
+    </section>    <!-- End square service -->
+   
+
     <!--=====================================
+    PROYECTOS POR CATEGORIAS
+    ======================================-->
+    <section id="cause-matters" class="waypoint-tigger xs-section-padding">
+        <div class="container">
+            <div class="xs-section-heading row xs-margin-0">
+                <div class="fundpress-heading-title xs-padding-0 col-md-9 col-xl-9">
+                    <h2 class="color-navy-blue">Big of small your cause matters</h2>
+                    <span class="xs-separetor dashed-separetor fundpress-separetor"></span>
+                    <p>Fundpress site thoughtfully designed for real humans which means the best user experience for
+                        your entire community of donors, fundraisers, customers, and staff.</p>
+                </div><!-- .fundpress-heading-title .xs-col-9 END -->
+                <div class="xs-btn-wraper xs-padding-0 col-xl-3 col-md-3 d-flex-center-end">
+                    <a href="{{ route('projects') }}" class="xs-btn round-btn navy-blue-btn">{{ __('todos_proyectos') }}</a>
+                </div><!-- .xs-btn-wraper .xs-col-3 .d-flex-center-end END -->
+            </div><!-- .xs-section-heading .fundpress-section-heading .xs-spilit-container END -->
+            <div class="xs-tab-wraper fundpress-tab-wraper" id="containerProject">
+                <div class="fundpress-tab-nav xs-tab-nav">
+                    <ul class="nav nav-tabs" role="tablist" id="categoryProjects">
+                        @foreach($categories as $categorie)
+                            <li class="nav-item" data-category="{{$categorie->category}}" data-id="{{$categorie->id}}">
+                                <a class="nav-link" href="#projectsView{{ $categorie->id }}" role="tab"
+                                   data-toggle="tab">{{ $categorie->category }}</a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+                <div class="tab-content" id="dataCategory" style="min-height: 5rem">
+                    @foreach($categories as $categorie)
+                        <div role="tabpanel" class="tab-pane fade in" id="projectsView{{$categorie->id}}"></div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </section>    <!-- End cause matters -->
+
+    {{-- ++++++++++++++++++++
+        ++++++++++++++++++++++ --}}
+         <!--=====================================
     INFO PATROCINADORES Y ARTISTAS
     ======================================-->
     <section class="xs-full-width-section fundpress-full-width-section">
@@ -163,89 +250,7 @@
         </div>
     </section>    <!-- End side by side product -->
 
-    <!--=====================================
-    PROYECTOS POR CATEGORIAS
-    ======================================-->
-    <section id="cause-matters" class="waypoint-tigger xs-section-padding">
-        <div class="container">
-            <div class="xs-section-heading row xs-margin-0">
-                <div class="fundpress-heading-title xs-padding-0 col-md-9 col-xl-9">
-                    <h2 class="color-navy-blue">Big of small your cause matters</h2>
-                    <span class="xs-separetor dashed-separetor fundpress-separetor"></span>
-                    <p>Fundpress site thoughtfully designed for real humans which means the best user experience for
-                        your entire community of donors, fundraisers, customers, and staff.</p>
-                </div><!-- .fundpress-heading-title .xs-col-9 END -->
-                <div class="xs-btn-wraper xs-padding-0 col-xl-3 col-md-3 d-flex-center-end">
-                    <a href="{{ route('projects') }}" class="xs-btn round-btn navy-blue-btn">{{ __('todos_proyectos') }}</a>
-                </div><!-- .xs-btn-wraper .xs-col-3 .d-flex-center-end END -->
-            </div><!-- .xs-section-heading .fundpress-section-heading .xs-spilit-container END -->
-            <div class="xs-tab-wraper fundpress-tab-wraper" id="containerProject">
-                <div class="fundpress-tab-nav xs-tab-nav">
-                    <ul class="nav nav-tabs" role="tablist" id="categoryProjects">
-                        @foreach($categories as $categorie)
-                            <li class="nav-item" data-category="{{$categorie->category}}" data-id="{{$categorie->id}}">
-                                <a class="nav-link" href="#projectsView{{ $categorie->id }}" role="tab"
-                                   data-toggle="tab">{{ $categorie->category }}</a>
-                            </li>
-                        @endforeach
-                    </ul>
-                </div>
-                <div class="tab-content" id="dataCategory" style="min-height: 5rem">
-                    @foreach($categories as $categorie)
-                        <div role="tabpanel" class="tab-pane fade in" id="projectsView{{$categorie->id}}"></div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-    </section>    <!-- End cause matters -->
-
-    <!-- square service -->
-    <section class="xs-navy-blue-bg fundpress-square-service-section">
-        <div class="container">
-            <div class="fundpress-section-heading fundpress-heading-title fundpress-heading-title-v2 content-left">
-                <h2 class="color-white">Asking for money is hard. FundPress makes it easier. </h2>
-            </div><!-- .xs-heading-title .fundpress-heading-title-v2 .fundpress-heading-title END -->
-            <div class="row">
-                <div class="col-md-6 col-sm-12 col-lg-3">
-                    <div class="fundpress-icon-with-square-service">
-                        <img src="/images/icon-1.png" alt="">
-                        <a href="#" class="color-white">Free & Simple Setup. </a>
-                        <p>Start fundraising in minutes. No goal requirements, no deadlines. </p>
-                    </div><!-- .fundpress-icon-with-square-service END -->
-                </div>
-                <div class="col-md-6 col-sm-12 col-lg-3">
-                    <div class="fundpress-icon-with-square-service">
-                        <img src="/images/icon-2.png" alt="">
-                        <a href="#" class="color-white">Most Money Raised.</a>
-                        <p>Join the millions who have raised more than $2 billion on FundPress.</p>
-                    </div><!-- .fundpress-icon-with-square-service END -->
-                </div>
-                <div class="col-md-6 col-sm-12 col-lg-3">
-                    <div class="fundpress-icon-with-square-service">
-                        <img src="/images/icon-3.png" alt="">
-                        <a href="#" class="color-white">Expert Advice, 24/7.</a>
-                        <p>Our campaign coaches will answer your questions in 5 minutes, day or night.</p>
-                    </div><!-- .fundpress-icon-with-square-service END -->
-                </div>
-                <div class="col-md-6 col-sm-12 col-lg-3">
-                    <div class="fundpress-icon-with-square-service">
-                        <img src="/images/icon-4.png" alt="">
-                        <a href="#" class="color-white">Safety. Guaranteed.</a>
-                        <p>The GoFundMe Guarantee protects your donations and supporters. </p>
-                    </div><!-- .fundpress-icon-with-square-service END -->
-                </div>
-            </div>
-        </div>
-        <div class="xs-shape-background">
-            <div class="xs-waves">
-                <div class="xs-wave xs-wave_1"></div>
-                <div class="xs-wave xs-wave_2"></div>
-                <div class="xs-wave xs-wave_3"></div>
-                <div class="xs-wave xs-wave_4"></div>
-                <div class="xs-wave xs-wave_5"></div>
-            </div>
-        </div>
-    </section>    <!-- End square service -->
+    
 
     <!-- popular campaigns -->
     <section id="popular-campaigns" class="xs-gray-bg waypoint-tigger xs-section-padding">
