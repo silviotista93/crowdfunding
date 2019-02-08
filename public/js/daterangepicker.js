@@ -41,7 +41,7 @@ const getRanges =function (){
     }
 }
 const getDate = function (type){
-    data = [moment(), moment()];
+    data = [moment("0000/00/00"), moment()];
     switch(type){
         case "hoy":
             data = [moment(), moment()]
@@ -75,7 +75,7 @@ const getKey = function (name){
     return "hoy";
 }
 
-const initDateRange = function(idDate, fnChange){
+const initDateRange = function(idDate, fnChange, fnCancel){
     let antiguo = getDate(getStorage(idDate));
     let start = antiguo[0];
     let end = antiguo[1];
@@ -91,9 +91,11 @@ const initDateRange = function(idDate, fnChange){
     }, function(start, end, label) {
         setStorage(idDate, getKey(label));
         $('#'+idDate+' .form-control').val(start.format('MM/DD/YYYY') + ' - ' + end.format('MM/DD/YYYY'));
+        
         if (typeof(fnChange) === "function"){
             fnChange(start, end, label);
         }
+        
     });
     
     $('#'+idDate).on('cancel.daterangepicker', function(ev, picker) {
@@ -101,16 +103,12 @@ const initDateRange = function(idDate, fnChange){
         setStorage(idDate, "hoy");
         picker.setStartDate(hoy[0]);
         picker.setEndDate(hoy[1]);
-        if (typeof(fnChange) === "function"){
-            fnChange(hoy[0], hoy[1]);
-        }
-    }).on('apply.daterangepicker', function(ev, picker) {
-        let start = picker.getStartDate();
-        let end = picker.getEndDate();
-        if (typeof(fnChange) === "function"){
-            fnChange(start, end);
+        if (typeof(fnCancel) === "function"){
+            fnCancel(hoy[0], hoy[1]);
         }
     });
 
     $('#'+idDate+' .form-control').val(start.format('MM/DD/YYYY') + ' - ' + end.format('MM/DD/YYYY'));
+    
+    return {start:start, end:end};
 }

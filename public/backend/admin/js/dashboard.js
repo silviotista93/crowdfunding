@@ -1,4 +1,4 @@
-let dataProyectosNuevos = {};
+var dataProyectosNuevos = {};
 
 var proyectosNuevos = new Morris.Line({
     element: 'char_ultimos_proyectos',
@@ -9,21 +9,23 @@ var proyectosNuevos = new Morris.Line({
 });
 
 
-function getNewData(fechaInicio, fechaFin){
-	dataProyectosNuevos.fechaInicio = fechaInicio;
-	dataProyectosNuevos.fechaFin = fechaFin;
+function getNewData(fechaInicio, fechaFin, label){
+	dataProyectosNuevos.fechaInicio = fechaInicio.format("YYYY/MM/DD");
+	dataProyectosNuevos.fechaFin = fechaFin.format("YYYY/MM/DD");
 	getDatos();
 }
 
 function initDateTime(){
     let nameDate = "date_chart_new_projects";
-    initDateRange(nameDate, getNewData);
+    let date = initDateRange(nameDate, getNewData);
+    dataProyectosNuevos.fechaInicio = date.start.format("YYYY/MM/DD");
+    dataProyectosNuevos.fechaFin = date.end.format("YYYY/MM/DD");
 }
 
 function getDatos(){
     const url = getUrl("proyectosNuevos");
     const success = function (data){
-        if (data && data[0].y){
+        if (data && data.length > 0){
             proyectosNuevos.setData(data);
             contenedorProyectos.classList.remove("empty");
         }else{
@@ -41,6 +43,6 @@ function getDatos(){
 }
 
 $(function (){
-    getDatos();
     initDateTime();
+    getDatos();
 });
