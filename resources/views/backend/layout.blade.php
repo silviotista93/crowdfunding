@@ -755,7 +755,7 @@ const lang = "{{ session("applocale") }}";
 <script src="/backend/vendors/popper.js/dist/umd/popper.js" type="text/javascript"></script>
 <script src="/backend//vendors/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="/backend/vendors/js-cookie/src/js.cookie.js" type="text/javascript"></script>
-<script src="/backend/vendors/moment/min/moment.min.js" type="text/javascript"></script>
+<script src="/js/libs/moment-with-locales.min.js" type="text/javascript"></script>
 <script src="/backend/vendors/tooltip.js/dist/umd/tooltip.min.js" type="text/javascript"></script>
 <script src="/backend/vendors/perfect-scrollbar/dist/perfect-scrollbar.js" type="text/javascript"></script>
 <script src="/backend/vendors/wnumb/wNumb.js" type="text/javascript"></script>
@@ -856,6 +856,8 @@ const lang = "{{ session("applocale") }}";
 <!--begin::Page Scripts -->
 <script src="/backend/assets/app/js/dashboard.js" type="text/javascript"></script>
 <script>
+    moment.locale(lang);
+    
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN':  "{{ csrf_token() }}"
