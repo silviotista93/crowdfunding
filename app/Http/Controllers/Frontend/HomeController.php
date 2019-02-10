@@ -20,4 +20,8 @@ class HomeController extends Controller
 
         return view('frontend.home.home',compact('categories','projects','projects_slider'));
     }
+
+    public function nosotros(){
+        return view('frontend.nosotros.nosotros');
+    }
 }
