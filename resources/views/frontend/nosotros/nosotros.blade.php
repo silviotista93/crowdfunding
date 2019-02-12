@@ -1,13 +1,13 @@
 @extends('frontend.layout')
 
 @section('content')
-<section class="xs-inner-welcome-section fundpress-inner-welcome-section fundpress-inner-bg-1 parallax-window" data-parallax="scroll" style=" background-image: url(/frontend/images/background/projects/about_us_bg.png);background-position: center;background-attachment: fixed;background-repeat: no-repeat; background-size: cover;">
+<section class="xs-inner-welcome-section fundpress-inner-welcome-section fundpress-inner-bg-1 parallax-window" data-parallax="scroll" style=" background-image: url(/frontend/images/nosotros.jpg);background-position: center;background-attachment: fixed;background-repeat: no-repeat; background-size: cover;">
 	<div class="xs-solid-overlay xs-bg-black"></div>
 	<div class="container">
 		<div class="fundpress-inner-welcome-content">
-			<h2 class="color-white">About US</h2>
+		<h2 class="color-white">{{__('nosotros')}}</h2>
 			<ul class="xs-breadcumb fundpress-breadcumb">
-				<li><a href="index.html" class="color-white"> Home /</a> About US</li>
+			<li><a href="index.html" class="color-white"> Home /</a> {{__('nosotros')}}</li>
 			</ul>
 		</div>
 	</div>
@@ -18,10 +18,10 @@
 		<div class="row">
 			<div class="col-md-12 col-lg-6">
 				<div class="fundpress-inner-about-content">
-					<h2 class="color-navy-blue">We are changing the way of making things possible.</h2>
-					<p>“FundPress is one of those platforms that gives you space to work with people who know you, love you, and support you.” </p>
+				<h2 class="color-navy-blue">{{__('frase_nosotros')}}</h2>
+				<p>{{__('parrafo_nosotros')}}</p>
 					<a href="#" class="xs-sign-logo">
-						<img src="frontend/images/signature_logo.png" alt="Fundpress author sign">
+						
 					</a>
 				</div>
 				<!--  
@@ -33,7 +33,7 @@
 			</div>
 			<div class="col-md-12 col-lg-6">
 				<div class="fundpress-about-promo-image xs-box-shadow">
-					<img src="frontend/images/about.jpg" alt="">
+					<img src="frontend/images/suenos.jpg" alt="">
 				</div>
 				<!-- 
 					fundpress-about-promo-image 
@@ -51,7 +51,7 @@
 			<div class="row">
 				<div class="col-md-10 col-sm-12 col-lg-10 content-center">
 					<div class="xs-heading-title fundpress-heading-title">
-						<h2 class="color-white margin-bottom-0">“ FundPress is about giving back, raising lots of money for great causes, and having the most fun in the world while doing it. ”</h2>
+					<h2 class="color-white margin-bottom-0">“{{__('parrafo2_nosotros')}}”</h2>
 					</div>
 				</div>
 			</div>
@@ -63,7 +63,7 @@
 		<div class="row">
 			<div class="col-md-10 col-sm-12 col-lg-6 content-center">
 				<div class="fundpress-popup-image xs-box-shadow">
-					<img src="/frontend/images/about_2.jpg" alt="">
+					<img src="/frontend/images/nosotros.png" alt="">
 					<div class="xs-popup-content icon-position-center">
 						<a href="https://www.youtube.com/watch?v=LvGa1JnSRCk" class="xs-video-popup full-round icon-identify-btn green-btn xs-box-shadow xs-big-button"><i class="fa fa-play"></i></a>
 					</div>
@@ -105,9 +105,8 @@
 	<div class="container">
 		<div class="xs-section-heading row xs-margin-0">
 			<div class="fundpress-heading-title xs-padding-0 col-md-9 col-xl-9">
-				<h2 class="color-navy-blue">Meet with our team</h2>
-				<span class="xs-separetor dashed-separetor fundpress-separetor"></span>
-				<p>No matter how many times your amazing, absolutely brilliant</p>
+			<h2 class="color-navy-blue">{{__('conoce_nosotros')}}</h2>
+				<span class="xs-separetor dashed-separetor fundpress-separetor"></span>				
 			</div><!-- .xs-heading-title .fundpress-heading-title .xs-col-9 END -->
 			<div class="xs-btn-wraper xs-padding-0 col-xl-3 col-md-3 d-flex-center-end">
 				<a href="#" class="xs-btn round-btn navy-blue-btn">Team</a>
@@ -336,7 +335,7 @@
 	<div class="xs-solid-overlay xs-bg-white"></div>
 	<div class="container fundpress-partners-wraper">
 		<div class="fundpress-heading-title">
-			<h2 class="color-navy-blue xs-mb-0">Trusted by the biggest nonprofits, companies in the world.</h2>
+		<h2 class="color-navy-blue xs-mb-0">{{__('ventajas_nosotros')}}</h2>
 		</div><!-- .xs-heading-title .fundpress-heading-title END -->
 		<div class="content-center">
 			<ul class="fundpress-partners">
