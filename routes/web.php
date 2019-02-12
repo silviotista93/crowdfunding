@@ -151,6 +151,7 @@ Route::group(['namespace'=>'Backend','prefix' => 'dashboard','middleware' => 'au
         Route::post('/profile-photo-admin','Admin\ProfileAdminController@photo_admin')->name('profile.photo.admin');
 
         Route::post("/projects-news", "Admin\DashboardAdminController@showProyect")->name("admin.projects_news");
+        Route::post("/top-countries", "Admin\DashboardAdminController@showTopCountry")->name("admin.top_country");
 
     });
 

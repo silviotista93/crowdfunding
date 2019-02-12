@@ -510,7 +510,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Grafica de pie char -->
+            <!-- Grafica de ultimos proyectos -->
             <div class="m-portlet ">
                 <div class="m-portlet m-portlet--full-height ">
                     <div class="m-portlet__head">
@@ -539,10 +539,9 @@
 
 
         </div>
-        <div class="col-xl-4">
-
+        <div class="col-xl-4 m-portlet--full-height">
             <!--begin:: Widgets/New Users-->
-            <div class="m-portlet m-portlet--full-height ">
+            <div class="m-portlet">
                 <div class="m-portlet__head">
                     <div class="m-portlet__head-caption">
                         <div class="m-portlet__head-title">
@@ -605,6 +604,33 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Grafica de ultimos proyectos -->
+            <div class="m-portlet">
+                <div class="m-portlet__head">
+                    <div class="m-portlet__head-caption">
+                        <div class="m-portlet__head-title">
+                            <h3 class="m-portlet__head-text m-link m--font-success m--font-bolder">
+                                {{__("title_top_country_char")}}
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="m-portlet__head-tools">
+                        <!--
+                        <div class='input-group pull-right' id='date_chart_new_projects'>
+                            <input type='text' class="form-control m-input" readonly placeholder="Select date range" />
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="la la-calendar-check-o"></i></span>
+                            </div>
+                        </div>
+                    -->
+                    </div>
+                </div>
+                <div class="m-portlet__body" id="contenedorTopCountry">
+                    <div id="char_top_country" style="height: 300px;"></div>
+                    <p class="alert m-alert--default text-center top__country--text">{{__("no_data_chart")}}</p>
+                </div>
+            </div>
         </div>
 
     </div>
@@ -613,8 +639,10 @@
 @push('js')
     <script>
     setUrl("proyectosNuevos", "{{ route("admin.projects_news") }}");
+    setUrl("topCountry", "{{ route("admin.top_country") }}");
     setText("proyectosRevision", "{{ __("proyectos_en_revicion_chart")}}");
     </script>
+    <script src="/backend/assets/vendors/custom/flot/flot.bundle.min.js"></script>
     <script src="/js/storage.js"></script>
     <script src="/js/ajax.js"></script>
     <script src="/js/daterangepicker.js"></script>

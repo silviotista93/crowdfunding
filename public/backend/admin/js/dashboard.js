@@ -9,6 +9,40 @@ var proyectosNuevos = new Morris.Line({
 });
 
 
+const topCountry = function (){
+    url = getUrl("topCountry");
+    const success = function (data){
+        if (data && data.length > 0){
+            $.plot($("#char_top_country"), data, {
+                series: {
+                    pie: {
+                        show: true
+                    }
+                },
+                legend: {
+                    show: false
+                }
+            });
+            contenedorTopCountry.classList.remove("empty");
+        }else{
+            contenedorTopCountry.classList.add("empty");
+        }
+    }
+
+    ajax(
+        url,
+        null,
+        success,
+        "post",
+        null,
+        false
+    );
+}
+
+
+
+
+
 function getNewData(fechaInicio, fechaFin, label){
 	dataProyectosNuevos.fechaInicio = fechaInicio.format("YYYY/MM/DD");
 	dataProyectosNuevos.fechaFin = fechaFin.format("YYYY/MM/DD");
@@ -45,4 +79,5 @@ function getDatos(){
 $(function (){
     initDateTime();
     getDatos();
+    topCountry();
 });
