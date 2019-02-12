@@ -251,10 +251,12 @@
     "nosotros":"About us",
     "que_es":"What is Apuesto por ti ?",
     "parrafo_que":"Our platform aims to meet and promote artists. comedy to them we want to give them the opportunity to show their talent through a video which will be seen by our managements that are interested in supporting and investing in artists. And not only that, but also that there is financing collective, that is, a group of people financially supporting a project through a community that is willing to Finance with small and medium contributions, a change of an artist between a specific reward.",
-    "frase_nosotros":"We are changing the way of making dreams possible.",
+<<<<"frase_nosotros":"We are changing the way of making dreams possible.",
     "parrafo_nosotros":"In Apuesto por ti we want everyone to be successful, that is why we provide tools that allow your talent or project to be well presented.",
     "parrafo2_nosotros":"There are millions of people around the world who have the desire to be musical artists, however they do not have access to producers or managers, in other cases they do not have the economic means to pursue their career. The solution to this is Apuesto por ti.",
     "conoce_nosotros":"Meet our managements",
-    "ventajas_nosotros":"Our competitive advantages are the connections and the experience we have in the music industry."
+    "ventajas_nosotros":"Our competitive advantages are the connections and the experience we have in the music industry.",
+    "title_top_country_char": "Top 5 Countries"
+
     
 }

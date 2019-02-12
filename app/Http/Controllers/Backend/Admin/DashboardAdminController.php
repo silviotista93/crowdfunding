@@ -30,4 +30,15 @@ class DashboardAdminController extends Controller
         
         return json_encode($data->groupBy("y")->get());
     }
+
+    public function showTopCountry(){
+        $data = DB::table('artists')
+            ->join('artist_projects', 'artists.id', '=', 'artist_projects.artist_id')
+            ->join('countries', 'artists.location_id', '=', 'countries.id')
+            ->selectRaw('countries.country as label, count(artist_projects.project_id) as data')
+            ->groupBy('countries.id')
+            ->limit(5)
+            ->get();
+        return json_encode($data);
+    }
 }
