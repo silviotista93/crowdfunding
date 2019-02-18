@@ -220,7 +220,7 @@
                                     devices while on the road or in our workspace was a major.</p>
                             </div>
                             <div class="xs-btn-wrapre">
-                                <a href="#"
+                                <a href="{{ route('info-artist') }}"
                                    class="xs-btn btn xs-box-shadow btn-primary btn-lg round-btn">{{ __('mas_informacion') }}</a>
                             </div>
                         </div><!-- .fundpress-product-hover-content-v2 END -->

@@ -24,4 +24,8 @@ class HomeController extends Controller
     public function nosotros(){
         return view('frontend.nosotros.nosotros');
     }
+
+    public function artist(){
+        return view('frontend.artist.artist');
+    }
 }
