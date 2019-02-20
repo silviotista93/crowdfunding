@@ -28,4 +28,8 @@ class HomeController extends Controller
     public function artist(){
         return view('frontend.artist.artist');
     }
+
+    public function backer(){
+        return view('frontend.backer.backer');
+    }
 }

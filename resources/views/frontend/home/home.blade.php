@@ -239,7 +239,7 @@
                                     devices while on the road or in our workspace was a major.</p>
                             </div>
                             <div class="xs-btn-wrapre">
-                                <a href="#"
+                            <a href="{{route('info-backer')}}"
                                    class="xs-btn xs-box-shadow btn btn-primary btn-lg round-btn">{{ __('mas_informacion') }}</a>
                             </div>
                         </div><!-- .fundpress-product-hover-content-v2 END -->

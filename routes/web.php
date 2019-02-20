@@ -86,6 +86,7 @@ Route::group(['namespace'=>'Frontend'],function (){
     Route::get('/projects','ProjectsController@index')->name('projects');
     Route::get('/nosotros','HomeController@nosotros')->name('nosotros');
     Route::get('/info-artist','HomeController@artist')->name('info-artist');
+    Route::get('/info-backer','HomeController@backer')->name('info-backer');
 
     Route::get('/projects/{project}','ProjectsController@show')->name('projects.show');
     Route::get('/projectsArt/{user}','ProjectsController@projectArtist')->name('projects.artist');
