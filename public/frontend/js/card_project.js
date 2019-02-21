@@ -82,11 +82,11 @@ function createCard(project) {
             <a href="${project.url}"
             class="xs-post-title color-navy-blue fundpress-post-title">${project.nameLimit}</a>
             <ul class="xs-list-with-content fundpress-list-item-content">
-                <li>$${project.price}<span>Pledged</span></li>
+                <li>$${project.price}<span>Prometido</span></li>
                 <li><span class="number-percentage-count number-percentage"
                         data-value="${porcetaje}" data-animation-duration="3500">0</span>%
-                    <span>Funded</span></li>
-                <li>${moment(project.end_time).lang(lang).fromNow(true)}<span>Days To Go</span></li>
+                    <span>Recaudado</span></li>
+                <li>${moment(project.end_time).lang(lang).fromNow(true)}<span>Finaliza</span></li>
             </ul>
             <span class="xs-separetor border-separetor xs-separetor-v2 fundpress-separetor"></span>
             <div class="row xs-margin-0">

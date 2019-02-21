@@ -31,7 +31,7 @@
                                     </ul>--}}
                                     <div class="xs-btn-wraper">
                                         <a href="#" class="xs-btn btn-primary round-btn">{{ __('mas_informacion') }}</a>
-                                        <a href="{{ route("add.project") }}" class="xs-btn btn navy-blue-btn round-btn">{{ __('iniciar_proyecto') }}</a>
+                                        <a href="{{ route("add.project") }}" class="xs-btn btn navy-blue-btn round-btn" style="margin-bottom: 36px; !important;">{{ __('iniciar_proyecto') }}</a>
                                     </div>
                                 </div>
                             </div>
@@ -171,10 +171,9 @@
         <div class="container">
             <div class="xs-section-heading row xs-margin-0">
                 <div class="fundpress-heading-title xs-padding-0 col-md-9 col-xl-9">
-                    <h2 class="color-navy-blue">Big of small your cause matters</h2>
+                    <h2 class="color-navy-blue">Explora todos los proyectos</h2>
                     <span class="xs-separetor dashed-separetor fundpress-separetor"></span>
-                    <p>Fundpress site thoughtfully designed for real humans which means the best user experience for
-                        your entire community of donors, fundraisers, customers, and staff.</p>
+                    <p>Apoya a nuestros artistas o comparte sus videos.</p>
                 </div><!-- .fundpress-heading-title .xs-col-9 END -->
                 <div class="xs-btn-wraper xs-padding-0 col-xl-3 col-md-3 d-flex-center-end">
                     <a href="{{ route('projects') }}" class="xs-btn round-btn navy-blue-btn">{{ __('todos_proyectos') }}</a>
@@ -234,7 +233,12 @@
                                 <h2>{{ __('patrocinador') }}</h2>
                             </div>
                             <div class="fundpress-product-text-content">
+
+                                {{--<p>We recently we discovered a major problem – organizing accessories for these Apple
+                                    devices while on the road or in our workspace was a major.</p>--}}
+
                                 <p>Aquí podrás encontrar información para que sepas como formar parte de Apuesto por ti, siendo patrocinador.</p>
+
                             </div>
                             <div class="xs-btn-wrapre">
                             <a href="{{route('info-backer')}}"
@@ -255,13 +259,12 @@
         <div class="container">
             <div class="xs-section-heading row xs-margin-0">
                 <div class="fundpress-heading-title xs-padding-0 col-xl-9 col-md-9">
-                    <h2 class="color-navy-blue">Popular Campaigns</h2>
+                    <h2 class="color-navy-blue">Casos de éxito</h2>
                     <span class="xs-separetor dashed-separetor fundpress-separetor"></span>
-                    <p>FundPress has built a platform focused on aiding entrepreneurs, startups, and companies raise
-                        capital from anyone.</p>
+                    <p>Proyectos que han recaudado lo prometido y hasta más</p>
                 </div><!-- .xs-heading-title .fundpress-heading-title .xs-col-9 END -->
                 <div class="xs-btn-wraper xs-padding-0 col-xl-3 col-md-3 d-flex-center-end">
-                    <a href="#" class="xs-btn round-btn navy-blue-btn">all Campaigns</a>
+                    <a href="#" class="xs-btn round-btn navy-blue-btn">Ver todos</a>
                 </div><!-- .xs-btn-wraper .xs-col-3 .d-flex-center-end END -->
             </div><!-- .xs-section-heading .fundpress-section-heading .xs-spilit-container END -->
             {{--<div class="row">
@@ -499,13 +502,13 @@
         <div class="container">
             <div class="xs-section-heading row xs-margin-0">
                 <div class="fundpress-heading-title xs-padding-0 col-md-9 col-xl-9">
-                    <h2 class="color-navy-blue">You can join in Special Events</h2>
+                    <h2 class="color-navy-blue">Anuncios</h2>
                     <span class="xs-separetor dashed-separetor fundpress-separetor"></span>
-                    <p>This equity FundPress platform allows businesses to sell shares in their company to accredited
-                        investors.</p>
+                    {{--<p>This equity FundPress platform allows businesses to sell shares in their company to accredited
+                        investors.</p>--}}
                 </div><!-- .xs-heading-title .fundpress-heading-title .xs-col-9 END -->
                 <div class="xs-btn-wraper xs-padding-0 col-md-3 col-xl-3 d-flex-center-end">
-                    <a href="events.html" class="xs-btn round-btn navy-blue-btn">Events</a>
+                    <a href="events.html" class="xs-btn round-btn navy-blue-btn">Más info</a>
                 </div><!-- .xs-btn-wraper .d-flex-center-end .xs-col-3 END -->
             </div><!-- .xs-section-heading .fundpress-section-heading .xs-spilit-container END -->
             {{--<div class="fundpress-event-wraper">

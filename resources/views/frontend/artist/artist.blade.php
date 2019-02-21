@@ -1,8 +1,7 @@
 @extends('frontend.layout')
 
 @section('content')
-    <section class="xs-inner-welcome-section fundpress-inner-welcome-section fundpress-inner-bg-1 parallax-window" data-parallax="scroll" data-image-src="assets/images/background/blog-with-sidebar-bg.jpg">
-        <div class="xs-solid-overlay xs-bg-black"></div>
+    <section class="xs-inner-welcome-section fundpress-inner-welcome-section fundpress-inner-bg-1 parallax-window" data-parallax="scroll" style=" background-image: url(/frontend/images/pasos_artista/pasos_artista.jpg);background-position: center;background-attachment: fixed;background-repeat: no-repeat; background-size: cover;"
         <div class="container">
             <div class="fundpress-inner-welcome-content">
                 <h2 class="color-white">{{__('artista')}}</h2>
@@ -45,12 +44,11 @@
 
                                 </div><!-- post-body end -->
                             </article>
-                        </div>
-                    </div>
+                    
                     {{-- paso 2 --}}
 
-                    <div class="col-md-12 col-lg-8">
-                        <div class="xs-blog-details-wraper">
+                
+                    
                             <article class="post format-standard hentry post xs-post-format-standard xs-style-border">
                                 <div class="post-body xs-content-padding">
                                     <div class="entry-header row xs-mb-30">
@@ -78,14 +76,10 @@
 
                                 </div><!-- post-body end -->
                             </article>
-                        </div>
-                    </div>
-
+                    
                     {{-- paso 3 --}}
 
-                    <div class="col-md-12 col-lg-8">
-                        <div class="xs-blog-details-wraper">
-                            <article class="post format-standard hentry post xs-post-format-standard xs-style-border">
+                                                <article class="post format-standard hentry post xs-post-format-standard xs-style-border">
                                 <div class="post-body xs-content-padding">
                                     <div class="entry-header row xs-mb-30">
                                         <div class="col-md-2 xs-padding-0">
@@ -111,13 +105,10 @@
 
                                 </div><!-- post-body end -->
                             </article>
-                        </div>
-                    </div>
-
+                    
                     {{-- paso 4 --}}
 
-                    <div class="col-md-12 col-lg-8">
-                        <div class="xs-blog-details-wraper">
+                    
                             <article class="post format-standard hentry post xs-post-format-standard xs-style-border">
                                 <div class="post-body xs-content-padding">
                                     <div class="entry-header row xs-mb-30">
@@ -145,14 +136,10 @@
 
                                 </div><!-- post-body end -->
                             </article>
-                        </div>
-                    </div>
-
+                    
                     {{-- paso 5 --}}
 
-                    <div class="col-md-12 col-lg-8">
-                        <div class="xs-blog-details-wraper">
-                            <article class="post format-standard hentry post xs-post-format-standard xs-style-border">
+                                                <article class="post format-standard hentry post xs-post-format-standard xs-style-border">
                                 <div class="post-body xs-content-padding">
                                     <div class="entry-header row xs-mb-30">
                                         <div class="col-md-2 xs-padding-0">
@@ -178,9 +165,72 @@
 
                                 </div><!-- post-body end -->
                             </article>
+                                        
+                    {{-- paso 6 --}}
+
+                    
+                            <article class="post format-standard hentry post xs-post-format-standard xs-style-border">
+                                <div class="post-body xs-content-padding">
+                                    <div class="entry-header row xs-mb-30">
+                                        <div class="col-md-2 xs-padding-0">
+                                            <div class="post-meta">
+                                                <div class="xs-post-meta-date xs-mb-30">
+                                                    <span class="post-meta-date xs-navy-blue-bg color-white xs-border-radius"><b>6</b></span>
+                                                </div>
+
+
+                                            </div>
+                                        </div><!-- .xs-entry-header-date END -->
+                                        <div class="col-md-10 xs-padding-0">
+                                            <div class="xs-entry-content entry-content xs-font-alt">
+                                                <p class="xs-mb-0" style="text-align: justify">
+                                                    En la fase de financiación el proyecto estará publicado en la plataforma, 
+                                                    No olvides que la campaña tendrá un límite de tiempo. 
+                                                    El inicio de la campaña es un paso más dentro del proceso. 
+                                                    Debes trabajar mucho la comunicación para conseguir la confianza de los mecenas. 
+                                                    Comunicar bien lo que quieres no es sencillo, 
+                                                    empléate a fondo. El equipo Apuesto por ti estamos para ayudarte, 
+                                                    es bueno que estés actualizando 
+                                                    constantemente el avance de tu proyecto esto hará que consigas mas apoyo.
+                                                   </p>
+                                            </div><!-- .xs-entry-content END -->
+                                        </div><!-- .xs-entry-header-content END -->
+                                    </div><!-- header end -->
+
+                                </div><!-- post-body end -->
+                            </article>
+                     
+                     {{-- paso 7 --}}
+
+                                                 <article class="post format-standard hentry post xs-post-format-standard xs-style-border">
+                                <div class="post-body xs-content-padding">
+                                    <div class="entry-header row xs-mb-30">
+                                        <div class="col-md-2 xs-padding-0">
+                                            <div class="post-meta">
+                                                <div class="xs-post-meta-date xs-mb-30">
+                                                    <span class="post-meta-date xs-navy-blue-bg color-white xs-border-radius"><b>7</b></span>
+                                                </div>
+
+
+                                            </div>
+                                        </div><!-- .xs-entry-header-date END -->
+                                        <div class="col-md-10 xs-padding-0">
+                                            <div class="xs-entry-content entry-content xs-font-alt">
+                                                <p class="xs-mb-0" style="text-align: justify">
+                                                    Cuando el proyecto finaliza y tengas la recaudación en tus manos debes comenzar 
+                                                    el envío de las recompensas, 
+                                                    informar a tus mecenas de los plazos de producción y 
+                                                    entrega y dedicarte en cuerpo y alma a cumplir lo prometido.
+                                                   </p>
+                                            </div><!-- .xs-entry-content END -->
+                                        </div><!-- .xs-entry-header-content END -->
+                                    </div><!-- header end -->
+
+                                </div><!-- post-body end -->
+                            </article>
                         </div>
                     </div>
-                        @include('frontend.artist.partials.sidebar-artist')
+                    @include('frontend.artist.partials.sidebar-artist')
                 </div>
             </div>
         </div>	<!-- End blog post details -->
