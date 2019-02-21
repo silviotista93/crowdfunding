@@ -213,7 +213,7 @@
                                     </div>
                                 </div>
                                 <div role="tabpanel" class="tab-pane fadeInRights fade" id="backers">
-                                    <div class="xs-backers-lsit-wraprer">
+                                    {{--<div class="xs-backers-lsit-wraprer">
                                         <ul class="fundpress-backer-lsit">
                                             <li class="row xs-margin-0">
                                                 <div class="row xs-margin-0 col-md-6 text-left">
@@ -319,7 +319,7 @@
                                                 <i class="fa fa-long-arrow-down"></i>
                                             </a>
                                         </div>
-                                    </div>
+                                    </div>--}}
                                 </div>
                             </div><!-- tab-content xs-text-tab-content -->
                         </div><!-- xs-text-content-tab -->
@@ -450,7 +450,7 @@
                         <a href="#" class="xs-btn round-btn navy-blue-btn">all Projects</a>
                     </div><!-- .xs-btn-wraper .xs-col-3 .d-flex-center-end END -->
                 </div><!-- .xs-section-heading .fundpress-section-heading .xs-spilit-container END -->
-                <div class="row">
+                {{--<div class="row">
                     <div class="col-lg-4">
                         <div class="xs-box-shadow fundpress-popular-item xs-bg-white">
                             <div class="fundpress-item-header">
@@ -563,7 +563,7 @@
                             </div><!-- .fundpress-item-content END -->
                         </div>
                     </div>
-                </div>
+                </div>--}}
             </div>
         </section>     <!-- End popular campaigns -->
     </main>
