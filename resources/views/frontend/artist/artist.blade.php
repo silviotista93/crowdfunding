@@ -45,11 +45,7 @@
                             </article>
                         </div>
                     </div>
-
-
                         @include('frontend.artist.partials.sidebar-artist')
-
-
                 </div>
             </div>
         </div>	<!-- End blog post details -->

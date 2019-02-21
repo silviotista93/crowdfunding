@@ -266,7 +266,7 @@
                     <a href="#" class="xs-btn round-btn navy-blue-btn">all Campaigns</a>
                 </div><!-- .xs-btn-wraper .xs-col-3 .d-flex-center-end END -->
             </div><!-- .xs-section-heading .fundpress-section-heading .xs-spilit-container END -->
-            <div class="row">
+            {{--<div class="row">
                 <div class="col-lg-4">
                     <div class="xs-box-shadow fundpress-popular-item xs-bg-white">
                         <div class="fundpress-item-header">
@@ -491,7 +491,7 @@
                         </div><!-- .fundpress-item-content END -->
                     </div>
                 </div>
-            </div>
+            </div>--}}
         </div>
     </section>    <!-- End popular campaigns -->
 
@@ -510,7 +510,7 @@
                     <a href="events.html" class="xs-btn round-btn navy-blue-btn">Events</a>
                 </div><!-- .xs-btn-wraper .d-flex-center-end .xs-col-3 END -->
             </div><!-- .xs-section-heading .fundpress-section-heading .xs-spilit-container END -->
-            <div class="fundpress-event-wraper">
+            {{--<div class="fundpress-event-wraper">
                 <div class="fundpress-single-event-wraper row">
                     <div class="col-md-3">
                         <div class="fundpress-event-image">
@@ -549,164 +549,10 @@
                         </div>
                     </div>
                 </div><!-- .fundpress-single-event-wraper END -->
-            </div>
+            </div>--}}
         </div>
     </section>    <!-- End event section -->
 
-    <!-- journal section -->
-    <section class="xs-gray-bg fundpress-journal-section xs-section-padding">
-        <div class="container">
-            <div class="xs-section-heading row xs-margin-0">
-                <div class="fundpress-heading-title xs-padding-0 col-md-9 col-xl-9">
-                    <h2 class="color-navy-blue">From the Journal</h2>
-                    <span class="xs-separetor dashed-separetor fundpress-separetor"></span>
-                    <p>It allows you to gather monthly subscriptions from fans to help fund your creative projects. They
-                        also encourage their users to offer rewards to fans as a way to repay them for their
-                        support.</p>
-                </div><!-- .xs-heading-title .fundpress-heading-title .xs-col-9 END -->
-                <div class="xs-btn-wraper xs-padding-0 col-xl-3 col-md-3 d-flex-center-end">
-                    <a href="news-feed.html" class="xs-btn round-btn navy-blue-btn">Blog</a>
-                </div><!-- .xs-btn-wraper .d-flex-center-end .xs-col-3 END -->
-            </div><!-- .xs-section-heading .fundpress-section-heading .xs-spilit-container END -->
-            <div class="row">
-                <div class="col-md-6 col-sm-12 col-lg-4">
-                    <div class="fundpress-grid-item-content xs-box-shadow fundpress-from-journal">
-                        <div class="xs-item-header fundpress-item-header entry-thumbnail">
-                            <img src="/images/journal/journal-1.jpg" alt="">
-                            <div class="xs-item-header-content">
-                                <a href="#" class="full-round icon-identify-btn green-btn"><i
-                                            class="fa fa-play"></i></a>
-                            </div>
-                        </div><!-- .xs-item-header .fundpress-item-header END -->
-                        <div class="fundpress-item-content xs-content-padding bg-color-white">
-                            <div class="entry-header xs-mb-30">
-                                <div class="post-author">
-                                    <ul class="xs-simple-tag xs-simple-tag-v2 fundpress-simple-tag author-links">
-                                        <li><span>By</span><a href="#" rel="author">Rose</a></li>
-                                    </ul>
-                                </div>
-                                <h4 class="entry-title">
-                                    <a href="#" class="xs-mb-0 xs-post-title color-navy-blue fundpress-post-title">Professional
-                                        Soundcard</a>
-                                </h4>
-                                <p>Founded by berlin’s clubcommissioner alongside amsterdam’s with nightori mayor, the
-                                    creative footprint.</p>
-                            </div>
-
-                            <span class="xs-separetor border-separetor xs-separetor-v2 fundpress-separetor xs-mb-20"></span>
-
-                            <div class="entry-content xs-spilit-container xs-footer-content">
-                                <div class="xs-col-6 text-left">
-								<span class="date">
-									<a href="" title="" rel="bookmark">
-										<i class="fa fa-calendar" aria-hidden="true"></i>
-										<span class="entry-date xs-entry-date">March 15, 2018</span>
-									</a>
-								</span>
-                                </div>
-                                <div class="xs-col-6 text-right">
-								<span class="categories-links">
-									<a href="#"
-                                                class="xs-blog-meta-tag green-bg bold color-white xs-border-radius"
-                                                rel="category tag">Project</a></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-sm-12 col-lg-4">
-                    <div class="fundpress-grid-item-content xs-box-shadow fundpress-from-journal">
-                        <div class="xs-item-header fundpress-item-header entry-thumbnail">
-                            <img src="/images/journal/journal-2.jpg" alt="">
-                            <div class="xs-item-header-content">
-                                <a href="#" class="full-round icon-identify-btn green-btn"><i
-                                            class="fa fa-image"></i></a>
-                            </div>
-                        </div><!-- .xs-item-header .fundpress-item-header END -->
-                        <div class="fundpress-item-content xs-content-padding bg-color-white">
-                            <div class="entry-header xs-mb-30">
-                                <div class="post-author">
-                                    <ul class="xs-simple-tag xs-simple-tag-v2 fundpress-simple-tag author-links">
-                                        <li><span>By</span><a href="#" rel="author">Rose</a></li>
-                                    </ul>
-                                </div>
-                                <h4 class="entry-title">
-                                    <a href="#" class="xs-mb-0 xs-post-title color-navy-blue fundpress-post-title">A New
-                                        Album by Rebecca</a>
-                                </h4>
-                                <p>Founded by berlin’s clubcommissioner alongside amsterdam’s with nightori mayor, the
-                                    creative footprint.</p>
-                            </div>
-
-                            <span class="xs-separetor border-separetor xs-separetor-v2 fundpress-separetor xs-mb-20"></span>
-
-                            <div class="entry-content xs-spilit-container xs-footer-content">
-                                <div class="xs-col-6 text-left">
-								<span class="date">
-									<a href="" title="" rel="bookmark">
-										<i class="fa fa-calendar" aria-hidden="true"></i>
-										<span class="entry-date xs-entry-date">March 15, 2018</span>
-									</a>
-								</span>
-                                </div>
-                                <div class="xs-col-6 text-right">
-								<span class="categories-links">
-									<a href="#"
-                                                class="xs-blog-meta-tag green-bg bold color-white xs-border-radius"
-                                                rel="category tag">Adoption</a></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-sm-12 col-lg-4">
-                    <div class="fundpress-grid-item-content xs-box-shadow fundpress-from-journal">
-                        <div class="xs-item-header fundpress-item-header entry-thumbnail">
-                            <img src="/images/journal/journal-3.jpg" alt="">
-                            <div class="xs-item-header-content">
-                                <a href="#" class="full-round icon-identify-btn green-btn"><i
-                                            class="fa fa-video-camera"></i></a>
-                            </div>
-                        </div><!-- .xs-item-header .fundpress-item-header END -->
-                        <div class="fundpress-item-content xs-content-padding bg-color-white">
-                            <div class="entry-header xs-mb-30">
-                                <div class="post-author">
-                                    <ul class="xs-simple-tag xs-simple-tag-v2 fundpress-simple-tag author-links">
-                                        <li><span>By</span><a href="#" rel="author">Rose</a></li>
-                                    </ul>
-                                </div>
-                                <h4 class="entry-title">
-                                    <a href="#" class="xs-mb-0 xs-post-title color-navy-blue fundpress-post-title">First
-                                        Bionic Wireless</a>
-                                </h4>
-                                <p>Founded by berlin’s clubcommissioner alongside amsterdam’s with nightori mayor, the
-                                    creative footprint.</p>
-                            </div>
-
-                            <span class="xs-separetor border-separetor xs-separetor-v2 fundpress-separetor xs-mb-20"></span>
-
-                            <div class="entry-content xs-spilit-container xs-footer-content">
-                                <div class="xs-col-6 text-left">
-								<span class="date">
-									<a href="" title="" rel="bookmark">
-										<i class="fa fa-calendar" aria-hidden="true"></i>
-										<span class="entry-date xs-entry-date">March 15, 2018</span>
-									</a>
-								</span>
-                                </div>
-                                <div class="xs-col-6 text-right">
-								<span class="categories-links">
-									<a href="#"
-                                                class="xs-blog-meta-tag green-bg bold color-white xs-border-radius"
-                                                rel="category tag">Film</a></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>    <!-- End journal section -->
 
     <!-- sponsor section -->
     <section class="xs-bg xs-section-padding fundpress-sponsor-section"
@@ -714,7 +560,7 @@
         <div class="xs-solid-overlay xs-bg-white"></div>
         <div class="container fundpress-partners-wraper">
             <div class="fundpress-heading-title">
-                <h2 class="color-navy-blue xs-mb-0">Trusted by the biggest nonprofits, companies in the world.</h2>
+                <h2 class="color-navy-blue xs-mb-0">Ellos son quienes nos apoyan, y estan dispuestos a impulsar tu carrera</h2>
             </div><!-- .xs-heading-title .fundpress-heading-title END -->
             <div class="content-center">
                 <ul class="fundpress-partners">

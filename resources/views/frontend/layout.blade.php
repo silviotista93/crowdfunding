@@ -74,7 +74,7 @@
     <div class="fundpress-footer-top-layer">
         <div class="container">
             <div class="row">
-                <div class="col-md-5">
+                {{--<div class="col-md-5">
                     <div class="fundpress-single-footer">
                         <div class="xs-footer-logo">
                             <a href="index.html">
@@ -145,7 +145,7 @@
                             </ul>
                         </nav><!-- .xs-footer-menu .xs-block-menu END -->
                     </div><!-- .fundpress-single-footer END -->
-                </div>
+                </div>--}}
             </div>
         </div>
     </div><!-- .xs-footer-wraper .fundpress-footer-top-layer END -->
@@ -153,7 +153,7 @@
         <div class="container">
             <div class="xs-footer-bottom-wraper">
                 <div class="xs-copyright-text fundpress-copyright-text">
-                    <p>Built with <i class="fa fa-heart"></i> by <a href="https://xpeedstudio.com/">XpeedStudio</a></p>
+                    <p><i class="fa fa-heart"></i> by <a href="https://xpeedstudio.com/">Apuesto por ti</a></p>
                 </div>
                 <div class="xs-back-to-top-wraper">
                     <a href="#" class="xs-back-to-top full-round green-btn xs-back-to-top-btn show-last-pos">
