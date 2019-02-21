@@ -53,7 +53,7 @@ function createCard(project) {
     if (project.artists){
         artist = project.artists[0];
     }
-    /*console.log(project);*/
+    //console.log(project);
     let porcetaje = 100-(((project.price-project.totalDonations)/100)*100);
     if (porcetaje < 1) {
         porcetaje = 0;
@@ -63,7 +63,7 @@ function createCard(project) {
 <div class="xs-col-3-isotope-grid-item comics crafts">
     <div class="fundpress-grid-item-content xs-mb-30">
         <div class="xs-item-header fundpress-item-header">
-            <img src="${project.img}" alt="">
+            <img src="${project.project_picture}" alt="">
             <div class="xs-item-header-content">
                 <div class="xs-skill-bar">
                     <div class="xs-skill-track">
