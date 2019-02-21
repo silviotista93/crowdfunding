@@ -250,8 +250,8 @@
                             </article>
                         </div>
                     </div>
-                        @include('frontend.artist.partials.sidebar-artist')
                 </div>
+                @include('frontend.artist.partials.sidebar-artist')
             </div>
         </div>	<!-- End blog post details -->
     </main>
