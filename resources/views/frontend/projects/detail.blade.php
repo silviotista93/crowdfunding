@@ -3,7 +3,7 @@
 @section('content')
     <section class="xs-inner-welcome-section fundpress-inner-welcome-section fundpress-inner-bg-1 parallax-window"
              data-parallax="scroll"
-             style="background-image: url({{$project->pathAttachment() }});background-position: center;background-attachment: fixed;background-repeat: no-repeat; background-size: cover;">
+             style="background-image: url({{$project->project_picture }});background-position: center;background-attachment: fixed;background-repeat: no-repeat; background-size: cover;">
         <div class="xs-solid-overlay xs-bg-black"></div>
         <div class="container">
             <div class="fundpress-inner-welcome-content xs-inner-welcome-content">
