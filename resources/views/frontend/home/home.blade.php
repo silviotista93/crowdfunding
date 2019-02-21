@@ -216,8 +216,7 @@
                                 <h2>{{ __('artista') }}</h2>
                             </div>
                             <div class="fundpress-product-text-content">
-                                <p>We recently we discovered a major problem – organizing accessories for these Apple
-                                    devices while on the road or in our workspace was a major.</p>
+                                <p>Aquí podrás encontrar información para que sepas como formar parte de Apuesto por ti, siendo artista.</p>
                             </div>
                             <div class="xs-btn-wrapre">
                                 <a href="{{ route('info-artist') }}"
@@ -235,8 +234,7 @@
                                 <h2>{{ __('patrocinador') }}</h2>
                             </div>
                             <div class="fundpress-product-text-content">
-                                <p>We recently we discovered a major problem – organizing accessories for these Apple
-                                    devices while on the road or in our workspace was a major.</p>
+                                <p>Aquí podrás encontrar información para que sepas como formar parte de Apuesto por ti, siendo patrocinador.</p>
                             </div>
                             <div class="xs-btn-wrapre">
                             <a href="{{route('info-backer')}}"
