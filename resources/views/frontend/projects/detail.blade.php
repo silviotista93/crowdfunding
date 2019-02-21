@@ -441,13 +441,13 @@
             <div class="container">
                 <div class="xs-section-heading row xs-margin-0">
                     <div class="fundpress-heading-title xs-padding-0 col-xl-9 col-md-9">
-                        <h2 class="color-navy-blue">Other Project</h2>
+                        <h2 class="color-navy-blue">Otros proyectos</h2>
                         <span class="xs-separetor dashed-separetor fundpress-separetor"></span>
-                        <p>FundPress has built a platform focused on aiding entrepreneurs, startups, and companies raise
-                            capital from anyone.</p>
+                        {{--<p>FundPress has built a platform focused on aiding entrepreneurs, startups, and companies raise
+                            capital from anyone.</p>--}}
                     </div><!-- .xs-heading-title .fundpress-heading-title .xs-col-9 END -->
                     <div class="xs-btn-wraper xs-padding-0 col-xl-3 col-md-3 d-flex-center-end">
-                        <a href="#" class="xs-btn round-btn navy-blue-btn">all Projects</a>
+                        <a href="#" class="xs-btn round-btn navy-blue-btn">{{ __('todos_proyectos') }}</a>
                     </div><!-- .xs-btn-wraper .xs-col-3 .d-flex-center-end END -->
                 </div><!-- .xs-section-heading .fundpress-section-heading .xs-spilit-container END -->
                 {{--<div class="row">
