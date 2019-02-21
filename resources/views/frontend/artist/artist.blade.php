@@ -45,12 +45,11 @@
 
                                 </div><!-- post-body end -->
                             </article>
-                        </div>
-                    </div>
+                    
                     {{-- paso 2 --}}
 
-                    <div class="col-md-12 col-lg-8">
-                        <div class="xs-blog-details-wraper">
+                
+                    
                             <article class="post format-standard hentry post xs-post-format-standard xs-style-border">
                                 <div class="post-body xs-content-padding">
                                     <div class="entry-header row xs-mb-30">
@@ -78,14 +77,10 @@
 
                                 </div><!-- post-body end -->
                             </article>
-                        </div>
-                    </div>
-
+                    
                     {{-- paso 3 --}}
 
-                    <div class="col-md-12 col-lg-8">
-                        <div class="xs-blog-details-wraper">
-                            <article class="post format-standard hentry post xs-post-format-standard xs-style-border">
+                                                <article class="post format-standard hentry post xs-post-format-standard xs-style-border">
                                 <div class="post-body xs-content-padding">
                                     <div class="entry-header row xs-mb-30">
                                         <div class="col-md-2 xs-padding-0">
@@ -111,13 +106,10 @@
 
                                 </div><!-- post-body end -->
                             </article>
-                        </div>
-                    </div>
-
+                    
                     {{-- paso 4 --}}
 
-                    <div class="col-md-12 col-lg-8">
-                        <div class="xs-blog-details-wraper">
+                    
                             <article class="post format-standard hentry post xs-post-format-standard xs-style-border">
                                 <div class="post-body xs-content-padding">
                                     <div class="entry-header row xs-mb-30">
@@ -145,14 +137,10 @@
 
                                 </div><!-- post-body end -->
                             </article>
-                        </div>
-                    </div>
-
+                    
                     {{-- paso 5 --}}
 
-                    <div class="col-md-12 col-lg-8">
-                        <div class="xs-blog-details-wraper">
-                            <article class="post format-standard hentry post xs-post-format-standard xs-style-border">
+                                                <article class="post format-standard hentry post xs-post-format-standard xs-style-border">
                                 <div class="post-body xs-content-padding">
                                     <div class="entry-header row xs-mb-30">
                                         <div class="col-md-2 xs-padding-0">
@@ -178,13 +166,10 @@
 
                                 </div><!-- post-body end -->
                             </article>
-                        </div>
-                    </div>
-                    
+                                        
                     {{-- paso 6 --}}
 
-                    <div class="col-md-12 col-lg-8">
-                        <div class="xs-blog-details-wraper">
+                    
                             <article class="post format-standard hentry post xs-post-format-standard xs-style-border">
                                 <div class="post-body xs-content-padding">
                                     <div class="entry-header row xs-mb-30">
@@ -215,14 +200,10 @@
 
                                 </div><!-- post-body end -->
                             </article>
-                        </div>
-                    </div>
-
+                     
                      {{-- paso 7 --}}
 
-                     <div class="col-md-12 col-lg-8">
-                        <div class="xs-blog-details-wraper">
-                            <article class="post format-standard hentry post xs-post-format-standard xs-style-border">
+                                                 <article class="post format-standard hentry post xs-post-format-standard xs-style-border">
                                 <div class="post-body xs-content-padding">
                                     <div class="entry-header row xs-mb-30">
                                         <div class="col-md-2 xs-padding-0">
