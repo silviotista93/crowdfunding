@@ -382,22 +382,22 @@
                             <div class="xs-single-sidebar xs-mb-50">
                                 <div class="xs-spilit-container xs-spilit-container-v2">
                                     <div class="xs-avatar xs-avatar-big full-round fundpress-avatar">
-                                        <img src="{{ $project->artist_user($project->artists[0]->id)->pathAttachment() }}" alt="">
+                                        <img src="{{ $project->artists[0]->users->pathAttachment() }}" alt="">
                                     </div>
                                     <div class="xs-avatar-title fundpress-avatar-title fundpress-avatar-title-v2">
-                                    <a href="{{route('projects.artist',$project->artists[0]->users->slug)}}" class="xs-mb-10">{{ $project->artist_user($project->artists[0]->id)->name }}</a>
+                                    <a href="{{route('projects.artist',$project->artists[0]->users->slug)}}" class="xs-mb-10">{{ $project->artists[0]->nickname }}</a>
                                         <p class="xs-content-description fundpress-content-description xs-mb-20">{{ $project->category->category }}</p>
                                         <ul class="xs-list-item-icon-text list-inline">
                                             <li class="xs-mb-0 align-items-start list-inline-item">
                                                 <p class="xs-content-description fundpress-content-description">
                                                     <i class="fa fa-signal color-green"></i>
-                                                    {{ $project->levelArtist($project->artists[0]->level_id)->level }}
+                                                    {{ $project->artists[0]->levels->level }}
                                                 </p>
                                             </li>
                                             <li class="xs-mb-0 list-inline-item">
                                                 <p class="xs-content-description fundpress-content-description">
-                                                    <img src="{{ $project->countryArtist($project->artists[0]->country_id)->flag }}" width="21" alt=""style="margin-top: -3px">
-                                                    {{ $project->countryArtist($project->artists[0]->country_id)->country }}
+                                                    <img src="{{ $project->artists[0]->countries->flag }}" width="21" alt=""style="margin-top: -3px">
+                                                    {{ $project->artists[0]->countries->country }}
                                                 </p>
                                             </li>
                                         </ul>
