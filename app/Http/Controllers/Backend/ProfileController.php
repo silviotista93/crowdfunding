@@ -35,7 +35,6 @@ class ProfileController extends Controller
             'country_id' => 'required',
             'location_id' => 'required',
             'phone_1' => 'required',
-            'age' => 'required',
             'birthdate' => 'required',
         ]);
 

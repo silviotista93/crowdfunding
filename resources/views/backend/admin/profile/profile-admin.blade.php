@@ -92,7 +92,7 @@
                                     <div class="m-portlet__body">
                                         <div class="form-group m-form__group row">
                                             <div class="col-10 ml-auto">
-                                                <h3 class="m-form__section">1. Info {{ __('management') }}</h3>
+                                                <h3 class="m-form__section">1. Info {{ __('Admin') }}</h3>
                                             </div>
                                         </div>
                                         <div class="form-group m-form__group row {{$errors->has('company')? 'has-danger':''}}">

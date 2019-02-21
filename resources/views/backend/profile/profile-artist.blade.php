@@ -152,7 +152,7 @@
                                         @endif
                                     </div>
 
-                                    <div class="form-group m-form__group row {{$errors->has('age')? 'has-danger':''}}">
+                                    {{--<div class="form-group m-form__group row {{$errors->has('age')? 'has-danger':''}}">
                                         <label for="example-text-input"
                                                class="col-2 col-form-label">{{ __('edad') }}</label>
                                         <div class="col-2">
@@ -161,7 +161,7 @@
                                                    onKeyPress="if(this.value.length==2) return false;"/>
                                             {!! $errors->first('age','<div class="form-control-feedback">*:message</div>')!!}
                                         </div>
-                                    </div>
+                                    </div>--}}
 
                                     <div
                                         class="form-group m-form__group row {{$errors->has('level_id')? 'has-danger':''}}">
