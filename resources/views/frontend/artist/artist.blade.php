@@ -81,6 +81,105 @@
                         </div>
                     </div>
 
+                    {{-- paso 3 --}}
+
+                    <div class="col-md-12 col-lg-8">
+                        <div class="xs-blog-details-wraper">
+                            <article class="post format-standard hentry post xs-post-format-standard xs-style-border">
+                                <div class="post-body xs-content-padding">
+                                    <div class="entry-header row xs-mb-30">
+                                        <div class="col-md-2 xs-padding-0">
+                                            <div class="post-meta">
+                                                <div class="xs-post-meta-date xs-mb-30">
+                                                    <span class="post-meta-date xs-navy-blue-bg color-white xs-border-radius"><b>3</b></span>
+                                                </div>
+
+
+                                            </div>
+                                        </div><!-- .xs-entry-header-date END -->
+                                        <div class="col-md-10 xs-padding-0">
+                                            <div class="xs-entry-content entry-content xs-font-alt">
+                                                <p class="xs-mb-0" style="text-align: justify">
+                                                    El siguiente paso es registrarte en Apuesto por ti, 
+                                                    debes tener en cuenta que, si quieres subir tu proyecto antes debes actualizar tus datos. 
+                                                    A partir de este momento y hasta que tu proyecto esté preparado, irás viendo detalles y tips de información sobre qué elementos debes ir introduciendo en cada caso (descripción, recompensas, vídeo, objetivo económico). Verás que el proceso es muy intuitivo y cada paso está explicado, además recuerda que el equipo Apuesto por ti está siempre a tu disposición, 
+                                                    si necesitas su ayuda no dudes un momento en contactarnos a través de la página de contacto.
+                                                   </p>
+                                            </div><!-- .xs-entry-content END -->
+                                        </div><!-- .xs-entry-header-content END -->
+                                    </div><!-- header end -->
+
+                                </div><!-- post-body end -->
+                            </article>
+                        </div>
+                    </div>
+
+                    {{-- paso 4 --}}
+
+                    <div class="col-md-12 col-lg-8">
+                        <div class="xs-blog-details-wraper">
+                            <article class="post format-standard hentry post xs-post-format-standard xs-style-border">
+                                <div class="post-body xs-content-padding">
+                                    <div class="entry-header row xs-mb-30">
+                                        <div class="col-md-2 xs-padding-0">
+                                            <div class="post-meta">
+                                                <div class="xs-post-meta-date xs-mb-30">
+                                                    <span class="post-meta-date xs-navy-blue-bg color-white xs-border-radius"><b>4</b></span>
+                                                </div>
+
+
+                                            </div>
+                                        </div><!-- .xs-entry-header-date END -->
+                                        <div class="col-md-10 xs-padding-0">
+                                            <div class="xs-entry-content entry-content xs-font-alt">
+                                                <p class="xs-mb-0" style="text-align: justify">
+                                                    Una vez que hayas incluido toda la información, 
+                                                    fotos, vídeos, etc. en el proyecto, el equipo 
+                                                    Apuesto por ti la revisará y te enviaran correos con el 
+                                                    estado(en revisión, pre-aprobado, aprobado, rechazado) 
+                                                    de tu proyecto y las opiniones acerca de este.
+                                                   </p>
+                                            </div><!-- .xs-entry-content END -->
+                                        </div><!-- .xs-entry-header-content END -->
+                                    </div><!-- header end -->
+
+                                </div><!-- post-body end -->
+                            </article>
+                        </div>
+                    </div>
+
+                    {{-- paso 5 --}}
+
+                    <div class="col-md-12 col-lg-8">
+                        <div class="xs-blog-details-wraper">
+                            <article class="post format-standard hentry post xs-post-format-standard xs-style-border">
+                                <div class="post-body xs-content-padding">
+                                    <div class="entry-header row xs-mb-30">
+                                        <div class="col-md-2 xs-padding-0">
+                                            <div class="post-meta">
+                                                <div class="xs-post-meta-date xs-mb-30">
+                                                    <span class="post-meta-date xs-navy-blue-bg color-white xs-border-radius"><b>5</b></span>
+                                                </div>
+
+
+                                            </div>
+                                        </div><!-- .xs-entry-header-date END -->
+                                        <div class="col-md-10 xs-padding-0">
+                                            <div class="xs-entry-content entry-content xs-font-alt">
+                                                <p class="xs-mb-0" style="text-align: justify">
+                                                    Mientras los proyectos están en revisión no reciben apoyos económicos, 
+                                                    lo que deben hacer es conseguir los votos por parte de los magement, 
+                                                    esto sirve para conseguir
+                                                     que esas personas te ayuden y den el visto bueno a tu proyecto.
+                                                   </p>
+                                            </div><!-- .xs-entry-content END -->
+                                        </div><!-- .xs-entry-header-content END -->
+                                    </div><!-- header end -->
+
+                                </div><!-- post-body end -->
+                            </article>
+                        </div>
+                    </div>
                         @include('frontend.artist.partials.sidebar-artist')
                 </div>
             </div>
