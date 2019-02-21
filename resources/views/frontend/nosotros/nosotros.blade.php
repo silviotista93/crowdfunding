@@ -33,7 +33,7 @@
 			</div>
 			<div class="col-md-12 col-lg-6">
 				<div class="fundpress-about-promo-image xs-box-shadow">
-					<img src="frontend/images/suenos.jpg" alt="">
+					<img src="frontend/images/nosotros/nosotros_1.jpg" alt="">
 				</div>
 				<!-- 
 					fundpress-about-promo-image 
