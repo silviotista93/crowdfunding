@@ -238,3 +238,14 @@
 
 
 @stop
+@push('js')
+    <script>
+        const projects = {!! json_encode($projects)!!};
+        fnRenderView = function () {
+            startCard();
+        }
+    </script>
+    <script src="/js/libs/moment-with-locales.min.js"></script>
+    <script src="/frontend/js/card_project.js"></script>
+    <script src="/frontend/js/projects.js"></script>
+@endpush

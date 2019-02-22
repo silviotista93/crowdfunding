@@ -26,7 +26,13 @@ class HomeController extends Controller
     }
 
     public function artist(){
-        return view('frontend.artist.artist');
+        $projects = \App\Project::
+        where('status',Project::PUBLISHED)
+        ->with("category","artists",'artists.users', 'donations')->latest()->paginate(8);
+        $projects->setCollection( \App\Project::card($projects->getCollection()) );
+        $user = \App\User::first();
+        $categories = Category::select('*')->get();
+        return view('frontend.artist.artist', compact('categories', 'projects','user'));
     }
 
     public function backer(){
