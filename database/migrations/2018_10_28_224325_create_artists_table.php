@@ -71,9 +71,9 @@ class CreateArtistsTable extends Migration
     {
         Schema::dropIfExists('artists');
         Schema::dropIfExists('levels');
+        Schema::dropIfExists('locations');
         Schema::dropIfExists('countries');
         Schema::dropIfExists('cities');
-        Schema::dropIfExists('locations');
 
     }
 }

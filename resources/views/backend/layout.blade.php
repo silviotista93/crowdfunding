@@ -117,7 +117,8 @@ License: You must have a valid license purchased only from themeforest(the above
                     <div class="m-stack m-stack--ver m-stack--general">
                         <div class="m-stack__item m-stack__item--middle m-brand__logo">
                             <a href="index.html" class="m-brand__logo-wrapper">
-                                <h4 style="color: white">{{ config('app.name') }}</h4>
+                                {{--<h4 style="color: white">{{ config('app.name') }}</h4>--}}
+                                <h4 style="color: white;width: 170px;">Apuesto por ti</h4>
                             </a>
                         </div>
                         <div class="m-stack__item m-stack__item--middle m-brand__tools">
@@ -219,33 +220,33 @@ License: You must have a valid license purchased only from themeforest(the above
             <div class="m-stack m-stack--flex-tablet-and-mobile m-stack--ver m-stack--desktop">
                 <div class="m-stack__item m-stack__item--left m-stack__item--middle m-stack__item--last">
 							<span class="m-footer__copyright">
-								2019 &copy; Crowdfunding  by <a href="https://crowfunding.com" class="m-link">Crowdfunding</a>
+								2019 &copy; Crowdfunding  by <a href="" class="m-link">Crowdfunding</a>
 							</span>
                 </div>
                 <div class="m-stack__item m-stack__item--right m-stack__item--middle m-stack__item--first">
                     <ul class="m-footer__nav m-nav m-nav--inline m--pull-right">
                         <li class="m-nav__item">
                             <a href="#" class="m-nav__link">
-                                <span class="m-nav__link-text">About</span>
+                                <span class="m-nav__link-text">{{ __('nosotros') }}</span>
                             </a>
                         </li>
                         <li class="m-nav__item">
                             <a href="#" class="m-nav__link">
-                                <span class="m-nav__link-text">Privacy</span>
+                                <span class="m-nav__link-text">{{ __('privacidad') }}</span>
                             </a>
                         </li>
                         <li class="m-nav__item">
                             <a href="#" class="m-nav__link">
-                                <span class="m-nav__link-text">T&C</span>
+                                <span class="m-nav__link-text">{{ __('documentacion') }}</span>
                             </a>
                         </li>
                         <li class="m-nav__item">
                             <a href="#" class="m-nav__link">
-                                <span class="m-nav__link-text">Purchase</span>
+                                <span class="m-nav__link-text">{{ __('ayuda') }}</span>
                             </a>
                         </li>
                         <li class="m-nav__item m-nav__item">
-                            <a href="#" class="m-nav__link" data-toggle="m-tooltip" title="Support Center"
+                            <a href="#" class="m-nav__link" data-toggle="m-tooltip" title="{{ __('soporte') }}"
                                data-placement="left">
                                 <i class="m-nav__link-icon flaticon-info m--icon-font-size-lg3"></i>
                             </a>
@@ -732,15 +733,15 @@ License: You must have a valid license purchased only from themeforest(the above
 
 <!-- begin::Quick Nav -->
 <ul class="m-nav-sticky" style="margin-top: 30px;">
-    <li class="m-nav-sticky__item" data-toggle="m-tooltip" title="Purchase" data-placement="left">
+    {{--<li class="m-nav-sticky__item" data-toggle="m-tooltip" title="Purchase" data-placement="left">
         <a href="https://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes"
            target="_blank"><i class="la la-cart-arrow-down"></i></a>
+    </li>--}}
+    <li class="m-nav-sticky__item" data-toggle="m-tooltip" title="{{ __('documentacion') }}" data-placement="left">
+        <a href="" target="_blank"><i class="la la-code-fork"></i></a>
     </li>
-    <li class="m-nav-sticky__item" data-toggle="m-tooltip" title="Documentation" data-placement="left">
-        <a href="https://keenthemes.com/metronic/documentation.html" target="_blank"><i class="la la-code-fork"></i></a>
-    </li>
-    <li class="m-nav-sticky__item" data-toggle="m-tooltip" title="Support" data-placement="left">
-        <a href="https://keenthemes.com/forums/forum/support/metronic5/" target="_blank"><i class="la la-life-ring"></i></a>
+    <li class="m-nav-sticky__item" data-toggle="m-tooltip" title="{{ __('soporte') }}" data-placement="left">
+        <a href="" target="_blank"><i class="la la-life-ring"></i></a>
     </li>
 </ul>
 

@@ -28,7 +28,7 @@ class ProjectsController extends Controller
 
 
     public function show(Project $project){
-    
+
         $project->load([
             'category' => function ($q) {
                 $q->select('id', 'category','slug');

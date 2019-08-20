@@ -83,8 +83,7 @@
                                         <h4 class="m--font-success" style="font-weight: bold">
                                             ${{ $project->price }}</h4>
                                     </div>
-
-                                    @if($team->teams != null )
+                                    @if( count($team->teams) != 0)
                                         <div class="form-group">
                                             <h5 style="font-weight: bold">{{ __('integrantes_del_grupo_o_orquesta') }}
                                                 :</h5>

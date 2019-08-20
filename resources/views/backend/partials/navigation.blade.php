@@ -115,6 +115,7 @@
     <div id="m_header_topbar" class="m-topbar  m-stack m-stack--ver m-stack--general m-stack--fluid">
         <div class="m-stack__item m-topbar__nav-wrapper">
             <ul class="m-topbar__nav m-nav m-nav--inline">
+{{--
                 <li class="m-nav__item m-dropdown m-dropdown--large m-dropdown--arrow m-dropdown--align-center m-dropdown--mobile-full-width m-dropdown--skin-light	m-list-search m-list-search--skin-light"
                     m-dropdown-toggle="click" id="m_quicksearch"
                     m-quicksearch-mode="dropdown" m-dropdown-persistent="1">
@@ -151,6 +152,7 @@
                         </div>
                     </div>
                 </li>
+--}}
                 <li class="m-nav__item m-topbar__notifications m-topbar__notifications--img m-dropdown m-dropdown--large m-dropdown--header-bg-fill m-dropdown--arrow m-dropdown--align-center 	m-dropdown--mobile-full-width"
                     m-dropdown-toggle="click"
                     m-dropdown-persistent="1">
@@ -190,7 +192,7 @@
                                             <div class="m-scrollable" data-scrollable="true" data-height="250"
                                                  data-mobile-height="200">
                                                 <div class="m-list-timeline m-list-timeline--skin-light">
-                                                    <div class="m-list-timeline__items">
+                                                    {{--<div class="m-list-timeline__items">
                                                         <div class="m-list-timeline__item">
                                                             <span
                                                                 class="m-list-timeline__badge -m-list-timeline__badge--state-success"></span>
@@ -240,14 +242,14 @@
                                                                 class="m-list-timeline__text">Production server up</span>
                                                             <span class="m-list-timeline__time">5 hrs</span>
                                                         </div>
-                                                    </div>
+                                                    </div>--}}
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="tab-pane" id="topbar_notifications_events" role="tabpanel">
                                             <div class="m-scrollable" data-scrollable="true" data-height="250"
                                                  data-mobile-height="200">
-                                                <div class="m-list-timeline m-list-timeline--skin-light">
+                                                {{--<div class="m-list-timeline m-list-timeline--skin-light">
                                                     <div class="m-list-timeline__items">
                                                         <div class="m-list-timeline__item">
                                                             <span
@@ -291,16 +293,11 @@
                                                             <span class="m-list-timeline__time">3 hrs</span>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div>--}}
                                             </div>
                                         </div>
                                         <div class="tab-pane" id="topbar_notifications_logs" role="tabpanel">
-                                            <div class="m-stack m-stack--ver m-stack--general"
-                                                 style="min-height: 180px;">
-                                                <div class="m-stack__item m-stack__item--center m-stack__item--middle">
-                                                    <span class="">All caught up!<br>No new logs.</span>
-                                                </div>
-                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -314,7 +311,7 @@
                         <span class="m-nav__link-badge m-badge m-badge--dot m-badge--info m--hide"></span>
                         <span class="m-nav__link-icon"><i class="flaticon-share"></i></span>
                     </a>
-                    <div class="m-dropdown__wrapper">
+                    {{--<div class="m-dropdown__wrapper">
                         <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
                         <div class="m-dropdown__inner">
                             <div class="m-dropdown__header m--align-center"
@@ -351,7 +348,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>--}}
                 </li>
                 <li class="m-nav__item m-topbar__languages m-dropdown m-dropdown--small m-dropdown--header-bg-fill m-dropdown--arrow m-dropdown--align-right m-dropdown--mobile-full-width"
                     m-dropdown-toggle="click">
@@ -464,7 +461,7 @@
 																		</span>
                                                                 </a>
                                         </li>
-                                        <li class="m-nav__item">
+                                        {{--<li class="m-nav__item">
                                             <a href="header/profile.html" class="m-nav__link">
                                                 <i class="m-nav__link-icon flaticon-share"></i>
                                                 <span class="m-nav__link-text">Activity</span>
@@ -489,7 +486,7 @@
                                                 <i class="m-nav__link-icon flaticon-lifebuoy"></i>
                                                 <span class="m-nav__link-text">Support</span>
                                             </a>
-                                        </li>
+                                        </li>--}}
                                         <li class="m-nav__separator m-nav__separator--fit">
                                         </li>
                                         <li class="m-nav__item">

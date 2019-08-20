@@ -36,6 +36,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
         Schema::create('user_social_accounts', function (Blueprint $table){
 
             $table->increments('id');

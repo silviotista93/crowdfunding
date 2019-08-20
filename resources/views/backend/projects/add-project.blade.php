@@ -235,16 +235,16 @@
                                             <div class="col-lg-6 m-form__group-sub cont_solista" style="display:none">
                                                 <label class="form-control-label" form="select_solista">* {{ __('select_solista') }}:</label>
                                                 <select name="select_solista" class="form-control m-bootstrap-select m_selectpicker required" id="select_solista">
-                                                        <option value="">{{ __('seleccione_genero') }}</option>                                                        
+                                                        <option value="">{{ __('seleccione_genero') }}</option>
                                                         <option value="1">{{__('solista') }}</option>
-                                                        <option value="2">{{__('grupo') }}</option>                                                       
+                                                        <option value="2">{{__('grupo') }}</option>
                                                         {!! $errors->first('category_id','<div class="form-control-feedback">*:message</div>')!!}
                                                     </select>
                                                 <span class="m-form__help">{{ __('solista_o') }}</span>
                                             </div>
 
                                             <div class="col-lg-6 m-form__group-sub registro" style="display:none">
-                                           
+
                                             <button type="button" class="btn btn-brand" data-toggle="modal" data-target="#m_modal_2">
                                                 <span>
                                                        <span>{{ __('registrar') }}</span>
@@ -265,8 +265,8 @@
                                                               </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <div class="m-form__section m-form__section--first" id="integrantes">                                                                
-                                                                                                                                                                                                
+                                                                <div class="m-form__section m-form__section--first" id="integrantes">
+
                                                                     <div class="form-group m-form__group row">
                                                                         <div class="col-lg-12">
                                                                             <label class="form-control-label" form="nombreIntegrante">* {{ __('nombre') }}:</label>
@@ -283,7 +283,7 @@
                                                                                 value="">
                                                                             <span class="m-form__help">{{ __('help_rol_integrante') }}</span>
                                                                         </div>
-                                                                    </div>                                                                  
+                                                                    </div>
                                                                 </div>
                                                                 <span class="btn btn-brand m-btn m-btn--icon m-btn--icon-only" id="masInte">
                                                                         <i class="fa flaticon-plus"></i>
@@ -293,9 +293,9 @@
                                                             <div class="modal-footer">
                                                               <button type="button" class="btn btn-success" data-dismiss="modal">
                                                                     <span>
-                                                                            <span>{{ __('guardar') }} &amp; {{ __('continuar') }}</span>                                                                            
+                                                                            <span>{{ __('guardar') }} &amp; {{ __('continuar') }}</span>
                                                                         </span>
-                                                            </button>                                                             
+                                                            </button>
                                                             </div>
                                                           </div>
                                                         </div>
@@ -359,7 +359,7 @@
                                         <div class="m-separator m-separator--dashed m-separator--lg"></div>
 
                                         {{-- {{dd($contProject)}} --}} {{-- {{dd($question)}} --}} @php $datos=null; if(isset($question[0])){ $datos=json_decode($question[0]->question);
-                                        } 
+                                        }
 @endphp @if($contProject == 0 & $datos != null) @forelse ($datos as $quest)
 
                                         <div class="m-form__section">
@@ -382,8 +382,8 @@
                                                                  <span class="m-option__head">
                                                                      <span class="m-option__title">
                                                                             {{$ans->option}}
-                                                                     </span>                                                                       
-                                                                 </span>                                                                   
+                                                                     </span>
+                                                                 </span>
                                                              </span>
                                                          </label>
                                                     </div>

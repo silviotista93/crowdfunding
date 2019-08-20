@@ -18,7 +18,7 @@
                             <div class="xs-welcome-content version-3">
                                 <div class="xs-welcome-wraper">
                                     <h2 class="color-white" style="color: white !important;">{{ __('deja_huella_musica') }}</h2>
-                                    <p style="color: white;font-size: 20px;margin-top: -40px;">Solo registrate y graba tu video, es tan sencillo mostrar tu talento en crowdfunding!</p>
+                                    <p style="color: white;font-size: 20px;margin-top: -40px;">{{ __('solo_registrate_graba_video') }}</p>
                                     {{--<div class="xs-skill-bar-v2" data-percent="65%">
                                         <div class="xs-skill-track">
                                             <p><span class="number-percentage-count">65</span>%</p>
@@ -171,9 +171,9 @@
         <div class="container">
             <div class="xs-section-heading row xs-margin-0">
                 <div class="fundpress-heading-title xs-padding-0 col-md-9 col-xl-9">
-                    <h2 class="color-navy-blue">Explora todos los proyectos</h2>
+                    <h2 class="color-navy-blue">{{ __('explora_todos_los_proyectos') }}</h2>
                     <span class="xs-separetor dashed-separetor fundpress-separetor"></span>
-                    <p>Apoya a nuestros artistas o comparte sus videos.</p>
+                    <p>{{ __('apoya_nuestros_proyectos') }}</p>
                 </div><!-- .fundpress-heading-title .xs-col-9 END -->
                 <div class="xs-btn-wraper xs-padding-0 col-xl-3 col-md-3 d-flex-center-end">
                     <a href="{{ route('projects') }}" class="xs-btn round-btn navy-blue-btn">{{ __('todos_proyectos') }}</a>
@@ -215,7 +215,7 @@
                                 <h2>{{ __('artista') }}</h2>
                             </div>
                             <div class="fundpress-product-text-content">
-                                <p>Aquí podrás encontrar información para que sepas como formar parte de Apuesto por ti, siendo artista.</p>
+                                <p>{{ __('aqui_podras_info_artista') }}</p>
                             </div>
                             <div class="xs-btn-wrapre">
                                 <a href="{{ route('info-artist') }}"
@@ -237,7 +237,7 @@
                                 {{--<p>We recently we discovered a major problem – organizing accessories for these Apple
                                     devices while on the road or in our workspace was a major.</p>--}}
 
-                                <p>Aquí podrás encontrar información para que sepas como formar parte de Apuesto por ti, siendo patrocinador.</p>
+                                <p>{{ __('aqui_podras_info_patrocinador') }}</p>
 
                             </div>
                             <div class="xs-btn-wrapre">
@@ -259,12 +259,12 @@
         <div class="container">
             <div class="xs-section-heading row xs-margin-0">
                 <div class="fundpress-heading-title xs-padding-0 col-xl-9 col-md-9">
-                    <h2 class="color-navy-blue">Casos de éxito</h2>
+                    <h2 class="color-navy-blue">{{ __('casos_de_exito') }}</h2>
                     <span class="xs-separetor dashed-separetor fundpress-separetor"></span>
-                    <p>Proyectos que han recaudado lo prometido y hasta más</p>
+                    <p>{{ __('ellos_han_recaudado') }}</p>
                 </div><!-- .xs-heading-title .fundpress-heading-title .xs-col-9 END -->
                 <div class="xs-btn-wraper xs-padding-0 col-xl-3 col-md-3 d-flex-center-end">
-                    <a href="#" class="xs-btn round-btn navy-blue-btn">Ver todos</a>
+                    <a href="#" class="xs-btn round-btn navy-blue-btn">{{ __('ver_todos') }}</a>
                 </div><!-- .xs-btn-wraper .xs-col-3 .d-flex-center-end END -->
             </div><!-- .xs-section-heading .fundpress-section-heading .xs-spilit-container END -->
             {{--<div class="row">
@@ -502,13 +502,13 @@
         <div class="container">
             <div class="xs-section-heading row xs-margin-0">
                 <div class="fundpress-heading-title xs-padding-0 col-md-9 col-xl-9">
-                    <h2 class="color-navy-blue">Anuncios</h2>
+                    <h2 class="color-navy-blue">{{ __('anuncios') }}</h2>
                     <span class="xs-separetor dashed-separetor fundpress-separetor"></span>
                     {{--<p>This equity FundPress platform allows businesses to sell shares in their company to accredited
                         investors.</p>--}}
                 </div><!-- .xs-heading-title .fundpress-heading-title .xs-col-9 END -->
                 <div class="xs-btn-wraper xs-padding-0 col-md-3 col-xl-3 d-flex-center-end">
-                    <a href="events.html" class="xs-btn round-btn navy-blue-btn">Más info</a>
+                    <a href="events.html" class="xs-btn round-btn navy-blue-btn">{{ __('mas_informacion') }}</a>
                 </div><!-- .xs-btn-wraper .d-flex-center-end .xs-col-3 END -->
             </div><!-- .xs-section-heading .fundpress-section-heading .xs-spilit-container END -->
             {{--<div class="fundpress-event-wraper">
@@ -561,7 +561,7 @@
         <div class="xs-solid-overlay xs-bg-white"></div>
         <div class="container fundpress-partners-wraper">
             <div class="fundpress-heading-title">
-                <h2 class="color-navy-blue xs-mb-0">Ellos son quienes nos apoyan, y estan dispuestos a impulsar tu carrera</h2>
+                <h2 class="color-navy-blue xs-mb-0">{{ __('ellos_son_quienes_apoyan') }}</h2>
             </div><!-- .xs-heading-title .fundpress-heading-title END -->
             <div class="content-center">
                 <ul class="fundpress-partners">
