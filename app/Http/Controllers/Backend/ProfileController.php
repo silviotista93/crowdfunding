@@ -40,7 +40,7 @@ class ProfileController extends Controller
 
         Artist::where('user_id','=',$id_artis)->update([
             'nickname' => $request->get('nickname'),
-            'biography' => $request->get('biography'),
+            'biography' => ucfirst($request->get('biography')),
             'level_id' => $request->get('level_id'),
             'country_id' => $request->get('country_id'),
             'location_id' => $request->get('location_id'),

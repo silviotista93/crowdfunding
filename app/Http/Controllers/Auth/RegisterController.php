@@ -67,7 +67,7 @@ class RegisterController extends Controller
     {
         $data = $this->validator($data)->validate();
         return User::create([
-            'name' => $data['name'],
+            'name' => ucwords($data['name']),
             'email' => $data['email'],
             'picture' => '/backend/assets/app/media/img/users/perfil.jpg',
             'password' => Hash::make($data['password']),

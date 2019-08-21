@@ -29,8 +29,8 @@ class ManagementsController extends Controller
         $password = trim(str_random(8));
         $pass = bcrypt($password);
         $add_user = User::create([
-            'name' => $request->get('name'),
-            'last_name' => $request->get('last_name'),
+            'name' => ucwords($request->get('name')),
+            'last_name' => ucwords($request->get('last_name')),
             'picture' => '/backend/assets/app/media/img/users/perfil.jpg',
             'email' => $request->get('email'),
             'password' => $pass

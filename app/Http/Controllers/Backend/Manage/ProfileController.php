@@ -38,9 +38,9 @@ class ProfileController extends Controller
     {
 
         $management = Management::where('user_id', $id)->update([
-            'company' => $request->get('company'),
-            'description' => $request->get('descripcion'),
-            'website_url' => $request->get('web_site'),
+            'company' => ucfirst($request->get('company')),
+            'description' => ucfirst($request->get('descripcion')),
+            'website_url' =>  $request->get('web_site'),
         ]);
 
         alert()->success(__('perfil_actualizado'), __('muy_bien'))->autoClose(3000);

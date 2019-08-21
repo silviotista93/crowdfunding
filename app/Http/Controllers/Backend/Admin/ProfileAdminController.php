@@ -40,8 +40,8 @@ class ProfileAdminController extends Controller
     {
 
         $management = Management::where('user_id', $id)->update([
-            'company' => $request->get('company'),
-            'description' => $request->get('descripcion'),
+            'company' => ucfirst($request->get('company')),
+            'description' => ucfirst($request->get('descripcion')),
             'website_url' => $request->get('web_site'),
         ]);
 

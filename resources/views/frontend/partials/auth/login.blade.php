@@ -1,5 +1,22 @@
 @auth
 @else
+
+    <style>
+        .btn_reset_password{
+            display: inline-block; color: #031F53;
+        }
+        .btn_reset_password:hover{
+            color: #4CC899;
+        }
+
+        .btn_volvel_login{
+            display: inline-block; color: #031F53;
+        }
+        .btn_volvel_login:hover{
+            color: #4CC899;
+        }
+    </style>
+
 <div class="modal fade bd-example-modal-lg xs-modal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -25,7 +42,7 @@
             ======================================-->
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane fadeInRights show fade in active" id="login">
-                    <form method="POST" id="frmLogin" action="{{ route('login') }}" aria-label="{{ __('Login') }} ">
+                    <form style="display: block" method="POST" id="frmLogin" action="{{ route('login') }}" aria-label="{{ __('Login') }} ">
                         @csrf
                         <div class="xs-input-group-v2">
                             <i class="icon icon-profile-male"></i>
@@ -44,6 +61,9 @@
                         <div class="xs-submit-wraper xs-mb-20">
                             <input type="submit" name="submit" value="{{ __('btn_login') }}" id="xs_contact_get_action" class="btn btn-warning btn-block">
                         </div>
+                        <p class="text-center">
+                            <a href="#" class="btn_reset_password">{{ __('olvido_contraseña') }}</a>
+                        </p>
                         <p class="xs-mb-20">or</p>
                         <div class="xs-submit-wraper xs-mb-20">
                             <a href="{{route('social_auth',['driver' => 'facebook'])}}" id="xs_facebook" class="btn btn-info btn-block">{{ __('btn_login_facebook') }}</a>
@@ -51,6 +71,25 @@
                         <div class="xs-submit-wraper">
                             <a href="{{route('social_auth',['driver' => 'google'])}}"  class="btn btn-success btn-block" style="background-color: #d34836 !important;">{{ __('btn_login_google') }}</a>
                         </div>
+                    </form>
+
+                    <form style="display: none" method="POST" id="frmResetPassword" action="{{ route('password.email') }}" aria-label="{{ __('Login') }} ">
+                        @csrf
+                        <input type="hidden" name="token" value="y8TS4wSU3W6ujiTW27Lw7MjxHLivn1XUOuPCfwrM">
+                        <div class="xs-input-group-v2">
+                            <i class="icon icon-profile-male"></i>
+                            <input type="email" name="email" id="xs_user_login_name" class="xs-input-control {{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('PlaceHolder_email') }}" value="{{ $email ?? old('email') }}" required autofocus>
+                        </div>
+                        <span class="invalid-feedback mesajesError d-block" role="alert">
+                            <strong id="error-email"></strong>
+                        </span>
+
+                        <div class="xs-submit-wraper xs-mb-20">
+                            <input type="submit" name="submit" value="{{ __('enviar') }}" id="xs_contact_get_action" class="btn btn-warning btn-block">
+                        </div>
+                        <p class="text-center">
+                            <a href="#" class="btn_volvel_login">{{ __('login') }}</a>
+                        </p>
                     </form>
                 </div>
                 <!--=====================================
@@ -105,4 +144,26 @@
 @push('js')
     <script src="/js/ajax.js"></script>
     <script src="/js/login.js"></script>
+    <script>
+        $(function () {
+            $(".btn_volvel_login").click(function(){
+
+               /* $('#frmResetPassword').hide();
+                $('#frmLogin').show();*/
+                $("#frmResetPassword").css("display", "none");
+                $("#frmLogin").css("display", "block");
+
+            });
+            $(".btn_reset_password").click(function(){
+
+                /*$('#frmResetPassword').show();
+                $('#frmLogin').hide();*/
+                $("#frmResetPassword").css("display", "block");
+                $("#frmLogin").css("display", "none");
+
+            });
+
+        });
+
+    </script>
 @endpush

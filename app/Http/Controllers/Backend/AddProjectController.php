@@ -50,8 +50,8 @@ class AddProjectController extends Controller
         $ramdoNum = mt_rand(1,10000);
         $project_exist = Artist::where('user_id',auth()->user()->id)->with('projects')->first();
         $project = Project::create([
-            'title' => $request->get('title'),
-            'short_description' => $request->get('short_description'),
+            'title' => ucfirst($request->get('title')),
+            'short_description' => ucfirst($request->get('short_description')),
             'project_picture' => $request->get('project_picture'),
             'iframe_video' => $request->get('iframe_video'),
             'category_id' => $request->get('category_id'),
@@ -65,8 +65,8 @@ class AddProjectController extends Controller
                 for ($i = 0; $i < count($request->get('nombres')); $i++) {
 
                     $team = new Team();
-                    $team->name = $request->get('nombres')[$i];
-                    $team->role = $request->get('rol')[$i];
+                    $team->name = ucwords($request->get('nombres')[$i]);
+                    $team->role = ucwords($request->get('rol')[$i]);
                     $team->save();
                     $project->teams()->attach($team);
                 }
