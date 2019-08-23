@@ -22,6 +22,7 @@ class UserTableSeeder extends Seeder
             'name'=>'John Jairo',
             'last_name'=>'Llorente',
             'picture'=>'/backend/assets/app/media/img/users/perfil.jpg',
+            'front_picture'=>'/backend/assets/app/media/img/users/perfil.jpg',
             'phone_1'=>'333333333',
             'phone_2'=>'333333333',
             'state'=>'1',

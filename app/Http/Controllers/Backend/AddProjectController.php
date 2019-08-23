@@ -39,10 +39,10 @@ class AddProjectController extends Controller
     public function upload_image(Request $request){
         $image = $request->file('image')->store('projects');
 
-        $url_go_input = Storage::url($image);
-        $url = str_ireplace($request->root(),'',$url_go_input);
+        /* $url_go_input = Storage::url($image);
+        $url = str_ireplace($request->root(),'',$url_go_input); */
 
-       return $url;
+       return '/storage/'.$image;
     }
 
     public function store (Request $request){

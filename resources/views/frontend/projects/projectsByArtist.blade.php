@@ -25,13 +25,13 @@
     </style>
 @endpush
 @section('content')
-
+{{-- url(/frontend/images/projects/background_perfil.jpg) --}}
 {{-- _______________________________
      nombre del artista y generos
      _______________________________ --}}
      <section class="xs-inner-welcome-section fundpress-inner-welcome-section fundpress-inner-bg-1 parallax-window"
      data-parallax="scroll"
-     style=" background-image: url(/frontend/images/projects/background_perfil.jpg);background-position: center;background-attachment: fixed;background-repeat: no-repeat; background-size: cover;">
+     style=" background-image: url({{ $artist->users->front_picture }});background-position: center;background-attachment: fixed;background-repeat: no-repeat; background-size: cover;">
      <div class="xs-solid-overlay xs-bg-black"></div>
      <div class="container">
         <div class="fundpress-inner-welcome-content" style="padding:200px 0 123px;">
@@ -84,7 +84,7 @@
         </div><!-- .xs-welcome-content END -->
     </div>
     @endif
-    <div class="col-lg-5 offset-1 columna--derecha">
+    {{-- <div class="col-lg-5 offset-1 columna--derecha">
         <div class="xs-welcome-content version-3">
             <div class="xs-welcome-wraper informacion__container">
                 <h3 class="informacion__title">Sobre mi</h3>
@@ -96,6 +96,93 @@
 
             </div><!-- .xs-welcome-wraper END -->
         </div><!-- .xs-welcome-content END -->
+    </div> --}}
+    <div class="xs-text-content-tab" style=" margin-left: 30%;">
+        <!-- Nav tabs -->
+        <div class="xs-tab-nav fundpress-tab-nav-v2 xs-mb-30">
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#description" role="tab" data-toggle="tab" aria-selected="true">
+                        Biografia
+                    </a>
+                    
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#updates" role="tab" data-toggle="tab" aria-selected="false">
+                        Actualizaciones
+                    </a>
+                </li>                
+                <li class="nav-item">
+                    <a class="nav-link" href="#backers" role="tab" data-toggle="tab" aria-selected="false">
+                        Patrocinadores
+                    </a>
+                </li>
+            </ul>
+        </div><!-- xs-tab-nav fundpress-tab-nav-v2 xs-mb-30 -->
+        <!-- Tab panes -->
+        <div class="tab-content xs-text-tab-content">
+            <div role="tabpanel" class="tab-pane fadeInRights fade in active show" id="description">
+                <h5 class="color-navy-blue xs-mb-30">{{ $artist->biography }}</h5>
+                <p class="xs-content-description fundpress-content-description xs-mb-30"></p>
+            </div><!-- tab-pane fadeInRights -->
+            <div role="tabpanel" class="tab-pane fadeInRights fade" id="updates">
+                <div class="xs-ul-list fundpress-content-text-list-wraper">
+                    <ul class="fundpress-content-text-list xs-content-text-list">
+                                                                        <h1>No hay actualizaciones</h1>
+                                                                </ul>
+                    
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane fadeInRights fade" id="comments_panel">
+                <div class="xs-blog-post-comment border xs-content-padding">
+                    <!-- post comment -->
+                    <div id="comments" class="comments-area">
+                        <h4 class="comments-title"> 0 Comentarios</h4>
+                        <!-- start comment -->
+                        <ol class="comment-list">
+                                                                                                                        </ol>
+                        <!-- end comment -->
+
+                        <!-- start respond form -->
+                        <div id="respond" class="comment-respond">
+                            <h3 id="reply-title" class="comment-reply-title">Deja tu comentario
+                                <small>
+                                    <a rel="nofollow" id="cancel-comment-reply-link" href="/wp/premix/hello-world-2/#respond" style="display:none;">
+                                        Cancel reply</a>
+                                </small>
+                            </h3>
+                            <div class="separator">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <form action="#" method="post" id="commentform" class="comment-form">
+
+                                <div class="comment-info">
+                                    <input placeholder="Enter Name *" id="author" class="comment-100" name="author" type="text" value="" size="30" aria-required="true">
+
+                                    <input placeholder="Enter Email *" class="comment-50" id="email" name="email" type="email" value="" size="30" aria-required="true">
+
+                                    <input placeholder="Enter Website" class="comment-50" id="url" name="url" type="url" value="" size="30">
+                                </div>
+                                <div class="commentright ">
+                                    <textarea placeholder="Enter Comments *" id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea>
+                                </div>
+                                <div class="clearfix"></div>
+                                <p class="form-submit">
+                                    <input name="submit" type="submit" id="submit" class="premix-btn light-red-btn coment-btn" value="Publicar Comentario">
+                                    <input type="hidden" name="comment_post_ID" value="165" id="comment_post_ID">
+                                    <input type="hidden" name="comment_parent" id="comment_parent" value="0">
+                                </p>
+                            </form>
+                        </div>
+                        <!-- end respond form -->
+                    </div>
+                    <!-- end post comment -->
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane fadeInRights fade" id="backers">
+                
+            </div>
+        </div><!-- tab-content xs-text-tab-content -->
     </div>
 </div>
 </div>

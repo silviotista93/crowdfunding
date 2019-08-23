@@ -473,8 +473,8 @@
                                                             </form>
                                                         @endif
                                                         <div class="row">
-                                                            <div class="col-lg-6">
-                                                                <div class="form-group m-form__group">
+                                                            <div class="col">
+                                                                <div class="form-group m-form__group ">
                                                                     <label for="">Imagén de Perfil</label>
                                                                     <div class="m-dropzone dropzone m-dropzone--success"
                                                                          action="inc/api/dropzone/upload.php"
@@ -482,6 +482,21 @@
                                                                         <div
                                                                             class="m-dropzone__msg dz-message needsclick">
                                                                             <h3 class="m-dropzone__msg-title">{{ __('actualizar_foto_perfil') }}</h3>
+                                                                            <span
+                                                                                class="m-dropzone__msg-desc">{{ __('arrastra_click_subir') }}</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="form-group m-form__group ">
+                                                                    <label for="">Imagén de Portada</label>
+                                                                    <div class="m-dropzone front_dropzone m-dropzone--success"
+                                                                         action="inc/api/dropzone/upload.php"
+                                                                         id="m-dropzone-three">
+                                                                        <div
+                                                                            class="m-dropzone__msg dz-message needsclick">
+                                                                            <h3 class="m-dropzone__msg-title">{{ __('actualizar_foto_portada') }}</h3>
                                                                             <span
                                                                                 class="m-dropzone__msg-desc">{{ __('arrastra_click_subir') }}</span>
                                                                         </div>
@@ -556,6 +571,24 @@
             acceptedFiles: 'image/*',
             maxFiles: 1,
             paramName: 'photo',
+            headers: {
+                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            },
+            success: function (file, response) {
+
+                $('#inputImagenesPostPlan').val(response);
+                location.reload();
+            }
+
+        });
+
+        /* Dropzone.autoDiscover = false; */
+
+        new Dropzone('.front_dropzone', {
+            url: '{{ route('front.photo.artist') }}',
+            acceptedFiles: 'image/*',
+            maxFiles: 1,
+            paramName: 'front_photo',
             headers: {
                 'X-CSRF-TOKEN': '{{ csrf_token() }}'
             },
