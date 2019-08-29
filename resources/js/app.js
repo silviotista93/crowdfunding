@@ -14,8 +14,20 @@ window.Vue = require('vue');
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+import swal from 'sweetalert2';
+window.swal = swal;
+const toast = swal.mixin({
+    toast:true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    customClass: {
+    title: 'title-class',
+    container: 'my-swal'
+    }
+});
+window.toast = toast;
+Vue.component('reset-password-component', require('./components/ForgotPassword.vue'));
 
 const app = new Vue({
     el: '#app'

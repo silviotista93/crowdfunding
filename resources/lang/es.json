@@ -270,6 +270,13 @@
     "ayuda": "Ayuda",
     "ellos_son_quienes_apoyan": "Ellos son quienes nos apoyan, y estan dispuestos a impulsar tu carrera",
     "olvido_contraseña": "Restablecer contraseña",
+    "email_reset_password_subject": "Solicitud de reestablecimiento de contraseña",
+    "email_reset_password_line": "Recibes este email porque se solicitó un restablecimiento de contraseña para tu cuenta.",
+    "email_reset_password_line_2": "Si no realizaste esta petición, puedes ignorar este correo y nada habrá cambiado.",
+    "email_reset_password_button": "Reestablecer Contraseña",
+    "hola_reset_password": "Hola ",
+    "saludos": "¡Saludos!",
+    "correo_reset_password": "Correo electrónico enviado",
 
 
     "title_top_country_char": "Top 5 Paises"
