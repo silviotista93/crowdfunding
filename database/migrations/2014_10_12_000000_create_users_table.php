@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('last_name')->nullable();
             $table->string('picture')->nullable();
+            $table->string('front_picture')->nullable();
             $table->string('phone_1')->nullable();
             $table->string('phone_2')->nullable();
             $table->enum('state',[

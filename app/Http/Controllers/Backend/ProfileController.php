@@ -89,6 +89,7 @@ class ProfileController extends Controller
             return back()->with('eliminar','Ningún Cambio');
         }
     }
+
     public function photo (Request $request){
         $user = User::where('id',auth()->user()->id)->first();
         $user_picture =  str_replace('storage','',$user->picture);;
@@ -101,6 +102,21 @@ class ProfileController extends Controller
         ]);
 
         return $user_picture;
+
+    }
+
+    public function front_photo (Request $request){
+        $user = User::where('id',auth()->user()->id)->first();
+        $front_picture =  str_replace('storage','',$user->front_picture);;
+        //Elimnar foto de perfil del servidor
+        Storage::delete($front_picture);
+        //Agregar la nueva foto de perfil
+        $front_photo = $request->file('front_photo')->store('front');
+        User::where('id',auth()->user()->id)->update([
+            'front_picture' => '/storage/'.$front_photo
+        ]);
+
+        return $front_picture;
 
     }
 }
