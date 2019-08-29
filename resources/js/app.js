@@ -18,8 +18,22 @@ Vue.use(Plugin);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+import swal from 'sweetalert2';
+window.swal = swal;
+const toast = swal.mixin({
+    toast:true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    customClass: {
+    title: 'title-class',
+    container: 'my-swal'
+    }
+});
+window.toast = toast;
+Vue.component('reset-password-component', require('./components/ForgotPassword.vue'));
 Vue.component('notification-component', require('./components/NotificationComponent.vue'));
 
 const app = new Vue({
-    el: '#notificationContainer'
+    el: '#app'
 });
