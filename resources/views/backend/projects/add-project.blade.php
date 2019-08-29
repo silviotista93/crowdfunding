@@ -5,7 +5,7 @@
     }
 </style>
 
-@endpush 
+@endpush
 @section('header') @if($errors->any())
 
 <ul class="list-group">
@@ -48,7 +48,7 @@
 </div>
 
 
-@stop 
+@stop
 @section('content')
 <!-- END: Subheader -->
 <div class="m-content">
@@ -595,7 +595,7 @@
     </div>
 </div>
 
-@stop 
+@stop
 @section('js.add-project')
 <script>
     const txtInvalidAlert = "{{ __('txtInvalidAlertAddProject') }}";
@@ -608,9 +608,9 @@
         const helpRol="{{ __('help_rol_integrante') }}";
     </script>
 <script>
-      
 
-    new Dropzone('.dropzone', {
+
+    var dropzone = new Dropzone('.dropzone', {
             url: '{{route('add.project.image')}}',
             acceptedFiles: 'image/*',
             maxFiles: 1,
@@ -621,13 +621,22 @@
             success: function (file, response) {
                 $('#inputDBImageAddProject').val(response);
                 $('#img_add_proyect').attr('src',response);
+            },
+            error: function (file,e,i,o,u) {
+                if (file.xhr.status === 413){
+                    $(file.previewElement).addClass("dz-error").find('.dz-error-message').text('La imagen es demaciado grande');
+                    setTimeout(() => {dropzone.removeFile(file)}, 1000)
+                }
             }
-
         });
-
+        dropzone.on("addedfile", function(file) {
+            file.previewElement.addEventListener("click", function() {
+                dropzone.removeFile(file);
+            });
+        });
         Dropzone.autoDiscover = false;
-      
 
-        
+
+
 </script>
 @endsection
