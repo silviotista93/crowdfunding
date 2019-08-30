@@ -30,7 +30,7 @@
                                         <li>119<span class="d-block">Backers</span></li>
                                     </ul>--}}
                                     <div class="xs-btn-wraper">
-                                        <a href="#" class="xs-btn btn-primary round-btn">{{ __('mas_informacion') }}</a>
+                                    <a href="{{ route("info-artist")}}" class="xs-btn btn-primary round-btn">{{ __('mas_informacion') }}</a>
                                         <a href="{{ route("add.project") }}" class="xs-btn btn navy-blue-btn round-btn" style="margin-bottom: 36px; !important;">{{ __('iniciar_proyecto') }}</a>
                                     </div>
                                 </div>

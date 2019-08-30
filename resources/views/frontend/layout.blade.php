@@ -154,7 +154,7 @@
         <div class="container">
             <div class="xs-footer-bottom-wraper">
                 <div class="xs-copyright-text fundpress-copyright-text">
-                    <p><i class="fa fa-heart"></i> by <a href="https://xpeedstudio.com/">Apuesto por ti</a></p>
+                    <p><i class="fa fa-heart"></i> by <a href="https://xpeedstudio.com/">Caza talentos</a></p>
                 </div>
                 <div class="xs-back-to-top-wraper">
                     <a href="#" class="xs-back-to-top full-round green-btn xs-back-to-top-btn show-last-pos">

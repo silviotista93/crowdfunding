@@ -36,7 +36,7 @@
                                                     Crowdfunding es el término inglés para referirse a financiación colectiva, es decir, a un grupo de personas apoyando económicamente un proyecto, ni más ni menos. Este sistema trata de ayudar a los artistas desde esta comunidad, ofrecerle herramientas para llegar a ella y que los sueños se puedan hacer realidad. Repasa todos los tips de información que te iremos ofreciendo en la plataforma cuando vayas a crear un nuevo proyecto y cuenta con nosotros para ayudarte en lo que necesites.
                                                    Este es un sistema de financiación que pone en contacto a personas que tienen proyectos con personas que están dispuestas a financiarlos a través de pequeñas y medianas aportaciones. A cambio, el creador entrega a sus mecenas una recompensa concreta.
                                                    
-                                                   No te preocupes, sabemos que la primera vez no es nada fácil, por eso a lo largo del proceso de creación y desarrollo de la campaña, el equipo de Apuesto por ti  vamos a estar a tu lado para resolver todas tus dudas, puedes contactarnos en cualquier momento a través de este formulario.
+                                                   No te preocupes, sabemos que la primera vez no es nada fácil, por eso a lo largo del proceso de creación y desarrollo de la campaña, el equipo de Caza talentos  vamos a estar a tu lado para resolver todas tus dudas, puedes contactarnos en cualquier momento a través de este formulario.
                                                    </p>
                                             </div><!-- .xs-entry-content END -->
                                         </div><!-- .xs-entry-header-content END -->
@@ -66,7 +66,7 @@
                                                 <p class="xs-mb-0" style="text-align: justify">
                                                         Lo primero que debes tener entre manos es un proyecto, 
                                                         una idea. si tienes un video mejor que mejor, es imprescindible, 
-                                                        y te allanará mucho el camino. En Apuesto por ti admitimos proyectos de música o comedia, 
+                                                        y te allanará mucho el camino. En Caza talentos admitimos proyectos de música o comedia, 
                                                         estamos abiertos a la creatividad en todas sus facetas,
                                                          pero tu idea debe ser llamativa para la comunidad, esto hará que se alienten a darte apoyo.
                                                    </p>
@@ -94,9 +94,9 @@
                                         <div class="col-md-10 xs-padding-0">
                                             <div class="xs-entry-content entry-content xs-font-alt">
                                                 <p class="xs-mb-0" style="text-align: justify">
-                                                    El siguiente paso es registrarte en Apuesto por ti, 
+                                                    El siguiente paso es registrarte en Caza talentos, 
                                                     debes tener en cuenta que, si quieres subir tu proyecto antes debes actualizar tus datos. 
-                                                    A partir de este momento y hasta que tu proyecto esté preparado, irás viendo detalles y tips de información sobre qué elementos debes ir introduciendo en cada caso (descripción, recompensas, vídeo, objetivo económico). Verás que el proceso es muy intuitivo y cada paso está explicado, además recuerda que el equipo Apuesto por ti está siempre a tu disposición, 
+                                                    A partir de este momento y hasta que tu proyecto esté preparado, irás viendo detalles y tips de información sobre qué elementos debes ir introduciendo en cada caso (descripción, recompensas, vídeo, objetivo económico). Verás que el proceso es muy intuitivo y cada paso está explicado, además recuerda que el equipo Caza talentos está siempre a tu disposición, 
                                                     si necesitas su ayuda no dudes un momento en contactarnos a través de la página de contacto.
                                                    </p>
                                             </div><!-- .xs-entry-content END -->
@@ -126,7 +126,7 @@
                                                 <p class="xs-mb-0" style="text-align: justify">
                                                     Una vez que hayas incluido toda la información, 
                                                     fotos, vídeos, etc. en el proyecto, el equipo 
-                                                    Apuesto por ti la revisará y te enviaran correos con el 
+                                                    Caza talentos la revisará y te enviaran correos con el 
                                                     estado(en revisión, pre-aprobado, aprobado, rechazado) 
                                                     de tu proyecto y las opiniones acerca de este.
                                                    </p>
@@ -189,7 +189,7 @@
                                                     El inicio de la campaña es un paso más dentro del proceso. 
                                                     Debes trabajar mucho la comunicación para conseguir la confianza de los mecenas. 
                                                     Comunicar bien lo que quieres no es sencillo, 
-                                                    empléate a fondo. El equipo Apuesto por ti estamos para ayudarte, 
+                                                    empléate a fondo. El equipo Caza talentos estamos para ayudarte, 
                                                     es bueno que estés actualizando 
                                                     constantemente el avance de tu proyecto esto hará que consigas mas apoyo.
                                                    </p>

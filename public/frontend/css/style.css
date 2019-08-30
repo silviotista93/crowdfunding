@@ -48,9 +48,14 @@ img:not([draggable]),
 embed,
 object,
 video {
-  /* max-width: 100%;
-  height: auto; */ 
-  height: 50px;
+  max-width: 100%;
+  height: auto;
+  /* height: 50px;
+  width: 50px; */
+}
+
+.rounded-circle{
+  height: 50px !important;
   width: 50px;
 }
 

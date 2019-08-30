@@ -16,7 +16,7 @@
                 <ul class="nav-menu">
                     <li><a href="{{ route('home') }}">{{ __('inicio') }}</a></li>
                     <li><a href="{{ route('projects') }}">{{ __('proyectos') }}</a></li>
-                    <li><a href="{{ route('nosotros') }}">{{ __('nosotros') }}</a></li>
+                    <li><a href="{{ route('about-us') }}">{{ __('nosotros') }}</a></li>
                     {{--<li><a href="#">Blog</a>
                         <ul class="nav-dropdown">
                             <li><a href="news-feed.html ">blog version 1</a></li>
