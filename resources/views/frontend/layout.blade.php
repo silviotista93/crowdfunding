@@ -4,10 +4,13 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>{{config('app.name')}}</title>
+    <title> {{config('app.name')}} </title>
     <meta name="description" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400%7CPoppins:200,400,500,600,700%7CPlayfair+Display:400,700i" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,400%7CPoppins:200,400,500,600,700%7CPlayfair+Display:400,700i"
+        rel="stylesheet">
     <link rel="icon" type="image/png" href="favicon.ico">
     <!-- Place favicon.ico in the root directory -->
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -15,6 +18,7 @@
     <!-- Icon foont list -->
     <link rel="stylesheet" href="/frontend/css/iconfont.css">
     <link rel="stylesheet" href="/frontend/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
     <!-- bootstrap -->
     <link rel="stylesheet" href="/frontend/css/bootstrap.min.css">
@@ -30,47 +34,49 @@
 
 
     <!--For Plugins external css-->
-    <link rel="stylesheet" href="/frontend/css/plugins.css" />
+    <link rel="stylesheet" href="/frontend/css/plugins.css"/>
 
     <!--Theme custom css -->
     <link rel="stylesheet" href="/frontend/css/style.css">
 
     <!--Theme Responsive css-->
-    <link rel="stylesheet" href="/frontend/css/responsive.css" />
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" />
+    <link rel="stylesheet" href="/frontend/css/responsive.css"/>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"/>
 
     <script src="/frontend/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-    <link rel="stylesheet" href="/frontend//css/ajax.css" />
+    <link rel="stylesheet" href="/frontend//css/ajax.css"/>
     <link rel="stylesheet" href="/frontend/css/card.css">
     @stack('css')
 </head>
 <body class="woocommerce">
-<!--[if lt IE 10]>
-<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-<![endif]-->
+<div id="app">
+    <!--[if lt IE 10]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a
+        href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
 
-<div id="preloader">
-    <div class="spinner">
-        <div class="double-bounce1"></div>
-        <div class="double-bounce2"></div>
-    </div>
-</div><!-- #preloader -->
-<!-- home section -->
-<!--=====================================
-    NAVEGACIÓN
-======================================-->
+    <div id="preloader">
+        <div class="spinner">
+            <div class="double-bounce1"></div>
+            <div class="double-bounce2"></div>
+        </div>
+    </div><!-- #preloader -->
+    <!-- home section -->
+    <!--=====================================
+        NAVEGACIÓN
+    ======================================-->
 @include('frontend.partials.navegation.navegation')
 <!--=====================================
     LOGIN
 ======================================-->
-@include('frontend.partials.auth.login')
+    @include('frontend.partials.auth.login')
 
-<main class="xs-all-content-wrapper">
-    <!-- welcome section -->
-    @yield('content')
-</main>
+    <main class="xs-all-content-wrapper">
+        <!-- welcome section -->
+        @yield('content')
+    </main>
 
-
+</div>
 <footer class="xs-footer-section xs-fixed-footer fundpress-footer-section">
     <div class="fundpress-footer-top-layer">
         <div class="container">
@@ -165,9 +171,8 @@
         </div>
     </div><!-- .xs-footer-bottom-layer .fundpress-footer-bottom END -->
 </footer>
-
 <script>
-const lang = "{{ session("applocale") }}";
+    const lang = "{{ session("applocale") }}";
 </script>
 <script src="/frontend/js/jquery-3.2.1.min.js"></script>
 <script src="/frontend/js/plugins.js"></script>
@@ -186,7 +191,7 @@ const lang = "{{ session("applocale") }}";
 <script src="/frontend/js/scrollax.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script src="/backend/vendors/block-ui/jquery.blockUI.js" type="text/javascript"></script>
-
+<script src="{{ asset('js/app.js') }}" defer></script>
 
 @stack('js')
 
@@ -194,11 +199,11 @@ const lang = "{{ session("applocale") }}";
 @show
 <script src="/frontend/js/main.js"></script>
 <script>
-    $(document).ready(function() {
-        if (lang!=="es"){
+    $(document).ready(function () {
+        if (lang !== "es") {
             return;
         }
-        if (jQuery.validator){
+        if (jQuery.validator) {
             jQuery.extend(jQuery.validator.messages, {
                 required: "Este campo es obligatorio.",
                 remote: "Por favor, rellena este campo.",
@@ -220,16 +225,16 @@ const lang = "{{ session("applocale") }}";
             });
         }
     });
-    $(function (){
+    $(function () {
         @if(session('login'))
-            $(window).on('load', function() {
-                $("#btnAbriModalInicioSession").click();
-                toastr.error("{{ session('login') }}", '{{__("tituloToastError")}}');
-            });
+        $(window).on('load', function () {
+            $("#btnAbriModalInicioSession").click();
+            toastr.error("{{ session('login') }}", '{{__("tituloToastError")}}');
+        });
         @endif
     });
     @if(session('message'))
-        toastr.error("{{ session('message')[1] }}", '{{__("no_session")}}');
+    toastr.error("{{ session('message')[1] }}", '{{__("no_session")}}');
     @endif
 </script>
 </body>

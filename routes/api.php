@@ -20,3 +20,17 @@ Route::get('/proyectos',function (){
    $proyectos = \App\Project::all();
    return $proyectos;
 });
+
+Route::group(['namespace'=>'Frontend'],function (){
+    Route::prefix('v1')->group(function () {
+        Route::prefix('auth')->group(function () {
+            // Send reset password mail
+            Route::post('reset-password', 'AuthController@sendPasswordResetLink');
+
+            // handle reset password form process
+            Route::post('reset/password', 'AuthController@callResetPassword');
+        });
+    });
+});
+
+

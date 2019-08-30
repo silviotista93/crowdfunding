@@ -19,5 +19,9 @@
         "popper.js": "^1.12",
         "sweetalert": "^2.1.2",
         "vue": "^2.5.7"
+    },
+    "dependencies": {
+        "sweetalert2": "^8.16.3",
+        "yarn-install": "^1.0.0"
     }
 }

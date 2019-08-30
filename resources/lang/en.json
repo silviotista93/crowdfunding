@@ -272,6 +272,17 @@
     "olvido_contraseña": "Reset Password",
     "anuncios": "Advertisements",
     "ellos_son_quienes_apoyan": "They are the ones who support us, and are willing to boost your career",
+
     "actualizar_foto_portada": "Update your front picture",
     "Buscando": "looking for"
+
+    "email_reset_password_subject": "Reset Password Notification",
+    "email_reset_password_line": "You are receiving this email because we received a password reset request for your account.",
+    "email_reset_password_line_2": "If you did not request a password reset, no further action is required.",
+    "email_reset_password_button": "Reset Password",
+    "hola_reset_password": "Hello ",
+    "saludos": "¡Regards!",
+    "correo_reset_password": "E-mail send",
+    "actualizar_foto_portada": "Update your front picture"
+
 }

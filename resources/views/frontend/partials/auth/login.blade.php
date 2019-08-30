@@ -17,7 +17,7 @@
         }
     </style>
 
-<div class="modal fade bd-example-modal-lg xs-modal" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade bd-example-modal-lg xs-modal" id="modal_auth_login" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="fundpress-tab-nav-v5">
@@ -38,7 +38,7 @@
                 </ul>
             </div>
             <!--=====================================
-		  INICIAR SESION
+		        INICIAR SESION
             ======================================-->
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane fadeInRights show fade in active" id="login">
@@ -73,24 +73,11 @@
                         </div>
                     </form>
 
-                    <form style="display: none" method="POST" id="frmResetPassword" action="{{ route('password.email') }}" aria-label="{{ __('Login') }} ">
-                        @csrf
-                        <input type="hidden" name="token" value="y8TS4wSU3W6ujiTW27Lw7MjxHLivn1XUOuPCfwrM">
-                        <div class="xs-input-group-v2">
-                            <i class="icon icon-profile-male"></i>
-                            <input type="email" name="email" id="xs_user_login_name" class="xs-input-control {{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('PlaceHolder_email') }}" value="{{ $email ?? old('email') }}" required autofocus>
-                        </div>
-                        <span class="invalid-feedback mesajesError d-block" role="alert">
-                            <strong id="error-email"></strong>
-                        </span>
+                    <!--=====================================
+                    REESTABLECER CONTRASEÑA
+                    ======================================-->
 
-                        <div class="xs-submit-wraper xs-mb-20">
-                            <input type="submit" name="submit" value="{{ __('enviar') }}" id="xs_contact_get_action" class="btn btn-warning btn-block">
-                        </div>
-                        <p class="text-center">
-                            <a href="#" class="btn_volvel_login">{{ __('login') }}</a>
-                        </p>
-                    </form>
+                    <reset-password-component></reset-password-component>
                 </div>
                 <!--=====================================
 		      REGISTRAR
@@ -164,6 +151,26 @@
             });
 
         });
+    </script>
+    <script>
+        window.modal_login = function () {
+            try {
+                $('#modal_auth_login').modal('hide')
+            }catch (e) {
+                return null
+            }
+        };
+    </script>
+    <script>
 
+        window.Text_reset = '{{ __('correo_reset_password')}}';
+
+        window.text_traduction_reset_pass = function () {
+            try {
+
+            }catch (e) {
+                return null
+            }
+        };
     </script>
 @endpush
