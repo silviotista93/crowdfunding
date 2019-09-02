@@ -63,8 +63,10 @@ function createCard(project) {
 <div class="xs-col-3-isotope-grid-item comics crafts">
     <div class="fundpress-grid-item-content xs-mb-30">
         <div class="xs-item-header fundpress-item-header" >
-            <p class="imagen--fixed" style="background: url(${project.project_picture});"></p>
-            <img src="${project.project_picture}" alt="Imagen del proyecto" style="display:none;">
+        <a href="${project.url}" >
+            <p class="imagen--fixed" style="background: url(${project.project_picture});" ></p>
+            <img  src="${project.project_picture}" alt="Imagen del proyecto" style="display:none;" >
+        </a>    
             <div class="xs-item-header-content">
                 <div class="xs-skill-bar">
                     <div class="xs-skill-track">
