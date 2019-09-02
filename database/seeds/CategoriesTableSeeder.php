@@ -79,5 +79,11 @@ class CategoriesTableSeeder extends Seeder
         $category->slug = str_slug("reggaeton",'-');
         $category->typeCategory_id = 1;
         $category->save();
+
+        $category = new Category;
+        $category->category = "Comedia";
+        $category->slug = str_slug("comedia",'-');
+        $category->typeCategory_id = 2;
+        $category->save();
     }
 }
