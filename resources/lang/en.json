@@ -247,13 +247,13 @@
     "par_apoyo":"We provide a guide for the project to be successful.",
     "par_comunidad":"Management, sponsors and community in general willing to know and support talent.",
     "par_rentabilidad":"Opportunity for funding to further boost talent.",
-    "title_home":"Apuesto por ti makes it easier.",
+    "title_home":"Caza talentos makes it easier.",
     "nosotros":"About us",
-    "que_es":"What is Apuesto por ti ?",
+    "que_es":"What is Caza talentos ?",
     "parrafo_que":"Our platform aims to know and promote musical artists and comedians; We want to give them the opportunity to show their talent through a video which will be seen by our managements and sponsors who are interested in supporting and investing in the artists. And not only that, but also that there is collective financing, that is, a group of people financially supporting a project through a community that is willing to finance with small and medium contributions.",
     "frase_nosotros":"We are changing the way of making dreams possible.",
-    "parrafo_nosotros":"In Apuesto por ti we want everyone to be successful, that is why we provide tools that allow your talent or project to be well presented.",
-    "parrafo2_nosotros":"There are millions of people around the world who have the desire to be musical artists, however they do not have access to producers or managers, in other cases they do not have the economic means to pursue their career. The solution to this is Apuesto por ti.",
+    "parrafo_nosotros":"In Caza talentos we want everyone to be successful, that is why we provide tools that allow your talent or project to be well presented.",
+    "parrafo2_nosotros":"There are millions of people around the world who have the desire to be musical artists, however they do not have access to producers or managers, in other cases they do not have the economic means to pursue their career. The solution to this is Caza talentos.",
     "conoce_nosotros":"Meet our managements",
     "ventajas_nosotros":"Our competitive advantages are the connections and the experience we have in the music and comedy industry.",
     "title_top_country_char": "Top 5 Countries",
@@ -272,6 +272,10 @@
     "olvido_contraseña": "Reset Password",
     "anuncios": "Advertisements",
     "ellos_son_quienes_apoyan": "They are the ones who support us, and are willing to boost your career",
+
+    "actualizar_foto_portada": "Update your front picture",
+    "Buscando": "looking for",
+
     "email_reset_password_subject": "Reset Password Notification",
     "email_reset_password_line": "You are receiving this email because we received a password reset request for your account.",
     "email_reset_password_line_2": "If you did not request a password reset, no further action is required.",
@@ -280,4 +284,5 @@
     "saludos": "¡Regards!",
     "correo_reset_password": "E-mail send",
     "actualizar_foto_portada": "Update your front picture"
+
 }
