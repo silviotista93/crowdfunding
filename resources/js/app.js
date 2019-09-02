@@ -28,6 +28,7 @@ const toast = swal.mixin({
 });
 window.toast = toast;
 Vue.component('reset-password-component', require('./components/ForgotPassword.vue'));
+Vue.component('add-project', require('./components/AddProject.vue'));
 
 const app = new Vue({
     el: '#app'

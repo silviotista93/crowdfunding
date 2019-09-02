@@ -13,3 +13,5 @@ yarn-error.log
 .env
 .phpunit.result.cache
 composer.lock
+resources/views/frontend/layout.blade.php
+resources/js/components/AddProject.vue

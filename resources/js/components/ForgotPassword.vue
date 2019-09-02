@@ -30,7 +30,6 @@
                 axios.post("/password/email", {email: this.email}).then(result => {
                     this.response = result.data;
                     modal_login();
-                    console.log(text_traduction_reset_pass(), 'hola bebe');
                     swal.fire({
                         position: 'center',
                         type: 'success',

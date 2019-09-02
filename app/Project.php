@@ -76,6 +76,7 @@ class Project extends Model
     const APPROVAL = 3;
     const PUBLISHED = 4;
     const REJECTED = 5;
+    const NOPUBLISHED = 6;
 
     const PERCENTAGE_APPROVAL = 3;
 

@@ -129,7 +129,6 @@
 @endauth
 
 @push('js')
-    <script src="/js/ajax.js"></script>
     <script src="/js/login.js"></script>
     <script>
         $(function () {
