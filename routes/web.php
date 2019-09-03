@@ -15,8 +15,16 @@ CONSULTAS DE PRUEBAS
 =============================================*/
 
 Route::get('test' , function (){
-    Artisan::call('projects:close');
+    // Artisan::call('projects:close');
+    dd(\App\Category::where('typeCategory_id', 2)->get());
 });
+
+
+    // Artisan::call('projects:close');
+    // dd(\App\Category::where('typeCategory_id', $id_category)->get());
+
+
+
 
 Route::get('email',function (){
     $project = \App\Project::where('id',65)->first();
@@ -126,6 +134,7 @@ Route::group(['namespace'=>'Backend','prefix' => 'dashboard','middleware' => 'au
     Route::get('/new-project','AddProjectController@index')->name('add.project');
     Route::post('/add-project-imagen','AddProjectController@upload_image')->name('add.project.image');
     Route::post('/add-project','AddProjectController@store')->name('add.store.project');
+    Route::get('/categories_by_id/{id_category}' , 'AddProjectController@categoryById');
 
     //RUTAS PARA VER EL PROJECT
     Route::get('/project/{project}','ShowProjectController@index')->name('show.backend.project');

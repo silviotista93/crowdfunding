@@ -162,10 +162,10 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
                         <th>Artista</th>
                         <th>Nombres</th>
                         <th>Nombre Artistico</th>
-                        <th>Ganancias</th>
+                        <th>Nivel</th>
                         <th>Email</th>
+                        <th>Genero</th>
                         <th>Nacionalidad</th>
-                        <th>Experiencia</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
@@ -185,15 +185,15 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
 
                 // begin first table
                 table.DataTable({
+                    "processing": true,
+                    "serverSide": true,
+                    "data": null,
+                    "order": [[ 0, "desc" ]],
                     "responsive": true,
                     "ajax": {
                         url: "{{ route('all.artists.table') }}",
 
                     },
-                    "deferRender": true,
-                    "scrollY": '500px',
-                    "scrollCollapse": true,
-                    "scroller": true,
                     "columns": [
 
                         {
@@ -214,19 +214,21 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
                             defaultContent: '<span class="label label-danger text-center" style="color:red !important">{{ __('nigun_valor_defecto') }}</span>'
                         },
                         {
-                            data: 'ganancias',
+                            data: 'levels.level',
                             defaultContent: '<span class="label label-danger text-center" style="color:red !important">{{ __('nigun_valor_defecto') }}</span>'
+                            // data: 'ganancias',
+                            // defaultContent: '<span class="label label-danger text-center" style="color:red !important">{{ __('nigun_valor_defecto') }}</span>'
                         },
                         {
                             data: 'users.email',
                             defaultContent: '<span class="label label-danger text-center" style="color:red !important">{{ __('nigun_valor_defecto') }}</span>'
                         },
                         {
-                            data: 'countries.country',
+                            data: 'nickname',
                             defaultContent: '<span class="label label-danger text-center" style="color:red !important">{{ __('nigun_valor_defecto') }}</span>'
                         },
                         {
-                            data: 'levels.level',
+                            data: 'countries.country',
                             defaultContent: '<span class="label label-danger text-center" style="color:red !important">{{ __('nigun_valor_defecto') }}</span>'
                         },
                     ],
@@ -237,16 +239,7 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
                             orderable: false,
                             render: function(data, type, full, meta) {
                                 return `
-                        <span class="dropdown">
-                            <a href="#" class="btn m-btn m-btn--hover-brand m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="dropdown" aria-expanded="true">
-                              <i class="la la-ellipsis-h"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="#"><i class="la la-edit"></i> Edit Details</a>
-                                <a class="dropdown-item" href="#"><i class="la la-leaf"></i> Update Status</a>
-                                <a class="dropdown-item" href="#"><i class="la la-print"></i> Generate Report</a>
-                            </div>
-                        </span>
+                       
                         <a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-brand m-btn--icon m-btn--icon-only m-btn--pill" title="View">
                           <i class="la la-edit"></i>
                         </a>`;
@@ -315,4 +308,14 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
         });
 
     </script>
+     {{-- <span class="dropdown">
+        <a href="#" class="btn m-btn m-btn--hover-brand m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="dropdown" aria-expanded="true">
+          <i class="la la-ellipsis-h"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right">
+            <a class="dropdown-item" href="#"><i class="la la-edit"></i> Edit Details</a>
+            <a class="dropdown-item" href="#"><i class="la la-leaf"></i> Update Status</a>
+            <a class="dropdown-item" href="#"><i class="la la-print"></i> Generate Report</a>
+        </div>
+    </span> --}}
 @endpush

@@ -93,3 +93,8 @@ $("#xs_register_get_action").click(function (e) {
 
     ajax(url,data,success,"post",error,true, "#frmRegister");
 });
+
+
+$(document).ready(function(){
+    alert("");
+});

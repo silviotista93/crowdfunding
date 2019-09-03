@@ -33,3 +33,4 @@ const showUrls = function (){
 const showText = function (){
     console.log(texto);
 }
+

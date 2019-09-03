@@ -322,14 +322,41 @@ $("#select_solista").change(function () {
 
 });
 
+$("#category_add_proyecto").change(event => {
+    // alert("------");
+    $.get(`/dashboard/categories_by_id/${event.target.value}`,function(response, category){
+        // console.log(response);       
+         $("#genero_add_proyecto").empty();
+         response.forEach(cat => {
+            //  console.log(cat);
+            //  console.log(cat.category);
+            $("#genero_add_proyecto").append(`<option value="${cat.id}">${cat.category}</option>`);
+            // console.log('selector',$("#genero_add_proyecto").append(`<option value=${cat.id}>${cat.category}</option>`));
+         });
+
+    }); 
+});
+
+// $("#category_add_proyecto").change(function (event) {
+
+//     $.get("/dashboard/categories_by_id/" + event.target.value + "", function (res, cat) {
+//         $("#genero_add_proyecto").empty();
+//         for (i = 0; i < Response.length; i++) {
+//             $("#genero_add_proyecto").append("<option value='" + res[i].id + "'>" + res[i].category + "</option>");
+
+//         }
+//     });
+
+// });
+
 
 
 // agregar otro input 
-var cont =0;
+var cont = 0;
 
 $("#masInte").click(function (e) {
     e.preventDefault();
-    cont+=1;
+    cont += 1;
 
     var agregar = `<div class="form-group m-form__group row">
     <div class="col-lg-12">
@@ -349,14 +376,14 @@ $("#masInte").click(function (e) {
     </div>
 </div>                                                                  
 </div>`;
-    
-  
-    if(cont<=4){
 
-     $("#integrantes").append(agregar);
 
-    }else{
-     alert("maximo 5 registros");
+    if (cont <= 4) {
+
+        $("#integrantes").append(agregar);
+
+    } else {
+        alert("maximo 5 registros");
     }
 
 
