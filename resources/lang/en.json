@@ -279,5 +279,9 @@
     "hola_reset_password": "Hello ",
     "saludos": "¡Regards!",
     "correo_reset_password": "E-mail send",
-    "actualizar_foto_portada": "Update your front picture"
+    "actualizar_foto_portada": "Update your front picture",
+
+    "approved projects": "Approved",
+    "proyectos aprobados": "Approved Projects",
+    "publicar": "Publish"
 }

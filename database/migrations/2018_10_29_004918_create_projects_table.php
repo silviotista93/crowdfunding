@@ -42,6 +42,19 @@ class CreateProjectsTable extends Migration
             $table->softDeletes();
 
         });
+
+        Schema::create('projects_messages', function (Blueprint $table) {
+            $table->increments('id');
+            $table->text('comments');
+            $table->unsignedInteger('id_projects');
+            $table->unsignedInteger('id_users');
+            $table->dateTime('read_admin')->nullable();
+            $table->dateTime('read_user')->nullable();
+            $table->timestamps();
+
+            $table->foreign('id_projects')->references('id')->on('projects');
+            $table->foreign('id_users')->references('id')->on('users');
+        });
     }
 
     /**
@@ -51,6 +64,7 @@ class CreateProjectsTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('projects_messages');
         Schema::dropIfExists('projects');
     }
 }

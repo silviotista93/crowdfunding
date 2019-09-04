@@ -176,16 +176,6 @@
         </div>
     </div>
 
-
-
-    <style>
-        .swal2-popup .swal2-file:focus,
-        .swal2-popup .swal2-input:focus,
-        .swal2-popup .swal2-textarea:focus {
-            border-color: #716aca;
-        }
-    </style>
-
     <!--=====================================
         MODAL INFORMACION DEL ARTISTA
     ======================================-->
@@ -337,6 +327,14 @@
 @stop
 
 @section('rating.projects')
+    <style>
+        .swal2-popup .swal2-file:focus,
+        .swal2-popup .swal2-input:focus,
+        .swal2-popup .swal2-textarea:focus {
+            border-color: #716aca;
+        }
+    </style>
+
     <script>
         $(document).ready(function () {
             $('[data-toggle="tooltip"]').tooltip();

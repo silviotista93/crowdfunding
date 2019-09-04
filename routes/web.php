@@ -140,6 +140,9 @@ Route::group(['namespace'=>'Backend','prefix' => 'dashboard','middleware' => 'au
     //Todos los proyectos....
     Route::get('/managements','ShowProjectController@table_assing_management')->name('assign.managements');
     Route::group(['middleware' => 'admin_permisos'],function (){
+
+        Route::get('/projects-approved', 'Admin\ProjectsApprovedController@index')->name('projects.approved');
+        Route::post('publicarProject', 'Admin\ProjectsApprovedController@togglePublish');
         //Lista proyectos managements
         Route::get('/projects-admin', 'Admin\ProjectsAdminController@index')->name('projects.admin');
         Route::put('/project-rejected-admin','Admin\ProjectsAdminController@rejected_project')->name('project.admin.rejected');
@@ -226,3 +229,6 @@ Route::get('/test', function () {
         $artist->users()->first()->notify(new \App\Notifications\UpdatedProject($project[3]));
     }
 });
+
+
+Route::resource('project-message', 'Backend\ProjectMessageController');
