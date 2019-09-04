@@ -286,17 +286,22 @@
 											<div class="col-lg-6 m-form__group-sub">
 												<label class="form-control-label" form="category_id">*
 													{{ __('select_genero') }}:</label>
+													{{-- m-bootstrap-select m_selectpicker --}}
 												<select name="category_id"
-													class="form-control m-bootstrap-select m_selectpicker required"
+													class="form-control  required"
 													id="genero_add_proyecto">
-													{{-- <option value="">{{ __('seleccione_genero') }}</option> --}}
-													{{-- @foreach($categories as $categorie)
+													
+													<option value="">{{ __('seleccione_genero') }}</option>
+
+													
+													 {{-- @foreach($categories as $categorie)
 													<option value="{{ $categorie->id }}">{{ $categorie->category }}
 													</option>
-													@endforeach --}}
+													@endforeach  --}}
 													{!! $errors->first('category_id','<div
 														class="form-control-feedback">*:message</div>')!!}
 												</select>
+													
 												<span class="m-form__help">{{ __('o_categoria') }}</span>
 											</div>
 

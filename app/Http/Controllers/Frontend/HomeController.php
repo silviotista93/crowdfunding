@@ -12,11 +12,11 @@ class HomeController extends Controller
     public function index(){
         $projects = Project::withCount(['artists'])
             ->with('category')
-            ->where('status',Project::PUBLISHED)
+            ->where('status',4)
             ->latest()
             ->get();
         $categories = Category::select('category', 'id')->get();
-        $projects_slider = Project::with('artists')->take(3)->get();
+        $projects_slider = Project::with('artists')->take(3)->where('status',4)->get();
 
         return view('frontend.home.home',compact('categories','projects','projects_slider'));
     }

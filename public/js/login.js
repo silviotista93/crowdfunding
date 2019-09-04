@@ -95,6 +95,6 @@ $("#xs_register_get_action").click(function (e) {
 });
 
 
-$(document).ready(function(){
-    alert("");
-});
+// $(document).ready(function(){
+//     alert("");
+// });

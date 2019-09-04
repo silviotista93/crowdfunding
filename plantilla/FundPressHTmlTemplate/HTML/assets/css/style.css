@@ -250,7 +250,9 @@ ul, li {
 .full-round, .fundpress-partners li a {
   border-radius: 100%; }
   .full-round img, .fundpress-partners li a img {
-    border-radius: 100%; }
+    border-radius: 100%;
+    
+  }
 
 .bg-color-white, .fundpress-single-shop .fundpress-item-content {
   background-color: #FFFFFF; }
