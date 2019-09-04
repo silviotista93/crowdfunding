@@ -31383,6 +31383,7 @@ var toast = __WEBPACK_IMPORTED_MODULE_1_sweetalert2___default.a.mixin({
 window.toast = toast;
 Vue.component('reset-password-component', __webpack_require__(39));
 Vue.component('notification-component', __webpack_require__(47));
+//Vue.component('add-project', require('./components/AddProject.vue'));
 
 var app = new Vue({
     el: '#app'
@@ -34767,7 +34768,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             axios.post("/password/email", { email: this.email }).then(function (result) {
                 _this.response = result.data;
                 modal_login();
-                console.log(text_traduction_reset_pass(), 'hola bebe');
                 swal.fire({
                     position: 'center',
                     type: 'success',

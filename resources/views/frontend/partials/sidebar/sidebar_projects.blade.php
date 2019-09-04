@@ -20,12 +20,11 @@
                     <div class="xs-mb-40">
                         <img src="assets/images/call-to-action-icon.png" alt="">
                     </div>
-                    <h3 class="color-white xs-mb-30">Looking for <strong
-                                class="d-block">Crowdfunding</strong>
+                    <h3 class="color-white xs-mb-30">{{ __('Buscando') }}<strong
+                                class="d-block">Caza talentos</strong>
                     </h3>
                     <div class="post-footer">
-                        <a href="blog-details.html" class="xs-btn round-btn green-btn">Contact
-                            us</a>
+                        <a href="blog-details.html" class="xs-btn round-btn green-btn">Contactanos</a>
                     </div>
                     <div class="xs-solid-overlay xs-bg-navy-blue"></div>
                 </div>

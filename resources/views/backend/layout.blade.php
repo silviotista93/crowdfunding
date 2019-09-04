@@ -118,7 +118,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         <div class="m-stack__item m-stack__item--middle m-brand__logo">
                             <a href="index.html" class="m-brand__logo-wrapper">
                                 {{--<h4 style="color: white">{{ config('app.name') }}</h4>--}}
-                                <h4 style="color: white;width: 170px;">Apuesto por ti</h4>
+                                <h4 style="color: white;width: 170px;">Caza talentos</h4>
                             </a>
                         </div>
                         <div class="m-stack__item m-stack__item--middle m-brand__tools">

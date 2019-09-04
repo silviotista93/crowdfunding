@@ -33,6 +33,7 @@ const toast = swal.mixin({
 window.toast = toast;
 Vue.component('reset-password-component', require('./components/ForgotPassword.vue'));
 Vue.component('notification-component', require('./components/NotificationComponent.vue'));
+//Vue.component('add-project', require('./components/AddProject.vue'));
 
 const app = new Vue({
     el: '#app'

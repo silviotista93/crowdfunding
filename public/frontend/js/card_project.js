@@ -1,26 +1,26 @@
 moment.locale(lang);
-if (lang === "es"){
+if (lang === "es") {
     moment.updateLocale(lang, { invalidDate: "Fecha no válida" })
 }
 
-function startCard(){
+function startCard() {
     let number_percentage = $(".number-percentage:not(.setLoad)");
-    number_percentage.each(function() {
+    number_percentage.each(function () {
         let value = $(this).attr("data-value");
         let duration = $(this).attr("data-animation-duration");
-        if (parseInt(value)< 1) {
+        if (parseInt(value) < 1) {
             return;
         }
         fnAnima($(this), $(this).attr("data-value"), true, parseInt(duration, 10));
         $(this).closest('.xs-skill-bar').find('.xs-skill-track').animate({
             width: value + '%'
-            }, 4500);
+        }, 4500);
         $(this).addClass("setLoad");
     });
 }
 
-function fnAnima (element, stop, commas, duration, ease) {
-    return element.each(function() {
+function fnAnima(element, stop, commas, duration, ease) {
+    return element.each(function () {
         let start = parseInt(element.text().replace(/,/g, ""), 10);
         commas = (commas === undefined) ? true : commas;
         $({
@@ -28,33 +28,33 @@ function fnAnima (element, stop, commas, duration, ease) {
         }).animate({
             value: stop
         }, {
-            duration: duration == undefined ? 500 : duration,
-            easing: ease == undefined ? "swing" : ease,
-            step: function() {
-                element.text(Math.floor(this.value));
-                if (commas) {
-                    element.text(element.text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-                }
-            },
-            complete: function() {
-                if (parseInt(element.text(), 10) !== stop) {
-                    element.text(stop);
+                duration: duration == undefined ? 500 : duration,
+                easing: ease == undefined ? "swing" : ease,
+                step: function () {
+                    element.text(Math.floor(this.value));
                     if (commas) {
                         element.text(element.text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
                     }
+                },
+                complete: function () {
+                    if (parseInt(element.text(), 10) !== stop) {
+                        element.text(stop);
+                        if (commas) {
+                            element.text(element.text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+                        }
+                    }
                 }
-            }
-        });
+            });
     });
 }
 
 
 function createCard(project) {
-    if (project.artists){
+    if (project.artists) {
         artist = project.artists[0];
     }
     //console.log(project);
-    let porcetaje = 100-(((project.price-project.totalDonations)/100)*100);
+    let porcetaje = 100 - (((project.price - project.totalDonations) / 100) * 100);
     if (porcetaje < 1) {
         porcetaje = 0;
     }
@@ -63,8 +63,10 @@ function createCard(project) {
 <div class="xs-col-3-isotope-grid-item comics crafts">
     <div class="fundpress-grid-item-content xs-mb-30">
         <div class="xs-item-header fundpress-item-header" >
+        <a href="${project.url}" >
             <p class="imagen--fixed" style="background: url(${project.project_picture});"></p>
-            <img src="${project.project_picture}" alt="Imagen del proyecto" style="display:none;">
+            <img  src="${project.project_picture}" alt="Imagen del proyecto" style="display:none;" >
+        </a>    
             <div class="xs-item-header-content">
                 <div class="xs-skill-bar">
                     <div class="xs-skill-track">

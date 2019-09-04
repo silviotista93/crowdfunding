@@ -36,6 +36,14 @@ class AddProjectController extends Controller
         }
     }
 
+    public function categoryById(Request $request, $id){
+        if($request->ajax()){
+            $categories= Category::where('typeCategory_id',$id)->get();
+            return response()->json($categories);
+        }
+        // Category::where('typeCategory_id', $id_category)->get();
+    }
+
     public function upload_image(Request $request){
         $image = $request->file('image')->store('projects');
 

@@ -112,3 +112,6 @@ const initDateRange = function(idDate, fnChange, fnCancel){
     
     return {start:start, end:end};
 }
+
+
+
