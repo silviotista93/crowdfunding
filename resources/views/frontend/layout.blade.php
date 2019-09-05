@@ -191,6 +191,7 @@
 <script src="/frontend/js/scrollax.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script src="/backend/vendors/block-ui/jquery.blockUI.js" type="text/javascript"></script>
+<script src="/js/ajax.js" type="text/javascript"></script>
 <script src="{{ asset('js/app.js') }}" defer></script>
 
 @stack('js')

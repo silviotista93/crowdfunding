@@ -328,7 +328,7 @@
                         <div class="xs-sidebar-wraper">
                             <div class="xs-single-sidebar xs-mb-20">
                                 <div class="xs-pie-chart-wraper fundpress-pie-chart-wraper">
-                                    <div class="xs-pie-chart porcentajeProject" data-percent="81">
+                                    <div class="xs-pie-chart " data-percent="20">
                                         <div class="xs-pie-chart-percent-wraper icon-position-center bold color-navy-blue xs-spilit-container">
                                             <div class="xs-pie-chart-percent"></div>
                                             <span>%</span>
@@ -574,4 +574,5 @@
         const project = {!! $project !!};
     </script>
     <script src="/frontend/js/detail.js"></script>    
+    <script src="/frontend/js/jquery.easypiechart.min.js"></script>    
 @endpush
