@@ -13,7 +13,7 @@ function startCard() {
         }
         fnAnima($(this), $(this).attr("data-value"), true, parseInt(duration, 10));
         $(this).closest('.xs-skill-bar').find('.xs-skill-track').animate({
-            width: value + '%'
+            width: (value>100?100:(value<12?12:value)) + '%'
         }, 4500);
         $(this).addClass("setLoad");
     });
@@ -71,7 +71,7 @@ function createCard(project) {
                 <div class="xs-skill-bar">
                     <div class="xs-skill-track">
                         <p><span class="number-percentage-count number-percentage"
-                                data-value="${(porcetaje > 100 ? 100 : porcetaje)}"
+                                data-value="${porcetaje}"
                                 data-animation-duration="3500">0</span>%</p>
                     </div>
                 </div>
