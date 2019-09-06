@@ -20,19 +20,17 @@ $(function () {
             if (r.length < 1){
                 content += "<div class='text-center' style='width:100%;'><p>"+texto+"</p></div>";
             }
-            if (cantidad !== r.length+""){
-                container.attr('data-cantidad', r.length);
-                r.forEach((project, key) => {
-                    if (key==3){
-                        content += '</div><div class="row">';
-                    }
-                    content += '<div class="col-lg-4">'+createCard(project)+'</div>';
-                });
-                content += "</div>";
-                container.html(content);
-    
-                startCard();
-            }
+            container.attr('data-cantidad', r.length);
+            r.forEach((project, key) => {
+                if (key==3){
+                    content += '</div><div class="row">';
+                }
+                content += '<div class="col-lg-4">'+createCard(project)+'</div>';
+            });
+            content += "</div>";
+            container.html(content);
+
+            startCard();
         };
         setTimeout(function (){
             ajax(url,data,success,"get",null,true,"#containerProject", "Cargando...");

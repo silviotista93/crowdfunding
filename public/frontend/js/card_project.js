@@ -53,8 +53,8 @@ function createCard(project) {
     if (project.artists) {
         artist = project.artists[0];
     }
-    //console.log(project);
-    let porcetaje = 100 - (((project.price - project.totalDonations) / 100) * 100);
+
+    let porcetaje = Math.floor((project.totalDonations*100)/project.price);
     if (porcetaje < 1) {
         porcetaje = 0;
     }
