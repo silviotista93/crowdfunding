@@ -47,7 +47,8 @@
 </section>
 
 <div style="    overflow: hidden; position: relative; margin: auto;margin-top: -7%;border-radius: 100px;width: 200px;height: 200px;border: 4px solid; border-color:#191818; z-index: 1000; ">
-<img src="{{$artist->users->pathAttachment()}}" style="height: 100%; width: 100%;border-radius: inherit;">
+<img src="{{$artist->users->pathAttachment()}}" style="max-width: 400px; margin-left:-105px">
+{{-- <img src="{{  }}$artist->users->pathAttachment()}}" style="height: 100%; width: 100%;border-radius: inherit;"> --}}
 
 </div>
 
