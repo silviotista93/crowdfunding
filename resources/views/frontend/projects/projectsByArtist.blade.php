@@ -47,7 +47,8 @@
 </section>
 
 <div style="    overflow: hidden; position: relative; margin: auto;margin-top: -7%;border-radius: 100px;width: 200px;height: 200px;border: 4px solid; border-color:#191818; z-index: 1000; ">
-<img src="{{$artist->users->pathAttachment()}}" style="height: 100%; width: 100%;border-radius: inherit;">
+<img src="{{$artist->users->pathAttachment()}}" style="max-width: 400px; margin-left:-105px">
+{{-- <img src="{{  }}$artist->users->pathAttachment()}}" style="height: 100%; width: 100%;border-radius: inherit;"> --}}
 
 </div>
 
@@ -70,7 +71,7 @@
 
 <div class="container {{ $projects[0]?"":"sin_proyectos" }}">
     @if($projects[0])
-    <div class="row">
+    {{-- <div class="row">
         <div class="col-lg-6">
             <div class="xs-welcome-content">
                 <div class="xs-welcome-wraper">
@@ -82,7 +83,7 @@
                     </iframe>
             </div><!-- .xs-welcome-wraper END -->
         </div><!-- .xs-welcome-content END -->
-    </div>
+    </div> --}}
     @endif
     {{-- <div class="col-lg-5 offset-1 columna--derecha">
         <div class="xs-welcome-content version-3">
@@ -120,7 +121,7 @@
             </ul>
         </div><!-- xs-tab-nav fundpress-tab-nav-v2 xs-mb-30 -->
         <!-- Tab panes -->
-        <div class="tab-content xs-text-tab-content">
+        <div class="tab-content xs-text-tab-content" style="margin-left: -30%;">
             <div role="tabpanel" class="tab-pane fadeInRights fade in active show" id="description">
                 <h5 class="color-navy-blue xs-mb-30">{{ $artist->biography }}</h5>
                 <p class="xs-content-description fundpress-content-description xs-mb-30"></p>
@@ -185,7 +186,7 @@
         </div><!-- tab-content xs-text-tab-content -->
     </div>
 </div>
-</div>
+
 <!-- fin biografia-->
 
 <main class="xs-all-content-wrapper">
@@ -237,6 +238,8 @@
 	</div>
 </section>
 </main>
+</div>
+
 @stop
 
 @push('js')

@@ -202,7 +202,7 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
                         },
                         {
                             render: function (data, type, JsonResultRow, meta) {
-                                return '<img src="' + JsonResultRow.users.picture + '" width="60px" style="border-radius: 100%;margin-right: auto;margin-left: auto;display: block"/>';
+                                return '<img src="' + JsonResultRow.users.picture + '" width="50px"  style="border-radius: 100%;margin-right: auto;margin-left: auto;display: block; width:50px; height:50px"/>';
                             }
                         },
                         {

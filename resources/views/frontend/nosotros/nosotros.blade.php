@@ -130,7 +130,7 @@
 						<a href="#" class="color-navy-blue">
 							Kene Williamson
 						</a>
-						<h5 class="color-green">Founder</h5>
+						<h5 class="color-green">Manager</h5>
 					</div>
 					<!-- 
 						xs-item-footer 
@@ -162,7 +162,7 @@
 						<a href="#" class="color-navy-blue">
 							Thomas Muller
 						</a>
-						<h5 class="color-green">C E O</h5>
+						<h5 class="color-green">Cantante</h5>
 					</div>
 					<!-- 
 						xs-item-footer 
@@ -194,7 +194,7 @@
 						<a href="#" class="color-navy-blue">
 							Arian Roben
 						</a>
-						<h5 class="color-green">Volunteer</h5>
+						<h5 class="color-green">Empresario</h5>
 					</div>
 					<!-- 
 						xs-item-footer 
@@ -226,7 +226,7 @@
 						<a href="#" class="color-navy-blue">
 							Pencil Henrics
 						</a>
-						<h5 class="color-green">Volunteer</h5>
+						<h5 class="color-green">Patrocinador</h5>
 					</div>
 					<!-- 
 						xs-item-footer 
@@ -254,9 +254,10 @@
 					<span class="xs-blockquote-icon fundpress-blockquote-icon">
 						<img src="frontend/images/quote-left.png" alt="">
 					</span>
-					" We are so glad that we made the switch to use FundPress this year and our results were fantastic. Our 8th Annual Race For Grace raised $457,000, which is a new record for us."
+					"En caza talentos pude encontrar el apoyo que necesitaba para mi carrera, 
+					ahora soy un cantante reconocido y todo gracias a esta plataforma."
 				</blockquote><!-- xs-blockquote bg-color-white xs-box-shadow xs-content-padding fundpress-blockquote END -->
-				<div class="xs-spilit-container xs-testimonial-bio content-center width-70">
+				<div class="xs-spilit-container xs-testimonial-bio content-center width-70" >
 					<div class="xs-avatar full-round fundpress-avatar-big">
 						<img src="frontend/images/avatar/testimonial-1.jpg" alt="" class="xs-box-shadow-2">
 					</div>
@@ -264,7 +265,7 @@
 						<a href="#" class="color-navy-blue">
 							Mark Williamson
 						</a>
-						<h5 class="color-green">Founder, UI Hub Inc.</h5>
+						<h5 class="color-green">Cantante.</h5>
 					</div>
 				</div><!-- xs-spilit-container xs-testimonial-bio content-center width-70 END -->
 			</div><!-- xs-testimonial-item END -->
@@ -273,7 +274,8 @@
 					<span class="xs-blockquote-icon fundpress-blockquote-icon">
 						<img src="frontend/images/quote-left.png" alt="">
 					</span>
-					" We are so glad that we made the switch to use FundPress this year and our results were fantastic. Our 8th Annual Race For Grace raised $457,000, which is a new record for us."
+					"Estoy agradecido con caza talentos, este año mis resultados fueron fantásticos.este año se recauó $457,000, 
+					lo que es un nuevo récord para nosotros".
 				</blockquote><!-- xs-blockquote bg-color-white xs-box-shadow xs-content-padding fundpress-blockquote END -->
 				<div class="xs-spilit-container xs-testimonial-bio content-center width-70">
 					<div class="xs-avatar full-round fundpress-avatar-big">
@@ -283,11 +285,11 @@
 						<a href="#" class="color-navy-blue">
 							Mark Henricks
 						</a>
-						<h5 class="color-green">CEO, Pranklin Agency</h5>
+						<h5 class="color-green">Compositor	</h5>
 					</div>
 				</div><!-- xs-spilit-container xs-testimonial-bio content-center width-70 END -->
 			</div><!-- xs-testimonial-item END -->
-			<div class="xs-testimonial-item">
+			{{-- <div class="xs-testimonial-item">
 				<blockquote class="xs-blockquote bg-color-white xs-box-shadow xs-content-padding fundpress-blockquote">
 					<span class="xs-blockquote-icon fundpress-blockquote-icon">
 						<img src="frontend/images/quote-left.png" alt="">
@@ -305,8 +307,8 @@
 						<h5 class="color-green">Founder, UI Hub Inc.</h5>
 					</div>
 				</div><!-- xs-spilit-container xs-testimonial-bio content-center width-70 END -->
-			</div><!-- xs-testimonial-item END -->
-			<div class="xs-testimonial-item">
+			</div><!-- xs-testimonial-item END --> --}}
+			{{-- <div class="xs-testimonial-item">
 				<blockquote class="xs-blockquote bg-color-white xs-box-shadow xs-content-padding fundpress-blockquote">
 					<span class="xs-blockquote-icon fundpress-blockquote-icon">
 						<img src="frontend/images/quote-left.png" alt="">
@@ -324,7 +326,7 @@
 						<h5 class="color-green">CEO, Pranklin Agency</h5>
 					</div>
 				</div><!-- xs-spilit-container xs-testimonial-bio content-center width-70 END -->
-			</div><!-- xs-testimonial-item END -->
+			</div><!-- xs-testimonial-item END --> --}}
 		</div>
 	</div>
 </div>	<!-- testimonial section end -->

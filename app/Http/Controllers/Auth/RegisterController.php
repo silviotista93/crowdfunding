@@ -83,8 +83,8 @@ class RegisterController extends Controller
         $data = new \stdClass();
         $data->status = 200;
         $data->url = url('/dashboard/profile');
-        return json_encode($data);
-        //return redirect('/dashboard/profile');
+        // return json_encode($data);
+        return redirect('/dashboard/profile');
         //return redirect('/dashboard/profile');
     }
 }
