@@ -186,7 +186,7 @@
         </div><!-- tab-content xs-text-tab-content -->
     </div>
 </div>
-</div>
+
 <!-- fin biografia-->
 
 <main class="xs-all-content-wrapper">
@@ -238,6 +238,8 @@
 	</div>
 </section>
 </main>
+</div>
+
 @stop
 
 @push('js')
