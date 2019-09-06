@@ -40,7 +40,7 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"/>
 
     <script src="/frontend/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-    <link rel="stylesheet" href="/frontend//css/ajax.css"/>
+    <link rel="stylesheet" href="/css/ajax.css"/>
     <link rel="stylesheet" href="/frontend/css/card.css">
     @stack('css')
 </head>

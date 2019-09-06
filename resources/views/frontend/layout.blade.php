@@ -44,7 +44,7 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"/>
 
     <script src="/frontend/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-    <link rel="stylesheet" href="/frontend//css/ajax.css"/>
+    <link rel="stylesheet" href="/css/ajax.css"/>
     <link rel="stylesheet" href="/frontend/css/card.css">
     @stack('css')
 </head>
@@ -66,9 +66,9 @@
         NAVEGACIÓN
     ======================================-->
 @include('frontend.partials.navegation.navegation')
-<!--=====================================
+<!-- =====================================
     LOGIN
-======================================-->
+====================================== -->
     @include('frontend.partials.auth.login')
 
     <main class="xs-all-content-wrapper">
@@ -194,8 +194,6 @@
 <script src="/js/ajax.js" type="text/javascript"></script>
 <script src="{{ asset('js/app.js') }}" defer></script>
 
-@stack('js')
-
 @section('select_lang')
 @show
 <script src="/frontend/js/main.js"></script>
@@ -238,5 +236,6 @@
     toastr.error("{{ session('message')[1] }}", '{{__("no_session")}}');
     @endif
 </script>
+@stack('js')
 </body>
 </html>

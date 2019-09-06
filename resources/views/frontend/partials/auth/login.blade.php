@@ -1,21 +1,22 @@
+@push('css')
+<style>
+    .btn_reset_password{
+        display: inline-block; color: #031F53;
+    }
+    .btn_reset_password:hover{
+        color: #4CC899;
+    }
+
+    .btn_volvel_login{
+        display: inline-block; color: #031F53;
+    }
+    .btn_volvel_login:hover{
+        color: #4CC899;
+    }
+</style>
+@endpush
 @auth
 @else
-
-    <style>
-        .btn_reset_password{
-            display: inline-block; color: #031F53;
-        }
-        .btn_reset_password:hover{
-            color: #4CC899;
-        }
-
-        .btn_volvel_login{
-            display: inline-block; color: #031F53;
-        }
-        .btn_volvel_login:hover{
-            color: #4CC899;
-        }
-    </style>
 
 <div class="modal fade bd-example-modal-lg xs-modal" id="modal_auth_login" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg">
