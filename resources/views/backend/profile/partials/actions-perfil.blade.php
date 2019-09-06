@@ -16,12 +16,14 @@
                                     <li class="m-nav__section m-nav__section--first">
                                         <span class="m-nav__section-text">{{ __('acciones_rapidas') }}</span>
                                     </li>
+                                    @if(auth()->user()->roles[0]->rol == "Artist")
                                     <li class="m-nav__item">
                                         <a href="{{ route('add.project') }}" class="m-nav__link">
                                             <i class="m-nav__link-icon flaticon-share"></i>
                                             <span class="m-nav__link-text">{{ __('nuevo_proyecto') }}</span>
                                         </a>
                                     </li>
+                                    @endif
                                     <li class="m-nav__item">
                                         <a href="" class="m-nav__link">
                                             <i class="m-nav__link-icon flaticon-chat-1"></i>
