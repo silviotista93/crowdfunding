@@ -42,4 +42,13 @@ class DashboardAdminController extends Controller
             ->get();
         return json_encode($data);
     }
+
+    public function countProjects($id){
+
+        $count=Project::where('status', $id)->count(); 
+    }
+
+
+
+
 }

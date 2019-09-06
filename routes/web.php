@@ -16,7 +16,8 @@ CONSULTAS DE PRUEBAS
 
 Route::get('test' , function (){
     // Artisan::call('projects:close');
-    dd(\App\Category::where('typeCategory_id', 2)->get());
+    // dd(\App\Category::where('typeCategory_id', 2)->get());
+    dd(App\Project::where('status', 1)->count());
 });
 
 

@@ -194,4 +194,10 @@ class Project extends Model
             ->where('id',$id)
             ->first();
     }
+
+
+    public static function countProjects($id){
+
+        $count=Project::where('status', $id)->count(); 
+    }
 }
