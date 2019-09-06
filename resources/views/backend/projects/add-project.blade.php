@@ -197,6 +197,7 @@
                                                     </div>
                                                     <span class="m-form__help">{{ __('info_add_project_image') }}</span>
                                                     <input type="hidden" id="inputDBImageAddProject" name="project_picture" value="">
+                                                    <div id="erroresImagen" style="color: var(--danger)" class="form-control-feedback"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -622,7 +623,8 @@
             },
             error: function (file, e, i, o, u) {
                 if (file.xhr.status === 413) {
-                    $(file.previewElement).addClass("dz-error").find('.dz-error-message').text('La imagen es demaciado grande');
+                    $("#erroresImagen").text('{{__("imagen_grande")}}');
+                    $(file.previewElement).addClass("dz-error").find('.dz-error-message').text('{{__("imagen_grande")}}');
                     setTimeout(() => {
                         dropzone.removeFile(file)
                     }, 1000)

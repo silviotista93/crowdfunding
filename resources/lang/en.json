@@ -286,6 +286,8 @@
 
     "approved projects": "Approved",
     "proyectos aprobados": "Approved Projects",
-    "publicar": "Publish"
+    "publicar": "Publish",
+
+    "imagen_grande": "the image is too big"
 
 }
