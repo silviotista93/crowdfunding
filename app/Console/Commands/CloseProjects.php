@@ -6,6 +6,7 @@ use App\Mail\ArtistProjecApproved;
 use App\Mail\ArtistProjectRejected;
 use App\Mail\ManagerProjecApproved;
 use App\Mail\ManagerProjecRejected;
+use App\Notifications\UpdatedProject;
 use Illuminate\Console\Command;
 use App\Project;
 use App\EndProject;
@@ -78,6 +79,15 @@ class CloseProjects extends Command
             $project->status = Project::APPROVAL;
             $this->enviarMensajesAprobado($project, $rating);
             $project->save();
+        }
+        sendNotification($project);
+    }
+
+    private function sendNotification($project) {
+        $artist = $project->artists[0];
+        foreach($project->management as $management){
+            $managementUser = $management->users;
+            $managementUser->notify(new UpdatedProject($project));
         }
     }
 

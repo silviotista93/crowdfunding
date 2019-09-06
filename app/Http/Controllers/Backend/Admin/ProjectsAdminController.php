@@ -52,7 +52,6 @@ class ProjectsAdminController extends Controller
             $management = Management::where('user_id',$user['user_id'])->first();
             \Mail::to($user['email'])->send(new AssignProjectManager($project,$nickname,$end_time,$img_artist));
             $project->management()->attach($management->id);
-
             $reviews = Review::create([
                'project_id' => $project->id,
                 'user_id' => $user['user_id'],

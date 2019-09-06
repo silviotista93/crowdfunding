@@ -215,6 +215,7 @@
 													<span class="m-form__help">{{ __('info_add_project_image') }}</span>
 													<input type="hidden" id="inputDBImageAddProject"
 														name="project_picture" value="">
+                                                    <div id="erroresImagen" style="color: var(--danger)" class="form-control-feedback"></div>
 												</div>
 											</div>
 										</div>
@@ -714,34 +715,48 @@
 
 @stop
 @section('js.add-project')
+    <script>
+        const txtInvalidAlert = "{{ __('txtInvalidAlertAddProject') }}";
+    </script>
+    <script src="/backend/assets/js/add-project.js" type="text/javascript"></script>
+    <script>
+        const nombre = "{{ __('nombre') }}";
+        const help = "{{ __('help_nombre_integrante') }}";
+        const rol = "{{ __('rol') }}";
+        const helpRol = "{{ __('help_rol_integrante') }}";
+    </script>
+    <script>
+        var dropzone = new Dropzone('.dropzone', {
+            url: '{{route('add.project.image')}}',
+            acceptedFiles: 'image/*',
+            maxFiles: 1,
+            paramName: 'image',
+            headers: {
+                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            },
+            success: function (file, response) {
+                $("#erroresImagen").text('');
+                $('#inputDBImageAddProject').val(response);
+                $('#img_add_proyect').attr('src', response);
+            },
+            error: function (file, e, i, o, u) {
+                $("#erroresImagen").text('');
+                if (file.xhr.status === 413) {
+                    $("#erroresImagen").text('{{__("imagen_grande")}}');
+                    $(file.previewElement).addClass("dz-error").find('.dz-error-message').text('{{__("imagen_grande")}}');
+                    setTimeout(() => {
+                        dropzone.removeFile(file)
+                    }, 1000)
+                }
+            }
+        });
+        dropzone.on("addedfile", function (file) {
+            file.previewElement.addEventListener("click", function () {
+                dropzone.removeFile(file);
+            });
+        });
+        Dropzone.autoDiscover = false;
 
-<script>
-	const txtInvalidAlert = "{{ __('txtInvalidAlertAddProject') }}";
-</script>
-<script src="/backend/assets/js/add-project.js" type="text/javascript"></script>
-<script>
-	const nombre = "{{ __('nombre') }}";
-	const help = "{{ __('help_nombre_integrante') }}";
-	const rol = "{{ __('rol') }}";
-	const helpRol = "{{ __('help_rol_integrante') }}";
-</script>
-<script>
 
-	new Dropzone('.dropzone', {
-		url: '{{route('add.project.image')}}',
-		acceptedFiles: 'image/*',
-		maxFiles: 1,
-		paramName: 'image',
-		headers: {
-			'X-CSRF-TOKEN': '{{ csrf_token() }}'
-		},
-		success: function (file, response) {
-			$('#inputDBImageAddProject').val(response);
-			$('#img_add_proyect').attr('src', response);
-		}
-	});
-	Dropzone.autoDiscover = false;
-
-
-</script>
+    </script>
 @endsection

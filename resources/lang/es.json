@@ -277,13 +277,15 @@
     "hola_reset_password": "Hola ",
     "saludos": "¡Saludos!",
     "correo_reset_password": "Correo electrónico enviado",
-    "title_top_country_char": "Top 5 Paises",
+
+    "approved projects": "Aprobados",
+    "proyectos aprobados": "Proyectos Aprobados",
+    "publicar": "Publicar",
     "title_top_country_char": "Top 5 Paises",
 
-    "actualizar_foto_portada": "Actualiza tu foto de portada",
     "Buscando": "Buscalo en",
 
-    "actualizar_foto_portada": "Actualiza tu foto de portada"
+    "actualizar_foto_portada": "Actualiza tu foto de portada",
 
-
+    "imagen_grande": "La imagen es demaciado grande"
 }

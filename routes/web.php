@@ -121,7 +121,7 @@ Route::group(['namespace'=>'Backend','prefix' => 'dashboard','middleware' => 'au
 
     //RUTAS PARA EL PERFIL
     //Perfil Artista
-    Route::get('/profile','ProfileController@index_artist')->name('profile.artist');    
+    Route::get('/profile','ProfileController@index_artist')->name('profile.artist');
     Route::post('/profile-photo-artist','ProfileController@photo')->name('profile.photo.artist');
     Route::post('/front-photo-artist','ProfileController@front_photo')->name('front.photo.artist');
     Route::put('/update-profile-artist/{id_artis}','ProfileController@profile_update_artist')->name('update.profile.artist');
@@ -150,6 +150,9 @@ Route::group(['namespace'=>'Backend','prefix' => 'dashboard','middleware' => 'au
     //Todos los proyectos....
     Route::get('/managements','ShowProjectController@table_assing_management')->name('assign.managements');
     Route::group(['middleware' => 'admin_permisos'],function (){
+
+        Route::get('/projects-approved', 'Admin\ProjectsApprovedController@index')->name('projects.approved');
+        Route::post('publicarProject', 'Admin\ProjectsApprovedController@togglePublish');
         //Lista proyectos managements
         Route::get('/projects-admin', 'Admin\ProjectsAdminController@index')->name('projects.admin');
         Route::put('/project-rejected-admin','Admin\ProjectsAdminController@rejected_project')->name('project.admin.rejected');
@@ -158,7 +161,7 @@ Route::group(['namespace'=>'Backend','prefix' => 'dashboard','middleware' => 'au
         //Lista de managaments
         Route::get('/managements-admin','Admin\ManagementsController@index')->name('managements.admin');
         Route::post('/add-management-admin','Admin\ManagementsController@store')->name('add.management.admin');
-        //ruta para el perfil del admin 
+        //ruta para el perfil del admin
         Route::get('/profile-admin/{user}','Admin\ProfileAdminController@indexAdmin')->name('profile.admin');
         Route::post('/update-password-admin','Admin\ProfileAdminController@update_password_admin')->name('update.password.admin');
         Route::post('/profile-photo-admin','Admin\ProfileAdminController@photo_admin')->name('profile.photo.admin');
@@ -224,3 +227,18 @@ Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm
 Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
 
 
+Route::get('/test', function () {
+    $project = \App\Project::with(['artists','management'])->get();
+    $artist = count($project[3]->artists)>0?$project[3]->artists[0]:null;
+
+    foreach($project[3]->management as $management){
+        $managementUser = $management->users;
+        $managementUser->notify(new UpdatedProject($project));
+    }
+    if ($artist) {
+        $artist->users()->first()->notify(new \App\Notifications\UpdatedProject($project[3]));
+    }
+});
+
+
+Route::resource('project-message', 'Backend\ProjectMessageController');
