@@ -25,7 +25,7 @@
                             <span class="m-widget24__desc">
 												</span>
                             <span class="m-widget24__stats m--font-brand">
-                                           {{ App\Project::where('status',2)->count() }}
+                                           {{ $pre_approved }}
                                         
 												</span>
                             <div class="m--space-10"></div>
@@ -47,7 +47,7 @@
                             <span class="m-widget24__desc">
 												</span>
                             <span class="m-widget24__stats m--font-info">
-                                {{ App\Project::where('status',4)->count() }}
+                                {{ $published }}
 												</span>
                             <div class="m--space-10"></div>
                             <div class="progress m-progress--sm">
@@ -68,7 +68,7 @@
                             <span class="m-widget24__desc">
 												</span>
                             <span class="m-widget24__stats m--font-danger">
-                                {{ App\Project::where('status',5)->count() }}
+                                {{ $rejected }}
 												</span>
                             <div class="m--space-10"></div>
                             <div class="progress m-progress--sm">
@@ -90,7 +90,7 @@
                             <span class="m-widget24__desc">
 												</span>
                             <span class="m-widget24__stats m--font-success">
-                                {{ App\Project::where('status',3)->count() }}
+                                {{ $approved }}
 												</span>
                             <div class="m--space-10"></div>
                             <div class="progress m-progress--sm">
