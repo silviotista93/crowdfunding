@@ -71,7 +71,7 @@
 
 <div class="container {{ $projects[0]?"":"sin_proyectos" }}">
     @if($projects[0])
-    <div class="row">
+    {{-- <div class="row">
         <div class="col-lg-6">
             <div class="xs-welcome-content">
                 <div class="xs-welcome-wraper">
@@ -83,7 +83,7 @@
                     </iframe>
             </div><!-- .xs-welcome-wraper END -->
         </div><!-- .xs-welcome-content END -->
-    </div>
+    </div> --}}
     @endif
     {{-- <div class="col-lg-5 offset-1 columna--derecha">
         <div class="xs-welcome-content version-3">
