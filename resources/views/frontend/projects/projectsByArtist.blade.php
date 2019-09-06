@@ -121,7 +121,7 @@
             </ul>
         </div><!-- xs-tab-nav fundpress-tab-nav-v2 xs-mb-30 -->
         <!-- Tab panes -->
-        <div class="tab-content xs-text-tab-content">
+        <div class="tab-content xs-text-tab-content" style="margin-left: -30%;">
             <div role="tabpanel" class="tab-pane fadeInRights fade in active show" id="description">
                 <h5 class="color-navy-blue xs-mb-30">{{ $artist->biography }}</h5>
                 <p class="xs-content-description fundpress-content-description xs-mb-30"></p>
