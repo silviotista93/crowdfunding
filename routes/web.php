@@ -157,6 +157,7 @@ Route::group(['namespace'=>'Backend','prefix' => 'dashboard','middleware' => 'au
         Route::get('/projects-admin', 'Admin\ProjectsAdminController@index')->name('projects.admin');
         Route::put('/project-rejected-admin','Admin\ProjectsAdminController@rejected_project')->name('project.admin.rejected');
         Route::get('/datatables-projects-admin','Admin\ProjectsAdminController@table_projects')->name('datatables.projects.admin');
+        Route::get('/datatables-projects-admin-approved','Admin\ProjectsAdminController@table_projects_approved')->name('datatables.projects.admin.approved');
         Route::get('/datatables-managements-admin','Admin\ProjectsAdminController@table_managements')->name('datatables.management.admin');
         //Lista de managaments
         Route::get('/managements-admin','Admin\ManagementsController@index')->name('managements.admin');

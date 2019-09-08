@@ -33,6 +33,16 @@ class ProjectsAdminController extends Controller
         }
         return datatables()->of($project)->toJson();
     }
+
+    public function table_projects_approved(Request $request){
+        $project = Project::with([
+            'artists',
+            'category',
+            'artists.users'
+        ])->whereIn('status', [Project::APPROVAL, Project::PUBLISHED, Project::NOPUBLISHED]);
+        return datatables()->of($project)->toJson();
+    }
+
     public function table_managements(){
         return datatables()->of(Management::with('users','categories')->get())->toJson();
     }
