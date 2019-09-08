@@ -242,3 +242,4 @@ Route::get('/test', function () {
 
 
 Route::resource('project-message', 'Backend\ProjectMessageController');
+Route::get('project-message-artist', 'Backend\ProjectMessageController@showProjectsByArtist');

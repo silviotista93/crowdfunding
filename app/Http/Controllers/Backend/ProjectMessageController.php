@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Project;
 use App\ProjectMessage;
 use Illuminate\Http\Request;
 use Validator;
@@ -30,5 +31,11 @@ class ProjectMessageController extends Controller
         if ($data) {
             return response()->json($data);
         }
+    }
+
+    public function showProjectsByArtist() {
+        $artista = \Auth::user()->artista()->first();
+        $projects = $artista->projects()->with('messages')->has('messages')->get();
+        return response()->json($projects);
     }
 }

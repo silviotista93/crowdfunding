@@ -31383,6 +31383,8 @@ var toast = __WEBPACK_IMPORTED_MODULE_1_sweetalert2___default.a.mixin({
 window.toast = toast;
 Vue.component('reset-password-component', __webpack_require__(39));
 Vue.component('notification-component', __webpack_require__(47));
+Vue.component('messages-projects-artists', __webpack_require__(59));
+
 //Vue.component('add-project', require('./components/AddProject.vue'));
 
 var app = new Vue({
@@ -35327,6 +35329,316 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 51 */,
+/* 52 */,
+/* 53 */,
+/* 54 */,
+/* 55 */,
+/* 56 */,
+/* 57 */,
+/* 58 */,
+/* 59 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(61)
+}
+var normalizeComponent = __webpack_require__(9)
+/* script */
+var __vue_script__ = __webpack_require__(64)
+/* template */
+var __vue_template__ = __webpack_require__(63)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-acc3a56c"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/message/MessagesProjectsArtistsComponent.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-acc3a56c", Component.options)
+  } else {
+    hotAPI.reload("data-v-acc3a56c", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 60 */,
+/* 61 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(62);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(43)("0648985e", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-acc3a56c\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./MessagesProjectsArtistsComponent.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-acc3a56c\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./MessagesProjectsArtistsComponent.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 62 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(42)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.m-widget3__img[data-v-acc3a56c]{\n    width: 3.2rem;\n    height: 3.2rem;\n    overflow: hidden;\n    max-height: 3.2rem;\n    max-width: 3.2rem;\n    -webkit-box-shadow: 0 0 .2rem #0a6aa1;\n            box-shadow: 0 0 .2rem #0a6aa1;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 63 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "m-widget3" },
+    _vm._l(_vm.projects, function(project) {
+      return _c("div", { key: project.id, staticClass: "m-widget3__item" }, [
+        _c("div", { staticClass: "m-widget3__header" }, [
+          _c("div", { staticClass: "m-widget3__user-img" }, [
+            _c("img", {
+              staticClass: "m-widget3__img",
+              attrs: {
+                src: project.project_picture,
+                alt: "Imagen del proyecto " + project.title
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "m-widget3__info" }, [
+            _c("span", { staticClass: "m-widget3__username" }, [
+              _vm._v(
+                "\n                        " +
+                  _vm._s(project.title) +
+                  "\n                    "
+              )
+            ]),
+            _vm._v(" "),
+            _c("br")
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "m-widget3__status m--font-success" }, [
+            _c(
+              "a",
+              {
+                staticClass: "btn m-btn--pill btn-secondary",
+                on: {
+                  click: function($event) {
+                    return _vm.showMessages(project)
+                  }
+                }
+              },
+              [_c("i", { staticClass: "fa fa-envelope" })]
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "m-widget3__body" }, [
+          _c("p", { staticClass: "m-widget3__text" }, [
+            _vm._v(
+              "\n                    " +
+                _vm._s(
+                  project && project.messages
+                    ? project.messages[project.messages.length - 1].comments
+                    : ""
+                ) +
+                "\n                "
+            )
+          ])
+        ])
+      ])
+    }),
+    0
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-acc3a56c", module.exports)
+  }
+}
+
+/***/ }),
+/* 64 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    mounted: function mounted() {
+        //const c = this;
+        this.user = JSON.parse(this.userjson);
+        this.getMessages();
+        /*  = function (project) {
+             c.project = project;
+             c.getMessages();
+         };*/
+    },
+    data: function data() {
+        return {
+            user: null,
+            projects: []
+        };
+    },
+
+    props: ['userjson'],
+    methods: {
+        getMessages: function getMessages() {
+            var _this = this;
+
+            axios.get('/project-message-artist').then(function (response) {
+                console.log(response.data, "ssssssss");
+                _this.projects = response.data;
+            }).catch(function (error) {
+                console.error(error);
+                _this.project = [];
+            });
+        },
+        showMessages: function showMessages(project) {
+            window.mostrarMensaje(project);
+            document.getElementById("m_quick_sidebar_toggle").click();
+        }
+    }
+});
 
 /***/ })
 /******/ ]);

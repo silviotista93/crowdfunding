@@ -127,6 +127,10 @@ class User extends Authenticatable
         return $this->hasOne(Artist::class,'id')->select('user_id','nickname');
     }
 
+    public function artista(){
+        return $this->hasOne(Artist::class,'user_id');
+    }
+
     public function managements(){
         return $this->hasOne(Management::class,'id');
     }
