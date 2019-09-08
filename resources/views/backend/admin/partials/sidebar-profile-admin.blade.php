@@ -46,27 +46,27 @@
             <li class="m-nav__section m--hide">
                 <span class="m-nav__section-text">Section</span>
             </li>
-            <li class="m-nav__item" {{request()->is('dashboard/profile') ? 'style=background-color:#f2f4f9' : '' }}>
+            <li class="m-nav__item" {!! request()->is('dashboard/profile') ? 'style="background-color:#f2f4f9"' : '' !!}>
                 <a href="{{ route('profile.admin') }}" class="m-nav__link active">
-                    <i class="m-nav__link-icon flaticon-profile-1" {{request()->is('dashboard/profile') ? 'style=color:#716aca !important' : '' }}></i>
+                    <i class="m-nav__link-icon flaticon-profile-1" {!! request()->is('dashboard/profile') ? 'style="color:#716aca !important"' : '' !!}></i>
                     <span class="m-nav__link-title">
                         <span class="m-nav__link-wrap">
-                            <span class="m-nav__link-text" {{request()->is('dashboard/profile') ? 'style=color:#716aca !important' : '' }}>{{ ( __('perfil')) }}</span>
+                            <span class="m-nav__link-text" {!! request()->is('dashboard/profile') ? 'style="color:#716aca !important"' : '' !!}>{{ ( __('perfil')) }}</span>
 
                         </span>
                     </span>
                 </a>
             </li>
-            <li class="m-nav__item" {{request()->is('dashboard/my-projects') ? 'style=background-color:#f2f4f9' : '' }}>
+            <li class="m-nav__item" {!! request()->is('dashboard/my-projects') ? 'style="background-color:#f2f4f9"' : '' !!}>
                 <a href="{{ route('myprojects.artist') }}" class="m-nav__link">
-                    <i class="m-nav__link-icon flaticon-share" {{request()->is('dashboard/my-projects') ? 'style=color:#716aca !important' : '' }}></i>
-                    <span class="m-nav__link-text" {{request()->is('dashboard/my-projects') ? 'style=color:#716aca !important' : '' }}>{{ __('mis_proyectos') }}</span>
+                    <i class="m-nav__link-icon flaticon-share" {!! request()->is('dashboard/my-projects') ? 'style="color:#716aca !important"' : '' !!}></i>
+                    <span class="m-nav__link-text" {!! request()->is('dashboard/my-projects') ? 'style="color:#716aca !important"' : '' !!}>{{ __('mis_proyectos') }}</span>
                 </a>
             </li>
-            <li class="m-nav__item" {{request()->is('dashboard/backings-made') ? 'style=background-color:#f2f4f9' : '' }}>
+            <li class="m-nav__item" {!! request()->is('dashboard/backings-made') ? 'style="background-color:#f2f4f9"' : '' !!}>
                 <a href="{{ route('backings.made.artist') }}" class="m-nav__link">
                     <i class="m-nav__link-icon la la-hand-o-right"></i>
-                    <span class="m-nav__link-text" {{request()->is('dashboard/backings-made') ? 'style=color:#716aca !important' : '' }}>{{ __('apoyos_hechos') }}</span>
+                    <span class="m-nav__link-text" {!! request()->is('dashboard/backings-made') ? 'style="color:#716aca !important"' : '' !!}>{{ __('apoyos_hechos') }}</span>
                 </a>
             </li>
             {{--<li class="m-nav__item">
