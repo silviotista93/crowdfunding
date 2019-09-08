@@ -294,6 +294,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <script src="/js/common.js"></script>
 <script>
     const lang = "{{ session("applocale") }}";
+    window.lang = lang;
 </script>
 <!--begin:: Global Mandatory Vendors -->
 <meta name="_token" content="{!! csrf_token() !!}"/>

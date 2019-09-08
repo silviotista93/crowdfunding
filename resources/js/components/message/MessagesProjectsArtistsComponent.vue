@@ -87,13 +87,8 @@
 <script>
     export default {
         mounted() {
-            //const c = this;
             this.user = JSON.parse(this.userjson);
             this.getMessages();
-           /*  = function (project) {
-                c.project = project;
-                c.getMessages();
-            };*/
         },
         data() {
             return {

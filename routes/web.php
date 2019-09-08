@@ -230,17 +230,18 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('passw
 
 Route::get('/test', function () {
     $project = \App\Project::with(['artists','management'])->get();
-    $artist = count($project[3]->artists)>0?$project[3]->artists[0]:null;
+    $artist = count($project[0]->artists)>0?$project[0]->artists[0]:null;
 
-    foreach($project[3]->management as $management){
+    foreach($project[0]->management as $management){
         $managementUser = $management->users;
-        $managementUser->notify(new UpdatedProject($project));
+        $managementUser->notify(new \App\Notifications\UpdatedProject($project[0]));
     }
     if ($artist) {
-        $artist->users()->first()->notify(new \App\Notifications\UpdatedProject($project[3]));
+        $artist->users()->first()->notify(new \App\Notifications\UpdatedProject($project[0]));
     }
 });
 
 
 Route::resource('project-message', 'Backend\ProjectMessageController');
 Route::get('project-message-artist', 'Backend\ProjectMessageController@showProjectsByArtist');
+Route::patch('notification-read/{id}', 'Backend\NotificationController@read');

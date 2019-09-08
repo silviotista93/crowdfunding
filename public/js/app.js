@@ -34904,17 +34904,21 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(68)
+}
 var normalizeComponent = __webpack_require__(9)
 /* script */
 var __vue_script__ = __webpack_require__(48)
 /* template */
-var __vue_template__ = __webpack_require__(49)
+var __vue_template__ = __webpack_require__(70)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-307ad1f7"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -35103,228 +35107,110 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     mounted: function mounted() {
         this.notifications = JSON.parse(this.notificationsjson);
-        console.log(this.notifications);
+        this.lang = window.lang;
+        this.parseInfo();
     },
 
     props: ['notificationsjson'],
     data: function data() {
         return {
-            notifications: []
+            lang: 'es',
+
+            notifications: [],
+
+            tabs: [{ id: 2, "es": 'Pre Aprobado', "en": 'Pre Approved' }, { id: 3, "es": 'Aprobado', "en": 'Approved' }, { id: 4, "es": 'Publicado', "en": 'Published' }],
+
+            actived: 20,
+
+            notificationsProcessed: {
+                1: [],
+                2: [],
+                3: [],
+                4: [],
+                5: []
+            }
         };
+    },
+
+    methods: {
+        setDataNotification: function setDataNotification(number, data) {
+            this.notificationsProcessed[number].push(data);
+            if (number < this.actived) {
+                this.actived = number;
+            }
+        },
+        eliminar: function eliminar(notification) {
+            var _this = this;
+
+            axios.patch('/notification-read/' + notification.id).then(function (res) {
+                _this.notifications = _this.notifications.filter(function (n) {
+                    return n.id !== notification.id;
+                });
+                _this.parseInfo();
+            }).catch(function (err) {
+                console.log(err);
+            });
+        },
+        abrir: function abrir(notification) {
+            var _this2 = this;
+
+            axios.patch('/notification-read/' + notification.id).then(function (res) {
+                _this2.notifications = _this2.notifications.filter(function (n) {
+                    return n.id !== notification.id;
+                });
+                _this2.parseInfo();
+            }).catch(function (err) {
+                console.log(err);
+            });
+            window.location = '/dashboard/project/' + notification.data.slug;
+        },
+        parseInfo: function parseInfo() {
+            var _this3 = this;
+
+            this.reset();
+
+            this.notifications.map(function (notification) {
+                if (notification.type.indexOf('UpdatedProject') !== -1) {
+                    var project = notification;
+                    switch (parseInt(notification.data.status)) {
+                        case 1:
+                            _this3.setDataNotification(1, project);
+                            break;
+                        case 2:
+                            _this3.setDataNotification(2, project);
+                            break;
+                        case 3:
+                            _this3.setDataNotification(3, project);
+                            break;
+                        case 4:
+                            _this3.setDataNotification(4, project);
+                            break;
+                        case 5:
+                            _this3.setDataNotification(5, project);
+                            break;
+                    }
+                }
+            });
+        },
+        reset: function reset() {
+            this.notificationsProcessed = {
+                1: [],
+                2: [],
+                3: [],
+                4: [],
+                5: []
+            };
+            this.actived = 85;
+        }
     }
 });
 
 /***/ }),
-/* 49 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("fragment", [
-    _c(
-      "a",
-      {
-        staticClass: "m-nav__link m-dropdown__toggle",
-        attrs: { href: "#", id: "m_topbar_notification_icon" }
-      },
-      [
-        _vm.notifications.length > 0
-          ? _c(
-              "span",
-              {
-                staticClass:
-                  "m-nav__link-badge m-badge  m-badge m-badge--danger m-badge--danger"
-              },
-              [_vm._v(_vm._s(_vm.notifications.length))]
-            )
-          : _vm._e(),
-        _vm._v(" "),
-        _c("span", { staticClass: "m-nav__link-icon" }, [
-          _c("i", { staticClass: "flaticon-alarm" })
-        ])
-      ]
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "m-dropdown__wrapper" }, [
-      _c("span", {
-        staticClass: "m-dropdown__arrow m-dropdown__arrow--center"
-      }),
-      _vm._v(" "),
-      _c("div", { staticClass: "m-dropdown__inner" }, [
-        _c(
-          "div",
-          {
-            staticClass: "m-dropdown__header m--align-center",
-            staticStyle: {
-              background:
-                "url(/backend/assets/app/media/img/misc/notification_bg.jpg)",
-              "background-size": "cover"
-            }
-          },
-          [
-            _c("span", { staticClass: "m-dropdown__header-title" }, [
-              _vm._v(
-                _vm._s(
-                  _vm.notifications.length < 1 ? "Sin notificaciones" : "9 New"
-                )
-              )
-            ]),
-            _vm._v(" "),
-            _vm.notifications.length > 0
-              ? _c("span", { staticClass: "m-dropdown__header-subtitle" }, [
-                  _vm._v("User Notifications")
-                ])
-              : _vm._e()
-          ]
-        ),
-        _vm._v(" "),
-        _vm.notifications.length > 0
-          ? _c("div", { staticClass: "m-dropdown__body" }, [
-              _c("div", { staticClass: "m-dropdown__content" }, [
-                _c(
-                  "ul",
-                  {
-                    staticClass:
-                      "nav nav-tabs m-tabs m-tabs-line m-tabs-line--brand",
-                    attrs: { role: "tablist" }
-                  },
-                  [
-                    _c("li", { staticClass: "nav-item m-tabs__item" }, [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "nav-link m-tabs__link active",
-                          attrs: {
-                            "data-toggle": "tab",
-                            href: "#topbar_notifications_notifications",
-                            role: "tab"
-                          }
-                        },
-                        [
-                          _vm._v(
-                            "\n                                Alerts\n                            "
-                          )
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "nav-item m-tabs__item" }, [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "nav-link m-tabs__link",
-                          attrs: {
-                            "data-toggle": "tab",
-                            href: "#topbar_notifications_events",
-                            role: "tab"
-                          }
-                        },
-                        [_vm._v("Events")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "nav-item m-tabs__item" }, [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "nav-link m-tabs__link",
-                          attrs: {
-                            "data-toggle": "tab",
-                            href: "#topbar_notifications_logs",
-                            role: "tab"
-                          }
-                        },
-                        [_vm._v("Logs")]
-                      )
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "tab-content" }, [
-                  _c(
-                    "div",
-                    {
-                      staticClass: "tab-pane active",
-                      attrs: {
-                        id: "topbar_notifications_notifications",
-                        role: "tabpanel"
-                      }
-                    },
-                    [
-                      _c(
-                        "div",
-                        {
-                          staticClass: "m-scrollable",
-                          attrs: {
-                            "data-scrollable": "true",
-                            "data-height": "250",
-                            "data-mobile-height": "200"
-                          }
-                        },
-                        [
-                          _c("div", {
-                            staticClass:
-                              "m-list-timeline m-list-timeline--skin-light"
-                          })
-                        ]
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "tab-pane",
-                      attrs: {
-                        id: "topbar_notifications_events",
-                        role: "tabpanel"
-                      }
-                    },
-                    [
-                      _c("div", {
-                        staticClass: "m-scrollable",
-                        attrs: {
-                          "data-scrollable": "true",
-                          "data-height": "250",
-                          "data-mobile-height": "200"
-                        }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", {
-                    staticClass: "tab-pane",
-                    attrs: { id: "topbar_notifications_logs", role: "tabpanel" }
-                  })
-                ])
-              ])
-            ])
-          : _vm._e()
-      ])
-    ])
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-307ad1f7", module.exports)
-  }
-}
-
-/***/ }),
+/* 49 */,
 /* 50 */
 /***/ (function(module, exports) {
 
@@ -35605,13 +35491,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     mounted: function mounted() {
-        //const c = this;
         this.user = JSON.parse(this.userjson);
         this.getMessages();
-        /*  = function (project) {
-             c.project = project;
-             c.getMessages();
-         };*/
     },
     data: function data() {
         return {
@@ -35639,6 +35520,299 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }
     }
 });
+
+/***/ }),
+/* 65 */,
+/* 66 */,
+/* 67 */,
+/* 68 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(69);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(43)("76b986cc", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-307ad1f7\",\"scoped\":true,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./NotificationComponent.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-307ad1f7\",\"scoped\":true,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./NotificationComponent.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 69 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(42)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.notificacion__item[data-v-307ad1f7]{\n    position: relative;\n    -webkit-box-shadow: inset 0 0 .3rem var(--purple);\n            box-shadow: inset 0 0 .3rem var(--purple);\n    border-radius: .5rem;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    cursor: pointer;\n}\n.notificacion__item--text[data-v-307ad1f7]{\n    margin: 0;\n    padding: .5rem 1rem;\n    width: 100%;\n}\n.eliminar[data-v-307ad1f7]{\n    cursor: pointer;\n    position: absolute;\n    top: 0;\n    right: 1rem;\n    bottom: 0;\n    height: 1em;\n    margin: auto;\n    color: var(--danger);\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 70 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("fragment", [
+    _c(
+      "a",
+      {
+        staticClass: "m-nav__link m-dropdown__toggle",
+        attrs: { href: "#", id: "m_topbar_notification_icon" }
+      },
+      [
+        _vm.notifications.length > 0
+          ? _c(
+              "span",
+              {
+                staticClass:
+                  "m-nav__link-badge m-badge  m-badge m-badge--danger m-badge--danger"
+              },
+              [_vm._v(_vm._s(_vm.notifications.length))]
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _c("span", { staticClass: "m-nav__link-icon" }, [
+          _c("i", { staticClass: "flaticon-alarm" })
+        ])
+      ]
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "m-dropdown__wrapper" }, [
+      _c("span", {
+        staticClass: "m-dropdown__arrow m-dropdown__arrow--center"
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "m-dropdown__inner" }, [
+        _c(
+          "div",
+          {
+            staticClass: "m-dropdown__header m--align-center",
+            staticStyle: {
+              background:
+                "url(/backend/assets/app/media/img/misc/notification_bg.jpg)",
+              "background-size": "cover"
+            }
+          },
+          [
+            _c("span", { staticClass: "m-dropdown__header-title" }, [
+              _vm._v(
+                _vm._s(
+                  _vm.notifications.length < 1 ? "Sin notificaciones" : "9 New"
+                )
+              )
+            ]),
+            _vm._v(" "),
+            _vm.notifications.length > 0
+              ? _c("span", { staticClass: "m-dropdown__header-subtitle" }, [
+                  _vm._v("User Notifications")
+                ])
+              : _vm._e()
+          ]
+        ),
+        _vm._v(" "),
+        _vm.notifications.length > 0
+          ? _c("div", { staticClass: "m-dropdown__body" }, [
+              _c(
+                "div",
+                { staticClass: "m-dropdown__content" },
+                [
+                  _c(
+                    "ul",
+                    {
+                      staticClass:
+                        "nav nav-tabs m-tabs m-tabs-line m-tabs-line--brand",
+                      attrs: { role: "tablist" }
+                    },
+                    _vm._l(_vm.tabs, function(tab) {
+                      return _vm.notificationsProcessed[tab.id].length > 0
+                        ? _c(
+                            "li",
+                            {
+                              key: tab.id,
+                              staticClass: "nav-item m-tabs__item",
+                              on: {
+                                click: function($event) {
+                                  _vm.actived = tab.id
+                                }
+                              }
+                            },
+                            [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "nav-link m-tabs__link",
+                                  class: { active: tab.id === _vm.actived },
+                                  attrs: {
+                                    "data-toggle": "tab",
+                                    href:
+                                      "#topbar_notifications_notifications_" +
+                                      tab.id,
+                                    role: "tab"
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                " +
+                                      _vm._s(tab[_vm.lang]) +
+                                      "\n                            "
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        : _vm._e()
+                    }),
+                    0
+                  ),
+                  _vm._v(" "),
+                  _vm._l(_vm.tabs, function(tab) {
+                    return _vm.notificationsProcessed[tab.id].length > 0
+                      ? _c(
+                          "div",
+                          { key: _vm.tabs.id, staticClass: "tab-content" },
+                          [
+                            _c(
+                              "div",
+                              {
+                                staticClass: "tab-pane",
+                                class: { active: tab.id === _vm.actived },
+                                attrs: {
+                                  id:
+                                    "#topbar_notifications_notifications_" +
+                                    tab.id,
+                                  role: "tabpanel"
+                                }
+                              },
+                              [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass: "m-scrollable",
+                                    attrs: {
+                                      "data-scrollable": "true",
+                                      "data-height": "250",
+                                      "data-mobile-height": "200"
+                                    }
+                                  },
+                                  _vm._l(
+                                    _vm.notificationsProcessed[tab.id],
+                                    function(notification) {
+                                      return _c(
+                                        "div",
+                                        {
+                                          key: notification.notifiable_id,
+                                          staticClass: "notificacion__item"
+                                        },
+                                        [
+                                          _c(
+                                            "p",
+                                            {
+                                              staticClass:
+                                                "notificacion__item--text",
+                                              on: {
+                                                click: function($event) {
+                                                  return _vm.abrir(notification)
+                                                }
+                                              }
+                                            },
+                                            [
+                                              _vm._v(
+                                                _vm._s(notification.data.title)
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("i", {
+                                            staticClass:
+                                              "fas fa-times eliminar",
+                                            on: {
+                                              click: function($event) {
+                                                $event.preventDefault()
+                                                return _vm.eliminar(
+                                                  notification
+                                                )
+                                              }
+                                            }
+                                          })
+                                        ]
+                                      )
+                                    }
+                                  ),
+                                  0
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              {
+                                staticClass: "tab-pane",
+                                attrs: {
+                                  id: "topbar_notifications_events",
+                                  role: "tabpanel"
+                                }
+                              },
+                              [
+                                _c("div", {
+                                  staticClass: "m-scrollable",
+                                  attrs: {
+                                    "data-scrollable": "true",
+                                    "data-height": "250",
+                                    "data-mobile-height": "200"
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("div", {
+                              staticClass: "tab-pane",
+                              attrs: {
+                                id: "topbar_notifications_logs",
+                                role: "tabpanel"
+                              }
+                            })
+                          ]
+                        )
+                      : _vm._e()
+                  })
+                ],
+                2
+              )
+            ])
+          : _vm._e()
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-307ad1f7", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
