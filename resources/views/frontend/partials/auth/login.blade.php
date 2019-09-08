@@ -60,7 +60,7 @@
                             <strong id="error-password"></strong>
                         </span>
                         <div class="xs-submit-wraper xs-mb-20">
-                            <input type="submit" name="submit" value="{{ __('btn_login') }}" id="xs_contact_get_action" class="btn btn-warning btn-block">
+                            <input type="submit" name="submit" value="{{ __('btn_login') }}" id="xs_contact_get_action" class="btn btn-warning btn-block login">
                         </div>
                         <p class="text-center">
                             <a href="#" class="btn_reset_password">{{ __('olvido_contraseña') }}</a>
