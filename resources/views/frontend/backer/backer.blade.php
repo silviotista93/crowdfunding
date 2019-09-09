@@ -1,8 +1,8 @@
 @extends('frontend.layout')
 
 @section('content')
-    <section class="xs-inner-welcome-section fundpress-inner-welcome-section fundpress-inner-bg-1 parallax-window" data-parallax="scroll" data-image-src="assets/images/background/blog-with-sidebar-bg.jpg">
-        <div class="xs-solid-overlay xs-bg-black"></div>
+   
+    <section class="xs-inner-welcome-section fundpress-inner-welcome-section fundpress-inner-bg-1 parallax-window" data-parallax="scroll" style=" background-image: url(/frontend/images/pasos_artista/manager.jpg);background-position: center;background-attachment: fixed;background-repeat: no-repeat; background-size: cover;">
         <div class="container">
             <div class="fundpress-inner-welcome-content">
                 <h2 class="color-white">{{__('patrocinador')}}</h2>

@@ -647,5 +647,11 @@
     <script src="/js/storage.js"></script>
     <script src="/js/ajax.js"></script>
     <script src="/js/daterangepicker.js"></script>
-    <script src="/backend/admin/js/dashboard.js"></script>
+    <script src="/backend/admin/js/dashboard.js"></script>   
+     
+    
+    <script src="/backend/assets/vendors/custom/datatables/datatables.bundle.js" type="text/javascript"></script>
+    <script src="/backend/assets/demo/custom/crud/datatables/basic/headers.js" type="text/javascript"></script>
+    
+    
 @endpush
