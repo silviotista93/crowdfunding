@@ -32,7 +32,7 @@
                 </li>
             </ul>
         </div>
-        <div>
+        {{-- <div>
             <div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push"
                  m-dropdown-toggle="hover" aria-expanded="true">
                 <a href="#"
@@ -84,7 +84,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 @stop
 <!--=====================================
@@ -105,7 +105,7 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
                     <ul class="m-portlet__nav">
 
                         <li class="m-portlet__nav-item"></li>
-                        <div class="m-dropdown m-dropdown--inline  m-dropdown--arrow m-dropdown--align-right"
+                        {{-- <div class="m-dropdown m-dropdown--inline  m-dropdown--arrow m-dropdown--align-right"
                              m-dropdown-toggle="hover">
                             <a href="#" class="m-dropdown__toggle btn btn-warning dropdown-toggle">
                                 <span>
@@ -149,7 +149,7 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </ul>
                 </div>
             </div>
