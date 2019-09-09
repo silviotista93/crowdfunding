@@ -267,6 +267,23 @@
                     <a href="#" class="xs-btn round-btn navy-blue-btn">{{ __('ver_todos') }}</a>
                 </div><!-- .xs-btn-wraper .xs-col-3 .d-flex-center-end END -->
             </div><!-- .xs-section-heading .fundpress-section-heading .xs-spilit-container END -->
+            <div class="xs-tab-wraper fundpress-tab-wraper" id="containerProjectC">
+                <div class="fundpress-tab-nav xs-tab-nav">
+                    <ul class="nav nav-tabs" role="tablist" id="categoryProjectsC">
+                        @foreach($categories as $categorie)
+                            <li class="nav-item" data-category="{{$categorie->category}}" data-id="{{$categorie->id}}">
+                                <a class="nav-link" href="#projectsViewC{{ $categorie->id }}" role="tab"
+                                   data-toggle="tab">{{ $categorie->category }}</a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+                <div class="tab-content" id="dataCategory" style="min-height: 5rem">
+                    @foreach($categories as $categorie)
+                        <div role="tabpanel" class="tab-pane fade in" id="projectsViewC{{$categorie->id}}"></div>
+                    @endforeach
+                </div>
+            </div>
             {{--<div class="row">
                 <div class="col-lg-4">
                     <div class="xs-box-shadow fundpress-popular-item xs-bg-white">

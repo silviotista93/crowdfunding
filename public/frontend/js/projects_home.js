@@ -83,6 +83,44 @@ $(function () {
     </div>
     `;
     */
+
+   $("#categoryProjectsC").on('click', 'li', function(e){
+        let id = $(this).attr("data-id");
+        let category = $(this).attr("data-category");
+        let container = $("#projectsViewC"+id);
+        let cantidad = container.attr("data-cantidad");
+        let content = '<div class="row">';
+
+        let url = "/projects-for-category-completed";
+        let data = {id: id};
+
+        let success = function (r){
+            //console.log(r);
+            if (r.length < 1){
+                content += "<div class='text-center' style='width:100%;'><p>"+texto+"</p></div>";
+            }
+            container.attr('data-cantidad', r.length);
+            r.forEach((project, key) => {
+                if (key==3){
+                    content += '</div><div class="row">';
+                }
+                content += '<div class="col-lg-4">'+createCard(project)+'</div>';
+            });
+            content += "</div>";
+            container.html(content);
+
+            startCard();
+        };
+        setTimeout(function (){
+            ajax(url,data,success,"get",null,true,"#containerProjectC", "Cargando...");
+        },100);
+
+
+    });
+
+    $("#categoryProjectsC li a")[0].click();
+
+
     $("#categoryProjects li a")[0].click();
     
 });

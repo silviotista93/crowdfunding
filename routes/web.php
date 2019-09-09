@@ -101,6 +101,7 @@ Route::group(['namespace'=>'Frontend'],function (){
     Route::get('/projectsArt/{user}','ProjectsController@projectArtist')->name('projects.artist');
 
     Route::get('/projects-for-category','ProjectsController@getByCategory');
+    Route::get('/projects-for-category-completed','ProjectsController@getByCategoryCompleted');
 
 
     //Rutas para las Categorias

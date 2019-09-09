@@ -61,6 +61,20 @@ class ProjectsController extends Controller
         return json_encode($projects);
     }
 
+    public function getByCategoryCompleted(Request $request){
+        $projects = Project::where('status',Project::PUBLISHED)
+        ->where('category_id', intval($request->input('id')))
+        ->with('category','artists', 'artists.users')
+        ->limit(6)
+        ->get();
+        //dd($projects[0]->category);
+        $projects = Project::card($projects);
+        $projects = $projects->filter(function ($project) {
+            return (($project->totalDonations*100)/$project->price) >= 100;
+        });
+        return json_encode($projects);
+    }
+
 /*proyecto por artista*/ 
     public function projectArtist(User $user){
        
