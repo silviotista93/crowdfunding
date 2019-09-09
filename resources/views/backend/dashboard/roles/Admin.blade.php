@@ -29,10 +29,10 @@
                                         
 												</span>
                             <div class="m--space-10"></div>
-                            <div class="progress m-progress--sm">
+                            {{-- <div class="progress m-progress--sm">
                                 <div class="progress-bar m--bg-brand" role="progressbar" style="width: 78%;"
                                      aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                     <!--end::Total Profit-->
@@ -50,10 +50,10 @@
                                 {{ $published }}
 												</span>
                             <div class="m--space-10"></div>
-                            <div class="progress m-progress--sm">
+                            {{-- <div class="progress m-progress--sm">
                                 <div class="progress-bar m--bg-info" role="progressbar" style="width: 84%;"
                                      aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                     <!--end::New Feedbacks-->
@@ -71,10 +71,10 @@
                                 {{ $rejected }}
 												</span>
                             <div class="m--space-10"></div>
-                            <div class="progress m-progress--sm">
+                            {{-- <div class="progress m-progress--sm">
                                 <div class="progress-bar m--bg-danger" role="progressbar" style="width: 69%;"
                                      aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
+                            </div> --}}
 
                         </div>
                     </div>
@@ -93,10 +93,10 @@
                                 {{ $approved }}
 												</span>
                             <div class="m--space-10"></div>
-                            <div class="progress m-progress--sm">
+                            {{-- <div class="progress m-progress--sm">
                                 <div class="progress-bar m--bg-success" role="progressbar" style="width: 90%;"
                                      aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
+                            </div> --}}
                             <span class="m-widget24__change">
 
                             </span>
