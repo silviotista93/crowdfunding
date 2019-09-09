@@ -3,13 +3,13 @@
         <nav class="xs-menus fundpress-menu">
             <div class="nav-header">
                 <div class="nav-toggle"></div>
-                <a class="nav-brand nav-logo" href="index.html">
+                <a class="nav-brand nav-logo" href="{{ route('home') }}">
                     <img src="frontend/images/logo.png" alt="">
                 </a>
             </div><!-- . END -->
             <div class="nav-menus-wrapper">
                 <div class="xs-logo-wraper">
-                    <a class="nav-brand xs-logo fundpress-logo-v1" href="index.html">
+                    <a class="nav-brand xs-logo fundpress-logo-v1" href="{{ route('home') }}">
                         <img src="frontend/images/logo.png" alt="">
                     </a>
                 </div>
