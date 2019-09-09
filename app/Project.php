@@ -166,6 +166,9 @@ class Project extends Model
         return $this->hasOne(EndProject::class);
     }
 
+    public function messages(){
+        return $this->hasMany(ProjectMessage::class, 'id_projects');
+    }
     /*
      * Consultas
      */
@@ -198,6 +201,6 @@ class Project extends Model
 
     public static function countProjects($id){
 
-        $count=Project::where('status', $id)->count(); 
+        $count=Project::where('status', $id)->count();
     }
 }

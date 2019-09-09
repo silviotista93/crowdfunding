@@ -7,6 +7,8 @@ use App\Mail\ArtistProjectRejected;
 use App\Mail\ManagerProjecApproved;
 use App\Mail\ManagerProjecRejected;
 use App\Notifications\UpdatedProject;
+use App\Role;
+use App\User;
 use Illuminate\Console\Command;
 use App\Project;
 use App\EndProject;
@@ -80,15 +82,28 @@ class CloseProjects extends Command
             $this->enviarMensajesAprobado($project, $rating);
             $project->save();
         }
-        sendNotification($project);
+        $this->sendNotification($project);
     }
 
     private function sendNotification($project) {
-        $artist = $project->artists[0];
+        $admins = User::whereHas('roles', function ($query) {
+            $query->where('roles.id', Role::ADMIN);
+        })->get();
+        $artist = count($project->artists)>0?$project->artists[0]:null;
+
         foreach($project->management as $management){
-            $managementUser = $management->users;
-            $managementUser->notify(new UpdatedProject($project));
+            $managementUser = $management->users()->first();
+            $managementUser->notify(new \App\Notifications\UpdatedProject($project));
         }
+
+        foreach($admins as $admin){
+            $admin->notify(new \App\Notifications\UpdatedProject($project));
+        }
+
+        if ($artist) {
+            $artist->users()->first()->notify(new \App\Notifications\UpdatedProject($project));
+        }
+
     }
 
     private function enviarMensajesAprobado($project, $rating){

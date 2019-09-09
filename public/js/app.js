@@ -31383,6 +31383,8 @@ var toast = __WEBPACK_IMPORTED_MODULE_1_sweetalert2___default.a.mixin({
 window.toast = toast;
 Vue.component('reset-password-component', __webpack_require__(39));
 Vue.component('notification-component', __webpack_require__(47));
+Vue.component('messages-projects-artists', __webpack_require__(59));
+
 //Vue.component('add-project', require('./components/AddProject.vue'));
 
 var app = new Vue({
@@ -34902,17 +34904,21 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(68)
+}
 var normalizeComponent = __webpack_require__(9)
 /* script */
 var __vue_script__ = __webpack_require__(48)
 /* template */
-var __vue_template__ = __webpack_require__(49)
+var __vue_template__ = __webpack_require__(70)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-307ad1f7"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -35101,6 +35107,383 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    mounted: function mounted() {
+        this.notifications = JSON.parse(this.notificationsjson);
+        this.lang = window.lang;
+        this.parseInfo();
+    },
+
+    props: ['notificationsjson'],
+    data: function data() {
+        return {
+            lang: 'es',
+
+            notifications: [],
+
+            tabs: [{ id: 2, "es": 'Pre Aprobado', "en": 'Pre Approved' }, { id: 3, "es": 'Aprobado', "en": 'Approved' }, { id: 4, "es": 'Publicado', "en": 'Published' }],
+
+            actived: 20,
+
+            notificationsProcessed: {
+                1: [],
+                2: [],
+                3: [],
+                4: [],
+                5: []
+            }
+        };
+    },
+
+    methods: {
+        setDataNotification: function setDataNotification(number, data) {
+            this.notificationsProcessed[number].push(data);
+            if (number < this.actived) {
+                this.actived = number;
+            }
+        },
+        eliminar: function eliminar(notification) {
+            var _this = this;
+
+            axios.patch('/notification-read/' + notification.id).then(function (res) {
+                _this.notifications = _this.notifications.filter(function (n) {
+                    return n.id !== notification.id;
+                });
+                _this.parseInfo();
+            }).catch(function (err) {
+                console.log(err);
+            });
+        },
+        abrir: function abrir(notification) {
+            var _this2 = this;
+
+            axios.patch('/notification-read/' + notification.id).then(function (res) {
+                _this2.notifications = _this2.notifications.filter(function (n) {
+                    return n.id !== notification.id;
+                });
+                _this2.parseInfo();
+            }).catch(function (err) {
+                console.log(err);
+            });
+            window.location = '/dashboard/project/' + notification.data.slug;
+        },
+        parseInfo: function parseInfo() {
+            var _this3 = this;
+
+            this.reset();
+
+            this.notifications.map(function (notification) {
+                if (notification.type.indexOf('UpdatedProject') !== -1) {
+                    var project = notification;
+                    switch (parseInt(notification.data.status)) {
+                        case 1:
+                            _this3.setDataNotification(1, project);
+                            break;
+                        case 2:
+                            _this3.setDataNotification(2, project);
+                            break;
+                        case 3:
+                            _this3.setDataNotification(3, project);
+                            break;
+                        case 4:
+                            _this3.setDataNotification(4, project);
+                            break;
+                        case 5:
+                            _this3.setDataNotification(5, project);
+                            break;
+                    }
+                }
+            });
+        },
+        reset: function reset() {
+            this.notificationsProcessed = {
+                1: [],
+                2: [],
+                3: [],
+                4: [],
+                5: []
+            };
+            this.actived = 85;
+        }
+    }
+});
+
+/***/ }),
+/* 49 */,
+/* 50 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 51 */,
+/* 52 */,
+/* 53 */,
+/* 54 */,
+/* 55 */,
+/* 56 */,
+/* 57 */,
+/* 58 */,
+/* 59 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(61)
+}
+var normalizeComponent = __webpack_require__(9)
+/* script */
+var __vue_script__ = __webpack_require__(64)
+/* template */
+var __vue_template__ = __webpack_require__(63)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-acc3a56c"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/message/MessagesProjectsArtistsComponent.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-acc3a56c", Component.options)
+  } else {
+    hotAPI.reload("data-v-acc3a56c", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 60 */,
+/* 61 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(62);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(43)("0648985e", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-acc3a56c\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./MessagesProjectsArtistsComponent.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-acc3a56c\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./MessagesProjectsArtistsComponent.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 62 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(42)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.m-widget3__img[data-v-acc3a56c]{\n    width: 3.2rem;\n    height: 3.2rem;\n    overflow: hidden;\n    max-height: 3.2rem;\n    max-width: 3.2rem;\n    -webkit-box-shadow: 0 0 .2rem #0a6aa1;\n            box-shadow: 0 0 .2rem #0a6aa1;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 63 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "m-widget3" },
+    _vm._l(_vm.projects, function(project) {
+      return _c("div", { key: project.id, staticClass: "m-widget3__item" }, [
+        _c("div", { staticClass: "m-widget3__header" }, [
+          _c("div", { staticClass: "m-widget3__user-img" }, [
+            _c("img", {
+              staticClass: "m-widget3__img",
+              attrs: {
+                src: project.project_picture,
+                alt: "Imagen del proyecto " + project.title
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "m-widget3__info" }, [
+            _c("span", { staticClass: "m-widget3__username" }, [
+              _vm._v(
+                "\n                        " +
+                  _vm._s(project.title) +
+                  "\n                    "
+              )
+            ]),
+            _vm._v(" "),
+            _c("br")
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "m-widget3__status m--font-success" }, [
+            _c(
+              "a",
+              {
+                staticClass: "btn m-btn--pill btn-secondary",
+                on: {
+                  click: function($event) {
+                    return _vm.showMessages(project)
+                  }
+                }
+              },
+              [_c("i", { staticClass: "fa fa-envelope" })]
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "m-widget3__body" }, [
+          _c("p", { staticClass: "m-widget3__text" }, [
+            _vm._v(
+              "\n                    " +
+                _vm._s(
+                  project && project.messages
+                    ? project.messages[project.messages.length - 1].comments
+                    : ""
+                ) +
+                "\n                "
+            )
+          ])
+        ])
+      ])
+    }),
+    0
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-acc3a56c", module.exports)
+  }
+}
+
+/***/ }),
+/* 64 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -35108,20 +35491,81 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     mounted: function mounted() {
-        this.notifications = JSON.parse(this.notificationsjson);
-        console.log(this.notifications);
+        this.user = JSON.parse(this.userjson);
+        this.getMessages();
     },
-
-    props: ['notificationsjson'],
     data: function data() {
         return {
-            notifications: []
+            user: null,
+            projects: []
         };
+    },
+
+    props: ['userjson'],
+    methods: {
+        getMessages: function getMessages() {
+            var _this = this;
+
+            axios.get('/project-message-artist').then(function (response) {
+                console.log(response.data, "ssssssss");
+                _this.projects = response.data;
+            }).catch(function (error) {
+                console.error(error);
+                _this.project = [];
+            });
+        },
+        showMessages: function showMessages(project) {
+            window.mostrarMensaje(project);
+            document.getElementById("m_quick_sidebar_toggle").click();
+        }
     }
 });
 
 /***/ }),
-/* 49 */
+/* 65 */,
+/* 66 */,
+/* 67 */,
+/* 68 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(69);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(43)("76b986cc", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-307ad1f7\",\"scoped\":true,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./NotificationComponent.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-307ad1f7\",\"scoped\":true,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./NotificationComponent.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 69 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(42)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.notificacion__item[data-v-307ad1f7]{\n    position: relative;\n    -webkit-box-shadow: inset 0 0 .3rem var(--purple);\n            box-shadow: inset 0 0 .3rem var(--purple);\n    border-radius: .5rem;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    cursor: pointer;\n}\n.notificacion__item--text[data-v-307ad1f7]{\n    margin: 0;\n    padding: .5rem 1rem;\n    width: 100%;\n}\n.eliminar[data-v-307ad1f7]{\n    cursor: pointer;\n    position: absolute;\n    top: 0;\n    right: 1rem;\n    bottom: 0;\n    height: 1em;\n    margin: auto;\n    color: var(--danger);\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -35188,124 +35632,172 @@ var render = function() {
         _vm._v(" "),
         _vm.notifications.length > 0
           ? _c("div", { staticClass: "m-dropdown__body" }, [
-              _c("div", { staticClass: "m-dropdown__content" }, [
-                _c(
-                  "ul",
-                  {
-                    staticClass:
-                      "nav nav-tabs m-tabs m-tabs-line m-tabs-line--brand",
-                    attrs: { role: "tablist" }
-                  },
-                  [
-                    _c("li", { staticClass: "nav-item m-tabs__item" }, [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "nav-link m-tabs__link active",
-                          attrs: {
-                            "data-toggle": "tab",
-                            href: "#topbar_notifications_notifications",
-                            role: "tab"
-                          }
-                        },
-                        [
-                          _vm._v(
-                            "\n                                Alerts\n                            "
+              _c(
+                "div",
+                { staticClass: "m-dropdown__content" },
+                [
+                  _c(
+                    "ul",
+                    {
+                      staticClass:
+                        "nav nav-tabs m-tabs m-tabs-line m-tabs-line--brand",
+                      attrs: { role: "tablist" }
+                    },
+                    _vm._l(_vm.tabs, function(tab) {
+                      return _vm.notificationsProcessed[tab.id].length > 0
+                        ? _c(
+                            "li",
+                            {
+                              key: tab.id,
+                              staticClass: "nav-item m-tabs__item",
+                              on: {
+                                click: function($event) {
+                                  _vm.actived = tab.id
+                                }
+                              }
+                            },
+                            [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "nav-link m-tabs__link",
+                                  class: { active: tab.id === _vm.actived },
+                                  attrs: {
+                                    "data-toggle": "tab",
+                                    href:
+                                      "#topbar_notifications_notifications_" +
+                                      tab.id,
+                                    role: "tab"
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                " +
+                                      _vm._s(tab[_vm.lang]) +
+                                      "\n                            "
+                                  )
+                                ]
+                              )
+                            ]
                           )
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "nav-item m-tabs__item" }, [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "nav-link m-tabs__link",
-                          attrs: {
-                            "data-toggle": "tab",
-                            href: "#topbar_notifications_events",
-                            role: "tab"
-                          }
-                        },
-                        [_vm._v("Events")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "nav-item m-tabs__item" }, [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "nav-link m-tabs__link",
-                          attrs: {
-                            "data-toggle": "tab",
-                            href: "#topbar_notifications_logs",
-                            role: "tab"
-                          }
-                        },
-                        [_vm._v("Logs")]
-                      )
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "tab-content" }, [
-                  _c(
-                    "div",
-                    {
-                      staticClass: "tab-pane active",
-                      attrs: {
-                        id: "topbar_notifications_notifications",
-                        role: "tabpanel"
-                      }
-                    },
-                    [
-                      _c(
-                        "div",
-                        {
-                          staticClass: "m-scrollable",
-                          attrs: {
-                            "data-scrollable": "true",
-                            "data-height": "250",
-                            "data-mobile-height": "200"
-                          }
-                        },
-                        [
-                          _c("div", {
-                            staticClass:
-                              "m-list-timeline m-list-timeline--skin-light"
-                          })
-                        ]
-                      )
-                    ]
+                        : _vm._e()
+                    }),
+                    0
                   ),
                   _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "tab-pane",
-                      attrs: {
-                        id: "topbar_notifications_events",
-                        role: "tabpanel"
-                      }
-                    },
-                    [
-                      _c("div", {
-                        staticClass: "m-scrollable",
-                        attrs: {
-                          "data-scrollable": "true",
-                          "data-height": "250",
-                          "data-mobile-height": "200"
-                        }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", {
-                    staticClass: "tab-pane",
-                    attrs: { id: "topbar_notifications_logs", role: "tabpanel" }
+                  _vm._l(_vm.tabs, function(tab) {
+                    return _vm.notificationsProcessed[tab.id].length > 0
+                      ? _c(
+                          "div",
+                          { key: _vm.tabs.id, staticClass: "tab-content" },
+                          [
+                            _c(
+                              "div",
+                              {
+                                staticClass: "tab-pane",
+                                class: { active: tab.id === _vm.actived },
+                                attrs: {
+                                  id:
+                                    "#topbar_notifications_notifications_" +
+                                    tab.id,
+                                  role: "tabpanel"
+                                }
+                              },
+                              [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass: "m-scrollable",
+                                    attrs: {
+                                      "data-scrollable": "true",
+                                      "data-height": "250",
+                                      "data-mobile-height": "200"
+                                    }
+                                  },
+                                  _vm._l(
+                                    _vm.notificationsProcessed[tab.id],
+                                    function(notification) {
+                                      return _c(
+                                        "div",
+                                        {
+                                          key: notification.notifiable_id,
+                                          staticClass: "notificacion__item"
+                                        },
+                                        [
+                                          _c(
+                                            "p",
+                                            {
+                                              staticClass:
+                                                "notificacion__item--text",
+                                              on: {
+                                                click: function($event) {
+                                                  return _vm.abrir(notification)
+                                                }
+                                              }
+                                            },
+                                            [
+                                              _vm._v(
+                                                _vm._s(notification.data.title)
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("i", {
+                                            staticClass:
+                                              "fas fa-times eliminar",
+                                            on: {
+                                              click: function($event) {
+                                                $event.preventDefault()
+                                                return _vm.eliminar(
+                                                  notification
+                                                )
+                                              }
+                                            }
+                                          })
+                                        ]
+                                      )
+                                    }
+                                  ),
+                                  0
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              {
+                                staticClass: "tab-pane",
+                                attrs: {
+                                  id: "topbar_notifications_events",
+                                  role: "tabpanel"
+                                }
+                              },
+                              [
+                                _c("div", {
+                                  staticClass: "m-scrollable",
+                                  attrs: {
+                                    "data-scrollable": "true",
+                                    "data-height": "250",
+                                    "data-mobile-height": "200"
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("div", {
+                              staticClass: "tab-pane",
+                              attrs: {
+                                id: "topbar_notifications_logs",
+                                role: "tabpanel"
+                              }
+                            })
+                          ]
+                        )
+                      : _vm._e()
                   })
-                ])
-              ])
+                ],
+                2
+              )
             ])
           : _vm._e()
       ])
@@ -35321,12 +35813,6 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-307ad1f7", module.exports)
   }
 }
-
-/***/ }),
-/* 50 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

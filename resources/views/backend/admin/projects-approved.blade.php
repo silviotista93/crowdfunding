@@ -130,7 +130,7 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
                 "data": null,
                 "order": [[ 0, "desc" ]],
                 "ajax": {
-                    url: "{{route('datatables.projects.admin')}}",
+                    url: "{{route('datatables.projects.admin.approved')}}",
                     data: {
                         tipoProyecto: 3
                     }
