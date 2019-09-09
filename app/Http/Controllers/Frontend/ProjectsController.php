@@ -68,7 +68,7 @@ class ProjectsController extends Controller
         ->with('category','artists', 'artists.users')
         ->where('status',Project::PUBLISHED)
         ->where('category_id', intval($request->input('id')))
-        ->havingRaw('total > projects.price')
+        ->havingRaw('total >= projects.price')
         ->limit(6)
         ->get();
   
