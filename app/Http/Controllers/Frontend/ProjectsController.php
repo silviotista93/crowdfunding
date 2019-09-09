@@ -62,16 +62,23 @@ class ProjectsController extends Controller
     }
 
     public function getByCategoryCompleted(Request $request){
-        $projects = Project::where('status',Project::PUBLISHED)
-        ->where('category_id', intval($request->input('id')))
+        $projects = Project::leftJoin('donations', 'projects.id', '=', 'donations.project_id')
+        ->select(DB::raw('projects.*, IFNULL(sum(donations.amount),0) as total'))
+        ->groupBy('projects.id')
         ->with('category','artists', 'artists.users')
+        ->where('status',Project::PUBLISHED)
+        ->where('category_id', intval($request->input('id')))
+        ->havingRaw('total > projects.price')
         ->limit(6)
         ->get();
-        //dd($projects[0]->category);
+  
         $projects = Project::card($projects);
+        /*
         $projects = $projects->filter(function ($project) {
             return (($project->totalDonations*100)/$project->price) >= 100;
         });
+        */
+
         return json_encode($projects);
     }
 
