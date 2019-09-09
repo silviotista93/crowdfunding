@@ -57,11 +57,11 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 
                                 <a class="dropdown-item inline"
-                                   href="{{ route('set_language', ['es']) }}" {{request()->is('/') ? 'style=color:#031F53' : 'style=color:#031F53' }}><img
+                                   href="{{ route('set_language', ['es']) }}" {!! request()->is('/') ? 'style="color:#031F53"' : 'style="color:#031F53"' !!}><img
                                             class="inline" src="/frontend/images/flags/es_flags.png"
                                             alt=""> {{ __('language_spanish') }}</a>
                                 <a class="dropdown-item"
-                                   href="{{ route('set_language', ['en']) }}" {{request()->is('/') ? 'style=color:#031F53' : 'style=color:#031F53' }}><img
+                                   href="{{ route('set_language', ['en']) }}" {!! request()->is('/') ? 'style="color:#031F53"' : 'style="color:#031F53"' !!}><img
                                             class="inline" src="/frontend/images/flags/usa_flags.png"
                                             alt=""> {{ __('language_english') }}</a>
                             </div>
@@ -82,16 +82,16 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"
                                  style="margin-left: -100px !important;">
                                 @if(auth()->user()->roles[0]->rol == "Admin")
-                                    <a class="dropdown-item inline" href="{{ route('profile.admin',auth()->user()->slug) }}" {{request()->is('/') ? 'style=color:#031F53' : 'style=color:#031F53' }}><i></i>{{ __('perfil') }}</a>
+                                    <a class="dropdown-item inline" href="{{ route('profile.admin',auth()->user()->slug) }}" {!! request()->is('/') ? 'style="color:#031F53"' : 'style="color:#031F53"' !!}><i></i>{{ __('perfil') }}</a>
                                 @elseif(auth()->user()->roles[0]->rol == "Manage")
-                                    <a class="dropdown-item inline" href="{{ route('profile.managament',auth()->user()->slug) }}" {{request()->is('/') ? 'style=color:#031F53' : 'style=color:#031F53' }}><i></i>{{ __('perfil') }}</a>
+                                    <a class="dropdown-item inline" href="{{ route('profile.managament',auth()->user()->slug) }}" {!! request()->is('/') ? 'style="color:#031F53"' : 'style="color:#031F53"' !!}><i></i>{{ __('perfil') }}</a>
                                 @elseif(auth()->user()->roles[0]->rol == "Artist")
-                                    <a class="dropdown-item inline" href="{{ route('profile.artist') }}" {{request()->is('/') ? 'style=color:#031F53' : 'style=color:#031F53' }}><i></i>{{ __('perfil') }}</a>
+                                    <a class="dropdown-item inline" href="{{ route('profile.artist') }}" {!!request()->is('/') ? 'style="color:#031F53"' : 'style="color:#031F53"' !!}><i></i>{{ __('perfil') }}</a>
                                 @endif
-                                    <a class="dropdown-item inline" href="{{ route('add.project') }}" {{request()->is('/') ? 'style=color:#031F53' : 'style=color:#031F53' }}><i></i>{{ __('nuevo_proyecto') }}</a>
+                                    <a class="dropdown-item inline" href="{{ route('add.project') }}" {!! request()->is('/') ? 'style="color:#031F53"' : 'style="color:#031F53"' !!}><i></i>{{ __('nuevo_proyecto') }}</a>
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
-                                <button class="dropdown-item cursor" href="" {{request()->is('/') ? 'style=cursor:pointer;;margin-left:4px;font-size:14px;color:#031F53' : 'style=cursor:pointer;margin-left:4px;font-size:14px;color:#031F53' }}><i></i>{{ __('cerrar_cesion_backend') }}</button>
+                                <button class="dropdown-item cursor" href="" {!! request()->is('/') ? 'style="cursor:pointer;margin-left:4px;font-size:14px;color:#031F53"' : 'style="cursor:pointer;margin-left:4px;font-size:14px;color:#031F53"' !!}><i></i>{{ __('cerrar_cesion_backend') }}</button>
                                 </form>
                             </div>
                         </li>
