@@ -4,13 +4,13 @@
             <div class="nav-header">
                 <div class="nav-toggle"></div>
                 <a class="nav-brand nav-logo" href="index.html">
-                    <img src="/images/logo.png" alt="">
+                    <img src="frontend/images/logo.png" alt="">
                 </a>
             </div><!-- . END -->
             <div class="nav-menus-wrapper">
                 <div class="xs-logo-wraper">
                     <a class="nav-brand xs-logo fundpress-logo-v1" href="index.html">
-                        <img src="/images/logo.png" alt="">
+                        <img src="frontend/images/logo.png" alt="">
                     </a>
                 </div>
                 <ul class="nav-menu">
