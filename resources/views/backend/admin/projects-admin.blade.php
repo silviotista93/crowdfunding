@@ -287,4 +287,6 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
         loadTable();
     </script>
 
+    
+
 @endpush
