@@ -11,7 +11,7 @@
                      style="background: url(/backend/assets/app/media/img/misc/notification_bg.jpg); background-size: cover;"
 
                 >
-                    <span class="m-dropdown__header-title">{{notifications.length < 1 ? 'Sin notificaciones': '9 New'}}</span>
+                    <span class="m-dropdown__header-title">{{notifications.length < 1 ? 'Sin notificaciones': 'New'}}</span>
                         <span class="m-dropdown__header-subtitle" v-if="notifications.length > 0">User Notifications</span>
                 </div>
                 <div class="m-dropdown__body" v-if="notifications.length > 0">
