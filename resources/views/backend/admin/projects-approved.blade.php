@@ -202,7 +202,7 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
                         render:function (data,type, JsonResultRow,meta) {
                             return `
                                 <div class="text-center">
-                                    <a onclick='showMessages(${JSON.stringify(JsonResultRow)})' class="btn m-btn--pill btn-secondary">
+                                    <a onclick='showMessages(${JsonResultRow.id})' class="btn m-btn--pill btn-secondary">
                                         <i class="fa fa-envelope"></i>
                                     </a>
                                     <a href="/dashboard/project/${JsonResultRow.slug}" class="btn m-btn--pill btn-secondary">
@@ -249,8 +249,8 @@ CONTENIDO DEL MODULO PROYECTOS ADMIN
             loadTable();
         });
         loadTable();
-        showMessages = function (mensajeJson) {
-            window.mostrarMensaje(mensajeJson);
+        showMessages = function (id) {
+            window.mostrarMensaje(id);
             document.getElementById("m_quick_sidebar_toggle").click();
         };
 

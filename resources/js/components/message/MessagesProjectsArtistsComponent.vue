@@ -71,7 +71,7 @@
                     </span>-->
                 </div>
                 <span class="m-widget3__status m--font-success">
-                    <a @click='showMessages(project)' class="btn m-btn--pill btn-secondary">
+                    <a @click='showMessages(project.id)' class="btn m-btn--pill btn-secondary">
                         <i class="fa fa-envelope"></i>
                     </a>
                 </span>
@@ -109,8 +109,8 @@
                         this.project = [];
                     });
             },
-            showMessages(project) {
-                window.mostrarMensaje(project);
+            showMessages(id) {
+                window.mostrarMensaje(id);
                 document.getElementById("m_quick_sidebar_toggle").click();
             }
         }

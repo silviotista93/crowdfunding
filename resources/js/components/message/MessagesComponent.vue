@@ -325,8 +325,8 @@
         mounted() {
             const c = this;
             this.user = JSON.parse(this.userjson);
-            window.mostrarMensaje = function (project) {
-                c.project = project;
+            window.mostrarMensaje = function (id) {
+                c.project = { 'id' : id};
                 c.getMessages();
             };
         },
