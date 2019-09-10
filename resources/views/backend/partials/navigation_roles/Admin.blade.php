@@ -4,8 +4,8 @@
         <ul class="m-menu__subnav">
             <li class="m-menu__item  " aria-haspopup="true"><a href="{{ route('projects.admin') }}" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">{{ __('todos') }}</span></a></li>
             <li class="m-menu__item"  aria-haspopup="true"><a href="{{ route('projects.approved') }}" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">{{ __('approved projects') }}</span></a></li>
-            <li class="m-menu__item " aria-haspopup="true"><a href="components/icons/lineawesome.html" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">-----</span></a></li>
-            <li class="m-menu__item " aria-haspopup="true"><a href="components/icons/socicons.html" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">------</span></a></li>
+            {{-- <li class="m-menu__item " aria-haspopup="true"><a href="components/icons/lineawesome.html" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">-----</span></a></li>
+            <li class="m-menu__item " aria-haspopup="true"><a href="components/icons/socicons.html" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">------</span></a></li> --}}
         </ul>
     </div>
 </li>
