@@ -27,7 +27,7 @@
                 </ul>
             </div>
             <div>
-                <div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" m-dropdown-toggle="hover" aria-expanded="true">
+                {{-- <div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" m-dropdown-toggle="hover" aria-expanded="true">
                     <a href="#" class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--outline-2x m-btn--air m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle">
                         <i class="la la-plus m--hide"></i>
                         <i class="la la-ellipsis-h"></i>
@@ -75,7 +75,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
 @stop
@@ -87,3 +87,19 @@ CONTENIDO DEL MODULO DASHBOARD
     @include('backend.dashboard.roles.' .\App\User::dashboard())
 
 @stop
+@push('js')
+    <script>
+    setUrl("proyectosNuevos", "{{ route("admin.projects_news") }}");
+    setUrl("topCountry", "{{ route("admin.top_country") }}");
+    setText("proyectosRevision", "{{ __("proyectos_en_revicion_chart")}}");
+    </script>
+    <script src="/backend/assets/vendors/custom/flot/flot.bundle.min.js"></script>
+    <script src="/js/storage.js"></script>
+    <script src="/js/ajax.js"></script>
+    <script src="/js/daterangepicker.js"></script>
+    <script src="/backend/admin/js/dashboard.js"></script>
+
+    <script src="/backend/assets/v
+    endors/custom/datatables/datatables.bundle.js" type="text/javascript"></script>
+    <script src="/backend/assets/demo/custom/crud/datatables/basic/headers.js" type="text/javascript"></script>
+@endpush
