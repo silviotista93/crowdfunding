@@ -66,12 +66,12 @@
                                             {{ __('actualizar_perfil') }}
                                         </a>
                                     </li>
-                                    <li class="nav-item m-tabs__item">
+                                    {{-- <li class="nav-item m-tabs__item">
                                         <a class="nav-link m-tabs__link" data-toggle="tab" href="#m_user_profile_tab_2"
                                            role="tab">
                                             {{ __('mensajes') }}
                                         </a>
-                                    </li>
+                                    </li> --}}
                                     <li class="nav-item m-tabs__item">
                                         <a class="nav-link m-tabs__link" data-toggle="tab" href="#m_user_profile_tab_3"
                                            role="tab">
@@ -146,7 +146,7 @@
                             <!--=====================================
                              MENSAJES
                             ======================================-->
-                            <div class="tab-pane " id="m_user_profile_tab_2">
+                            {{-- <div class="tab-pane " id="m_user_profile_tab_2">
                                 <div class="m-portlet__body">
                                     <div class="m-widget3">
                                         <div class="m-widget3__item">
@@ -235,7 +235,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <!--=====================================
                              CONFIGURACIONES
                             ======================================-->
